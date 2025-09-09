@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubLayout from "../layouts/SubLayout.astro";
-import SubHeader from "../layouts/SubHeader.astro";
 import SubBody from "../layouts/SubBody.astro";
 
 const datph2 = "녹지 소개";
@@ -14,8 +13,7 @@ import "../css/ui.css";
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
-		<SubHeader title={location} />
-		<SubBody>
+		<SubBody title={location}>
       <div class="subcotent">
       </div>
 		</SubBody>

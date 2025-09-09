@@ -63,35 +63,9 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-    // gnbItem li 활성화
-    const changeImgAtive = (e) => {
-      const target = e.target;
-      const $changeImg = document.querySelector(".changImg");
-      const $$gnbItem = document.querySelectorAll(".gnbItem");
-      const $$subPanelItem = document.querySelectorAll(".subPanel a");
-
-      // 배경 이미지 활성화 함수
-      const changImgActive = (el) => {
-        let changeImg = el.closest(".gnbItem").getAttribute("data-img");
-        $changeImg.style.backgroundImage = `url(${changeImg})`;
-      };
-
-      $$gnbItem.forEach((el) => {
-        if (target == el || target == el.querySelector(".subPanel")) {
-          changImgActive(el);
-        }
-      });
-      $$subPanelItem.forEach((el) => {
-        if (target == el) {
-          changImgActive(el);
-        }
-      });
-    };
-
     $header.addEventListener("mouseover", gnbOpen);
     $main.addEventListener("mouseover", gnbClose);
     $gnb.addEventListener("keydown", tabKey);
-    $gnb.addEventListener("mouseover", changeImgAtive);
 
 
     // 모바일 메뉴

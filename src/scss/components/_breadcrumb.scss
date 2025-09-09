@@ -10,7 +10,7 @@
         @include font(0.875rem, 500, #999); // 14px to rem
         @include before {
           position: absolute;
-          top: 50%; left: -1.125rem; // -18px to rem
+          top: 54%; left: -1.125rem; // -18px to rem
           transform: translateY(-50%);
           width: 0.125rem; height: 1.125rem; // 2px and 18px to rem
           background-color: #D8D8D8;

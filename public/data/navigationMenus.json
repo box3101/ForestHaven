@@ -1,0 +1,27 @@
+[
+  {
+    "mainTitle": "녹지 소개",
+    "mainLink": "GreenSpaceIntro",
+    "subMenus": [
+      { "link": "GreenSpaceIntro", "title": "녹지 소개" },
+      { "link": "VirtualTour", "title": "둘러보기" }
+    ]
+  },
+  {
+    "mainTitle": "대관 안내",
+    "mainLink": "FacilityRental",
+    "subMenus": [
+      { "link": "FacilityRental", "title": "대관 안내" },
+      { "link": "RentalApplication", "title": "대관 신청" },
+      { "link": "MyRentalHistory", "title": "나의 대관조회" }
+    ]
+  },
+  {
+    "mainTitle": "소식",
+    "mainLink": "Notice",
+    "subMenus": [
+      { "link": "Notice", "title": "공지사항" },
+      { "link": "FAQ", "title": "자주하는질문" }
+    ]
+  }
+]

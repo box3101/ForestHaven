@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "sass": "sass --watch ./src/scss/ui.scss ./src/css/ui.css",
-    "sass2": "sass --watch ./src/scss/ui.scss ./public/css/ui.css"
+    "sass2": "sass --watch ./src/scss/ui.scss ./public/css/ui.css",
+    "prettier": "prettier --write \"dist/**/*.html\""
   },
   "dependencies": {
     "astro": "^2.0.6"

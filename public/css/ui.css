@@ -3344,7 +3344,7 @@ button.swiper-pagination-bullet {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: -1.125rem;
   transform: translateY(-50%);
   width: 0.125rem;
@@ -3606,7 +3606,7 @@ button.swiper-pagination-bullet {
   transform: translateY(-50%);
   display: inline-block;
   cursor: pointer;
-  background: transparent;
+  background: transparentㄴ;
   z-index: 9999;
   display: inline-block;
   transition: all 0.3s ease-in-out;
