@@ -3454,7 +3454,7 @@ button.swiper-pagination-bullet {
 }
 .header .headerWrap .headerInner .gnb > li {
   position: relative;
-  padding: 0 2.1875rem;
+  padding: 0 50px;
 }
 .header .headerWrap .headerInner .gnb > li > a {
   position: relative;
