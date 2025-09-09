@@ -1,0 +1,12 @@
+---
+const { bg, size, disabled, outLine, rounded, round, fab } = Astro.props;
+---
+
+<button
+  type="button"
+  class={`comBtn ${bg} ${size} ${disabled === true ? "disabled" : ""} ${
+    outLine === true ? "outLine" : ""
+  } ${rounded === true ? "rounded" : ""} ${round === true ? `round` : ""} ${
+    fab === true ? `fab` : ""
+  }`}><slot /></button
+>

@@ -1,0 +1,221 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "수강신청";
+const location = "수강신청상세";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent classRegistration">
+				<!-- 공유하기 -->
+				<div class="select-lecture">
+					<ul>
+						<li>
+							<button type="button" class="twitter">
+								<span class="hidden">트위터 공유하기</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="facebook">
+								<span class="hidden">페이스북 공유하기</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="naverBand">
+								<span class="hidden">네이버 밴드 공유하기</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="kakao">
+								<span class="hidden">카카오톡 공유하기</span>
+							</button>
+						</li>
+						<!-- 찜하기 버튼 -->
+						<!-- TODO .is-Active -> 찜하기 버튼 활성화 -->
+						<li>
+							<button type="button" class="heart">
+								<span class="hidden">찜하기</span>
+							</button>
+						</li>
+						<script>
+							(function () {
+								const $heart = document.querySelector(".heart");
+								$heart.addEventListener("click", (e) => {
+									let target = e.target;
+									target.classList.toggle("is-active");
+								});
+							})();
+						</script>
+						<!-- 찜하기 버튼 eee -->
+					</ul>
+				</div>
+				<!-- 공유하기 eee -->
+
+				<div class="container flex gap15">
+					<div class="con__left">
+						<img src="https://via.placeholder.com/332x208" alt="강좌썸네일" />
+					</div>
+					<div class="con__right">
+						<table class="comTable-3">
+							<caption class="hidden">강좌 상세 정보</caption>
+							<col width="180px" />
+							<col width="auto" />
+							<col width="180px" />
+							<col width="auto" />
+							<thead>
+								<tr>
+									<th scope="row">강좌명</th>
+									<td colspan="3">공부머리 독서법</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">교육분야</th>
+									<td>교육</td>
+									<th scope="row">교육대상</th>
+									<td>성인</td>
+								</tr>
+								<tr>
+									<th scope="row">교육기간</th>
+									<td>2022-10-04 ~ 2022-10-18</td>
+									<th scope="row">교육시간</th>
+									<td>화 / 10:00 ~ 13:00</td>
+								</tr>
+								<tr>
+									<th scope="row">신청기간</th>
+									<td>2022-10-04 ~ 2022-10-18</td>
+									<th scope="row">신청상태</th>
+									<td>접수중</td>
+								</tr>
+								<tr>
+									<th scope="row">수강료</th>
+									<td>10,000원</td>
+									<th scope="row">재료비/교재비</th>
+									<td>재료비 없음 / 교재비 3,000원</td>
+								</tr>
+								<tr>
+									<th scope="row">수료증 발급요건</th>
+									<td colspan="3">총 출석일 00일 중 00일 이상 출석 시 인정</td>
+								</tr>
+								<tr>
+									<th scope="row">접수인원</th>
+									<td colspan="3"
+										>모집인원 : 10명 / 접수인원 : 10명 / 대기자 : 1명</td
+									>
+								</tr>
+								<tr>
+									<th scope="row">첨부파일</th>
+									<td colspan="3">
+										강좌계획서.hwp
+										<a
+											href="#"
+											download=""
+											class="comBtn bgMain sizeSm ico-down"
+											>다운로드
+										</a>
+										<br />
+										활동보고서.hwp
+										<a
+											href="#"
+											download=""
+											class="comBtn bgMain sizeSm ico-down"
+											>다운로드
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- 강좌신청, 목록 -->
+				<ul class="BottomBtnWrap flex gap15 aiCenter jcCenter">
+					<li>
+						<a href="CourseRegistrationPayment.html" class="comBtn sizeXlg bgMain">강좌신청</a>
+					</li>
+					<li>
+						<a href="CourseRegistration.html" class="comBtn sizeXlg bgBlack">목록</a>
+					</li>
+				</ul>
+
+				<div class="lecture detail pl50">
+					<h3 class="tit">강좌상세</h3>
+					<!-- TODO 웹 에디터 출력 영역 -->
+					<p>
+						우리 아이의 연령과 교육과정에 맞는 독서 방법을 알고 계시나요?<br />
+						영유아기, 초등, 중등, 고등학생까지 양육자와 자녀가 함께 할 수 있는 실용적인 독서교육 방법을 알려드립니다.<br
+						/>
+						읽기 수준에 따라 적용할 수 있는 독서 방법, 언어 능력을 높이는 독서 교육법은 물론 독서 지도 시 주의할 점에 대해서도 알아봅니다.<br
+						/>
+						본 강좌는 누구나 따라 할 수 있는 실용적인 독서 가이드를 제시합니다.<br
+						/><br />
+						본 강좌는 (국가평생교육진흥원)에서 제공하였습니다.
+					</p>
+					<!-- TODO 웹 에디터 출력 영역 EEE -->
+				</div>
+				<div class="lecture info pl50">
+					<h3 class="tit">강사정보</h3>
+					<ul class="flex">
+						<li>
+							<!-- 사이즈 w180xh220 -->
+							<!-- 기본 - 여자일 경우 -->
+							<div
+								class="ifWoman"
+								style="background-image: url('../img/ico-woman.png');"
+							>
+							</div>
+							<!-- 기본 - 남자일 경우 -->
+							<div
+								class="ifWoman"
+								style="background-image: url('../img/ico-man.png');"
+							>
+							</div>
+						</li>
+						<li class="pl-26">
+							<p class="pl30">이정민</p>
+							<p>
+								<span>2022년 6월 16일 ~ 7월 14일</span> 소창 보자기 포장 클래스
+							</p>
+							<p><span>2022년 3월 2일</span> 한국의 미-보자기아트</p>
+							<p><span>2021년 11월 2일~5일</span> 수제청수업</p>
+							<p><span>2021년 10월 29일</span> 소창 보자기 포장 클래스</p>
+						</li>
+					</ul>
+				</div>
+				<div class="lecture place pl50">
+					<h3 class="tit">교육장소</h3>
+					<p>
+						장소 : 3층 프로그램실 <br />
+						주소 : 인천광역시 중구 신포로27번길 80 (관동1가)
+					</p>
+					<!-- 지도 연동 영역 -->
+					<!-- TODO W 100% H 500PX -->
+					<div class="kakao-img" style="background: url(../img/kakao-img.png);">
+					</div>
+					<!-- 지도 연동 영역  eee-->
+				</div>
+				<div class="lecture point">
+					<h3 class="tit">유의사항</h3>
+					<!-- TODO 웹 에디터 출력 영역 -->
+					<div class="lectureBox">
+						&#8226; 교육일정 및 내용은 코로나19 및 운영상황에 따라 변경될 수
+						있습니다. <br />
+						&#8226; 코로나 확진자, 접촉자, 유증상자는 참가 불가합니다. <br />
+						※ 교육참가시 반드시 마스크 착용
+					</div>
+					<!-- TODO 웹 에디터 출력 영역 EEE -->
+				</div>
+			</div>
+			
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

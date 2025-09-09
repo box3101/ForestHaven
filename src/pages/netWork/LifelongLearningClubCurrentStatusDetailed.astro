@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import PagingNavigation from "../../components/PagingNavigation.astro";
+
+const datph2 = "네트워크";
+const location = "평생학습 동아리 현황상세";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent classRegistration">
+				<div class="container flex gap15">
+					<div class="con__left">
+						<!-- 332x208 -->
+						<!-- 상세 슬라이드 -->
+						<!-- top -->
+						<div class="swiper-container" id="detailSlideList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="http://ktsmemo.cdn3.cafe24.com/p/0024.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="https://ktsmemo.cafe24.com/p/0105.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="https://ktsmemo.cafe24.com/p/0083.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="https://ktsmemo.cafe24.com/p/0649.jpg" />
+								</div>
+							</div>
+
+							<!-- 네비게이션 지정 -->
+							<div class="swiper-button-next">
+							</div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+							<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+						</div>
+						<!-- top -->
+
+						<!-- bottom -->
+						<div class="swiper-container" id="detailSlideItem">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<button
+										class="swiperBtn"
+										type="button"
+										title="슬라이드 상세 이미지"
+									>
+										<img src="http://ktsmemo.cdn3.cafe24.com/p/0024.jpg" />
+									</button>
+								</div>
+								<div class="swiper-slide">
+									<button
+										class="swiperBtn"
+										type="button"
+										title="슬라이드 상세 이미지"
+									>
+										<img src="https://ktsmemo.cafe24.com/p/0105.jpg" />
+									</button>
+								</div>
+								<div class="swiper-slide">
+									<button
+										class="swiperBtn"
+										type="button"
+										title="슬라이드 상세 이미지"
+									>
+										<img src="https://ktsmemo.cafe24.com/p/0083.jpg" />
+									</button>
+								</div>
+								<div class="swiper-slide">
+									<button
+										class="swiperBtn"
+										type="button"
+										title="슬라이드 상세 이미지"
+									>
+										<img src="https://ktsmemo.cafe24.com/p/0649.jpg" />
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- bottom  eee-->
+					</div>
+					<div class="con__right">
+						<table class="comTable-3">
+							<caption class="hidden">강좌 상세 정보</caption>
+							<colgroup>
+								<col width="180px" />
+								<col width="auto" />
+								<col width="180px" />
+								<col width="auto" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="row">동아리명</th>
+
+									<td colspan="3">니들이인문학을알아</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">활동분야</th>
+									<td colspan="3">인문교양</td>
+								</tr>
+								<tr>
+									<th scope="row">결성일</th>
+									<td>2022-10-04</td>
+									<th scope="row">회원수</th>
+
+									<td><span>20</span>명</td>
+								</tr>
+								<tr>
+									<th scope="row">대표자</th>
+									<td>홍길동</td>
+									<th scope="row">대표자 연락처</th>
+									<td>010-1111-1111</td>
+								</tr>
+								<tr>
+									<th scope="row">실무자</th>
+									<td>홍길동</td>
+									<th scope="row">실무자 연락처</th>
+									<td>010-2222-2222</td>
+								</tr>
+								<tr>
+									<th scope="row">모임일시</th>
+
+									<td colspan="3">매월 둘째 넷째주 토요일 오후 2시</td>
+								</tr>
+								<tr>
+									<th scope="row">모임장소</th>
+									<td colspan="3">인천광역시 중구 신포로 278번길 80 701호</td>
+								</tr>
+								<tr>
+									<th scope="row">가입문의처</th>
+									<td colspan="3">
+										<ul>
+											<li>
+												<span>전화</span> : <span>032-543-0324</span>,
+											</li>
+											<li>
+												<span>이메일</span> : <span>sdmfls55@naver.com</span>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr
+									><th scope="row">동아리 소개</th>
+									<td colspan="3" style="padding: 1.25rem; line-height: 1.4;">
+										역사와 문화에 대하여 연구하고 ,교육,봉사활동과 지역 주민간의
+										소통을 목적으로 한다. 지역주민들의 자발적 참여와 주도로
+										학습내용의 개발, 진행, 현장 답사 등을 통해 얻은 지식을
+										지역사회(학교,기관,사회단체 등)와 공유하여 문화시민으로서의
+										자긍심 함양과 정체성을 확립한다.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- 목록 -->
+			<ul class="BottomBtnWrap flex gap15 aiCenter jcCenter">
+				<li>
+					<a
+						href="LifelongLearningClubCurrentStatus"
+						class="comBtn sizeXlg bgBlack">목록</a
+					>
+				</li>
+			</ul>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

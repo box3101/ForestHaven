@@ -1,0 +1,49 @@
+---
+const {
+	target,
+	href,
+	txt,
+	src,
+	alt,
+	link,
+	chipType1,
+	chipType2,
+	lineCount = "twoLine",
+} = Astro.props;
+---
+
+<li class={`cardcontent flex ${link}`}>
+	<a href={href} target={target}>
+		<ul>
+			<li class={`thumb`}>
+				<img src={src} alt={alt} />
+			</li>
+			<li class="content-bottom">
+				<div class={`chipWrap jcBetween flex`}>
+					<span class="chip">건강/스포츠</span>
+					<div class="chip-wrap">
+						<span class={`chip ${chipType1}`}></span>
+						<span class={`chip ${chipType2}`}></span>
+					</div>
+				</div>
+				<div class="tit">
+					<p class={lineCount}>
+						{txt}
+					</p>
+				</div>
+				<div class={`desc-wrap`}>
+					<div class="date-icon txt">
+						<span>교육기간</span> : <em>22.10.11</em> ~ <em>22.10.30</em>
+					</div>
+					<div class="people-icon txt">
+						<span>모집인원</span>: <em>25명</em>
+					</div>
+					<div class="place-icon txt"><span>지역</span>: <em>신포동</em></div>
+					<div class="organ-icon txt">
+						<span>기관</span>: <em>서부여성회관</em>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</a>
+</li>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubLayout from "../layouts/SubLayout.astro";
+import SubHeader from "../layouts/SubHeader.astro";
+import SubBody from "../layouts/SubBody.astro";
+
+const datph2 = "녹지 소개";
+const location = "녹지 소개";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "GreenSpaceIntro";
+
+import "../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName}>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+      <div class="subcotent">
+
+
+      </div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

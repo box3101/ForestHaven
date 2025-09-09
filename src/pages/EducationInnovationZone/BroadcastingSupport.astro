@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import Card from "../../components/Card.astro";
+import PagingNavigation from "../../components/PagingNavigation.astro";
+
+const datph2 = "교육혁신지구";
+const location = "인터넷수능방송지원";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent 배우는바다 common">
+				<p class="row__head pt0">
+					<span class="title__icon">인터넷 수능방송 지원</span>
+				</p>
+				<div class="row__body pl30">
+					<p class="content">
+						중고등학생을 대상으로 강남구 인터넷 수능방송을 지원하여 사교육비
+						절감과 자기주도학습 지원을 목표로 합니다.
+					</p>
+					<img src="#" alt="강남구청 인터넷수능방송 고1강좌" />
+				</div>
+				<p class="row__head">
+					<span class="title__icon">강남구청 인터넷수능방송 지원</span>
+				</p>
+				<div class="row__body">
+					<ul class="list-1">
+						<li>기간 : 매년 3월 ~ 12월</li>
+						<li>
+							대상 :
+							<ul class="list-2">
+								<li>- 인천 중구 소재 중·고등학교 재학생 및 중구 거주 학생</li>
+								<li>- 인천 중구 관내 학교밖청소년</li>
+							</ul>
+						</li>
+						<li>지원 : 1인당 45,000원(수강료 지원)</li>
+						<li>
+							무료지원 : 수급자, 차상위, 한부모, 장애인, 유공자 가족 중 신청자
+							전원
+						</li>
+						<li class="before-none">
+							<a href="" class="comBtn sizeLg bgMain ml0">
+								🔗 강남구청 인터넷수능방송 바로가기
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

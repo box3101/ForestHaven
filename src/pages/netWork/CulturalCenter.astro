@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import PagingNavigation from "../../components/PagingNavigation.astro";
+
+const datph2 = "네트워크";
+const location = "우리동네 문화센터";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent">
+				<div class="row introType">
+					<p class="row__head pt0">
+						<span class="title__icon">우리동네 문화센터</span>
+					</p>
+					<p class="content">
+						대형마트 문화센터는 일상에 만날 수 있는 또 하나의
+						평생교육기관입니다. 인천 중구에는 롯데마트 영종도점과 이마트
+						동인천점이 주민들의 평생학습을 돕고 있습니다.
+						<br />
+						인천 중구는 지난 2021년 롯데마트 영종도점과 이마트 동인천점과 평생학습활성화를
+						위한 MOU를 체결하고 중구의 평생학습 저변확대를 위해 협력하고 있습니다.
+					</p>
+
+					<div class="row__body flex">
+						<ul class="list-1">
+							<li class="kk1">롯데마트 영종도점</li>
+							<li class="before-none pl0" style="margin-top: -30px;">
+								<a
+									href="https://culture.lottemart.com/cu/branch/main.do?search_str_cd=424"
+									target="_blank"
+									title="새창 이동"
+									class="comBtn sizeLg bgMain ml0"
+								>
+									🔗 수강신청 바로가기
+								</a>
+							</li>
+						</ul>
+						<ul class="list-1">
+							<li class="kk2">이마트 동인천점</li>
+							<li class="before-none pl0">
+								<a
+									href="https://www.cultureclub.emart.com/main"
+									target="_blank"
+									title="새창 이동"
+									class="comBtn sizeLg bgMain ml0"
+								>
+									🔗 수강신청 바로가기
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

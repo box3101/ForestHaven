@@ -1,0 +1,377 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import Button from "../../components/Button.astro";
+
+const pageTitle = "홈>가이드>가이드";
+const title = "가이드";
+const datph2 = "가이드";
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={title} />
+		<SubBody>
+			<h1>
+				<p>Size</p>
+				<br />
+				<div class="btnWrap mt10 flex gap15">
+					<Button bg="bgWhite" size="xSm">버튼</Button>
+					<Button bg="bgMain" size="xSm">버튼</Button>
+					<Button bg="bgWhite" size="sm">버튼</Button>
+					<Button bg="bgMain" size="sm">버튼</Button>
+					<Button bg="bgWhite" size="mid">버튼</Button>
+					<Button bg="bgMain" size="mid">버튼</Button>
+					<Button bg="bgWhite" size="lg">버튼</Button>
+					<Button bg="bgMain" size="lg">버튼</Button>
+					<Button bg="bgWhite" size="xLg">버튼</Button>
+					<Button bg="bgMain" size="xLg">버튼</Button>
+				</div>
+
+				<p>Disabled</p>
+				<br />
+				<div class="btnWrap mt10 flex gap15">
+					<Button bg="bgWhite" size="xSm" disabled={true}>버튼</Button>
+					<Button bg="bgWhite" size="sm" disabled={true}>버튼</Button>
+					<Button bg="bgWhite" size="mid" disabled={true}>버튼</Button>
+					<Button bg="bgWhite" size="lg" disabled={true}>버튼</Button>
+					<Button bg="bgWhite" size="xLg" disabled={true}>버튼</Button>
+				</div>
+
+				<p>OutLine</p>
+				<br />
+				<div class="btnWrap mt10 flex gap15">
+					<Button bg="bgWhite" size="xSm" outLine={true}>버튼</Button>
+					<Button bg="bgMain" size="sm" outLine={true}>버튼</Button>
+					<Button bg="bgWhite" size="mid" outLine={true}>버튼</Button>
+					<Button bg="bgMain" size="lg" outLine={true}>버튼</Button>
+					<Button bg="bgWhite" size="xLg" outLine={true}>버튼</Button>
+				</div>
+
+				<p>rounded</p>
+				<br />
+				<div class="btnWrap mt10 flex gap15">
+					<Button bg="bgWhite" size="xSm" rounded={true}>버튼</Button>
+					<Button bg="bgMain" size="sm" rounded={true}>버튼</Button>
+					<Button bg="bgWhite" size="mid" rounded={true}>버튼</Button>
+					<Button bg="bgMain" size="lg" rounded={true}>버튼</Button>
+					<Button bg="bgWhite" size="xLg" rounded={true}>버튼</Button>
+				</div>
+
+				<p>floating</p>
+				<br />
+				<div class="btnWrap mt10 flex gap15">
+					<Button fab={true} bg="bgMain" size="fabSm">
+						<span>
+							<img src="img/ico-f.svg" alt="" />
+						</span>
+					</Button>
+					<Button fab={true} bg="bgBlack" size="fabSm">
+						<span>
+							<img src="img/ico-twiter.svg" alt="" />
+						</span>
+					</Button>
+					<Button fab={true} bg="bgRed" size="fabSm">
+						<span>
+							<img src="img/ico-band.svg" alt="" />
+						</span>
+					</Button>
+					<Button disabled={true} fab={true} bg="bgMain" size="fabMid">
+						<span>
+							<img src="img/ico-twiter.svg" alt="" />
+						</span>
+					</Button>
+					<Button disabled={true} fab={true} bg="bgBlack" size="fabMid">
+						<span>
+							<img src="img/ico-band.svg" alt="" />
+						</span>
+					</Button>
+					<Button disabled={true} fab={true} bg="bgRed" size="fabMid">
+						<span>
+							<img src="img/ico-f.svg" alt="" />
+						</span>
+					</Button>
+					<Button fab={true} bg="bgMain" size="fabLg" />
+					<Button fab={true} bg="bgBlack" size="fabLg" />
+					<Button fab={true} bg="bgRed" size="fabLg" />
+				</div>
+
+			</h1>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>
+
+
+<style lang="scss">
+	/* button */
+button {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 0;
+	padding: 0rem;
+	border: 0rem;
+	font-weight: normal;
+	background-color: transparent;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+/* =================== BUTTON =================== */
+.comBtn {
+	// padding: 0 16px;
+	display: inline-block;
+	position: relative;
+	color: rgba(0, 0, 0, 0.87);
+	z-index: 1;
+	top: 0;
+	// cursor: pointer;
+	transition: 0.25s ease-in-out;
+	border-radius: 0.3125rem;
+	box-sizing: border-box;
+
+	&.block {
+		display: flex;
+		flex: 1 0 auto;
+		min-width: 100% !important;
+		max-width: none;
+	}
+
+	&.disabled {
+		background-color: rgba(0, 0, 0, 0.12) !important;
+		color: rgba(0, 0, 0, 0.26) !important;
+		border: rgba(0, 0, 0, 0.12) !important;
+		pointer-events: none;
+		opacity: 0.4;
+	}
+
+	&.outLine {
+		border: thin solid !important;
+	}
+
+	&.round{
+		border-radius: 50%;
+	}
+
+	&.rounded {
+		border-radius: 28px;
+		&::after {
+			border-radius: 28px;
+		}
+	}
+
+	&.fab{
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&::after {
+			display: none;
+		}
+		span{
+			display: flex;
+		}
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		border-radius: 0.3125rem;
+		background-color: #000 !important;
+		box-shadow: -0.4375rem -0.4375rem 1.25rem 0rem #fff9,
+			-0.25rem -0.25rem 0.3125rem 0rem #fff9,
+			0.4375rem 0.4375rem 1.25rem 0rem #0002,
+			0.25rem 0.25rem 0.3125rem 0rem #0001;
+		transition: all 0.3s ease;
+		opacity: 0.1;
+	}
+	&:hover,
+	&.hover {
+		top: -0.3125rem;
+	}
+	&:hover::after {
+		top: 0;
+		height: 100% !important;
+	}
+}
+
+$btn-bg: (
+	bgDefault: (
+		bg-color: transparent,
+		bd-color: #333,
+		color: #000,
+	),
+	bgMain: (
+		bg-color: blue,
+		bd-color: blue,
+		color: #fff,
+	),
+	bgWhite: (
+		bg-color: white,
+		bd-color: #999999,
+		color: #000,
+	),
+	bgBlack: (
+		bg-color: #555,
+		bd-color: #999999,
+		color: #fff,
+	),
+	bgRed: (
+		bg-color: red,
+		bd-color: red,
+		color: #fff,
+	),
+);
+
+@each $key, $value in $btn-bg {
+	.#{$key} {
+		background-color: map-get($value, bg-color);
+		border: 0.0625rem solid map-get($value, bd-color);
+		color: map-get($value, color);
+	}
+}
+
+$btn-sizes: (
+	xSm: (
+		minWidth: 36px,
+		height: 20px,
+		fontSize: 0.625rem,
+	),
+	sm: (
+		minWidth: 50px,
+		height: 28px,
+		fontSize: 0.75rem,
+	),
+	mid: (
+		minWidth: 64px,
+		height: 36px,
+		fontSize: 0.875rem,
+	),
+	lg: (
+		minWidth: 78px,
+		height: 44px,
+		padding: 0 19.5555555556px,
+		fontSize: 0.875rem,
+	),
+	xLg: (
+		minWidth: 92px,
+		height: 52px,
+		padding: 0 23.1111px,
+		fontSize: 1rem,
+	),
+	fabSm: (
+		minWidth: auto,
+		width: 40px,
+		height: 40px,
+	),
+	fabMid: (
+		minWidth: auto,
+		width: 56px,
+		height: 56px,
+	),
+	fabLg: (
+		minWidth: auto,
+		width: 64px,
+		height: 64px,
+	),
+);
+
+@each $key, $value in $btn-sizes {
+	.#{$key} {
+		min-width: map-get($value, minWidth);
+		width: map-get($value, width);
+		height: map-get($value, height);
+		line-height: map-get($value, lineHeight);
+		padding: map-get($value, padding);
+		font-size: map-get($value, fontSize);
+		font-weight: map-get($value, fontWeight);
+		color: map-get($value, color) !important;
+		border: map-get($value, border);
+		box-sizing: border-box;
+		text-align: center;
+	}
+}
+
+$btn-radius: (
+	r-none: (
+		radius: 0rem,
+	),
+	r-sm: (
+		radius: 0.3125rem,
+	),
+	r-mid: (
+		radius: 1.25rem,
+	),
+	r-lg: (
+		radius: 1.875rem,
+	),
+);
+
+@each $key, $value in $btn-radius {
+	.#{$key} {
+		border-radius: map-get($value, radius) !important;
+	}
+}
+
+//////////////////////////////////// //BUTTON TYPE ////////////////////////////////////
+///
+
+/* =================== chip =================== */
+.chipWrap {
+	display: flex;
+	align-items: center;
+	gap: 0.3125rem;
+	.flex {
+		width: 100%;
+	}
+}
+.chip {
+	padding: 0 0.625rem;
+	min-width: 3.75rem;
+	height: 1.875rem;
+	line-height: 1.775rem;
+	background: #fff;
+	color: blue;
+	border: 0.0625rem solid blue;
+	box-sizing: border-box;
+	border-radius: 0.9375rem;
+	font-size: 0.9375rem;
+	font-weight: bold;
+	text-align: center;
+	&.receipt {
+		background: #4259e7;
+		border: 0.0625rem solid #4259e7;
+		color: #fff;
+	}
+	&.pay {
+		background: #ff7200;
+		border: 0.0625rem solid #ff7200;
+		color: #fff;
+	}
+	&.deadline {
+		background: #666666;
+		border: 0.0625rem solid #666666;
+		color: #fff;
+	}
+	&.free {
+		background: #0fdb5c;
+		border: 0.0625rem solid #0fdb5c;
+		color: #fff;
+	}
+	&.link {
+		background: fff;
+		border: 1px solid #aaa;
+		color: #333;
+	}
+}
+/* =================== chip eee =================== */
+
+</style>

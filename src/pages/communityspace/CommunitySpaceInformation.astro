@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "나눔공간간";
+const location = "나눔공간 소개";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+      <div class="subcotent">
+        <!-- 탭 메뉴 -->
+        <!-- <ul class="comSubTab">
+          <li class="on">
+            <a href="../pages/나눔공간소개.html">나눔공간 소개</a>
+          </li>
+          <li>
+            <a href="../pages/나눔공간현황.html">나눔공간 현황</a>
+          </li>
+          <li>
+            <a href="../pages/나눔공간신청.html">나눔공간 신청</a>
+          </li>
+        </ul> -->
+
+        <div class="row introType ">
+          <p class="row__head pt0">
+            <span class="title__icon">나눔공간이란? </span>
+          </p>
+
+          <p class="content">
+            기관(시설, 단체)은 유휴공간을 학습공간으로 무료로 제공하여 공간의 효율적 이용 및 지역사회 나눔을 실천하고, <br> 중구민은 나눔공간을 통해 보다 쉽게 학습할수 있는
+            공유공간 정보제공의 장입니다.
+          </p>
+
+          <p class="row__head">
+            <span class="title__icon">(기관, 시설, 단체, 개인) 나눔공간 공유방법
+            </span>
+          </p>
+
+          <div class="row__body">
+            <ul class="list-1">
+              <li>신청기간 : 연중(인천중구교육포털)
+              </li>
+              <li> 신청자격 : 유휴공간을 일정 시간동안 무료로 학습모임에 제공가능하며, 공간공유를 통해 중구 내 학습커뮤니티 활성화에 기여하고 싶은 기관(시설, 단체, 개인)
+              </li>
+              <li>
+                신청방법
+              </li>
+              <li class="com-step before-none">
+                <ul>
+                  <li>
+                    <div class="num">
+                      01
+                    </div>
+                    <p class="tit">
+                      인천중구교육포털 가입
+                    </p>
+                    <p class="txt">
+                      담당자 ⇒ 인천중구교육포털
+                    </p>
+                  </li>
+                  <li>
+                    <div class="num">
+                      02
+                    </div>
+                    <p class="tit">
+                      나눔공간 등록
+                    </p>
+                    <p class="txt">
+                      담당자 ⇒ 인천중구교육포털
+                    </p>
+                  </li>
+                  <li>
+                    <div class="num">
+                      03
+                    </div>
+                    <p class="tit">
+                      담당자 확인
+                    </p>
+                    <p class="txt">
+                      평생교육과
+                    </p>
+                  </li>
+                  <li>
+                    <div class="num">
+                      04
+                    </div>
+                    <p class="tit">
+                      나눔공간 등록 완료
+                    </p>
+                    <p class="txt">
+                      인천중구교육포털
+                    </p>
+                  </li>
+                </ul>
+              </li>
+              <li class="before-none">
+                <span class="cRed">
+                  ※ 등록된 나눔공간 정보는, 제공자의 뜻에 따라 언제든 삭제가 가능합니다.
+                </span>
+              </li>
+              <li>
+                나눔공간 예시
+                <ul class="list-circle">
+                  <li>
+                    동주민자치센터의 유휴 강의실 및 공간
+                  </li>
+                  <li>
+                    종합사회복지관 내의 유휴 공간
+                  </li>
+                  <li>
+                    공방 혹은 카페 등, 일부시간을 지정하여 공유공간으로 나눔 등
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <p class="row__head">
+            <span class="title__icon">(개인, 동아리, 모임 등) 나눔공간 활용방법
+            </span>
+          </p>
+
+          <div class="row__body">
+            <ul class="list-1">
+              <li>
+                이용기간 : 상시
+              </li>
+              <li>
+                이용방법 : 나눔공간 신청자 ⇒ 제공자 직접 연락
+              </li>
+              <li class="com-step before-none flex-auto">
+                <ul>
+                  <li>
+                    <div class="num">
+                      01
+                    </div>
+                    <p class="tit">
+                      인천중구교육포털 가입
+                    </p>
+                  </li>
+                  <li>
+                    <div class="num">
+                      02
+                    </div>
+                    <p class="tit">
+                      나눔공간 현황검색
+                    </p>
+                  </li>
+                  <li>
+                    <div class="num">
+                      03
+                    </div>
+                    <p class="tit">
+                      직접 신청
+                    </p>
+                    <p class="txt">
+                      신청자 ⇒ 나눔공간 제공자 직접 연락
+                    </p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 나눔공간 등록하기 -->
+        <ul class="BottomBtnWrap flex gap15 aiCenter jcCenter">
+          <li>
+            <a href="../pages/나눔기관신청.html" class="comBtn sizeXlg bgMain">나눔공간 등록하기</a>
+          </li>
+        </ul>
+      </div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

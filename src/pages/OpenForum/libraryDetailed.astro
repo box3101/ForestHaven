@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "열린마당";
+const location = "자료실";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent notice">
+				<!-- 공지사항 상세-->
+				<table class="comTable-1 textLeft trHoverNone">
+					<caption class="hidden">
+						제목, 작성자, 작성일, 전화번호, 이메일, 담당부서, 담당기관, 내용.
+						첨부파일, 공공누리로 구성된 표</caption
+					>
+					<col width="15%" />
+					<col width="35%" />
+					<col width="15%" />
+					<col width="35%" />
+					<tbody>
+						<tr>
+							<th scope="row">제목</th>
+							<td colspan="3">게시물1</td>
+						</tr>
+						<tr>
+							<th scope="row">작성자</th>
+							<td>홍길동</td>
+							<th scope="row">작성일</th>
+							<td>2022.10.17</td>
+						</tr>
+						<tr>
+							<th scope="row">전화번호</th>
+							<td>02-6353-1562</td>
+							<th scope="row">이메일</th>
+							<td>bbb@naver.com</td>
+						</tr>
+						<tr>
+							<th scope="row">담당부서</th>
+							<td>평생교육과</td>
+							<th scope="row">담당기관</th>
+							<td>인천중구청</td>
+						</tr>
+						<tr>
+							<th scope="row">내용</th>
+							<td colspan="3">
+								<div class="board-view-contents">
+									<p>
+										여성가족부에서는 매년 5월 청소년의 달을 기념하여 사회 각
+										분야에서 청소년의 건강한 성장에 기여한
+									</p>
+									<p>
+										개인.단체.기업 등과 주체적인 활동으로 귀감이 되는 청소년에
+										대한 포상을 추진하고 있습니다.
+									</p>
+									<p><br /></p>
+									<p>가. 포상명 : 2023년 청소년 육성 및 보호 유공</p>
+									<p>나. 포상규모(안)</p>
+									<p>
+										- 정부포상 : 훈장(2점), 포장(3점), 대통령표창(7점),
+										국무총리표창(11점)
+									</p>
+									<p>- 장관표창 : 50점</p>
+									<p>
+										다. 추천기한 : 붙임 공고문 참고<span
+											style="font-size: 17px; letter-spacing: -0.05em;"
+										>
+										</span>
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">첨부파일</th>
+							<td colspan="3">
+								abc.doc (용량:73MB, 다운로드:35회)
+								<br /> 가나다.pdf (용량: 25MB, 다운로드: 35 회)
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">공공누리</th>
+							<td colspan="3">
+								<div class="flex gap20">
+									<img
+										class="w172"
+										src="../img/PublicNuriType-1.png"
+										alt="공공누리 공공지식물 자유이용 허락"
+									/>
+									<ul class="flex flexColumn gap10">
+										<li>· 출처표시 필요</li>
+										<li>· 상업적 이용 가능</li>
+										<li>· 변형 등 2차적 저작물 작성 가능</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<ul class="BottomBtnWrap flex gap15 aiCenter jcCenter">
+					<li>
+						<a href="library.html" class="comBtn sizeXlg bgBlack"
+							>목록</a
+						>
+					</li>
+				</ul>
+
+				<!-- 이전글, 다음글 -->
+				<table class="comTable-1 mt30">
+					<caption class="hidden"> 이전글 다음글 관련된 표</caption>
+					<colgroup>
+						<col width="15%" />
+						<col width="auto" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row" class="boardArrPrev">이전글</th>
+							<td class="left">
+								<a href="#">게시물 2</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="boardArrNext">다음글</th>
+							<td class="left">
+								<a href="#">게시물 3</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- 공지사항 상세eee -->
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

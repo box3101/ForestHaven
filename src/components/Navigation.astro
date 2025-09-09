@@ -1,0 +1,47 @@
+---
+// 네비게이션 메뉴 구조를 하나의 배열로 통합하여 관리
+// 각 메뉴는 메인 메뉴와 서브 메뉴들을 포함하는 객체 구조로 정의
+const navigationMenus = [
+  {
+    // 녹지 소개 메뉴 - 녹지와 관련된 소개 및 둘러보기 기능
+    mainTitle: "녹지 소개",
+    mainLink: "GreenSpaceIntro",
+    subMenus: [
+      { link: "GreenSpaceIntro", title: "녹지 소개" },
+      { link: "VirtualTour", title: "둘러보기" }
+    ]
+  },
+  {
+    // 시설 대관 메뉴 - 시설 대관 관련 기능들
+    mainTitle: "시설 대관",
+    mainLink: "FacilityRental",
+    subMenus: [
+      { link: "FacilityRental", title: "시설 대관" },
+      { link: "RentalApplication", title: "대관 신청" },
+      { link: "MyRentalHistory", title: "나의 대관조회" }
+    ]
+  },
+  {
+    // 소식 메뉴 - 공지사항 및 FAQ
+    mainTitle: "소식",
+    mainLink: "Notice",
+    subMenus: [
+      { link: "Notice", title: "공지사항" },
+      { link: "FAQ", title: "자주하는질문" }
+    ]
+  }
+];
+---
+
+<ul class="gnb" id="gnb" tabindex="0">
+  {navigationMenus.map((menu) => (
+    <li class="gnbItem">
+      <a href={`../${menu.mainLink}.html`} class="gnbLink">{menu.mainTitle}</a>
+      <ul class="subPanel">
+        {menu.subMenus.map((subMenu) => (
+          <li><a href={`../${subMenu.link}.html`}>{subMenu.title}</a></li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ul>

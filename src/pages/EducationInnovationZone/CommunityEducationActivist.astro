@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import Card from "../../components/Card.astro";
+import PagingNavigation from "../../components/PagingNavigation.astro";
+
+const datph2 = "교육혁신지구";
+const location = "마을교육활동가";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent 배우는바다 common active">
+				<p class="row__head pt0">
+					<span class="title__icon">마을교육활동가</span>
+				</p>
+				<div class="row__body pl30">
+					<p class="content">
+						중구 마을교육활동가를 양성하여 교육혁신지구 운영에 대한 지역주민
+						이해 제고 및 마을의 다양한 인적자원을 발굴·개발을 통해
+						마을교육생태계 활성화에 기여하고자 합니다.
+					</p>
+					<ul class="list-img flex gap20">
+						<li>
+							<img src="../img/sub-img04.jpg" alt="마을학교 활동 사진" />
+							<div class="txtwrap-2"><span>마을학교 활동 사진</span></div>
+						</li>
+						<li>
+							<img
+								src="../img/sub-img05.jpg"
+								alt="2022년 기본과정 포스터"
+							/>
+							<div class="txtwrap-2">2022년 기본과정 포스터</div>
+						</li>
+						<li>
+							<img
+								src="../img/sub-img06.jpg"
+								alt="2022년 심화과정 포스터"
+							/>
+							<div class="txtwrap-2">2022년 심화과정 포스터</div>
+						</li>
+					</ul>
+				</div>
+				<p class="row__head">
+					<span class="title__icon">중구마을교육활동가 양성교육</span>
+				</p>
+				<div class="row__body">
+					<ul class="list-1">
+						<li>운영기간 : 매년 3월 ~ 12월</li>
+						<li>
+							신청대상 : 만 18세 이상의 중구거주민으로 마을교육에 관심 있는 자
+							및 중구마을교육활동가 등
+						</li>
+						<li>교육내용 : 마을교육활동가 양성 및 역량강화 교육</li>
+						<li>신청방법 : 교육포털 내 수강신청</li>
+						<li class="before-none">
+							<a href="" class="comBtn sizeLg bgMain ml0">
+								🔗 수강신청 바로가기
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

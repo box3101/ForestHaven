@@ -1,0 +1,308 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+import PagingNavigation from "../../components/PagingNavigation.astro";
+
+const datph2 = "배우는바다";
+const location = "배우는바다";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<!-- 상단로고 -->
+			<div class="topLogo">
+				<img src="../img/topLogo.svg" alt="K-MOOC" />
+			</div>
+			<!-- 상단로고 eee -->
+
+			<!-- 타이틀 -->
+			<div class="comSubTitle-1 mt15">
+				국가평생교육진흥원이 제공하는 한국형 온라인 공개강좌 Kmooc으로
+				학습해보세요!
+			</div>
+			<!-- 타이틀 EEE -->
+
+			<!-- 리스트 -->
+			<div class="cardcontent-wrap">
+				<ul class="flex gap24">
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="cardcontent flex">
+						<a href="#" title="새창 이동" target="_blank">
+							<ul>
+								<li>
+									<img
+										src="../img/sample01.png"
+										alt="경기도 생활기술학교 제과 기능사과정"
+									/>
+								</li>
+								<li class="content-bottom">
+									<div class="tit">
+										<p class="twoLine">
+											인천 중구 2080 모두가 즐기는 테니스 동아리 - 포티러브
+											테니...
+										</p>
+									</div>
+									<div class="field-icon txt">
+										<span>수강신청</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="date-icon txt">
+										<span>강좌시작일</span> : <em>2022.10.11</em> ~ <em
+											>2022.10.30</em
+										>
+									</div>
+									<div class="week-icon txt">
+										<span>주차</span>: <em>7</em>주
+									</div>
+								</li>
+							</ul>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 리스트 eee -->
+
+			<!-- 페이징 -->
+			<PagingNavigation />
+			<!-- 페이징 eee -->
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

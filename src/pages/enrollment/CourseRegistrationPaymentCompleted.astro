@@ -1,0 +1,247 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "수강신청";
+const location = "수강신청결제";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<!-- 신용카드 결제 완료 시  -->
+			<div class="completedType-1">
+				<p class="tit">
+					홍길동님, <span>신용카드 결제가 완료</span> 되었습니다. <br />
+					감사합니다.
+				</p>
+				<div class="border">
+					<ul>
+						<li>
+							<span>[공부머리 독서법]</span> 강좌 예약접수가 정상적으로 이루어 졌습니다.
+						</li>
+						<li>
+							마이페이지의 <span>강좌신청현황</span>에서 확인하실 수 있습니다.
+						</li>
+					</ul>
+				</div>
+				<table class="comTable-1">
+					<caption class="hidden"
+						>결제수단, 결제일시, 할부, 결제금액를 나타내는 표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">결제수단</th>
+						<td> 신용카드 (2342 4253 **** ****)</td>
+					</tr>
+					<tr>
+						<th scope="row">결제일시</th>
+						<td>
+							<span>2022-11-30</span>
+							<span>12:34:53</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">할부</th>
+						<td> 일시불</td>
+					</tr>
+					<tr>
+						<th scope="row">결제금액</th>
+						<td>
+							<span>25,000</span>원
+						</td>
+					</tr>
+				</table>
+
+				<table class="comTable-1 mt30">
+					<caption class="hidden"
+						>교육기관, 강좌명, 교육기간을 나타내는 표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">교육기관</th>
+						<td> 평생교육관</td>
+					</tr>
+					<tr>
+						<th scope="row">강좌명</th>
+						<td> 공부머리 독서법</td>
+					</tr>
+					<tr>
+						<th scope="row">교육기간</th>
+						<td>
+							<span>2022-12-06</span> ~ <span>2022-12-31</span>
+						</td>
+					</tr>
+				</table>
+
+				<ul class="BottomBtnWrap flex gap5 aiCenter jcCenter">
+					<li>
+						<button type="button" class="comBtn sizeXlg bgMain">확인</button>
+					</li>
+				</ul>
+			</div>
+			<!-- 신용카드 결제 완료 시 eee -->
+
+			<!-- 가상계좌 결제 완료 시  -->
+			<div class="completedType-1">
+				<p class="tit">
+					홍길동님, <span>가상계좌 번호가 할당</span> 되었습니다. <br />
+					아래 가상계좌 번호로 입금하시면 예약이 완료됩니다. 감사합니다.
+				</p>
+				<div class="border">
+					<ul>
+						<li>
+							<span>익일(2022-12-01) 08시 까지</span> 입금 부탁드립니다.
+						</li>
+						<li>
+							기한 내 입금이 안될 시 <span class="cRed"
+								>예약이 자동으로 취소</span
+							>됩니다.
+						</li>
+					</ul>
+				</div>
+				<table class="comTable-1">
+					<caption class="hidden"
+						>입금은행 / 예금주 , 가상계좌 번호, 입금요청 금액, 입금기한 나타내는
+						표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">입금은행 / 예금주</th>
+						<td> 농협 (인천중구청)</td>
+					</tr>
+					<tr>
+						<th scope="row">가상계좌 번호</th>
+						<td> 7723425578125</td>
+					</tr>
+					<tr>
+						<th scope="row">입금요청 금액</th>
+						<td>
+							<span>25,000</span>원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">입금기한</th>
+						<td>
+							<span class="cBlue">2022-12-01 08시</span>
+						</td>
+					</tr>
+				</table>
+
+				<table class="comTable-1 mt30">
+					<caption class="hidden"
+						>교육기관, 강좌명, 교육기간을 나타내는 표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">교육기관</th>
+						<td> 평생교육관</td>
+					</tr>
+					<tr>
+						<th scope="row">강좌명</th>
+						<td> 공부머리 독서법</td>
+					</tr>
+					<tr>
+						<th scope="row">교육기간</th>
+						<td>
+							<span>2022-12-06</span> ~ <span>2022-12-31</span>
+						</td>
+					</tr>
+				</table>
+
+				<ul class="BottomBtnWrap flex gap5 aiCenter jcCenter">
+					<li>
+						<button type="button" class="comBtn sizeXlg bgMain">확인</button>
+					</li>
+				</ul>
+			</div>
+			<!-- 가상계좌 결제 완료 시 eee -->
+
+			<!-- 무통장입금 결제 완료 시  -->
+			<div class="completedType-1">
+				<p class="tit">
+					홍길동님, <span>무통장입금 계좌로 입금</span> 부탁드립니다. <br />
+					아래 계좌 번호로 입금하시면 예약이 완료됩니다. 감사합니다.
+				</p>
+				<div class="border">
+					<ul>
+						<li>
+							<span>익일(2022-12-01) 08시 까지</span> 입금 부탁드립니다.
+						</li>
+						<li>
+							기한 내 입금이 안될 시 <span class="cRed"
+								>예약이 자동으로 취소</span
+							>될 수 있습니다.
+						</li>
+					</ul>
+				</div>
+				<table class="comTable-1">
+					<caption class="hidden"
+						>입금은행 / 예금주 , 계좌 번호, 입금요청 금액, 입금기한 나타내는 표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">입금은행 / 예금주</th>
+						<td> 농협 (인천중구청)</td>
+					</tr>
+					<tr>
+						<th scope="row">계좌 번호</th>
+						<td> 7723425578125</td>
+					</tr>
+					<tr>
+						<th scope="row">입금요청 금액</th>
+						<td>
+							<span>25,000</span>원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">입금기한</th>
+						<td>
+							<span class="cBlue">2022-12-01 08시</span>
+						</td>
+					</tr>
+				</table>
+
+				<table class="comTable-1 mt30">
+					<caption class="hidden"
+						>교육기관, 강좌명, 교육기간을 나타내는 표</caption
+					>
+					<col width="30%" />
+					<col width="70%" />
+					<tr>
+						<th scope="row">교육기관</th>
+						<td> 평생교육관</td>
+					</tr>
+					<tr>
+						<th scope="row">강좌명</th>
+						<td> 공부머리 독서법</td>
+					</tr>
+					<tr>
+						<th scope="row">교육기간</th>
+						<td>
+							<span>2022-12-06</span> ~ <span>2022-12-31</span>
+						</td>
+					</tr>
+				</table>
+
+				<ul class="BottomBtnWrap flex gap5 aiCenter jcCenter">
+					<li>
+						<button type="button" class="comBtn sizeXlg bgMain">확인</button>
+					</li>
+				</ul>
+			</div>
+			<!-- 무통장입금 결제 완료 시 eee -->
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

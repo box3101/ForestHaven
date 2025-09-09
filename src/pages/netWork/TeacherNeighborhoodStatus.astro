@@ -1,0 +1,248 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubHeader from "../../layouts/SubHeader.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "네트워크";
+const location = "우리동네 강사 소개";
+const pageTitle = `홈>${datph2}>${location}`;
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout>
+		<SubHeader datph2={datph2} title={location} />
+		<SubBody>
+			<div class="subcotent notice status">
+				<!-- 서브 탭메뉴 -->
+				<ul class="comSubTab">
+					<li>
+						<a href="TeacherNeighborhood.html">우리동네 강사 소개</a>
+					</li>
+					<li class="on">
+						<a href="TeacherNeighborhoodStatus.html">우리동네 강사 현황</a>
+					</li>
+					<li>
+						<a href="TeacherNeighborhoodStatusEnrollment.html">우리동네 강사 신청</a>
+					</li>
+				</ul>
+				<!-- 서브 탭메뉴 eee -->
+
+				<div class="comSubTitle-1">
+					우리동네 평생교육 강사님들을 소개합니다! <br />
+					평생교육 강사로 등록하고 싶은 분들는 우리동네 강사 신청을 작성해주시고
+					증빙자료를 메일로 보내주십시오. <br />
+					담당자 검토 후 승인이 완료되면 우리동네 강사 현황에 등록됩니다.
+				</div>
+
+				<!-- 우리동네 강사 현황 게시판 -->
+				<div class="searchBox">
+					<div class="searchBox__inner custom">
+						<div class="comSelectWrap">
+							<div class="comSelectBox flex aiCenter">
+								<label for="a2">교육분야</label>
+								<select id="a2" class="comSelect w140">
+									<option value="">전체</option>
+								</select>
+							</div>
+						</div>
+						<div class="searchArea__tit">
+							<label for="a3">강사명</label>
+						</div>
+						<input id="a3" type="text" class="comInput w500" />
+						<button type="button" class="comBtn bgMain sizeMid">검색</button>
+					</div>
+				</div>
+				<div class="board-data-list board-has-sm-view">
+					<table class="comTable-1 mt30">
+						<caption class="hidden"
+							>우리동네 강사 현황 게시판 번호 강사명 교육분야 소속기관
+							상세보기로 구성된 표</caption
+						>
+							<col width="70px" />
+							<col width="100px" />
+							<col width="auto" />
+							<col width="200px" />
+							<col width="140px" />
+						<thead>
+							<tr>
+								<th scope="col">번호</th>
+								<th scope="col" class="sm-view">강사명</th>
+								<th scope="col" class="sm-view">교육분야</th>
+								<th scope="col">소속기관</th>
+								<th scope="col" class="sm-view"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> 10</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 9</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 8</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 7</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 6</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 5</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 4</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+							<tr>
+								<td> 3</td>
+								<td class="sm-view"> 홍*동</td>
+								<td class="sm-view left">인문교양</td>
+								<td>한국대학교</td>
+								<td class="sm-view"
+									><a href="TeacherNeighborhoodStatusDetailed.html"
+										><button type="button" class="comBtn bgBlack sizeSm"
+											>상세보기</button
+										></a
+									></td
+								>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- 공통 페이징 -->
+				<div id="paginate" class="customPaginateBar">
+					<a
+						href="#"
+						class="customPageMoveBtn"
+						onclick="fnList(1);return false;"
+						title="처음 페이지로 이동"
+					>
+						<span class="hidden">처음 페이지로 이동</span>
+						<i class="ui-icon ui-icon-seek-first"></i>
+					</a>
+					<a
+						href="#"
+						class="customPageMoveBtn"
+						onclick="fnList(1);return false;"
+						title="이전 페이지로 이동"
+					>
+						<span class="hidden">이전 페이지로 이동</span>
+						<i class="ui-icon ui-icon-seek-prev"></i>
+					</a>
+					<a
+						class="customPageNumberBtn on"
+						href="#"
+						onclick="return false;"
+						title="1페이지로 이동"
+					>
+						1
+					</a>
+					<a
+						class="customPageNumberBtn"
+						href="#"
+						onclick="fnList(2);return false;"
+						title="2페이지로 이동"
+					>
+						2
+					</a>
+					<a
+						href="#"
+						class="customPageMoveBtn"
+						onclick="fnList(2);return false;"
+						title="다음 페이지로 이동"
+					>
+						<span class="hidden">다음 페이지로 이동</span>
+						<i class="ui-icon ui-icon-seek-next"></i>
+					</a>
+					<a
+						href="#"
+						class="customPageMoveBtn"
+						onclick="fnList(2);return false;"
+						title="마지막 페이지로 이동"
+					>
+						<span class="hidden">마지막 페이지로 이동</span>
+						<i class="ui-icon ui-icon-seek-end"></i>
+					</a>
+				</div>
+				<!-- 페이징 eee -->
+
+				<!-- 공지사항 게시판 eee -->
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+const { idName } = Astro.props;
+---
+
+<main id={idName} class="main">
+	<div class="contentBody">
+		<div class="subContent" id="contentmain" tabindex="0">
+        <slot />
+		</div>
+	</div>
+</main>

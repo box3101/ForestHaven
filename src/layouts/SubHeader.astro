@@ -1,0 +1,20 @@
+---
+const {title , datph2} = Astro.props;
+---
+
+<div class="subHead">
+  <div class="subHead__tit">{title}</div>
+  <div class="subHead__right">
+    <ul class="subHead__location">
+      <li class="home">
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">{datph2}</a>
+      </li>
+      <li class="last">
+        <a href="#">{title}</a>
+      </li>
+    </ul>
+  </div>
+</div>
