@@ -1,0 +1,8 @@
+{
+	"font": {
+		"prefix": "f",
+		"body": [
+			"@mixin font( $1, $2, $3)",
+		]
+	}
+}

@@ -70,3 +70,9 @@
 		@content;
 	}
 }
+
+@mixin font( $s: null, $w: null, $c: null) {
+	font-size: $s;
+	font-weight: $w;
+	color: $c;
+}

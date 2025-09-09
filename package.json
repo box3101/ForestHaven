@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sass": "sass --watch ./src/scss/ui.scss ./src/css/ui.css"
+    "sass": "sass --watch ./src/scss/ui.scss ./src/css/ui.css",
+    "sass2": "sass --watch ./src/scss/ui.scss ./public/css/ui.css"
   },
   "dependencies": {
     "astro": "^2.0.6"

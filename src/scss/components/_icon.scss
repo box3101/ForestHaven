@@ -1,0 +1,23 @@
+// ===== 기본 아이콘 스타일 =====
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  &.sm { width: 14px; height: 14px; }
+  &.md { width: 24px; height: 24px; }
+  &.lg { width: 32px; height: 32px; }
+  &.xl { width: 48px; height: 48px; }
+}
+
+.icon-home{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M7.46118 1.17413L1.39653 5.519C1.14928 5.69431 1 5.98333 1 6.29131V14.0524C1 14.5736 1.41986 15 1.93302 15H5.95901V9.5701C5.95901 9.3095 6.16894 9.09629 6.42552 9.09629H9.57447C9.83106 9.09629 10.041 9.3095 10.041 9.5701V15H14.067C14.5801 15 15 14.5736 15 14.0524V6.29605C15 5.98807 14.8507 5.69904 14.6035 5.52373L8.53416 1.17413C8.21226 0.941958 7.77841 0.941958 7.45651 1.17413H7.46118Z' stroke='%23999999' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.icon-b-arrow{
+  width: 3px; height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='8' viewBox='0 0 5 8' fill='none'%3E%3Cpath d='M1 1L4 4L1 7' stroke='%23999999' stroke-linecap='round'/%3E%3C/svg%3E");
+}
