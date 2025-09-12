@@ -9,12 +9,127 @@ const pageTitle = `홈>${datph2}>${location}`;
 const idName = "Notice";
 
 import "../../css/ui.css";
+
+// URL에서 공지사항 ID 가져오기
+const url = Astro.url;
+const noticeId = url.searchParams.get('id') || '1';
+
+// 샘플 공지사항 상세 데이터
+const noticeDetail = {
+  id: noticeId,
+  title: "2025년 1월 1일 시스템 오픈일",
+  date: "2025.09.01",
+  views: 123,
+  content: `
+    <p>🎉 <strong>2025년 1월 1일 시스템 오픈일 안내입니다.</strong></p>
+    
+    <p><strong>- 일시 :</strong> 2025.01.01 10:00 ~ 12:00</p>
+    <p><strong>- 대상 :</strong> 전체회원</p>
+    
+    <p>새해를 맞이하여 시스템이 새롭게 오픈됩니다. 많은 이용 부탁드립니다.</p>
+    
+    <p>감사합니다.</p>  <p>🎉 <strong>2025년 1월 1일 시스템 오픈일 안내입니다.</strong></p>
+    
+    <p><strong>- 일시 :</strong> 2025.01.01 10:00 ~ 12:00</p>
+    <p><strong>- 대상 :</strong> 전체회원</p>
+    
+    <p>새해를 맞이하여 시스템이 새롭게 오픈됩니다. 많은 이용 부탁드립니다.</p>
+    
+    <p>감사합니다.</p>
+  `,
+  attachments: [
+    { name: "공지사항.hwp", size: "1.2MB" },
+    { name: "첨부파일.pdf", size: "2.5MB" }
+  ]
+};
+
+// 이전/다음 글 샘플 데이터
+const prevNext = {
+  prev: { id: 2, title: "2025년 시스템 업데이트" },
+  next: { id: 4, title: "새해 인사말" }
+};
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
+      <div class="subcontent">
+        
+        <!-- 공지사항 상세 내용 -->
+        <div class="notice-detail-section">
+          
+          <!-- 공지사항 테이블 -->
+          <div class="notice-detail-table">
+            <table class="detail-table">
+              <caption class="hidden">공지사항 상세 내용</caption>
+              <colgroup>
+                <col style="width: 100px;">
+                <col style="width: auto;">
+              </colgroup>
+              <tbody>
+                <!-- 제목 행 -->
+                <tr class="title-row">
+                  <th scope="row" class="label-cell">제목</th>
+                  <td class="content-cell title-content">{noticeDetail.title}</td>
+                </tr>
+                
+                <!-- 내용 행 -->
+                <tr class="content-row">
+                  <th scope="row" class="label-cell">내용</th>
+                  <td class="content-cell main-content">
+                    <div class="content-body" set:html={noticeDetail.content}></div>
+                  </td>
+                </tr>
+
+                <!-- 첨부파일 행 -->
+                {noticeDetail.attachments && noticeDetail.attachments.length > 0 && (
+                  <tr class="attachment-row">
+                    <th scope="row" class="label-cell">첨부파일</th>
+                    <td class="content-cell attachment-content">
+                      <ul class="attachments-list">
+                        {noticeDetail.attachments.map((file) => (
+                          <li class="attachment-item">
+                            <a href="#" class="attachment-link">
+                              <img src="../assets/images/icon/file-icon.svg" alt="파일" />
+                              <span class="file-name">{file.name}</span>
+                              <span class="file-size">({file.size})</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 이전/다음 글 네비게이션 -->
+          <div class="notice-navigation">
+            {prevNext.prev && (
+              <div class="nav-item prev-item">
+                <span class="nav-label">이전글</span>
+                <a href={`/notice/Notice-detail?id=${prevNext.prev.id}`} class="nav-link">
+                  {prevNext.prev.title}
+                </a>
+              </div>
+            )}
+            {prevNext.next && (
+              <div class="nav-item next-item">
+                <span class="nav-label">다음글</span>
+                <a href={`/notice/Notice-detail?id=${prevNext.next.id}`} class="nav-link">
+                  {prevNext.next.title}
+                </a>
+              </div>
+            )}
+          </div>
+
+          <!-- 버튼 그룹 -->
+          <div class="notice-actions">
+            <a href="/notice/Notice" class="btn btn-primary">목록</a>
+          </div>
+
+        </div>
       </div>
 		</SubBody>
 	</SubLayout>
