@@ -1,27 +1,27 @@
 [
   {
     "mainTitle": "녹지 소개",
-    "mainLink": "GreenSpaceIntro",
+    "mainLink": "info/GreenSpaceIntro",
     "subMenus": [
-      { "link": "GreenSpaceIntro", "title": "녹지 소개" },
-      { "link": "VirtualTour", "title": "둘러보기" }
+      { "link": "info/GreenSpaceIntro", "title": "녹지 소개" },
+      { "link": "info/VirtualTour", "title": "둘러보기" }
     ]
   },
   {
     "mainTitle": "대관 안내",
-    "mainLink": "FacilityRental",
+    "mainLink": "facility/FacilityRental",
     "subMenus": [
-      { "link": "FacilityRental", "title": "대관 안내" },
-      { "link": "RentalApplication", "title": "대관 신청" },
-      { "link": "MyRentalHistory", "title": "나의 대관조회" }
+      { "link": "facility/FacilityRental", "title": "대관 안내" },
+      { "link": "facility/RentalApplication", "title": "대관 신청" },
+      { "link": "facility/MyRentalHistory", "title": "나의 대관조회" }
     ]
   },
   {
     "mainTitle": "소식",
-    "mainLink": "Notice",
+    "mainLink": "notice/Notice",
     "subMenus": [
-      { "link": "Notice", "title": "공지사항" },
-      { "link": "FAQ", "title": "자주하는질문" }
+      { "link": "notice/Notice", "title": "공지사항" },
+      { "link": "notice/FAQ", "title": "자주하는질문" }
     ]
   }
 ]

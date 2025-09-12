@@ -3445,6 +3445,7 @@ button.swiper-pagination-bullet {
   height: 3.75rem;
 }
 .header .headerWrap .headerInner .gnb {
+  margin-left: 150px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -3454,7 +3455,7 @@ button.swiper-pagination-bullet {
 }
 .header .headerWrap .headerInner .gnb > li {
   position: relative;
-  padding: 0 50px;
+  padding: 0 100px;
 }
 .header .headerWrap .headerInner .gnb > li > a {
   position: relative;
