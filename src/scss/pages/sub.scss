@@ -1,0 +1,14 @@
+// 검색 폼 스타일
+.bod_search {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center; justify-content: center;
+    
+    label{
+      font-size: 16px;
+      color:#008984; font-weight: 600;
+    }
+}

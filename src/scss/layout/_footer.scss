@@ -1,97 +1,111 @@
 .footer {
-	&__nav {
-		background:$cMain;
-		ul {
-			max-width: 1280px;
-			margin: 0 auto;
+	background: #3A4B4A;
+	color: #ccc;
+	padding-top: 0;
+
+	.inner{
+		padding: 0;
+	}
+
+	.footerTop {
+		display: flex; align-items: center; justify-content: flex-start;
+		height: 60px;
+		border-bottom: 1px solid #B7B7B7;
+
+		.inner{
+			width: 100%;
+		}
+
+		.footerMenu {
 			display: flex;
-			align-items: center;
-			gap: 1.875rem;
+			gap: 2rem;
+
+
+			@include media($mo) {
+				flex-direction: column;
+				gap: 0.625rem;
+			}
+
 			li {
-				&:nth-of-type(1) {
-					a {
-						font-weight: bold;
-					}
+				position: relative;
+				
+				&:not(:last-child)::after {
+					content: '';
+					position: absolute;
+					top: 55%;
+					right: -1.1rem;
+					transform: translateY(-50%);
+					width: 4px;
+					height: 4px;
+					background: #B7B7B7;
+					border-radius: 50%;
 				}
-				&:last-of-type {
-					a {
-						@include after {
-							display: none;
-						}
-					}
-				}
+				
 				a {
-					position: relative;
-					display: inline-block;
-					height: 2.5rem;
-					line-height: 2.5rem;
-					font-size: 1rem;
-					color: #fff;
-					@include after {
-						top: 53%;
-						right: -0.875rem;
+					color: #B7B7B7;
+					text-align: center;
+					font-family: "S-Core Dream";
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+
+					&:hover {
+						text-decoration: underline;
 					}
 				}
 			}
 		}
 	}
-	.inner {
-		padding: 1.875rem 0;
-		max-width: 1280px;
-		margin: 0 auto;
+
+	.footerContent {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
-	}
+		align-items: flex-start;
+		padding-top: 50px;
+		padding-bottom: 100px;
 
-	.left {
-		display: flex;
-		align-items: center;
-		gap: 1.9375rem;
-		address {
-			font-size: 1rem;
-			line-height: 1.5rem;
-			color: #666666;
+		@include media($mo) {
+			flex-direction: column;
+			gap: 1.25rem;
 		}
-	}
 
-	.comSelectBox {
-		@include after {
-			border-bottom: 0.5625rem solid #000;
-			border-left: 0.375rem solid transparent;
-			border-right: 0.375rem solid transparent;
-			border-top: none;
-		}
-		select {
-			width: 16.25rem;
-			height: 2.5rem;
-			line-height: 2.5rem;
-			padding-left: 0.9375rem;
-			font-size: 1.125rem;
-			font-weight: 500;
-			color: #999999;
-			border: 0.125rem solid #dddddd;
-		}
-	}
-}
+		.footerLeft {
+			address {
+				color: #B7B7B7;
+				font-size: 18px;
+				font-weight: 500;
+				margin-bottom: 20px;
+			}
 
-@include media($web) {
-	.footer__nav ul {
-		padding: 0 10px;
-		flex-wrap: wrap;
-		gap: 0;
-		li {
-			width: auto;
-			margin: 0 10px;
+			.tel {
+				color: #B7B7B7;
+				font-size: 18px;
+				font-weight: 500;
+			}
+
+			.copyright {
+				color: #B7B7B7;
+				font-size: 18px;
+				font-weight: 500;
+			}
 		}
-	}
-	.footer .inner,
-	.footer .left {
-		flex-direction: column;
-	}
-	.footer .left address {
-		text-align: center;
-		margin-bottom: 20px;
-		word-break: keep-all;
+
+		.footerRight {
+			.comSelectBox {
+				select {
+width: 220px;
+height: 50px;
+flex-shrink: 0;
+					border-radius: 10px;
+					border: 1px solid #B7B7B7;
+					background: #3A4B4A;
+
+					&:focus {
+						border-color: $cMain;
+					}
+				}
+			}
+		}
 	}
 }

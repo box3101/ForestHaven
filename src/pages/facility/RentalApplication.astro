@@ -14,8 +14,23 @@ import "../../css/ui.css";
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
-      </div>
+			<div class="subcontent">
+				<fieldset class="bod_search">
+					<div class="form-item">
+						<label for="searchText">대관시설</label>
+						<input
+							class="com-input"
+							id="searchText"
+							name="searchText"
+							title="검색어"
+							type="text"
+							placeholder="시설명을 입력해주세요"
+							value=""
+						/>
+						<button type="submit" value="검색" class="search-btn" title="검색">검색</button>
+					</div>
+				</fieldset>
+			</div>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
