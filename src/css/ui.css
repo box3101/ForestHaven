@@ -3901,7 +3901,8 @@ button.swiper-pagination-bullet {
   }
 }
 
-.subContent, .inner {
+.subContent,
+.inner {
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 60px;
@@ -4021,34 +4022,21 @@ button.swiper-pagination-bullet {
   padding: 1.25rem;
   background: #f8f9fa;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 .search-section .contact-info span {
   color: #333 !important;
   font-size: 1rem;
 }
+.search-section .search-form {
+  margin-left: auto;
+}
 .search-section .search-form label {
   font-size: 0.875rem;
   color: #666;
-}
-.search-section .search-form .search-input-group {
-  display: flex;
-  gap: 0.625rem;
-  max-width: 25rem;
-}
-.search-section .search-form .search-input-group .search-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-}
-.search-section .search-form .search-input-group .search-input:focus {
-  outline: none;
-  border-color: green;
-  box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
-}
-.search-section .search-form .search-input-group .search-input::placeholder {
-  color: #999;
 }
 
 .notice-list-section .list-info {
@@ -4241,6 +4229,53 @@ button.swiper-pagination-bullet {
 .com-select:focus {
   outline: none;
   border-color: #005a9c;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 0.625rem;
+  max-width: 40rem;
+}
+.search-input-group .search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+.search-input-group .search-input:focus {
+  outline: none;
+  border-color: green;
+  box-shadow: 0 0 0.125rem rgba(0, 123, 255, 0.25);
+}
+.search-input-group .search-input::placeholder {
+  color: #999;
+}
+
+.com-btn {
+  padding: 0.75rem 1.5rem;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.com-btn:hover {
+  background: #004d00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.com-btn.size-sm {
+  padding: 0.3rem 0.7rem;
+}
+.com-btn.state-cancel {
+  background: #dc3545;
+}
+.com-btn.state-cancel:hover {
+  background: #bd2130;
 }
 
 #Notice .notice-detail-section .notice-detail-table {

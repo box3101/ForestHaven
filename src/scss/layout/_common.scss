@@ -17,7 +17,8 @@ html {
 	}
 }
 
-.subContent,.inner {
+.subContent,
+.inner {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding-top: 60px;
@@ -127,6 +128,10 @@ html {
 	padding: 1.25rem;
 	background: #f8f9fa;
 	border-radius: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
 
 	.contact-info {
 		span {
@@ -136,33 +141,10 @@ html {
 	}
 
 	.search-form {
+		margin-left: auto;
 		label {
 			font-size: 0.875rem;
 			color: #666;
-		}
-
-		.search-input-group {
-			display: flex;
-			gap: 0.625rem;
-			max-width: 25rem;
-
-			.search-input {
-				flex: 1;
-				padding: 0.75rem 1rem;
-				border: 0.0625rem solid #ddd;
-				border-radius: 0.25rem;
-				font-size: 0.875rem;
-
-				&:focus {
-					outline: none;
-					border-color: $cMain;
-					box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
-				}
-
-				&::placeholder {
-					color: #999;
-				}
-			}
 		}
 	}
 }
@@ -389,5 +371,61 @@ html {
 	&:focus {
 		outline: none;
 		border-color: #005a9c;
+	}
+}
+
+.search-input-group {
+	display: flex;
+	gap: 0.625rem;
+	max-width: 40rem;
+
+	.search-input {
+		flex: 1;
+		padding: 0.75rem 1rem;
+		border: 0.0625rem solid #ddd;
+		border-radius: 0.25rem;
+		font-size: 0.875rem;
+
+		&:focus {
+			outline: none;
+			border-color: $cMain;
+			box-shadow: 0 0 0.125rem rgba(0, 123, 255, 0.25);
+		}
+
+		&::placeholder {
+			color: #999;
+		}
+	}
+}
+
+.com-btn {
+	padding: 0.75rem 1.5rem;
+	background: $cMain;
+	color: white;
+	border: none;
+	border-radius: 0.25rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	&:hover {
+		background: darken($cMain, 10%);
+		transform: translateY(-1px);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	// 사이즈
+	&.size-sm {
+		padding: 0.3rem 0.7rem;
+	}
+
+	// 상태
+	&.state-cancel {
+		background: #dc3545;
+
+		&:hover {
+			background: darken(#dc3545, 10%);
+		}
 	}
 }

@@ -12,9 +12,17 @@ import "../../css/ui.css";
 
 // 샘플 나의 대관조회 데이터
 const rentalHistory = [
+{
+		id: 4,
+		organizationName: "XX 고등학교 동호회",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~10:00, 10:00~11:00",
+		status: "승인",
+		statusBtn: "취소"
+	},
 	{
 		id: 3,
-		facilityName: "다목적홀",
 		organizationName: "서울시민단체",
 		reservationDate: "2025.08.15",
 		rentalDate: "2025.09.01",
@@ -23,7 +31,6 @@ const rentalHistory = [
 	},
 	{
 		id: 2,
-		facilityName: "회의실A",
 		organizationName: "청년창업협회",
 		reservationDate: "2025.08.20",
 		rentalDate: "2025.09.02",
@@ -32,7 +39,6 @@ const rentalHistory = [
 	},
 	{
 		id: 1,
-		facilityName: "야외무대",
 		organizationName: "문화예술동아리",
 		reservationDate: "2025.08.25",
 		rentalDate: "2025.09.25",
@@ -77,10 +83,10 @@ const rentalHistory = [
 							<colgroup>
 								<col style="width: 10%;" />
 								<col style="width: auto;" />
+								<col style="width: 10%;" />
+								<col style="width: 10%;" />
 								<col style="width: 15%;" />
-								<col style="width: 15%;" />
-								<col style="width: 15%;" />
-								<col style="width: 15%;" />
+								<col style="width: 10%;" />
 							</colgroup>
 							<thead>
 								<tr>
@@ -101,7 +107,14 @@ const rentalHistory = [
 											<td class="text-center">{notice.reservationDate}</td>
 											<td class="text-center">{notice.rentalDate}</td>
 											<td class="text-center">{notice.rentalTime}</td>
-											<td class="text-center">{notice.status}</td>
+											<td class="text-center">
+											{notice.status}
+											{
+												notice.statusBtn && (
+												<button type="button" class="com-btn size-sm state-cancel">{notice.statusBtn}</button>
+												)
+											}
+											</td>
 										</tr>
 									))
 								}
