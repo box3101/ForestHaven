@@ -1,4 +1,5 @@
-// 공지사항 상세 페이지 스타일
+@import '../base/variables';
+
 #Notice {
   .notice-detail-section {
     .notice-detail-table {
@@ -24,7 +25,7 @@
               width: 6.25rem;
               padding: 1rem 1.25rem;
               background: #f8f9fa;
-              font-size: 0.875rem;
+              font-size: 18px;
               font-weight: 600;
               color: #333;
               text-align: center;
@@ -39,7 +40,7 @@
               vertical-align: top;
 
               &.title-content {
-                font-size: 1rem;
+                font-size: 18px;
                 font-weight: 600;
                 color: #333;
               }
@@ -49,7 +50,7 @@
                 min-height: 12.5rem;
 
                 .content-body {
-                  font-size: 0.9375rem;
+                  font-size: 16px;
                   line-height: 1.6;
                   color: #333;
 
@@ -106,7 +107,7 @@
                       }
 
                       .file-name {
-                        font-size: 0.875rem;
+                        font-size: 16px;
                         font-weight: 500;
                       }
 
@@ -143,8 +144,8 @@
 
         .nav-label {
           display: inline-block;
-          width: 3.75rem;
-          font-size: 0.875rem;
+          width: 100px;
+          font-size: 18px;
           font-weight: 500;
           color: #666;
           margin-right: 1rem;

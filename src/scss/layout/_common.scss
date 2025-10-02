@@ -136,7 +136,7 @@ html {
 	.contact-info {
 		span {
 			color: #333 !important;
-			font-size: 1rem;
+			font-size: 18px !important;
 		}
 	}
 
@@ -151,7 +151,7 @@ html {
 		}
 		label {
 			flex:none;
-			font-size: 0.875rem;
+			font-size: 18px !important;
 			color: #666;
 		}
 	}
@@ -166,7 +166,7 @@ html {
 		padding: 0 0.3125rem;
 
 		.total-count {
-			font-size: 0.875rem;
+			font-size: 16px;
 			color: #666;
 
 			strong {
@@ -204,7 +204,7 @@ html {
 
 				th {
 					padding: 1rem 0.75rem;
-					font-size: 0.875rem;
+					font-size: 18px;
 					font-weight: 600;
 					color: #333;
 					text-align: center;
@@ -227,7 +227,7 @@ html {
 
 					td {
 						padding: 1rem 0.75rem;
-						font-size: 0.875rem;
+						font-size: 18px;
 						color: #333;
 						vertical-align: middle;
 
@@ -264,7 +264,7 @@ html {
 
 						&.date-cell {
 							color: #666;
-							font-size: 0.8125rem;
+							font-size: 16px;
 						}
 					}
 				}
@@ -288,7 +288,7 @@ html {
 				justify-content: center;
 				width: 2rem;
 				height: 2rem;
-				border: 0.0625rem solid #ddd;
+				// border: 0.0625rem solid #ddd;
 				border-radius: 0.25rem;
 				background: white;
 				color: #666;
@@ -317,13 +317,14 @@ html {
 					justify-content: center;
 					width: 2rem;
 					height: 2rem;
-					border: 0.0625rem solid #ddd;
-					border-radius: 0.25rem;
+					// border: 0.0625rem solid #ddd;
+					border-radius: 50%;
 					background: white;
-					color: #666;
+					color: #333;
 					text-decoration: none;
-					font-size: 0.875rem;
+					font-size: 18px;
 					transition: all 0.2s;
+					font-weight: 700;
 
 					&:hover {
 						background: #f8f9fa;
@@ -364,7 +365,7 @@ html {
 		padding: 0.75rem 1rem;
 		border: 0.0625rem solid #ddd;
 		border-radius: 0.25rem;
-		font-size: 0.875rem;
+		font-size: 16px;
 
 		&:focus {
 			outline: none;
@@ -417,14 +418,14 @@ html {
 }
 
 .search-btn {
-	padding: 0.75rem 1.5rem;
+	padding: 6px 1.5rem;
 	padding-right: 3.3rem;
 	padding-left: 1rem;
 	background: #008984;
 	color: white;
 	border: none;
 	border-radius: 0.25rem;
-	font-size: 0.875rem;
+	font-size: 16px;
 	font-weight: 500;
 	cursor: pointer;
 	transition: background-color 0.2s;
@@ -456,13 +457,15 @@ html {
 	padding-right: 3rem;
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
-	font-size: 0.875rem;
+	font-size: 16px;
 	background: #fff
 		url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23666" d="M6 8L0 0h12z"/></svg>')
 		no-repeat right 1rem center;
 	background-size: 12px 8px;
 	cursor: pointer;
 	appearance: none;
+	box-sizing: border-box;
+	height: 48px;
 
 	&:focus {
 		outline: none;

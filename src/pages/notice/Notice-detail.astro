@@ -63,7 +63,7 @@ const prevNext = {
             <table class="detail-table">
               <caption class="hidden">공지사항 상세 내용</caption>
               <colgroup>
-                <col style="width: 100px;">
+                <col style="width: 120px;">
                 <col style="width: auto;">
               </colgroup>
               <tbody>
@@ -108,6 +108,9 @@ const prevNext = {
           <div class="notice-navigation">
             {prevNext.prev && (
               <div class="nav-item prev-item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 6L5 12L3 10L11 2"/>
+                </svg>
                 <span class="nav-label">이전글</span>
                 <a href={`/notice/Notice-detail?id=${prevNext.prev.id}`} class="nav-link">
                   {prevNext.prev.title}

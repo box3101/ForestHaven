@@ -3350,7 +3350,7 @@ button.swiper-pagination-bullet {
   background-color: #D8D8D8;
 }
 .Breadcrumb .Breadcrumb__location li a:hover {
-  color: green;
+  color: #00B587;
   font-weight: bold;
 }
 .Breadcrumb .Breadcrumb__location li:first-child a:before {
@@ -3460,16 +3460,16 @@ button.swiper-pagination-bullet {
   display: inline-block;
   transition: all 0.4s;
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   color: #333;
 }
 .header .headerWrap .headerInner .gnb > li > a:hover {
   font-weight: bold;
-  color: green;
+  color: #00B587;
 }
 .header .headerWrap .headerInner .gnb > li > a.on {
   font-weight: bold;
-  color: green;
+  color: #00B587;
 }
 .header .headerWrap .headerInner .gnb > li .subPanel {
   display: none;
@@ -3482,14 +3482,17 @@ button.swiper-pagination-bullet {
 .header .headerWrap .headerInner .gnb > li .subPanel li a {
   display: block;
   text-align: center;
-  font-size: 1rem;
+  font-size: 18px;
   color: #333333;
   margin-bottom: 1rem;
-  line-height: 1.3;
+  line-height: 50px;
+  height: 50px;
+  border-radius: 4px;
 }
 .header .headerWrap .headerInner .gnb > li .subPanel li a:hover {
-  color: green;
+  color: #ffffff;
   font-weight: bold;
+  background-color: #00B587;
 }
 .header .headerWrap .headerInner .utilMenu {
   position: absolute;
@@ -3547,8 +3550,6 @@ button.swiper-pagination-bullet {
   z-index: 100;
   left: 0;
   right: 0;
-  top: 5.0625rem;
-  padding-bottom: 1rem;
 }
 .header .headerBg.on {
   display: block;
@@ -3658,7 +3659,7 @@ button.swiper-pagination-bullet {
   font-size: 16px;
 }
 .header .mobileMenu .mobileNav ul li.mobileNavItem.on > a {
-  background: green;
+  background: #00B587;
   color: #fff;
 }
 .header .mobileMenu .mobileNav li a {
@@ -3724,7 +3725,7 @@ button.swiper-pagination-bullet {
 }
 
 .header .mobileMenu .menuToggle.open .menuItem {
-  background: green !important;
+  background: #00B587 !important;
 }
 
 @media all and (max-width: 1400px) {
@@ -3879,9 +3880,10 @@ button.swiper-pagination-bullet {
   border-radius: 10px;
   border: 1px solid #B7B7B7;
   background: #3A4B4A;
+  color: #fff;
 }
 .footer .footerContent .footerRight .comSelectBox select:focus {
-  border-color: green;
+  border-color: #00B587;
 }
 
 @media all and (max-width: 600px) {
@@ -4035,7 +4037,7 @@ button.swiper-pagination-bullet {
 }
 .search-section .contact-info span {
   color: #333 !important;
-  font-size: 1rem;
+  font-size: 18px !important;
 }
 .search-section .search-form {
   margin-left: auto;
@@ -4053,7 +4055,7 @@ button.swiper-pagination-bullet {
 }
 .search-section .search-form label {
   flex: none;
-  font-size: 0.875rem;
+  font-size: 18px !important;
   color: #666;
 }
 
@@ -4065,11 +4067,11 @@ button.swiper-pagination-bullet {
   padding: 0 0.3125rem;
 }
 .notice-list-section .list-info .total-count {
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #666;
 }
 .notice-list-section .list-info .total-count strong {
-  color: green;
+  color: #00B587;
   font-weight: 600;
 }
 .notice-list-section .notice-table-wrap {
@@ -4101,7 +4103,7 @@ button.swiper-pagination-bullet {
 }
 .notice-list-section .notice-table-wrap .notice-table thead th {
   padding: 1rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
   text-align: center;
@@ -4119,7 +4121,7 @@ button.swiper-pagination-bullet {
 }
 .notice-list-section .notice-table-wrap .notice-table tbody tr td {
   padding: 1rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 18px;
   color: #333;
   vertical-align: middle;
 }
@@ -4138,7 +4140,7 @@ button.swiper-pagination-bullet {
   transition: color 0.2s;
 }
 .notice-list-section .notice-table-wrap .notice-table tbody tr td.title-cell .notice-link:hover {
-  color: green;
+  color: #00B587;
 }
 .notice-list-section .notice-table-wrap .notice-table tbody tr td.title-cell .notice-link .important-badge {
   display: inline-block;
@@ -4151,7 +4153,7 @@ button.swiper-pagination-bullet {
 }
 .notice-list-section .notice-table-wrap .notice-table tbody tr td.date-cell {
   color: #666;
-  font-size: 0.8125rem;
+  font-size: 16px;
 }
 .notice-list-section .pagination-wrap {
   display: flex;
@@ -4169,7 +4171,6 @@ button.swiper-pagination-bullet {
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
   background: white;
   color: #666;
@@ -4178,7 +4179,7 @@ button.swiper-pagination-bullet {
 }
 .notice-list-section .pagination-wrap .pagination .page-btn:hover {
   background: #f8f9fa;
-  border-color: green;
+  border-color: #00B587;
 }
 .notice-list-section .pagination-wrap .pagination .page-btn img {
   width: 1rem;
@@ -4195,27 +4196,27 @@ button.swiper-pagination-bullet {
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.25rem;
+  border-radius: 50%;
   background: white;
-  color: #666;
+  color: #333;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 18px;
   transition: all 0.2s;
+  font-weight: 700;
 }
 .notice-list-section .pagination-wrap .pagination .page-numbers .page-num:hover {
   background: #f8f9fa;
-  border-color: green;
-  color: green;
+  border-color: #00B587;
+  color: #00B587;
 }
 .notice-list-section .pagination-wrap .pagination .page-numbers .page-num.active {
-  background: green;
-  border-color: green;
+  background: #00B587;
+  border-color: #00B587;
   color: white;
 }
 .notice-list-section .pagination-wrap .pagination .page-numbers .page-num.active:hover {
-  background: green;
-  border-color: green;
+  background: #00B587;
+  border-color: #00B587;
 }
 @media all and (max-width: 1400px) {
   .notice-list-section .com-btn {
@@ -4233,11 +4234,11 @@ button.swiper-pagination-bullet {
   padding: 0.75rem 1rem;
   border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 16px;
 }
 .search-input-group .search-input:focus {
   outline: none;
-  border-color: green;
+  border-color: #00B587;
   box-shadow: 0 0 0.125rem rgba(0, 123, 255, 0.25);
 }
 .search-input-group .search-input::placeholder {
@@ -4252,7 +4253,7 @@ button.swiper-pagination-bullet {
 
 .com-btn {
   padding: 0.75rem 1.5rem;
-  background: green;
+  background: #00B587;
   color: white;
   border: none;
   border-radius: 0.25rem;
@@ -4262,7 +4263,7 @@ button.swiper-pagination-bullet {
   transition: all 0.2s;
 }
 .com-btn:hover {
-  background: #004d00;
+  background: #008261;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -4277,14 +4278,14 @@ button.swiper-pagination-bullet {
 }
 
 .search-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 6px 1.5rem;
   padding-right: 3.3rem;
   padding-left: 1rem;
   background: #008984;
   color: white;
   border: none;
   border-radius: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -4315,11 +4316,13 @@ button.swiper-pagination-bullet {
   padding-right: 3rem;
   border: 1px solid #ddd;
   border-radius: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 16px;
   background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23666" d="M6 8L0 0h12z"/></svg>') no-repeat right 1rem center;
   background-size: 12px 8px;
   cursor: pointer;
   appearance: none;
+  box-sizing: border-box;
+  height: 48px;
 }
 .com-select:focus {
   outline: none;
@@ -4371,7 +4374,7 @@ button.swiper-pagination-bullet {
   width: 6.25rem;
   padding: 1rem 1.25rem;
   background: #f8f9fa;
-  font-size: 0.875rem;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
   text-align: center;
@@ -4385,7 +4388,7 @@ button.swiper-pagination-bullet {
   vertical-align: top;
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.title-content {
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
 }
@@ -4394,7 +4397,7 @@ button.swiper-pagination-bullet {
   min-height: 12.5rem;
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.main-content .content-body {
-  font-size: 0.9375rem;
+  font-size: 16px;
   line-height: 1.6;
   color: #333;
 }
@@ -4433,8 +4436,8 @@ button.swiper-pagination-bullet {
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link:hover {
   background: #e9ecef;
-  border-color: green;
-  color: green;
+  border-color: #00B587;
+  color: #00B587;
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link img {
   width: 1rem;
@@ -4442,7 +4445,7 @@ button.swiper-pagination-bullet {
   color: #666;
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link .file-name {
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 500;
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link .file-size {
@@ -4467,8 +4470,8 @@ button.swiper-pagination-bullet {
 }
 #Notice .notice-detail-section .notice-navigation .nav-item .nav-label {
   display: inline-block;
-  width: 3.75rem;
-  font-size: 0.875rem;
+  width: 100px;
+  font-size: 18px;
   font-weight: 500;
   color: #666;
   margin-right: 1rem;
@@ -4481,7 +4484,7 @@ button.swiper-pagination-bullet {
   transition: color 0.2s;
 }
 #Notice .notice-detail-section .notice-navigation .nav-item .nav-link:hover {
-  color: green;
+  color: #00B587;
 }
 #Notice .notice-detail-section .notice-actions {
   display: flex;
@@ -4499,11 +4502,11 @@ button.swiper-pagination-bullet {
   transition: all 0.2s;
 }
 #Notice .notice-detail-section .notice-actions .btn.btn-primary {
-  background: green;
+  background: #00B587;
   color: white;
 }
 #Notice .notice-detail-section .notice-actions .btn.btn-primary:hover {
-  background: #004d00;
+  background: #008261;
 }
 #Notice .notice-detail-section .notice-actions .btn.btn-secondary {
   background: #6c757d;
@@ -4521,11 +4524,11 @@ button.swiper-pagination-bullet {
   padding: 0 0.3125rem;
 }
 #FAQ .subcontent .faq-list-section .list-info .total-count {
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #666;
 }
 #FAQ .subcontent .faq-list-section .list-info .total-count strong {
-  color: green;
+  color: #00B587;
   font-weight: 600;
 }
 #FAQ .subcontent .faq-list-section .faq-list {
@@ -4552,9 +4555,9 @@ button.swiper-pagination-bullet {
   background: #f8f9fa;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item .faq-question .question-prefix {
-  font-size: 1.125rem;
+  font-size: 24px;
   font-weight: 700;
-  color: green;
+  color: #00B587;
   margin-right: 0.75rem;
   min-width: 1.5rem;
 }
@@ -4563,7 +4566,7 @@ button.swiper-pagination-bullet {
   font-weight: 500;
   color: #333;
   margin-left: 1rem;
-  font-size: 1.0625rem;
+  font-size: 18px;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item .faq-question .toggle-icon {
   display: flex;
@@ -4574,7 +4577,7 @@ button.swiper-pagination-bullet {
   background: #e9ecef;
   color: #666;
   border-radius: 50%;
-  font-size: 1.4rem;
+  font-size: 24px;
   font-weight: 600;
   transition: all 0.2s;
 }
@@ -4591,7 +4594,7 @@ button.swiper-pagination-bullet {
   min-width: 1.5rem;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item .faq-answer .answer-text {
-  font-size: 1.0625rem;
+  font-size: 18px;
   color: #666;
   line-height: 1.6;
 }
@@ -4599,11 +4602,11 @@ button.swiper-pagination-bullet {
   border-bottom-color: #e0e0e0;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item.active .faq-question .question-text {
-  color: green;
+  color: #00B587;
   font-weight: 600;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item.active .faq-question .toggle-icon {
-  background: green;
+  background: #00B587;
   color: white;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item.active .faq-answer {
@@ -4645,11 +4648,11 @@ button.swiper-pagination-bullet {
   border-bottom: none;
 }
 #FAQ .subcontent .faq-list-section .faq-table-wrap .faq-table tbody .faq-row.active .question-cell .faq-toggle {
-  color: green;
+  color: #00B587;
   font-weight: 600;
 }
 #FAQ .subcontent .faq-list-section .faq-table-wrap .faq-table tbody .faq-row.active .question-cell .faq-toggle .toggle-icon {
-  background: green;
+  background: #00B587;
   color: white;
 }
 #FAQ .subcontent .faq-list-section .faq-table-wrap .faq-table tbody .faq-row.active .answer-cell .answer-content {
@@ -4686,7 +4689,7 @@ button.swiper-pagination-bullet {
   align-items: center;
 }
 #FAQ .subcontent .faq-list-section .faq-table-wrap .faq-table tbody .faq-row .question-cell .faq-toggle:hover {
-  color: green;
+  color: #00B587;
 }
 #FAQ .subcontent .faq-list-section .faq-table-wrap .faq-table tbody .faq-row .question-cell .faq-toggle .toggle-icon {
   display: inline-flex;
@@ -4740,7 +4743,7 @@ button.swiper-pagination-bullet {
 }
 #FAQ .subcontent .faq-list-section .pagination-wrap .pagination .page-btn:hover {
   background: #f8f9fa;
-  border-color: green;
+  border-color: #00B587;
 }
 #FAQ .subcontent .faq-list-section .pagination-wrap .pagination .page-btn img {
   width: 1rem;
@@ -4758,7 +4761,7 @@ button.swiper-pagination-bullet {
   width: 2rem;
   height: 2rem;
   border: 0.0625rem solid #ddd;
-  border-radius: 0.25rem;
+  border-radius: 50%;
   background: white;
   color: #666;
   text-decoration: none;
@@ -4767,17 +4770,17 @@ button.swiper-pagination-bullet {
 }
 #FAQ .subcontent .faq-list-section .pagination-wrap .pagination .page-numbers .page-num:hover {
   background: #f8f9fa;
-  border-color: green;
-  color: green;
+  border-color: #00B587;
+  color: #00B587;
 }
 #FAQ .subcontent .faq-list-section .pagination-wrap .pagination .page-numbers .page-num.active {
-  background: green;
-  border-color: green;
+  background: #00B587;
+  border-color: #00B587;
   color: white;
 }
 #FAQ .subcontent .faq-list-section .pagination-wrap .pagination .page-numbers .page-num.active:hover {
-  background: green;
-  border-color: green;
+  background: #00B587;
+  border-color: #00B587;
 }
 
 /*# sourceMappingURL=ui.css.map */

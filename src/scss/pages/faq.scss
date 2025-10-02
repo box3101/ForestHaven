@@ -10,7 +10,7 @@
         padding: 0 0.3125rem;
 
         .total-count {
-          font-size: 0.875rem;
+          font-size: 16px;
           color: #666;
 
           strong {
@@ -46,7 +46,7 @@
             }
 
             .question-prefix {
-              font-size: 1.125rem;
+              font-size: 24px;
               font-weight: 700;
               color: $cMain;
               margin-right: 0.75rem;
@@ -58,7 +58,7 @@
               font-weight: 500;
               color: #333;
               margin-left: 1rem;
-              font-size: 1.0625rem;
+              font-size: 18px;
             }
 
             .toggle-icon {
@@ -70,7 +70,7 @@
               background: #e9ecef;
               color: #666;
               border-radius: 50%;
-              font-size: 1.4rem;
+              font-size: 24px;
               font-weight: 600;
               transition: all 0.2s;
             }
@@ -90,7 +90,7 @@
             }
 
             .answer-text {
-              font-size: 1.0625rem;
+              font-size:18px;
               color: #666;
               line-height: 1.6;
             }
@@ -295,7 +295,7 @@
               width: 2rem;
               height: 2rem;
               border: 0.0625rem solid #ddd;
-              border-radius: 0.25rem;
+              border-radius: 50%;
               background: white;
               color: #666;
               text-decoration: none;

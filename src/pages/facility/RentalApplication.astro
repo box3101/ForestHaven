@@ -28,9 +28,116 @@ import "../../css/ui.css";
 							value=""
 						/>
 						<button type="submit" value="검색" class="search-btn" title="검색">검색</button>
+						
 					</div>
+					 
 				</fieldset>
+				<div>1234내용</div>
+				
+				<div class="accordion">
+					<button class="accordion-btn" type="button">
+						<span>아코디언 제목</span>
+						<i class="icon-arrow"></i>
+					</button>
+					<div class="accordion-content">
+						<div class="accordion-body">
+							아코디언 내용
+						</div>
+					</div>
+				</div>
 			</div>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
+
+<style>
+	.accordion {
+		margin-top: 20px;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.accordion-btn {
+		width: 100%;
+		padding: 16px 20px;
+		background-color: #f8f9fa;
+		border: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 500;
+		transition: background-color 0.3s ease;
+	}
+
+	.accordion-btn:hover {
+		background-color: #e9ecef;
+	}
+
+	.accordion.active .accordion-btn {
+		background-color: #007bff;
+		color: white;
+	}
+
+	.accordion-btn .icon-arrow {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid #333;
+		transition: transform 0.3s ease;
+	}
+
+	.accordion.active .accordion-btn .icon-arrow {
+		transform: rotate(180deg);
+		border-top-color: white;
+	}
+
+	.accordion-content {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+	}
+
+	.accordion-body {
+		padding: 20px;
+		background-color: white;
+		border-top: 1px solid #ddd;
+	}
+</style>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', function() {
+		const accordionBtns = document.querySelectorAll('.accordion-btn');
+		
+		accordionBtns.forEach(function(btn) {
+			btn.addEventListener('click', function() {
+				const accordion = this.closest('.accordion');
+				if (!accordion) return;
+				
+				const content = accordion.querySelector('.accordion-content');
+				if (!content) return;
+				
+				const isActive = accordion.classList.contains('active');
+				
+				// 모든 아코디언 닫기
+				document.querySelectorAll('.accordion').forEach(function(acc) {
+					acc.classList.remove('active');
+					const accContent = acc.querySelector('.accordion-content');
+					if (accContent) {
+						accContent.style.maxHeight = '0px';
+					}
+				});
+				
+				// 클릭한 아코디언 토글
+				if (!isActive) {
+					accordion.classList.add('active');
+					content.style.maxHeight = content.scrollHeight + 'px';
+				}
+			});
+		});
+	});
+</script>
