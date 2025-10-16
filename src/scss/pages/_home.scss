@@ -1,0 +1,36 @@
+.main-banner {
+	width: 100%;
+	background: url("../img/img_bg-top.png") no-repeat center center / cover;
+  position: relative;
+
+  .banner-title{
+    font-size: 54px;
+    font-weight: 700;
+    color: $cDarkGray;
+    position: relative;
+    margin-bottom: 10px;
+    max-width: 100%;
+    display: inline-block;
+
+    &::after{
+      content: "";
+      display: block;
+      background: url("../img/img-title.png") no-repeat center center / contain;  
+      width: 180px;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(0%, -50%);
+    }
+  }
+  .inner img{ display: block;
+    margin-top: 10px;}
+  
+}
+
+.info-nav{
+  display: flex;
+  justify-content: space-between;
+}
+
