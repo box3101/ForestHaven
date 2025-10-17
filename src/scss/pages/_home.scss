@@ -4,19 +4,28 @@
   position: relative;
 
   .banner-title{
-    font-size: 54px;
+    font-size: 3.375rem;
     font-weight: 700;
     color: $cDarkGray;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     max-width: 100%;
     display: inline-block;
+    @include media($web){
+			font-size:30px;
+		}
+     @include media($tab){
+			font-size:20px;
+		}
+    @include media($mo){
+			font-size:16px;
+		}
 
     &::after{
       content: "";
       display: block;
       background: url("../img/img-title.png") no-repeat center center / contain;  
-      width: 180px;
+      width: 11.25rem;
       height: 100%;
       position: absolute;
       top: 50%;
@@ -25,7 +34,7 @@
     }
   }
   .inner img{ display: block;
-    margin-top: 10px;}
+    margin-top: 0.625rem;}
   
 }
 

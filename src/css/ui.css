@@ -4344,19 +4344,34 @@ button.swiper-pagination-bullet {
   position: relative;
 }
 .main-banner .banner-title {
-  font-size: 54px;
+  font-size: 3.375rem;
   font-weight: 700;
   color: #333333;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   max-width: 100%;
   display: inline-block;
+}
+@media all and (max-width: 1400px) {
+  .main-banner .banner-title {
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 900px) {
+  .main-banner .banner-title {
+    font-size: 20px;
+  }
+}
+@media all and (max-width: 600px) {
+  .main-banner .banner-title {
+    font-size: 16px;
+  }
 }
 .main-banner .banner-title::after {
   content: "";
   display: block;
   background: url("../img/img-title.png") no-repeat center center/contain;
-  width: 180px;
+  width: 11.25rem;
   height: 100%;
   position: absolute;
   top: 50%;
@@ -4365,7 +4380,7 @@ button.swiper-pagination-bullet {
 }
 .main-banner .inner img {
   display: block;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .info-nav {
