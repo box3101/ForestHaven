@@ -1,36 +1,122 @@
 .main-banner {
 	width: 100%;
 	background: url("../img/img_bg-top.png") no-repeat center center / cover;
-  position: relative;
+	position: relative;
 
-  .banner-title{
-    font-size: 54px;
-    font-weight: 700;
-    color: $cDarkGray;
-    position: relative;
-    margin-bottom: 10px;
-    max-width: 100%;
-    display: inline-block;
+	.banner-title {
+		font-size: 54px;
+		font-weight: 700;
+		color: $cDarkGray;
+		position: relative;
+		margin-bottom: 10px;
+		max-width: 100%;
+		display: inline-block;
 
-    &::after{
-      content: "";
-      display: block;
-      background: url("../img/img-title.png") no-repeat center center / contain;  
-      width: 180px;
-      height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translate(0%, -50%);
-    }
-  }
-  .inner img{ display: block;
-    margin-top: 10px;}
-  
+		&::after {
+			content: "";
+			display: block;
+			background: url("../img/img-title.png") no-repeat center center / contain;
+			width: 180px;
+			height: 100%;
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			transform: translate(0%, -50%);
+		}
+	}
+	.inner img {
+		display: block;
+		margin-top: 10px;
+	}
 }
 
-.info-nav{
-  display: flex;
-  justify-content: space-between;
-}
+.info-nav {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
 
+	.info-nav-item {
+		display: flex;
+		justify-content: space-between;
+		min-width: 470px;
+		flex-direction: column;
+		gap: 15px;
+	}
+	.info-nav-item-title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.btn_plus {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		background: url("../img/btn_plus.svg") no-repeat center center / contain;
+	}
+	.info-nav-item-box {
+		border: 6px solid $cLightGreen;
+		background-color: $cLightGreenBg;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 36px 25px;
+		border-radius: 10px;
+		cursor: pointer;
+		position: relative;
+
+		.info-inner-box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 16px;
+
+			.dateWrap {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				border-radius: 4px;
+				border: 2px solid #00b587;
+				background: #fff;
+				padding: 12px;
+				width: 70px;
+				height: 70px;
+				.date {
+					font-size: 12px;
+					font-weight: 500;
+					color: $cDarkGray;
+				}
+				.day {
+					font-size: 28px;
+					font-weight: 700;
+					color: $cMain;
+				}
+			}
+		}
+
+		.txtWrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 5px;
+		}
+		.info-new {
+			width: 24px;
+			height: 24px;
+			line-height: 24px;
+			border-radius: 50%;
+			background-color: $cMain;
+			text-align: center;
+			font-size: 12px;
+			font-weight: 700;
+			color: $cWhite;
+		}
+	}
+	.info-title {
+		font-size: 18px;
+		font-weight: 500;	color: $cDarkGray;
+	}
+}
