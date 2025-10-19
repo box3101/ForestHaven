@@ -32,6 +32,15 @@
     margin-bottom: 0.625rem; // 10px
     max-width: 100%;
     display: inline-block;
+    @include media($web){
+			font-size:30px;
+		}
+     @include media($tab){
+			font-size:20px;
+		}
+    @include media($mo){
+			font-size:16px;
+		}
 
     @include media($mo) {
       font-size: 2rem;
