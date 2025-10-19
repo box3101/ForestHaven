@@ -327,12 +327,17 @@
 		display: none;
 	}
 	.header .mobileMenu .menuToggle .menuItem {
-		background-color: #000;
+		background-color: #00B587;
 		display: block;
-		height: 2px;
+		height: 3px;
 		margin: 0 0 7px;
 		transition: all 0.3s ease-in-out;
-		width: 26px;
+		width: 30px;
+		
+			&:nth-child(2) {
+		width: 24px;
+		margin-left: 6px;
+	}
 	}
 }
 
