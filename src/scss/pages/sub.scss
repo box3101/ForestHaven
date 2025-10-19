@@ -3,14 +3,9 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 
-  @include media($web) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   @include media($tab) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 20px;
-    grid-gap: 15px; // 간격 조정
+    grid-gap: 15px;
   }
 
   @include media($mo) {

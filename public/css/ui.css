@@ -4405,6 +4405,21 @@ button.swiper-pagination-bullet {
   max-width: 100%;
   display: inline-block;
 }
+@media all and (max-width: 1400px) {
+  .main-banner .banner-title {
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 900px) {
+  .main-banner .banner-title {
+    font-size: 20px;
+  }
+}
+@media all and (max-width: 600px) {
+  .main-banner .banner-title {
+    font-size: 16px;
+  }
+}
 @media all and (max-width: 600px) {
   .main-banner .banner-title {
     font-size: 2rem;
@@ -4986,15 +5001,9 @@ button.swiper-pagination-bullet {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
-@media all and (max-width: 1400px) {
-  .facility-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media all and (max-width: 900px) {
   .facility-list {
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 20px;
     grid-gap: 15px;
   }
 }
