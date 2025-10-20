@@ -296,7 +296,7 @@ export const FacilityCard: FacilityCard[] = [
       
       // 핵심 설정: 4개 카드 고정 표시
       slidesPerView: 4, // 항상 4개만 표시
-      spaceBetween: 0, // margin-right로 간격 처리하므로 0
+      spaceBetween: 16, // margin-right로 간격 처리하므로 0
       slidesPerGroup: 1, // 1개씩 슬라이드
       
       // 무한 루프 설정 - 카드가 4개 초과일 때만 활성화
@@ -336,19 +336,19 @@ export const FacilityCard: FacilityCard[] = [
           spaceBetween: 0,
           width: null, // 자동 너비
         },
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 0,
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 6,
           width: null, // 자동 너비
         },
-        1024: {
+        900: {
           slidesPerView: 3,
-          spaceBetween: 0,
+          spaceBetween: 12,
           width: null, // 자동 너비
         },
-        1280: {
+        1400: {
           slidesPerView: 4,
-          spaceBetween: 0, // margin으로 간격 처리
+          spaceBetween: 16, // margin으로 간격 처리
           // width 제거하여 CSS가 제어하도록 함
         },
       },
