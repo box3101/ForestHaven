@@ -379,7 +379,8 @@ html {
 		border: 1px solid #ccc;
 		border-radius: 0.25rem;
 		font-size: 16px;
-		min-width: 280px;
+		// min-width: 280px;
+		    max-width: clamp(280px, 52vw, 300px); /* 최소 150px, 선호 50vw, 최대 300px */
 
 		&:focus {
 			outline: none;

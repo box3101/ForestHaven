@@ -69,6 +69,48 @@ export const facility: facility[] = [
 		link: "/facility/3",
 		infoLink: "/facility/3",
 	},
+		{
+		image: "/img/card_img03.png",
+		title: "내연산 치유의 숲_B",
+		facilityType: {
+			boldTitle: "사용시설",
+			normalText: "산림치유 프로그램"
+		},
+		managerType: {
+			boldTitle: "관리기관",
+			normalText: "내연산 치유센터"
+		},
+		link: "/facility/4",
+		infoLink: "/facility/4",
+	},
+			{
+		image: "/img/card_img04.png",
+		title: "내연산 치유의 숲_B",
+		facilityType: {
+			boldTitle: "사용시설",
+			normalText: "산림치유 프로그램"
+		},
+		managerType: {
+			boldTitle: "관리기관",
+			normalText: "내연산 치유센터"
+		},
+		link: "/facility/5",
+		infoLink: "/facility/5",
+	},
+			{
+		image: "/img/card_img05.png",
+		title: "환호공원(물의공원)",
+		facilityType: {
+			boldTitle: "사용시설",
+			normalText: "공연장"
+		},
+		managerType: {
+			boldTitle: "관리기관",
+			normalText: "내포항시 푸른도시사업단 공원과 (054-270-5733)"
+		},
+		link: "/facility/6",
+		infoLink: "/facility/6",
+	},
 ];
 ---
 
@@ -99,7 +141,7 @@ export const facility: facility[] = [
 							<img src={facility.image} alt={facility.title} />
 						</div>
 						<div class="facility-info">
-							<h3>{facility.title}</h3>
+							<h2>{facility.title}</h2>
 							<ul class="facility-details">
 								<li>
 									<h3 class="tit-bold">{facility.facilityType.boldTitle}</h3>
@@ -111,12 +153,41 @@ export const facility: facility[] = [
 								</li>
 							</ul>
 							<div class="facility-buttons">
-								<a href={facility.infoLink} class="btn-info">시설안내</a>
-								<a href={facility.link} class="btn-write">대관신청</a>
+								{facility.infoLink && (
+    <a href={facility.infoLink} class="btn-info">시설안내</a>
+  )}
+								{facility.link && (
+									<a href={facility.link} class="btn-write">대관신청</a>
+								)}
 							</div>
 						</div>
 					</div>
 				))}
+			</div>
+
+			<!-- 페이지네이션 -->
+			<div class="pagination-wrap">
+				<div class="pagination">
+					<a href="#" class="page-btn prev-btn" aria-label="처음음 페이지">
+						<img src="../img/btn_arrow_left_first.svg" alt="처음" />
+					</a>
+					<a href="#" class="page-btn prev-btn" aria-label="이전 페이지">
+						<img src="../img/btn_arrow_left.svg" alt="이전" />
+					</a>
+					<div class="page-numbers">
+						<a href="#" class="page-num active">1</a>
+						<a href="#" class="page-num">2</a>
+						<a href="#" class="page-num">3</a>
+						<a href="#" class="page-num">4</a>
+						<a href="#" class="page-num">5</a>
+					</div>
+					<a href="#" class="page-btn next-btn" aria-label="다음 페이지">
+						<img src="../img/btn_arrow_right.svg" alt="다음" />
+					</a>
+					<a href="#" class="page-btn next-btn" aria-label="마지막 페이지">
+						<img src="../img/btn_arrow_right_last.svg" alt="다음" />
+					</a>
+				</div>
 			</div>
 		</SubBody>
 	</SubLayout>

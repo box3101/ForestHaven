@@ -1,8 +1,8 @@
-
-  {
-    "prettier.documentSelectors": ["**/*.astro"],
-    "[astro]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "px-to-rem.px-per-rem": 16
-  }
+{
+	"prettier.documentSelectors": ["**/*.astro"],
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"px-to-rem.px-per-rem": 16,
+	"editor.formatOnSave": true
+}

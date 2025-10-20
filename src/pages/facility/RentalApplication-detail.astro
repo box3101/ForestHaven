@@ -3,19 +3,80 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SubLayout from "../../layouts/SubLayout.astro";
 import SubBody from "../../layouts/SubBody.astro";
 
-const datph2 = "대관 안내";
-const location = "대관 신청";
+const datph2 = "대관안내";
+const location = "대관신청";
 const pageTitle = `홈>${datph2}>${location}`;
 const idName = "FacilityRental";
 
 import "../../css/ui.css";
+
+// 대관신청 타이틀
+export interface facilityTitle {
+	title: string;	
+	link?: string;
+	infoLink?: string;
+}
+
+export const facilityTitle: facilityTitle[] = [
+	{
+		title: "송도솔밭 물빛누리공원",
+		link: "/facilityTitle/1",
+		infoLink: "/facilityTitle/1",
+	},
+];
+
+
+// 대관신청 상세
+export interface facilityDetial {
+	image: string;
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	};
+}
+
+export const facilityDetial: facilityDetial[] = [
+	{
+		image: "/img/card_img01.png",
+		facilityType: {
+			boldTitle: "사용시설",
+			normalText: "물빛누리공원"
+		},
+	},
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
-      </div>
+					{facilityTitle.map((facility, index) => (
+						<div class="facility-title">
+							<h3 class="tit-bold">{facility.title}</h3>
+							<div class="facility-buttons">
+								{facility.infoLink && (
+									<a href={facility.infoLink} class="btn-next">다음으로</a>
+								)}
+								{facility.link && (
+									<a href={facility.link} class="btn-list">목록으로</a>
+								)}
+							</div>
+						</div>
+					))}
+  <div class="facility-listWrap">
+		{facilityDetial.map((facility, index) => (
+			<div class="facility-item">
+				<img src={facility.image} alt={facility.facilityType.boldTitle} />
+				<div class="facility-info">
+					<h2 class="boldTitle">{facility.facilityType.boldTitle}</h2>
+					<p class="normalText">{facility.facilityType.normalText}</p>
+				</div>
+			</div>
+		))}
+	</div>
+
+	
+
+
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
