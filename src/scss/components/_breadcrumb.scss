@@ -7,7 +7,7 @@
     li {
       a {
         position: relative; display: flex; align-items: center;
-        @include font(0.875rem, 500, #999); // 14px to rem
+        @include font(.875rem, 500, #999); // 14px to rem
         @include before {
           position: absolute;
           top: 54%; left: -1.125rem; // -18px to rem
@@ -25,10 +25,10 @@
         }
       }
       &.last {
-        a {
+        a {  border-bottom: 1px solid #999;
           @include before {
            width: 0.375rem; height: 0.75rem; // 6px and 12px to rem
-           background: url(../img/icon-b-arrow.svg) no-repeat center center;
+           background: url(../img/bread-arrow-right.svg) no-repeat center center;
            background-size: cover;
           }
         }

@@ -23,12 +23,22 @@ html {
 	margin: 0 auto;
 	padding-top: 60px;
 	padding-bottom: 100px;
+
+
+	@include media($web) {
+			padding: 20px ;
+	}
+	@include media($tab) {
+			padding: 20px ;
+	}
+	@include media($mo) {
+			padding: 20px;
+	}
 }
 
 .subContent {
 	@include media($tab) {
 		max-width: 100%;
-		padding: 0 10px;
 	}
 }
 
@@ -126,10 +136,10 @@ html {
 .search-section {
 	margin-bottom: 1.875rem;
 	padding: 1.25rem;
-	background: #f8f9fa;
-	border-radius: 0.5rem;
+	background: #F8F8F8;
+	border-radius: 10px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center	;
 	align-items: center;
 	gap: 10px;
 
@@ -141,7 +151,7 @@ html {
 	}
 
 	.search-form {
-		margin-left: auto;
+	
 		flex:none;
 		display: flex; align-items: center; gap:5px;
 		@include media($web){
@@ -359,13 +369,17 @@ html {
 	display: flex;
 	gap: 0.625rem;
 	max-width: 40rem;
+	align-items: center;
+	.title-name{font-size: 16; color: $cMain; font-weight: 700;}
+
 
 	.search-input {
 		flex: 1;
 		padding: 0.75rem 1rem;
-		border: 0.0625rem solid #ddd;
+		border: 1px solid #ccc;
 		border-radius: 0.25rem;
 		font-size: 16px;
+		min-width: 280px;
 
 		&:focus {
 			outline: none;
@@ -418,7 +432,7 @@ html {
 }
 
 .search-btn {
-	padding: 6px 1.5rem;
+	padding: 10px 12px;
 	padding-right: 3.3rem;
 	padding-left: 1rem;
 	background: #008984;

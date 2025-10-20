@@ -3,57 +3,456 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const pageTitle = `홈`;
 
 import "../../css/ui.css";
+
+// 공지사항 데이터
+export interface Notice {
+	title: string;
+	date: string;
+	link?: string;
+}
+
+export const notices: Notice[] = [
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.26",
+		link: "/notices/1",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.24",
+		link: "/notices/2",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.22",
+		link: "/notices/2",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.20",
+		link: "/notices/2",
+	},
+];
+
+// 자주하는 질문
+export interface qna {
+	title: string;
+	date: string;
+	link?: string;
+}
+
+export const qna: qna[] = [
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.26",
+		link: "/qna/1",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.24",
+		link: "/qna/2",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.22",
+		link: "/qna/2",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.20",
+		link: "/qna/2",
+	},
+];
+
+// 녹지소개 버튼
+export interface AboutButton {
+	title: string;
+	subtitle?: string;
+	icon: string;
+	link: string;
+}
+
+export const AboutButton: AboutButton[] = [
+	{
+		title: "도시숲 소개",
+		icon: "/img/icon_01.svg",
+		link: "/about/1",
+	},
+	{
+		title: "도시숲 소개",
+		icon: "/img/icon_02.svg",
+		link: "/about/2",
+	},
+	{
+		title: "푸른도시",
+		subtitle: "바로가기",
+		icon: "/img/icon_03.svg",
+		link: "/about/3",
+	},
+];
+
+// 대관시설 카드
+export interface FacilityCard {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const FacilityCard: FacilityCard[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "/img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "/img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "/img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "/img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "/img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "/img/swiper_img02.png",
+		link: "/facility/6",
+	},
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<div id="main" class="main">
-		<!-- 메인 배너 -->
+		<!-- 메인 배너 [s]-->
 		<section class="main-banner">
 			<div class="inner">
 				<h2 class="banner-title">아름다운 녹지,</h2>
 				<img src="../img/img-subtit.png" alt="" />
 			</div>
 		</section>
-		<!-- 메인 배너 EEE -->
+		<!-- 메인 배너 [e] -->
 
-		<!-- 바로가기 -->
+		<!-- 바로가기 [s] -->
 		<section>
 			<div class="inner">
 				<ul class="info-nav">
-					<li class="info-nav-item">
-						<div class="info-nav-item-title">
-							<h3 class="info-title">공지사항</h3>
-							<a href="" title="공지사항" class="btn_plus"></a>
+					<li>
+						<div class="info-nav-item">
+							<h2>공지사항</h2>
+							<a href="" title="공지사항" class="btn-plus">
+								<i><span class="hide">더보기</span></i>
+							</a>
 						</div>
-						<a href="" title="공지사항 본문" class="info-nav-item-box">
-							<ul class="info-inner-box">
-								<li class="dateWrap">
-										<p class="date">2025.08.21</p>
-										<p class="day">04</p>
-								</li>
-								<li class="txtWrap">
-									<span class="info-new">N</span>
-									<h3 class="info-title">공지사항 본문입니다.</h3>
-								</li>
+						<div class="info-wrapper">
+							<div class="item">
+								<div class="item_box">
+									<p class="month">2025.04</p>
+									<p class="day">04</p>
+								</div>
+								<div class="item_text">
+									<em class="new">N</em>
+									<span>공지사항 본문입니다.</span>
+								</div>
+							</div>
+							<div class="item-list">
+								<ul>
+									{
+										notices.map((notice) => (
+											<li>
+												<a href={notice.link}>{notice.title}</a>
+												<span class="date">{notice.date}</span>
+											</li>
+										))
+									}
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="info-nav-item">
+							<h2>자주하는 질문</h2>
+							<a href="" title="자주하는질문" class="btn-plus">
+								<i><span class="hide">더보기</span></i>
+							</a>
+						</div>
+						<div class="info-wrapper">
+							<div class="item type2">
+								<div class="item_box">
+									<p class="month">2025.04</p>
+									<p class="day">04</p>
+								</div>
+								<div class="item_text">
+									<em class="new">N</em>
+									<span>자주하는 질문 본문입니다.</span>
+								</div>
+							</div>
+							<div class="item-list">
+								<ul>
+									{
+										qna.map((qna) => (
+											<li>
+												<a href={qna.link}>{qna.title}</a>
+												<span class="date">{qna.date}</span>
+											</li>
+										))
+									}
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="info-nav-item">
+							<h2>녹지 소개</h2>
+						</div>
+						<div class="info-wrapper">
+							<ul class="about-button">
+								{
+									AboutButton.map((button) => (
+										<li>
+											<a href={button.link} class="about-btn">
+												<img src={button.icon} alt="" class="icon" />
+												<div class="text">
+													<span class="title">{button.title}</span>
+													{button.subtitle && <span class="subtitle">{button.subtitle}</span>}
+												</div>
+											</a>
+										</li>
+									))
+								}
 							</ul>
-						</a>
-					</li>
-					<li class="info-nav-item">
-						<div>
-							<h3>자주하는 질문</h3>
-							<img src="../img/btn_plus.svg" alt="" />
 						</div>
 					</li>
-					<li>녹지 소개</li>
 				</ul>
 			</div>
 		</section>
-		<!-- 바로가기 EEE -->
+		<!-- 바로가기 [e] -->
 
-		<!-- 자료실 ,대관시설 -->
+		<!-- 대관시설 [s]-->
+		<section class="main-footer-banner">
+			<div class="inner">
+				<h2 class="banner-title">대관시설</h2>
 
-		<!-- 자료실 ,대관
-	 
-	시설 EEE -->
+				<div class="facility-slider">
+					<div class="swiper" id="facilitySwiper">
+						<div class="swiper-wrapper">
+							{
+								FacilityCard.map((card, index) => (
+									<div class="swiper-slide">
+										<a href={card.link} class={`facility-card ${index === 0 ? "active" : ""}`}>
+											<div class="card-image">
+												<img src={card.image} alt={card.title} loading="lazy" />
+											</div>
+											<div class="card-title">{card.title}</div>
+										</a>
+									</div>
+								))
+							}
+						</div>
+					</div>
+
+					<!-- Navigation buttons -->
+					<div class="swiper-button-prev facility-prev" id="facilityPrev"></div>
+					<div class="swiper-button-next facility-next" id="facilityNext"></div>
+
+					<!-- Pagination -->
+					<div class="swiper-pagination facility-pagination"></div>
+				</div>
+			</div>
+		</section>
+		<!-- 대관시설 [e] -->
 	</div>
 </BaseLayout>
+
+<script>
+	import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+
+  // Swiper 초기화 함수
+  function initFacilitySwiper() {
+    const swiperContainer = document.getElementById('facilitySwiper');
+    
+    if (!swiperContainer) {
+      console.warn('Swiper container not found');
+      return;
+    }
+
+    // 카드 개수 확인
+    const totalCards = swiperContainer.querySelectorAll('.swiper-slide').length;
+    const visibleCards = 4; // 항상 4개만 표시
+    
+    const swiper = new Swiper('#facilitySwiper', {
+      modules: [Navigation, Pagination],
+      
+      // 핵심 설정: 4개 카드 고정 표시
+      slidesPerView: 4, // 항상 4개만 표시
+      spaceBetween: 0, // margin-right로 간격 처리하므로 0
+      slidesPerGroup: 1, // 1개씩 슬라이드
+      
+      // 무한 루프 설정 - 카드가 4개 초과일 때만 활성화
+      loop: false, // 첫 화면에서 왼쪽 비활성화를 보여주기 위해 loop 해제
+      
+      speed: 300, // 슬라이드 속도
+      centeredSlides: false,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      watchOverflow: false,
+      
+      // 정확한 너비 계산 - 제거하여 CSS가 제어하도록
+      // width: 1280, // CSS !important로 제어
+      
+      // 슬라이드 크기 고정
+      autoHeight: false,
+      allowTouchMove: true,
+      
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        disabledClass: 'swiper-button-disabled',
+      },
+      
+      pagination: {
+        el: '.facility-pagination',
+        clickable: true,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        dynamicBullets: false,
+      },
+      
+      // 반응형 설정 - 1280px 이하에서만 조정
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          width: null, // 자동 너비
+        },
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          width: null, // 자동 너비
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+          width: null, // 자동 너비
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 0, // margin으로 간격 처리
+          // width 제거하여 CSS가 제어하도록 함
+        },
+      },
+      
+      // 이벤트 리스너
+      on: {
+        init: function() {
+          console.log('Facility Swiper initialized');
+          console.log(`Total cards: ${totalCards}, Visible: ${visibleCards}`);
+          
+          // 카드가 4개 이하이면 네비게이션 숨김
+          manageNavigationVisibility(this, totalCards, visibleCards);
+          updateActiveCard(this);
+          updateVisibleLastCard(this); // 초기화 시에도 visible-last 설정
+          
+          // 초기 상태에서 왼쪽 화살표 비활성화 (시각적 효과)
+          /* if (totalCards > visibleCards) {
+            setTimeout(() => {
+              const prevBtn = document.querySelector('.facility-prev');
+              if (prevBtn) {
+                prevBtn.classList.add('swiper-button-disabled');
+                setTimeout(() => {
+                  prevBtn.classList.remove('swiper-button-disabled');
+                }, 1000); // 1초 후 정상 상태로
+              }
+            }, 100);
+          } */
+        },
+        slideChange: function() {
+          updateActiveCard(this);
+          updateVisibleLastCard(this); // 슬라이드 변경 시에도 visible-last 업데이트
+        },
+        resize: function() {
+          // 리사이즈 시 네비게이션 재계산
+          const currentVisible = this.params.slidesPerView;
+          manageNavigationVisibility(this, totalCards, currentVisible);
+        }
+      }
+    });
+
+    // 네비게이션 가시성 관리 - CSS 클래스 방식 사용
+    function manageNavigationVisibility(swiperInstance, total, visible) {
+      const prevBtn = document.querySelector('.facility-prev');
+      const nextBtn = document.querySelector('.facility-next');
+      const pagination = document.querySelector('.facility-pagination');
+      
+      if (total <= visible) {
+        // 카드가 4개 이하면 네비게이션 숨김
+        if (prevBtn) prevBtn.classList.add('navigation-hidden');
+        if (nextBtn) nextBtn.classList.add('navigation-hidden');
+        if (pagination) pagination.classList.add('pagination-hidden');
+      } else {
+        // 카드가 4개 초과면 네비게이션 표시
+        if (prevBtn) prevBtn.classList.remove('navigation-hidden');
+        if (nextBtn) nextBtn.classList.remove('navigation-hidden');
+        if (pagination) pagination.classList.remove('pagination-hidden');
+      }
+    }
+
+    // 활성 카드 업데이트 함수
+    function updateActiveCard(swiperInstance) {
+      const slides = swiperInstance.slides;
+      slides.forEach((slide, index) => {
+        const card = slide.querySelector('.facility-card');
+        if (card) {
+          // 첫 번째로 보이는 카드를 활성화
+          if (index === swiperInstance.activeIndex) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        }
+      });
+      
+      // visible-last 클래스 관리 (보이는 4번째 카드)
+      updateVisibleLastCard(swiperInstance);
+    }
+
+    // 보이는 마지막 카드 업데이트 함수
+    function updateVisibleLastCard(swiperInstance) {
+      const slides = swiperInstance.slides;
+      const activeIndex = swiperInstance.activeIndex;
+      const visibleCards = 4;
+      
+      slides.forEach((slide, index) => {
+        slide.classList.remove('visible-last');
+        
+        // 현재 보이는 4개 카드 중 마지막 카드 (3번째 인덱스)
+        if (index === activeIndex + visibleCards - 1) {
+          slide.classList.add('visible-last');
+        }
+      });
+    }
+
+    return swiper;
+  }
+
+  // DOM 로드 완료 후 초기화
+  document.addEventListener('DOMContentLoaded', () => {
+    initFacilitySwiper();
+  });
+
+  // Astro 페이지 전환 시 재초기화
+  document.addEventListener('astro:page-load', () => {
+    initFacilitySwiper();
+  });
+</script>

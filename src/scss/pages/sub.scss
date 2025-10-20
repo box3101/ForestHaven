@@ -1,14 +1,241 @@
-// 검색 폼 스타일
-.bod_search {
-    padding: 20px;
-    margin-bottom: 30px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    display: flex;
-    align-items: center; justify-content: center;
-    
-    label{
-      font-size: 16px;
-      color:#008984; font-weight: 600;
+.facility-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+  @include media($tab) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+
+  @include media($mo) {
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
+
+  .facility-item {
+    border: 1px solid #ccc;
+    padding: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    // 모바일에서 패딩 조정
+    @include media($mo) {
+      padding: 20px;
     }
+
+    .facility-image {
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+      }
+    }
+
+    .facility-info {
+      padding-top: 20px;
+
+      @include media($mo) {
+        padding-top: 15px;
+      }
+
+      h3 {
+        font-size: 26px;
+        font-weight: 700;
+        color: $cDarkGray;
+        transition: color 0.3s ease;
+
+        // 반응형 폰트 크기 조정
+        @include media($tab) {
+          font-size: 22px;
+        }
+
+        @include media($mo) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .facility-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 20px;
+
+      @include media($mo) {
+        padding-top: 15px;
+        gap: 6px;
+      }
+
+      li {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .tit-bold {
+          font-size: 18px;
+          font-weight: 700;
+          color: $cDarkGray;
+          position: relative;
+          padding-left: 10px;
+          white-space: nowrap;
+
+          @include media($mo) {
+            font-size: 16px;
+          }
+
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background-color: $cMain;
+            text-indent: -10px;
+          }
+        }
+
+        .tit-default {
+          font-size: 18px;
+          color: $cDarkGray;
+          position: relative;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 250px;
+
+          @include media($tab) {
+            width: 200px;
+            font-size: 16px;
+          }
+
+          @include media($mo) {
+            width: 100%;
+            font-size: 16px;
+          }
+        }
+
+        .tit-normal {
+          font-size: 16px;
+          color: $cDarkGray;
+
+          @include media($mo) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .facility-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 20px;
+
+      @include media($mo) {
+        padding-top: 15px;
+        gap: 8px;
+        flex-direction: column; // 모바일에서 세로 배치
+      }
+
+      .btn-info {
+        border: 1px solid $cGray02;
+        font-size: 16px;
+        color: $cGray02;
+        border-radius: 30px;
+        padding: 10px 40px 10px 20px;
+        position: relative;
+        text-align: left;
+
+        @include media($mo) {
+          font-size: 14px;
+          padding: 8px 35px 8px 15px;
+        }
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: url("../img/icon_search.svg") no-repeat center center/contain;
+
+          @include media($mo) {
+            width: 14px;
+            height: 14px;
+            right: 10px;
+          }
+        }
+
+        &:hover {
+          background-color: $cDarkGray;
+          color: $cWhite;
+
+          &::after {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+
+      .btn-write {
+        background-color: $cMain;
+        font-size: 16px;
+        color: $cWhite;
+        border-radius: 30px;
+        padding: 10px 40px 10px 20px;
+        position: relative;
+        text-align: left;
+
+        @include media($mo) {
+          font-size: 14px;
+          padding: 8px 35px 8px 15px;
+        }
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: url("../img/icon_write.svg") no-repeat center center/contain;
+
+          @include media($mo) {
+            width: 14px;
+            height: 14px;
+            right: 10px;
+          }
+        }
+
+        &:hover {
+          background-color: darken($cMain, 10%);
+        }
+      }
+    }
+
+    &:hover,
+    &:active,
+    &.active {
+      border-color: $cMain;
+
+      .facility-info h3 {
+        color: $cMain;
+      }
+
+      .facility-details .tit-bold {
+        color: $cDarkGray;
+      }
+    }
+  }
 }
