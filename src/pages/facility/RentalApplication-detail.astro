@@ -136,6 +136,81 @@ export const facilityInfo: FacilityInfo[] = [
     },
 ];
 
+
+//유의사항 및 운영 안내
+export interface FacilityNotice {
+    facilityName: string;
+    facilityType: {
+        boldTitle: string;
+        normalText: string;
+    }[];
+}
+
+export const FacilityNotice: FacilityNotice[] = [
+    {
+        facilityName: "<시설물 이용에 대한 주의사항>",
+        facilityType: [
+            {
+                boldTitle: "1. 공영장의 사용허가는 다음과 같다.",
+                normalText: ""
+            },
+        ]
+    },
+    {
+        facilityName: "", // 새로 추가할 시설
+        facilityType: [
+            {
+                boldTitle: "",
+                normalText: "가. 야외 공연장을 사용하고자 하는 자는 야외공연장 사용 허가신청서 및 계획서를 작성하여 예약홈페이지 내 \"첨부파일\"을 통하여 사전에 관리부서의 허가를득하여야 하며, 허가 내용을 변경하고자 할 때와 특별한 시설을 설치할 경우에도 또한 같다."
+            },
+			{
+                boldTitle: "",
+                normalText: "나.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다."
+            },
+			{
+                boldTitle: "",
+                normalText: "다.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다."
+            },
+			{
+                boldTitle: "",
+                normalText: "라. 야외공연장 시설예약은 매달 4회만 신청 가능하며, 4회 이상 신청 시 별도 통보 없이 전부 취소될 수 있다."
+            },
+			{
+                boldTitle: "",
+                normalText: "마.사용신청이 없는 기간에 대해서는 수시로 허가신청이 가능하다."
+            },
+			{
+                boldTitle: "",
+                normalText: "바. 공익을 목적으로 국가, 지방자치단체 또는 공공기관에서 주최 또는 후원하는 행사의 경우에는 사용신청이 중복되는 경우라도 우선적으로 허가 할 수 있다."
+            },
+            
+        ]
+    }
+];
+
+
+// 첨부양식
+export interface DownloadFile  {
+	image: string;
+    name: string;
+    fileName: string;
+    filePath: string;
+}
+
+export const DownloadFile : DownloadFile [] = [
+    {
+		image: "/img/icon_clip.svg",
+        name: "[붙임1]야외공연장 사용허가 신청서.hwp",
+        fileName: "[붙임1]야외공연장 사용허가 신청서.hwp",
+        filePath: "/documents/[붙임1]야외공연장 사용허가 신청서.hwp"
+    },
+    {
+		image: "/img/icon_clip.svg",
+        name: "[붙임3] 안전관리 이행서약서.hwp",
+        fileName: "[붙임3] 안전관리 이행서약서.hwp",
+        filePath: "/documents/[붙임3] 안전관리 이행서약서.hwp"
+    },
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -156,7 +231,7 @@ export const facilityInfo: FacilityInfo[] = [
 			))}
 
 			<!-- 공원 정보 -->
-			<div class="facility-listWrap">
+			<section class="facility-listWrap">
 				<div class="description-Box">
 					{facilityDetial.map((facility, index) => (
 						<div class="facility-item">
@@ -172,7 +247,7 @@ export const facilityInfo: FacilityInfo[] = [
 						</div>
 					))}
 				</div>
-			</div>
+			</section>
 
 			<!-- 전경 이미지 슬라이더 섹션 -->
 			<section class="related-facilities-section">
@@ -214,7 +289,7 @@ export const facilityInfo: FacilityInfo[] = [
 			</section>
 
 			<!-- 시설안내 -->
-			<div class="facility-info-container">
+			<section class="facility-info-container">
 				<h2 class="section-title">시설안내</h2>
 				{facilityInfo.map((facility) => (
 					<div class="facility-info-group">
@@ -226,9 +301,40 @@ export const facilityInfo: FacilityInfo[] = [
 						))}
 					</div>
 				))}
-			</div>
+			</section>
 
+			<!-- 유의사항 및 운영 안내 -->
+			<section class="facility-notice-container">
+				<h2 class="section-title">유의사항 및 운영 안내</h2>
+				<div class="facility-notice-Wrap">
+					{FacilityNotice.map((facility) => (
+						<>
+							{facility.facilityName && (
+								<h3 class="facility-name">{facility.facilityName}</h3>
+							)}
+							{facility.facilityType.map((facilityType) => (
+								<div class="facility-info-item">
+									<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+									<p class="normalText">{facilityType.normalText}</p>
+								</div>
+							))}
+						</>
+					))}
+				</div>
+			</section>
 
+			<!-- 첨부양식 -->
+			<section class="facility-download-container">
+				<h2 class="section-title">첨부양식</h2>
+				<div class="facility-download-wrap">
+					{DownloadFile.map((facility) => (
+						<a href={`${facility.filePath}`} class="facility-download-item" download>
+							<img src={facility.image} alt={facility.name} />
+							<h2 class="boldTitle">{facility.name}</h2>
+						</a>
+					))}
+				</div>
+			</section>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
@@ -290,11 +396,11 @@ export const facilityInfo: FacilityInfo[] = [
 				},
 				600: {
 					slidesPerView: 2,
-					spaceBetween: 6,
+					spaceBetween: 16,
 				},
 				900: {
 					slidesPerView: 3,
-					spaceBetween: 12,
+					spaceBetween: 16,
 				},
 				1400: {
 					slidesPerView: 4,
