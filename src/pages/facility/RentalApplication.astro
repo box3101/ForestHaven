@@ -32,11 +32,11 @@ export const facility: facility[] = [
 		title: "융합1체육공원 풋살장 2구장",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "풋살장 2구장"
+			normalText: "풋살장 2구장",
 		},
 		managerType: {
 			boldTitle: "관리기관",
-			normalText: "포항시 푸른도시사업단 공원과 (054-270-5733573357335733)"
+			normalText: "포항시 푸른도시사업단 공원과 (054-270-5733573357335733)",
 		},
 		link: "/facility/1",
 		infoLink: "/facility/1",
@@ -46,11 +46,11 @@ export const facility: facility[] = [
 		title: "융합1체육공원 풋살장 1구장",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "풋살장 2구장"
+			normalText: "풋살장 2구장",
 		},
 		managerType: {
 			boldTitle: "관리기관",
-			normalText: "포항시 푸른도시사업단 공원과 (054-270-5733)"
+			normalText: "포항시 푸른도시사업단 공원과 (054-270-5733)",
 		},
 		link: "/facility/2",
 		infoLink: "/facility/2",
@@ -60,53 +60,53 @@ export const facility: facility[] = [
 		title: "송도 솔밭 물빛누리공원",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "풋살장 2구장"
+			normalText: "풋살장 2구장",
 		},
 		managerType: {
 			boldTitle: "관리기관",
-			normalText: "포항시 푸른도시사업단 그린웨이추진과 (054-270-5733)"
+			normalText: "포항시 푸른도시사업단 그린웨이추진과 (054-270-5733)",
 		},
 		link: "/facility/3",
 		infoLink: "/facility/3",
 	},
-		{
+	{
 		image: "/img/card_img03.png",
 		title: "내연산 치유의 숲_B",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "산림치유 프로그램"
+			normalText: "산림치유 프로그램",
 		},
 		managerType: {
 			boldTitle: "관리기관",
-			normalText: "내연산 치유센터"
+			normalText: "내연산 치유센터",
 		},
 		link: "/facility/4",
 		infoLink: "/facility/4",
 	},
-			{
+	{
 		image: "/img/card_img04.png",
 		title: "내연산 치유의 숲_B",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "산림치유 프로그램"
+			normalText: "산림치유 프로그램",
 		},
 		managerType: {
-			boldTitle: "관리기관",
-			normalText: "내연산 치유센터"
+			boldTitle: "관리기관2323",
+			normalText: "내연산 치유센터",
 		},
 		link: "/facility/5",
 		infoLink: "/facility/5",
 	},
-			{
+	{
 		image: "/img/card_img05.png",
 		title: "환호공원(물의공원)",
 		facilityType: {
 			boldTitle: "사용시설",
-			normalText: "공연장"
+			normalText: "공연장",
 		},
 		managerType: {
 			boldTitle: "관리기관",
-			normalText: "내포항시 푸른도시사업단 공원과 (054-270-5733)"
+			normalText: "내포항시 푸른도시사업단 공원과 (054-270-5733)",
 		},
 		link: "/facility/6",
 		infoLink: "/facility/6",
@@ -135,34 +135,40 @@ export const facility: facility[] = [
 
 			<!-- 대관신청 -->
 			<div class="facility-list">
-				{facility.map((facility) => (
-					<div class="facility-item">
-						<div class="facility-image">
-							<img src={facility.image} alt={facility.title} />
-						</div>
-						<div class="facility-info">
-							<h2>{facility.title}</h2>
-							<ul class="facility-details">
-								<li>
-									<h3 class="tit-bold">{facility.facilityType.boldTitle}</h3>
-									<span class="tit-default">{facility.facilityType.normalText}</span>
-								</li>
-								<li>
-									<h3 class="tit-bold">{facility.managerType.boldTitle}</h3>
-									<span class="tit-default">{facility.managerType.normalText}</span>
-								</li>
-							</ul>
-							<div class="facility-buttons">
-								{facility.infoLink && (
-    								<a href={facility.infoLink} class="btn-info">시설안내</a>
-  							)}
-								{facility.link && (
-									<a href={facility.link} class="btn-write">대관신청</a>
-								)}
+				{
+					facility.map((facility) => (
+						<div class="facility-item">
+							<div class="facility-image">
+								<img src={facility.image} alt={facility.title} />
+							</div>
+							<div class="facility-info">
+								<h2>{facility.title}</h2>
+								<ul class="facility-details">
+									<li>
+										<h3 class="tit-bold">{facility.facilityType.boldTitle}</h3>
+										<span class="tit-default">{facility.facilityType.normalText}</span>
+									</li>
+									<li>
+										<h3 class="tit-bold">{facility.managerType.boldTitle}</h3>
+										<span class="tit-default">{facility.managerType.normalText}</span>
+									</li>
+								</ul>
+								<div class="facility-buttons">
+									{facility.infoLink && (
+										<a href={facility.infoLink} class="btn-info">
+											시설안내
+										</a>
+									)}
+									{facility.link && (
+										<a href={facility.link} class="btn-write">
+											대관신청
+										</a>
+									)}
+								</div>
 							</div>
 						</div>
-					</div>
-				))}
+					))
+				}
 			</div>
 
 			<!-- 페이지네이션 -->
