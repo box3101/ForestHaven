@@ -32,51 +32,364 @@ export interface facilityDetial {
 	facilityType: {
 		boldTitle: string;
 		normalText: string;
-	};
+	}[];
 }
 
 export const facilityDetial: facilityDetial[] = [
 	{
 		image: "/img/card_img01.png",
-		facilityType: {
-			boldTitle: "사용시설",
-			normalText: "물빛누리공원"
-		},
+		facilityType: [
+            {
+                boldTitle: "사용시설",
+                normalText: "물빛누리공원"
+            },
+            {
+                boldTitle: "관리기관",
+                normalText: "포항시 공원과 공원관리팀(054-251-2564)"
+            },
+			{
+                boldTitle: "이용구분",
+                normalText: "최소 1명 / 최대 99명"
+            },
+			{
+                boldTitle: "주소",
+                normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)"
+            }
+        ],
 	},
 ];
+
+// 관련 시설 슬라이더
+export interface RelatedFacility {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const relatedFacilities: RelatedFacility[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "/img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "/img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "/img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "/img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "/img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "/img/swiper_img02.png",
+		link: "/facility/6",
+	},
+];
+
+
+
+// 안내박스
+export interface FacilityInfo {
+    facilityType: {
+        boldTitle: string;
+        normalText: string;
+    }[];
+}
+
+export const facilityInfo: FacilityInfo[] = [
+    {
+        facilityType: [
+            {
+                boldTitle: "신청기간",
+                normalText: "사용달 전월 1일~말일까지 (예시 : 2025년 8월 16일 공연 신청 시 7월 1일 부터 신청가능)"
+            },
+            {
+                boldTitle: "장소",
+                normalText: "송도 솔밭 물빛누리공원 야외공연장"
+            },
+            {
+                boldTitle: "이용가능시간",
+                normalText: "매주 토, 일요일 (09:00~19:00)까지, 평일 이용 불가. 1일 1팀 사용가능"
+            },
+            {
+                boldTitle: "신청방법",
+                normalText: "선착순 접수 (※[통합] 신청서 및 계획서를 첨부파일 업로드 하여 관리부서 허가를 득한 후 사용가능)"
+            },
+            {
+                boldTitle: "신청가능 프로그램",
+                normalText: "음악, 무용, 연극, 전시, 미술 등 공연과 전시가 가능한 문화예술 전 분야"
+            }
+        ],
+    },
+];
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-					{facilityTitle.map((facility, index) => (
-						<div class="facility-title">
-							<h3 class="tit-bold">{facility.title}</h3>
-							<div class="facility-buttons">
-								{facility.infoLink && (
-									<a href={facility.infoLink} class="btn-next">다음으로</a>
-								)}
-								{facility.link && (
-									<a href={facility.link} class="btn-list">목록으로</a>
-								)}
+			{facilityTitle.map((facility, index) => (
+				<div class="facility-title">
+					<h3 class="tit-bold">{facility.title}</h3>
+					<div class="facility-buttons">
+						{facility.infoLink && (
+							<a href={facility.infoLink} class="btn-next">다음으로</a>
+						)}
+						{facility.link && (
+							<a href={facility.link} class="btn-list">목록으로</a>
+						)}
+					</div>
+				</div>
+			))}
+
+			<!-- 공원 정보 -->
+			<div class="facility-listWrap">
+				<div class="description-Box">
+					{facilityDetial.map((facility, index) => (
+						<div class="facility-item">
+							<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+							<div class="facility-info">
+								{facility.facilityType.map((facilityType, index) => (
+									<div class="facility-info-group">
+										<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+										<p class="normalText">{facilityType.normalText}</p>
+									</div>
+								))}
 							</div>
 						</div>
 					))}
-  <div class="facility-listWrap">
-		{facilityDetial.map((facility, index) => (
-			<div class="facility-item">
-				<img src={facility.image} alt={facility.facilityType.boldTitle} />
-				<div class="facility-info">
-					<h2 class="boldTitle">{facility.facilityType.boldTitle}</h2>
-					<p class="normalText">{facility.facilityType.normalText}</p>
 				</div>
 			</div>
-		))}
-	</div>
 
-	
+			<!-- 전경 이미지 슬라이더 섹션 -->
+			<section class="related-facilities-section">
+				<div class="inner">
+					<h2 class="section-title">전경 이미지</h2>
+					<div class="facility-slider">
+						<div class="swiper" id="relatedFacilitiesSwiper">
+							<div class="swiper-wrapper">
+								{relatedFacilities.map((facility, index) => (
+									<div class="swiper-slide">
+										<a href={facility.link} class={`facility-card ${index === 0 ? "active" : ""}`}>
+											<div class="card-image">
+												<img src={facility.image} alt={facility.title} loading="lazy" />
+											</div>
+											<div class="card-title">{facility.title}</div>
+										</a>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<!-- Custom Pagination -->
+						<div class="custom-pagination">
+							<hr class="hr-solid">
+							<div class="swiper-pagination related-pagination"></div>
+							<div class="pagination-controls-wrapper">
+								<div class="pagination-fraction">
+									<span class="current-slide">1</span>/<span class="total-slides">4</span>
+								</div>
+								<button class="custom-prev-btn related-prev" aria-label="이전"></button>
+								<button class="autoplay-toggle" aria-label="자동재생 토글">
+									<span class="pause-icon"></span>
+								</button>
+								<button class="custom-next-btn related-next" aria-label="다음"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 시설안내 -->
+			<div class="facility-info-container">
+				<h2 class="section-title">시설안내</h2>
+				{facilityInfo.map((facility) => (
+					<div class="facility-info-group">
+						{facility.facilityType.map((facilityType) => (
+							<div class="facility-info-item">
+								<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+								<p class="normalText">{facilityType.normalText}</p>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
 
 
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
+
+<script>
+	import Swiper from 'swiper';
+	import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+	// Swiper 초기화 함수
+	function initRelatedFacilitiesSwiper() {
+		const swiperContainer = document.getElementById('relatedFacilitiesSwiper');
+		
+		if (!swiperContainer) {
+			console.warn('Related Facilities Swiper container not found');
+			return;
+		}
+
+		const totalCards = swiperContainer.querySelectorAll('.swiper-slide').length;
+		const visibleCards = 4;
+		
+		const swiper = new Swiper('#relatedFacilitiesSwiper', {
+			modules: [Navigation, Pagination, Autoplay],
+			
+			slidesPerView: 4,
+			spaceBetween: 16,
+			slidesPerGroup: 1,
+			
+			loop: false,
+			speed: 300,
+			centeredSlides: false,
+			grabCursor: true,
+			watchSlidesProgress: true,
+			
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			
+			autoHeight: false,
+			allowTouchMove: true,
+			
+			navigation: {
+				nextEl: ".related-next",
+				prevEl: ".related-prev",
+				disabledClass: 'swiper-button-disabled',
+			},
+			
+			pagination: {
+				el: '.related-pagination',
+				clickable: true,
+				bulletClass: 'swiper-pagination-bullet',
+				bulletActiveClass: 'swiper-pagination-bullet-active',
+			},
+			
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 6,
+				},
+				900: {
+					slidesPerView: 3,
+					spaceBetween: 12,
+				},
+				1400: {
+					slidesPerView: 4,
+					spaceBetween: 16,
+				},
+			},
+			
+			on: {
+				init: function() {
+					console.log('Related Facilities Swiper initialized');
+					manageNavigationVisibility(this, totalCards, visibleCards);
+					updateActiveCard(this);
+					updatePaginationFraction(this);
+				},
+				slideChange: function() {
+					updateActiveCard(this);
+				},
+				resize: function() {
+					const currentVisible = this.params.slidesPerView;
+					manageNavigationVisibility(this, totalCards, currentVisible);
+				}
+			}
+		});
+
+		function manageNavigationVisibility(swiperInstance, total, visible) {
+			const prevBtn = document.querySelector('.related-prev');
+			const nextBtn = document.querySelector('.related-next');
+			const pagination = document.querySelector('.related-pagination');
+			
+			if (total <= visible) {
+				if (prevBtn) prevBtn.classList.add('navigation-hidden');
+				if (nextBtn) nextBtn.classList.add('navigation-hidden');
+				if (pagination) pagination.classList.add('pagination-hidden');
+			} else {
+				if (prevBtn) prevBtn.classList.remove('navigation-hidden');
+				if (nextBtn) nextBtn.classList.remove('navigation-hidden');
+				if (pagination) pagination.classList.remove('pagination-hidden');
+			}
+		}
+
+		function updateActiveCard(swiperInstance) {
+			const slides = swiperInstance.slides;
+			slides.forEach((slide, index) => {
+				const card = slide.querySelector('.facility-card');
+				if (card) {
+					if (index === swiperInstance.activeIndex) {
+						card.classList.add('active');
+					} else {
+						card.classList.remove('active');
+					}
+				}
+			});
+			
+			// 페이지 번호 업데이트
+			updatePaginationFraction(swiperInstance);
+		}
+		
+		function updatePaginationFraction(swiperInstance) {
+			const currentSlide = document.querySelector('.current-slide');
+			const totalSlides = document.querySelector('.total-slides');
+			
+			if (currentSlide && totalSlides) {
+				currentSlide.textContent = swiperInstance.activeIndex + 1;
+				totalSlides.textContent = swiperInstance.slides.length;
+			}
+		}
+
+		// 자동재생 토글 버튼 기능
+		const autoplayToggle = document.querySelector('.autoplay-toggle');
+		if (autoplayToggle) {
+			autoplayToggle.classList.add('playing');
+			
+			autoplayToggle.addEventListener('click', () => {
+				if (swiper.autoplay.running) {
+					swiper.autoplay.stop();
+					autoplayToggle.classList.remove('playing');
+					autoplayToggle.classList.add('paused');
+				} else {
+					swiper.autoplay.start();
+					autoplayToggle.classList.remove('paused');
+					autoplayToggle.classList.add('playing');
+				}
+			});
+		}
+
+		return swiper;
+	}
+
+	// DOM 로드 완료 후 초기화
+	document.addEventListener('DOMContentLoaded', () => {
+		initRelatedFacilitiesSwiper();
+	});
+
+	// Astro 페이지 전환 시 재초기화
+	document.addEventListener('astro:page-load', () => {
+		initRelatedFacilitiesSwiper();
+	});
+</script>

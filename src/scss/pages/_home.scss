@@ -488,7 +488,7 @@ section {
 
 		.facility-card {
 			display: block;
-			border: 3px solid #d9d9d9;
+			border: 3px solid transparent;
 			border-radius: 16px;
 			overflow: hidden;
 			background: $cWhite;
@@ -498,6 +498,7 @@ section {
 			padding: 20px; // 카드 내부 패딩 20px
 			box-sizing: border-box; // 패딩 포함 너비 계산
 			margin: 0; // 마진 제거
+			outline: none;
 
 			&:hover {
 				border-color: $cMain;
