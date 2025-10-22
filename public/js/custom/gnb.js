@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       $$gnbLink.forEach((el) => {
         if (target == el) {
+          $header.classList.add("active");
           $headerWrap.classList.add(activeName);
           $headerBg.classList.add(activeName);
           gnbMaxHeight();
@@ -41,6 +42,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Gnb 닫는 함수
     const gnbClose = () => {
+      $header.classList.remove("active");
       $headerBg.classList.remove(activeName);
       $headerWrap.classList.remove(activeName);
     };
@@ -48,6 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // 탭키 접근성
     const tabKey = (e) => {
       if (e.key === "Tab") {
+        $header.classList.add("active");
         $headerWrap.classList.add(activeName);
         $headerBg.classList.add(activeName);
         gnbMaxHeight();
@@ -57,6 +60,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // 탭키가 처음 또는 마지막 키 눌렀을때
         if (focusedIndex === -1 || focusedIndex === links.length - 1) {
+          $header.classList.remove("active");
           $headerBg.classList.remove(activeName);
           $headerWrap.classList.remove(activeName);
         }

@@ -3,51 +3,117 @@
 
 .header {
 	position: relative;
+
+	// 딤 처리 오버레이
+	&::after {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 99;
+		display: none;
+		pointer-events: none;
+	}
+
+	// 메뉴 활성화 시 딤 처리 표시
+	&.active::after {
+		display: block;
+	}
+
 	.headerWrap {
-		position: relative; z-index: 101; border-bottom: 1px solid #B4B4B4;
-		&.on {
-			.subPanel,.headerBg {display: block !important;}
+		position: relative;
+		z-index: 101;
+		border-bottom: 1px solid #B4B4B4;
+		background-color: #fff;
+
+		@include media($web) {
+			padding: 0 20px;
 		}
+
+		&.on {
+			.subPanel {
+				display: flex !important;
+			}
+
+			.headerBg {
+				display: block !important;
+			}
+		}
+
 		.headerInner {
-			position: relative;z-index: 11;max-width: 1280px;margin: 0 auto;height: 110px;
+			position: relative;
+			z-index: 11;
+			max-width: 1280px;
+			margin: 0 auto;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			gap: 50px;
+
+
+
 			.logo {
-				@include pCenterY;
-				left: 0;
+				flex-shrink: 0;
 				z-index: 10;
+
 				a {
 					display: inline-block;
 					width: 100%;
 					height: 100%;
+
 					img {
 						display: inline-block;
-						width: 17.25rem; // Changed from 276px to rem
-						height: 3.75rem; // Changed from 60px to rem
+						width: 17.25rem;
+						height: 3.75rem;
 					}
 				}
 			}
+
 			.gnb {
-				margin-left: 150px;
-				@include pCenterY;
-				@include flex(null, center);
-				position: relative;
-				> li {
-					position: relative; 
-					padding: 0 100px;
-					> a {
+				display: flex;
+				flex: 1;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				>li {
+					position: relative;
+					flex: 1;
+					text-align: center;
+
+					>a {
 						position: relative;
-						display: inline-block;
+						display: block;
+						padding: 20px 0;
 						transition: all 0.4s;
 						@include font(24px, 700, #333);
-						&:hover {font-weight: bold; color: $cMain;}
-						&.on {font-weight: bold; color: $cMain;}
+
+						&:hover {
+							font-weight: bold;
+							color: $cMain;
+						}
+
+						&.on {
+							font-weight: bold;
+							color: $cMain;
+						}
 					}
-						.subPanel {
+
+					.subPanel {
 						display: none;
 						position: absolute;
 						left: 0;
 						width: 100%;
-						top: 3.125rem;
-						padding-top: 2.5rem;
+						top: 90px;
+						padding: 30px 0;
+						border-right: 1px solid #B4B4B4;
+						flex-direction: column;
+						gap: 10px;
+
+
 						li {
 							a {
 								display: block;
@@ -55,24 +121,27 @@
 								font-size: 18px;
 								color: #333333;
 								margin-bottom: 1rem;
-								// line-height: 1.3;
 								line-height: 50px;
 								height: 50px;
 								border-radius: 4px;
+								margin: 0 30px;
+
 								&:hover {
 									color: $cWhite;
 									font-weight: bold;
-									background-color: $cMain
+									background-color: $cMain;
 								}
 							}
 						}
 					}
 				}
 			}
+
 			.utilMenu {
 				@include pCenterY;
 				right: 0;
 				@include flex(center, null, 1.25rem);
+
 				li {
 					.searchBtn {
 						@include bg-url("img", "searchBtn.png", "cover");
@@ -81,6 +150,7 @@
 						width: 1.5625rem;
 						height: 1.5625rem;
 					}
+
 					.login {
 						@include bg-url("img", "ico-login.svg", "cover");
 						background-color: #fff;
@@ -88,6 +158,7 @@
 						width: 1.5625rem;
 						height: 1.5625rem;
 					}
+
 					.logout {
 						@include bg-url("img", "ico-logout.svg", "cover");
 						background-color: #fff;
@@ -95,6 +166,7 @@
 						width: 1.5625rem;
 						height: 1.5625rem;
 					}
+
 					.mypage {
 						@include bg-url("img", "ico-mypage.svg", "cover");
 						background-color: #fff;
@@ -106,6 +178,7 @@
 			}
 		}
 	}
+
 	.headerBg {
 		position: absolute;
 		display: none;
@@ -113,16 +186,43 @@
 		z-index: 100;
 		left: 0;
 		right: 0;
-		// top: 5.0625rem;
-		// padding-bottom: 1rem;
+		border-bottom: 1px solid #B4B4B4;
+		height: 170px !important;
+		top: 100px;
+
+
 		&.on {
 			display: block;
 		}
+
+		.bg-sm-Area {
+			max-width: 600px;
+			background-color: #F6FEF4;
+			height: 100%;
+			position: relative;
+
+
+			.changImg {
+				position: absolute;
+				right: 30px;
+				bottom: 0;
+				background: url('../img/gnb-img-sm.png') no-repeat center center/cover;
+				width: 236px;
+				height: 140px;
+
+			}
+		}
+
 		.inner {
 			height: 100%;
+			max-width: 1280px;
+			margin: 0 auto;
+			position: relative;
+
 			.txt-wrap {
 				margin-top: 0;
 				padding-top: 39px;
+
 				.tit {
 					font-size: 24px;
 					font-weight: 600;
@@ -132,12 +232,14 @@
 					color: #00398e;
 					margin-bottom: 14px;
 				}
+
 				.txt {
 					font-size: 19px;
 					font-weight: 400;
 					line-height: 1.3;
 				}
 			}
+
 			.changImg {
 				position: absolute;
 				/* top: 50%; */
@@ -154,24 +256,29 @@
 			}
 		}
 	}
+
 	.mobileMenu {
 		display: none;
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%; height: 100%;
+		width: 100%;
+		height: 100%;
 		cursor: pointer;
 		z-index: 102;
+
 		.menuToggle {
 			position: absolute;
-			right: 0.9375rem;
-			top:50%; transform: translateY(-50%);
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%);
 			display: inline-block;
 			cursor: pointer;
 			background: transparent;
 			z-index: 9999;
 			display: inline-block;
 			transition: all 0.3s ease-in-out;
+
 			.menuItem {
 				background-color: #000;
 				display: block;
@@ -180,6 +287,7 @@
 				transition: all 0.3s ease-in-out;
 				width: 30px;
 			}
+
 			&.open .menuItem {
 				margin: 1px 0px 5px;
 				background-color: red;
@@ -200,11 +308,12 @@
 			}
 
 			&.open {
-				+ .mobileNav {
+				+.mobileNav {
 					display: block;
 				}
 			}
 		}
+
 		.mobileNav {
 			display: none;
 			position: absolute;
@@ -220,14 +329,16 @@
 
 			& ul {
 				list-style-type: none;
+
 				li.mobileNavItem {
-					> a {
+					>a {
 						position: relative;
 						color: #000;
 						font-size: 16px;
 					}
+
 					&.on {
-						> a {
+						>a {
 							background: $cMain;
 							color: #fff;
 						}
@@ -246,15 +357,19 @@
 
 .mobileNav {
 	background-color: #fff !important;
-	> ul {
+
+	>ul {
 		margin-top: 40px;
-		> li {
+
+		>li {
 			box-sizing: border-box;
 			border-bottom: 1px solid #ddd;
-			> a {
+
+			>a {
 				display: inline-block;
 				padding: 20px 1.25rem !important;
 			}
+
 			.dapth2 {
 				li {
 					a {
@@ -267,12 +382,14 @@
 					}
 				}
 			}
+
 			&.on {
 				.dapth2 {
 					background: #fff !important;
 					padding: 10px;
+
 					li {
-						> a {
+						>a {
 							position: relative;
 							z-index: 1;
 							opacity: 1;
@@ -285,6 +402,7 @@
 							font-weight: 600;
 							padding-left: 13px !important;
 						}
+
 						&:last-of-type {
 							a {
 								border-bottom: none;
@@ -295,20 +413,24 @@
 			}
 		}
 	}
+
 	.moLogo {
 		text-align: center;
 		margin-top: 20px;
+
 		a {
 			display: inline-block;
 			text-align: center;
+
 			img {
 				display: block;
 				margin: 0 auto;
-				width: 10rem;
+				width: 200px;
 			}
 		}
 	}
 }
+
 .header .mobileMenu .menuToggle.open .menuItem {
 	background: $cMain !important;
 }
@@ -317,15 +439,19 @@
 	.gnb {
 		display: none !important;
 	}
+
 	.mobileMenu {
 		display: block !important;
 	}
+
 	.header .headerWrap .headerInner .logo {
 		left: 1.25rem;
 	}
+
 	.header .headerWrap .headerInner .utilMenu {
 		display: none;
 	}
+
 	.header .mobileMenu .menuToggle .menuItem {
 		background-color: #00B587;
 		display: block;
@@ -333,11 +459,11 @@
 		margin: 0 0 7px;
 		transition: all 0.3s ease-in-out;
 		width: 30px;
-		
-			&:nth-child(2) {
-		width: 24px;
-		margin-left: 6px;
-	}
+
+		&:nth-child(2) {
+			width: 24px;
+			margin-left: 6px;
+		}
 	}
 }
 
@@ -350,6 +476,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		gap: 15px;
+
 		.login {
 			@include bg-url("img", "ico-login.svg", "cover");
 			background-color: #fff;
@@ -357,6 +484,7 @@
 			width: 1.5625rem;
 			height: 1.5625rem;
 		}
+
 		.logout {
 			@include bg-url("img", "ico-logout.svg", "cover");
 			background-color: #fff;
@@ -364,6 +492,7 @@
 			width: 1.5625rem;
 			height: 1.5625rem;
 		}
+
 		.mypage {
 			@include bg-url("img", "ico-mypage.svg", "cover");
 			background-color: #fff;

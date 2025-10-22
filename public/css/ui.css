@@ -3414,12 +3414,36 @@ button.swiper-pagination-bullet {
 .header {
   position: relative;
 }
+.header::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: none;
+  pointer-events: none;
+}
+.header.active::after {
+  display: block;
+}
 .header .headerWrap {
   position: relative;
   z-index: 101;
   border-bottom: 1px solid #B4B4B4;
+  background-color: #fff;
 }
-.header .headerWrap.on .subPanel, .header .headerWrap.on .headerBg {
+@media all and (max-width: 1400px) {
+  .header .headerWrap {
+    padding: 0 20px;
+  }
+}
+.header .headerWrap.on .subPanel {
+  display: flex !important;
+}
+.header .headerWrap.on .headerBg {
   display: block !important;
 }
 .header .headerWrap .headerInner {
@@ -3427,13 +3451,13 @@ button.swiper-pagination-bullet {
   z-index: 11;
   max-width: 1280px;
   margin: 0 auto;
-  height: 110px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 .header .headerWrap .headerInner .logo {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
+  flex-shrink: 0;
   z-index: 10;
 }
 .header .headerWrap .headerInner .logo a {
@@ -3447,21 +3471,21 @@ button.swiper-pagination-bullet {
   height: 3.75rem;
 }
 .header .headerWrap .headerInner .gnb {
-  margin-left: 150px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  position: relative;
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .header .headerWrap .headerInner .gnb > li {
   position: relative;
-  padding: 0 100px;
+  flex: 1;
+  text-align: center;
 }
 .header .headerWrap .headerInner .gnb > li > a {
   position: relative;
-  display: inline-block;
+  display: block;
+  padding: 20px 0;
   transition: all 0.4s;
   font-size: 24px;
   font-weight: 700;
@@ -3480,8 +3504,11 @@ button.swiper-pagination-bullet {
   position: absolute;
   left: 0;
   width: 100%;
-  top: 3.125rem;
-  padding-top: 2.5rem;
+  top: 90px;
+  padding: 30px 0;
+  border-right: 1px solid #B4B4B4;
+  flex-direction: column;
+  gap: 10px;
 }
 .header .headerWrap .headerInner .gnb > li .subPanel li a {
   display: block;
@@ -3492,6 +3519,7 @@ button.swiper-pagination-bullet {
   line-height: 50px;
   height: 50px;
   border-radius: 4px;
+  margin: 0 30px;
 }
 .header .headerWrap .headerInner .gnb > li .subPanel li a:hover {
   color: #ffffff;
@@ -3554,12 +3582,32 @@ button.swiper-pagination-bullet {
   z-index: 100;
   left: 0;
   right: 0;
+  border-bottom: 1px solid #B4B4B4;
+  height: 170px !important;
+  top: 100px;
 }
 .header .headerBg.on {
   display: block;
 }
+.header .headerBg .bg-sm-Area {
+  max-width: 600px;
+  background-color: #F6FEF4;
+  height: 100%;
+  position: relative;
+}
+.header .headerBg .bg-sm-Area .changImg {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  background: url("../img/gnb-img-sm.png") no-repeat center center/cover;
+  width: 236px;
+  height: 140px;
+}
 .header .headerBg .inner {
   height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
 }
 .header .headerBg .inner .txt-wrap {
   margin-top: 0;
@@ -3605,7 +3653,7 @@ button.swiper-pagination-bullet {
 }
 .header .mobileMenu .menuToggle {
   position: absolute;
-  right: 0.9375rem;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   display: inline-block;
@@ -3725,7 +3773,7 @@ button.swiper-pagination-bullet {
 .mobileNav .moLogo a img {
   display: block;
   margin: 0 auto;
-  width: 10rem;
+  width: 200px;
 }
 
 .header .mobileMenu .menuToggle.open .menuItem {

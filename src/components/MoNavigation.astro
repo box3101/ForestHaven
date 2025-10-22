@@ -21,24 +21,24 @@ const NavMenu6Ko = ["구석구석 탐방", "중구마을학교","마을교육활
 <div class="mobileNav">
 	<div class="moLogo">
 		<a href="../main/main.html" tabindex="0">
-			<img src="../img/logo.png" alt="인천중구교육포털 배우는바다" />
+			<img src="../img/logo.svg" alt="포항시 송림숲" />
 		</a>
 	</div>
 	<ul class="mobileNavList">
 		<li class="mobileNavItem">
-			<a href={`../lftmLrnCty/${NavMenu1[0]}.html`} class="gnbLink"> 평생학습도시</a>
+			<a href={`../lftmLrnCty/${NavMenu1[0]}.html`} class="gnbLink"> 도시숲 소개</a>
 			<ul class="dapth2">
 				{NavMenu1.map((el,idx) => <li><a href={`../lftmLrnCty/${el}.html`}>{NavMenu1Ko[idx]}</a></li>)}
 			</ul>
 		</li>
 		<li class="mobileNavItem">
-			<a href={`../enrollment/${NavMenu2[0]}.html`} class="gnbLink"> 수강신청</a>
+			<a href={`../enrollment/${NavMenu2[0]}.html`} class="gnbLink"> 대관 안내</a>
 			<ul class="dapth2">
 				{NavMenu2.map((el,idx) => <li><a href={`../enrollment/${el}.html`}>{NavMenu2Ko[idx]}</a></li>)}
 			</ul>
 		</li>
 		<li class="mobileNavItem">
-			<a href={`../netWork/${NavMenu3[0]}.html`} class="gnbLink"> 네트워크</a>
+			<a href={`../netWork/${NavMenu3[0]}.html`} class="gnbLink"> 소식</a>
 			<ul class="dapth2">
 				{NavMenu3.map((el,idx) => <li><a href={`../netWork/${el}.html`}>{NavMenu3Ko[idx]}</a></li>)}
 			</ul>

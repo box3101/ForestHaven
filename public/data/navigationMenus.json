@@ -11,7 +11,6 @@
     "mainTitle": "대관 안내",
     "mainLink": "facility/FacilityRental",
     "subMenus": [
-      { "link": "facility/FacilityRental", "title": "대관 안내" },
       { "link": "facility/RentalApplication", "title": "대관 신청" },
       { "link": "facility/MyRentalHistory", "title": "나의 대관조회" }
     ]
@@ -20,7 +19,7 @@
     "mainTitle": "소식",
     "mainLink": "notice/Notice",
     "subMenus": [
-      { "link": "notice/Notice", "title": "공지사항" },
+      { "link": "notice/Notice", "title": "공지사항" }, 
       { "link": "notice/FAQ", "title": "자주하는질문" }
     ]
   }
