@@ -6,14 +6,20 @@ const navigationMenus = await fetchNavigationMenus();
 ---
 
 <ul class="gnb" id="gnb" tabindex="0">
-  {navigationMenus.map((menu) => (
-    <li class="gnbItem">
-      <a href={`../${menu.mainLink}.html`} class="gnbLink">{menu.mainTitle}</a>
-      <ul class="subPanel">
-        {menu.subMenus.map((subMenu) => (
-          <li><a href={`../${subMenu.link}.html`}>{subMenu.title}</a></li>
-        ))}
-      </ul>
-    </li>
-  ))}
+	{
+		navigationMenus.map((menu) => (
+			<li class="gnbItem">
+				<a href={`../${menu.mainLink}.html`} class="gnbLink">
+					{menu.mainTitle}
+				</a>
+				<ul class="subPanel">
+					{menu.subMenus.map((subMenu) => (
+						<li>
+							<a href={`../${subMenu.link}.html`}>{subMenu.title}</a>
+						</li>
+					))}
+				</ul>
+			</li>
+		))
+	}
 </ul>

@@ -36,7 +36,7 @@ export interface facilityDetial {
 
 export const facilityDetial: facilityDetial[] = [
 	{
-		image: "/img/card_img01.png",
+		image: "../img/card_img01.png",
 		facilityType: [
 			{
 				boldTitle: "사용시설",
@@ -68,32 +68,32 @@ export interface RelatedFacility {
 export const relatedFacilities: RelatedFacility[] = [
 	{
 		title: "송도 솔밭 물빛누리공원",
-		image: "/img/swiper_img01.png",
+		image: "../img/swiper_img01.png",
 		link: "/facility/1",
 	},
 	{
 		title: "내연산 치유의 숲",
-		image: "/img/swiper_img02.png",
+		image: "../img/swiper_img02.png",
 		link: "/facility/2",
 	},
 	{
 		title: "송도 솔밭 물빛누리공원",
-		image: "/img/swiper_img03.png",
+		image: "../img/swiper_img03.png",
 		link: "/facility/3",
 	},
 	{
 		title: "내연산 치유의 숲",
-		image: "/img/swiper_img04.png",
+		image: "../img/swiper_img04.png",
 		link: "/facility/4",
 	},
 	{
 		title: "추가 시설 5",
-		image: "/img/swiper_img01.png",
+		image: "../img/swiper_img01.png",
 		link: "/facility/5",
 	},
 	{
 		title: "추가 시설 6",
-		image: "/img/swiper_img02.png",
+		image: "../img/swiper_img02.png",
 		link: "/facility/6",
 	},
 ];
@@ -215,13 +215,13 @@ export interface DownloadFile {
 
 export const DownloadFile: DownloadFile[] = [
 	{
-		image: "/img/icon_clip.svg",
+		image: "../img/icon_clip.svg",
 		name: "[붙임1]야외공연장 사용허가 신청서.hwp",
 		fileName: "[붙임1]야외공연장 사용허가 신청서.hwp",
 		filePath: "/documents/[붙임1]야외공연장 사용허가 신청서.hwp",
 	},
 	{
-		image: "/img/icon_clip.svg",
+		image: "../img/icon_clip.svg",
 		name: "[붙임3] 안전관리 이행서약서.hwp",
 		fileName: "[붙임3] 안전관리 이행서약서.hwp",
 		filePath: "/documents/[붙임3] 안전관리 이행서약서.hwp",
@@ -373,10 +373,7 @@ export const DownloadFile: DownloadFile[] = [
 	</SubLayout>
 </BaseLayout>
 
-<script>
-	import Swiper from "swiper";
-	import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
+<script is:inline>
 	// Swiper 초기화 함수
 	function initRelatedFacilitiesSwiper() {
 		const swiperContainer = document.getElementById("relatedFacilitiesSwiper");
@@ -390,7 +387,7 @@ export const DownloadFile: DownloadFile[] = [
 		const visibleCards = 4;
 
 		const swiper = new Swiper("#relatedFacilitiesSwiper", {
-			modules: [Navigation, Pagination, Autoplay],
+			// modules 옵션 제거 - CDN 버전에서는 불필요
 
 			slidesPerView: 4,
 			spaceBetween: 16,
@@ -477,7 +474,7 @@ export const DownloadFile: DownloadFile[] = [
 
 		function updateActiveCard(swiperInstance) {
 			const slides = swiperInstance.slides;
-			slides.forEach((slide, index) => {
+			slides.forEach(function (slide, index) {
 				const card = slide.querySelector(".facility-card");
 				if (card) {
 					if (index === swiperInstance.activeIndex) {
@@ -507,7 +504,7 @@ export const DownloadFile: DownloadFile[] = [
 		if (autoplayToggle) {
 			autoplayToggle.classList.add("playing");
 
-			autoplayToggle.addEventListener("click", () => {
+			autoplayToggle.addEventListener("click", function () {
 				if (swiper.autoplay.running) {
 					swiper.autoplay.stop();
 					autoplayToggle.classList.remove("playing");
@@ -524,12 +521,12 @@ export const DownloadFile: DownloadFile[] = [
 	}
 
 	// DOM 로드 완료 후 초기화
-	document.addEventListener("DOMContentLoaded", () => {
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initRelatedFacilitiesSwiper);
+	} else {
 		initRelatedFacilitiesSwiper();
-	});
+	}
 
 	// Astro 페이지 전환 시 재초기화
-	document.addEventListener("astro:page-load", () => {
-		initRelatedFacilitiesSwiper();
-	});
+	document.addEventListener("astro:page-load", initRelatedFacilitiesSwiper);
 </script>

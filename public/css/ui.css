@@ -3426,6 +3426,11 @@ button.swiper-pagination-bullet {
   display: none;
   pointer-events: none;
 }
+@media all and (max-width: 1400px) {
+  .header::after {
+    display: none !important;
+  }
+}
 .header.active::after {
   display: block;
 }
@@ -3586,14 +3591,31 @@ button.swiper-pagination-bullet {
   height: 170px !important;
   top: 100px;
 }
+@media all and (max-width: 1400px) {
+  .header .headerBg {
+    display: none !important;
+  }
+}
 .header .headerBg.on {
   display: block;
 }
 .header .headerBg .bg-sm-Area {
   max-width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -615px;
   background-color: #F6FEF4;
   height: 100%;
   position: relative;
+}
+.header .headerBg .bg-sm-Area::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: #F6FEF4;
 }
 .header .headerBg .bg-sm-Area .changImg {
   position: absolute;
