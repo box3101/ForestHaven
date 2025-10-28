@@ -1,9 +1,9 @@
 [
   {
-    "mainTitle": "녹지 소개",
+    "mainTitle": "도시숲 소개",
     "mainLink": "info/GreenSpaceIntro",
     "subMenus": [
-      { "link": "info/GreenSpaceIntro", "title": "녹지 소개" },
+      { "link": "info/GreenSpaceIntro", "title": "도시숲 소개" },
       { "link": "info/VirtualTour", "title": "둘러보기" }
     ]
   },

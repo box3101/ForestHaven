@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../utility/_mixin.scss';
+
 // 대관신청
 .facility-list {
 	display: grid;
@@ -1033,6 +1036,205 @@
 			background-color: $cGray05;
 			padding: 1.25rem;
 			margin-bottom: .75rem;
+		}
+	}
+}
+
+
+//
+//공원 정보 영역
+
+.forest-listWrap {
+	padding: 2.5rem;
+	border-top: .25rem solid #9EE5D3;
+	border-bottom: 4px solid #9EE5D3;
+
+	@include media($web) {
+		padding: 1.25rem;
+	}
+
+	@include media($tab) {
+		padding: 0;
+	}
+
+
+	.description-Box {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+
+		@include media($web) {
+			gap: 20px;
+		}
+
+	}
+
+	.forest-item {
+		display: flex;
+		align-items: center;
+		gap: 3.125rem;
+		padding-bottom: 2.5rem;
+		border-bottom: .0625rem solid #CFCFCF;
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		@include media($web) {
+			padding-bottom: 20px;
+
+		}
+
+		@include media($tab) {
+			padding: 1.25rem 0;
+			gap: 12px;
+
+			&:last-child {
+				padding-bottom: 20px;
+			}
+		}
+
+		@include media($mo) {
+			padding: 1.25rem 0;
+			flex-direction: column;
+		}
+
+		img {
+			max-width: 31.25rem;
+			height: auto;
+			border: .375rem solid #9EE5D3;
+			border-radius: .625rem;
+
+
+			@include media($tab) {
+				max-width: 18.75rem;
+				object-fit: cover;
+
+			}
+
+			@include media($mo) {
+				max-width: 100%;
+				object-fit: cover;
+			}
+
+		}
+
+		.forest-info {
+			display: flex;
+			flex-direction: column;
+			gap: .625rem;
+			width: 100%;
+
+			@include media($tab) {
+				gap: .375rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			@include media($mo) {
+				gap: .25rem;
+			}
+
+			.forest-title {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 1.5625rem;
+				margin-bottom: 1.875rem;
+
+				@include media($tab) {
+					margin-bottom: 0;
+				}
+
+				@include media($mo) {
+					margin-bottom: 0;
+				}
+
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon_big_dot.svg") no-repeat center center;
+					width: 1rem;
+					height: 1rem;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+			}
+
+			.forest-info-group {
+				display: flex;
+				gap: .625rem;
+				align-items: center;
+
+
+				// white-space: nowrap;
+				@include media($tab) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
+					word-wrap: break-word;
+					word-break: break-word;
+					line-height: 1.4;
+				}
+
+				.boldTitle {
+					font-size: 1.125rem;
+					color: $cDarkGray;
+					font-weight: 700;
+					padding-left: 1.25rem;
+					position: relative;
+					white-space: nowrap;
+
+					&::before {
+						content: "";
+						display: block;
+						width: .5rem;
+						height: .5rem;
+						background-color: #00B587;
+						border-radius: 50%;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0%, -50%);
+					}
+				}
+
+				.normalText {
+					font-size: 1.125rem;
+					color: $cGray02;
+					font-weight: 400;
+
+					@include media($tab) {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+
+					}
+
+					@include media($mo) {
+						overflow: auto;
+
+					}
+
+				}
+
+				.direction-link {
+					font-size: 1rem;
+					color: #333;
+					border: .0625rem solid #00B587;
+					background-color: #D3EFD7;
+					text-decoration: none;
+					border-radius: 1.875rem;
+					padding: .5rem 1.625rem;
+				}
+			}
+
 		}
 	}
 }
