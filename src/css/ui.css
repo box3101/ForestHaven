@@ -3968,6 +3968,7 @@ button.swiper-pagination-bullet {
   html,
   body {
     overflow-x: hidden;
+    min-width: 320px !important;
   }
 }
 
@@ -5380,7 +5381,7 @@ button.swiper-pagination-bullet {
   }
 }
 .facility-title .tit-bold {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
   color: #333333;
   transition: color 0.3s ease;
@@ -5403,7 +5404,6 @@ button.swiper-pagination-bullet {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-top: 20px;
 }
 @media all and (max-width: 900px) {
   .facility-title .facility-buttons {
@@ -5499,6 +5499,7 @@ button.swiper-pagination-bullet {
   border: 0.625rem solid #9EE5D3;
   border-radius: 0.625rem;
   padding: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 @media all and (max-width: 1400px) {
   .facility-listWrap .facility-item {
@@ -5549,8 +5550,8 @@ button.swiper-pagination-bullet {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: clamp(120px, 52vw - 1.5rem - 1rem, 250px);
     /* 최소 150px, 선호 50vw, 최대 300px, 여백 1.5rem 제외, 텍스트 여백 1rem 제외 */
+    max-width: auto;
   }
 }
 .facility-listWrap .facility-item .facility-info .facility-info-group .boldTitle {
@@ -5580,7 +5581,7 @@ button.swiper-pagination-bullet {
 }
 
 .related-facilities-section .inner {
-  max-width: 80rem;
+  max-width: fit-content;
   margin: 0 auto;
   position: relative;
   padding-bottom: 5rem;
@@ -5624,7 +5625,7 @@ button.swiper-pagination-bullet {
 .related-facilities-section .facility-slider {
   position: relative;
   padding: 0;
-  max-width: 80rem;
+  max-width: fit-content;
   margin: 0 auto;
 }
 .related-facilities-section .facility-slider .swiper {
@@ -5661,12 +5662,12 @@ button.swiper-pagination-bullet {
   background: #ffffff;
   text-decoration: none;
   transition: all 0.3s ease;
-  height: 15.625rem;
   padding: 1.25rem;
   box-sizing: border-box;
   margin: 0;
   outline: 0.125rem solid transparent;
   outline-offset: -0.125rem;
+  height: auto;
 }
 .related-facilities-section .facility-slider .facility-card:hover {
   outline-color: #00B587;
@@ -5678,15 +5679,17 @@ button.swiper-pagination-bullet {
 }
 .related-facilities-section .facility-slider .facility-card .card-image {
   width: 100%;
-  height: 10rem;
   overflow: hidden;
   border-radius: 0.625rem;
   margin-bottom: 1rem;
+  aspect-ratio: 16/9;
+  height: auto;
 }
 .related-facilities-section .facility-slider .facility-card .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
 }
 .related-facilities-section .facility-slider .facility-card .card-title {
@@ -6040,7 +6043,7 @@ button.swiper-pagination-bullet {
   }
 }
 .forest-listWrap .forest-item img {
-  max-width: 31.25rem;
+  max-width: 100%;
   height: auto;
   border: 0.375rem solid #9EE5D3;
   border-radius: 0.625rem;
@@ -6060,7 +6063,7 @@ button.swiper-pagination-bullet {
 .forest-listWrap .forest-item .forest-info {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 30px;
   width: 100%;
 }
 @media all and (max-width: 900px) {
@@ -6080,8 +6083,7 @@ button.swiper-pagination-bullet {
   font-weight: 700;
   color: #333333;
   position: relative;
-  padding-left: 1.5625rem;
-  margin-bottom: 1.875rem;
+  padding-left: 1.75rem;
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item .forest-info .forest-title {
@@ -6097,20 +6099,25 @@ button.swiper-pagination-bullet {
   content: "";
   display: block;
   background: url("../img/icon_big_dot.svg") no-repeat center center;
-  width: 1rem;
-  height: 1rem;
+  width: 24px;
+  height: 24px;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translate(0%, -50%);
 }
-.forest-listWrap .forest-item .forest-info .forest-info-group {
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group {
   display: flex;
   gap: 0.625rem;
   align-items: center;
 }
 @media all and (max-width: 900px) {
-  .forest-listWrap .forest-item .forest-info .forest-info-group {
+  .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -6120,7 +6127,7 @@ button.swiper-pagination-bullet {
     line-height: 1.4;
   }
 }
-.forest-listWrap .forest-item .forest-info .forest-info-group .boldTitle {
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle {
   font-size: 1.125rem;
   color: #333333;
   font-weight: 700;
@@ -6128,7 +6135,7 @@ button.swiper-pagination-bullet {
   position: relative;
   white-space: nowrap;
 }
-.forest-listWrap .forest-item .forest-info .forest-info-group .boldTitle::before {
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle::before {
   content: "";
   display: block;
   width: 0.5rem;
@@ -6140,24 +6147,19 @@ button.swiper-pagination-bullet {
   top: 50%;
   transform: translate(0%, -50%);
 }
-.forest-listWrap .forest-item .forest-info .forest-info-group .normalText {
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .normalText {
   font-size: 1.125rem;
   color: #666666;
   font-weight: 400;
 }
 @media all and (max-width: 900px) {
-  .forest-listWrap .forest-item .forest-info .forest-info-group .normalText {
+  .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .normalText {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 }
-@media all and (max-width: 600px) {
-  .forest-listWrap .forest-item .forest-info .forest-info-group .normalText {
-    overflow: auto;
-  }
-}
-.forest-listWrap .forest-item .forest-info .forest-info-group .direction-link {
+.forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .direction-link {
   font-size: 1rem;
   color: #333;
   border: 0.0625rem solid #00B587;
@@ -6165,6 +6167,675 @@ button.swiper-pagination-bullet {
   text-decoration: none;
   border-radius: 1.875rem;
   padding: 0.5rem 1.625rem;
+}
+
+.forest-boxWrap {
+  padding: 2.5rem;
+  border: 10px solid #9EE5D3;
+  border-radius: 10px;
+}
+@media all and (max-width: 1400px) {
+  .forest-boxWrap {
+    padding: 1.25rem;
+  }
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap {
+    padding: 0;
+  }
+}
+.forest-boxWrap .description-Box {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+@media all and (max-width: 1400px) {
+  .forest-boxWrap .description-Box {
+    gap: 20px;
+  }
+}
+.forest-boxWrap .forest-item {
+  display: flex;
+  align-items: center;
+  gap: 3.125rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.0625rem solid #CFCFCF;
+  align-items: stretch;
+}
+.forest-boxWrap .forest-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+@media all and (max-width: 1400px) {
+  .forest-boxWrap .forest-item {
+    padding-bottom: 20px;
+  }
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item {
+    padding: 1.25rem 0;
+    gap: 12px;
+  }
+  .forest-boxWrap .forest-item:last-child {
+    padding-bottom: 20px;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item {
+    padding: 1.25rem 0;
+    flex-direction: column;
+  }
+}
+.forest-boxWrap .forest-item img {
+  max-width: 31.25rem;
+  height: auto;
+  border-radius: 0.625rem;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item img {
+    max-width: 18.75rem;
+    object-fit: cover;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+.forest-boxWrap .forest-item .forest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item .forest-info {
+    gap: 0.375rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item .forest-info {
+    gap: 0.25rem;
+  }
+}
+.forest-boxWrap .forest-item .forest-info .forest-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #333333;
+  position: relative;
+  padding-left: 1.75rem;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item .forest-info .forest-title {
+    margin-bottom: 0;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item .forest-info .forest-title {
+    margin-bottom: 0;
+  }
+}
+.forest-boxWrap .forest-item .forest-info .forest-title::before {
+  content: "";
+  display: block;
+  background: url("../img/icon_big_dot.svg") no-repeat center center;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: clamp(180px, 70vw - 1.5rem - 1rem, 400px);
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.4;
+  }
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle {
+  font-size: 1.125rem;
+  color: #333333;
+  font-weight: 700;
+  padding-left: 1.25rem;
+  position: relative;
+  white-space: nowrap;
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #00B587;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .normalText {
+  font-size: 1.125rem;
+  color: #666666;
+  font-weight: 400;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .normalText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .normalText {
+    overflow: auto;
+  }
+}
+.forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .direction-link {
+  font-size: 1rem;
+  color: #333;
+  border: 0.0625rem solid #00B587;
+  background-color: #D3EFD7;
+  text-decoration: none;
+  border-radius: 1.875rem;
+  padding: 0.5rem 1.625rem;
+}
+.forest-boxWrap .forest-item .forest-info .forest-title-tree {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #333333;
+  position: relative;
+  padding-left: 74px;
+}
+@media all and (max-width: 900px) {
+  .forest-boxWrap .forest-item .forest-info .forest-title-tree {
+    margin-bottom: 0;
+  }
+}
+@media all and (max-width: 600px) {
+  .forest-boxWrap .forest-item .forest-info .forest-title-tree {
+    margin-bottom: 0;
+  }
+}
+.forest-boxWrap .forest-item .forest-info .forest-title-tree::before {
+  content: "";
+  display: block;
+  background: url("../img/icon-tree.svg") no-repeat center center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+  background-color: #E7FAF5;
+  border-radius: 50%;
+}
+.forest-boxWrap .forest-item .forest-info .subTitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.virtualTour-Wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem 1rem;
+}
+@media all and (max-width: 1400px) {
+  .virtualTour-Wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (max-width: 900px) {
+  .virtualTour-Wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Wrap {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.virtualTour-Wrap .facility-item {
+  display: block;
+  border: 0.0625rem solid #D4D4D4;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.625rem 0 #D4D4D4;
+  overflow: hidden;
+  background: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  margin: 0;
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.125rem;
+  height: auto;
+}
+@media all and (max-width: 900px) {
+  .virtualTour-Wrap .facility-item {
+    height: fit-content;
+  }
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Wrap .facility-item {
+    height: 100%;
+  }
+}
+.virtualTour-Wrap .facility-item:hover {
+  outline-color: #00B587;
+  transform: translateY(-0.3125rem);
+}
+.virtualTour-Wrap .facility-item:hover .card-title {
+  color: #00B587;
+  font-weight: 700;
+}
+.virtualTour-Wrap .facility-item .card-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  margin-bottom: 1rem;
+  aspect-ratio: 16/9;
+}
+@media all and (max-width: 900px) {
+  .virtualTour-Wrap .facility-item .card-image {
+    height: 100%;
+  }
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Wrap .facility-item .card-image {
+    height: auto;
+  }
+}
+.virtualTour-Wrap .facility-item .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+.virtualTour-Wrap .facility-item .card-title {
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #666666;
+  text-align: center;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tbl-form-box {
+  display: flex;
+  gap: 2.5rem;
+  /* STEP 타이틀 */
+  /* 날짜선택 섹션 */
+  /* 캘린더 헤더 */
+  /* 캘린더 테이블 */
+  /* 신청불가 상태 */
+  /* 신청마감 상태 */
+  /* 신청가능 상태 */
+  /* 선택된 날짜 */
+  /* 범례 */
+  /* 예약현황 섹션 */
+  /* 체크박스 스타일 */
+  /* 반응형 디자인 */
+}
+@media all and (max-width: 900px) {
+  .tbl-form-box {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+.tbl-form-box .container {
+  max-width: 56.25rem;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1.875rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+.tbl-form-box .title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.9375rem;
+  color: #333333;
+}
+.tbl-form-box .title span {
+  display: inline-block;
+  background-color: #00B587;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  text-align: center;
+  line-height: 2.5rem;
+}
+.tbl-form-box .tip {
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+.tbl-form-box .tip p {
+  margin: 0;
+}
+.tbl-form-box .date-select {
+  width: 60%;
+}
+@media all and (max-width: 900px) {
+  .tbl-form-box .date-select {
+    width: 100%;
+  }
+}
+.tbl-form-box .calendarHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9375rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.125rem solid #2d3e50;
+  margin-bottom: 1.25rem;
+}
+.tbl-form-box .calendarHead a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.9375rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+}
+.tbl-form-box .calendarHead a:hover {
+  background-color: #f0f0f0;
+}
+.tbl-form-box .calendarHead .today {
+  background-color: #2d3e50;
+  color: #fff;
+  border-color: #2d3e50;
+}
+.tbl-form-box .calendarHead .today:hover {
+  background-color: #1a2332;
+}
+.tbl-form-box #dispMonth {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d3e50;
+  min-width: 9.375rem;
+  text-align: center;
+}
+.tbl-form-box #dispMonth em {
+  font-style: normal;
+  color: #e74c3c;
+}
+.tbl-form-box .calendar {
+  margin-bottom: 1.25rem;
+}
+.tbl-form-box #yhd_calendar {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.0625rem solid #ddd;
+}
+.tbl-form-box #yhd_calendar caption {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.tbl-form-box #yhd_calendar thead th {
+  background-color: #2d3e50;
+  color: #fff;
+  padding: 0.75rem;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  border: 0.0625rem solid #1a2332;
+}
+.tbl-form-box #yhd_calendar thead th:first-child {
+  color: #ff6b6b;
+}
+.tbl-form-box #yhd_calendar thead th:last-child {
+  color: #4dabf7;
+}
+.tbl-form-box #yhd_calendar tbody td {
+  height: 5.625rem;
+  border: 0.0625rem solid #e0e0e0;
+  text-align: center;
+  vertical-align: top;
+  padding: 0.5rem 0.3125rem;
+  position: relative;
+  cursor: default;
+}
+.tbl-form-box .yhdc-dayCon {
+  background-color: #f9f9f9;
+}
+.tbl-form-box .holidayDt {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3125rem;
+  color: #333;
+}
+.tbl-form-box .txt {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+.tbl-form-box .yhdc-dayCon.closed .holidayDt {
+  color: #bbb;
+}
+.tbl-form-box .yhdc-dayCon.closed .txt {
+  color: #999;
+}
+.tbl-form-box .yhdc-dayCon.com {
+  background-color: #fff5f5;
+}
+.tbl-form-box .yhdc-dayCon.com .holidayDt {
+  color: #e74c3c;
+}
+.tbl-form-box .yhdc-dayCon.com .txt {
+  color: #e74c3c;
+}
+.tbl-form-box .yhdc-dayCon.able {
+  background-color: #e8f5e9;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.tbl-form-box .yhdc-dayCon.able:hover {
+  background-color: #c8e6c9;
+}
+.tbl-form-box .yhdc-dayCon.able .holidayDt {
+  color: #2196f3;
+}
+.tbl-form-box .yhdc-dayCon.able .txt {
+  color: #2196f3;
+  font-weight: bold;
+}
+.tbl-form-box .yhdc-dayCon.sel {
+  background-color: #ec407a !important;
+  border: 0.125rem solid #d81b60 !important;
+}
+.tbl-form-box .yhdc-dayCon.sel .holidayDt,
+.tbl-form-box .yhdc-dayCon.sel .txt {
+  color: #fff !important;
+}
+.tbl-form-box .legend {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+  padding: 0.9375rem;
+  background-color: #f9f9f9;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+}
+.tbl-form-box .legend i {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.1875rem;
+  vertical-align: middle;
+}
+.tbl-form-box .legend-able {
+  background-color: #e8f5e9;
+  border: 0.0625rem solid #2196f3;
+}
+.tbl-form-box .legend-com {
+  background-color: #fff5f5;
+  border: 0.0625rem solid #e74c3c;
+}
+.tbl-form-box .legend span {
+  color: #666;
+}
+.tbl-form-box .fR {
+  margin-left: auto;
+  color: #999;
+  font-size: 0.75rem;
+}
+.tbl-form-box .time-select {
+  width: 40%;
+}
+@media all and (max-width: 900px) {
+  .tbl-form-box .time-select {
+    width: 100%;
+  }
+}
+.tbl-form-box .tbl-box {
+  margin-top: 6.25rem;
+  overflow-x: auto;
+}
+.tbl-form-box .tbl {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.0625rem solid #ddd;
+}
+.tbl-form-box .tbl caption {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.tbl-form-box .tbl thead th {
+  background-color: #2d3e50;
+  color: #fff;
+  padding: 0.75rem;
+  font-weight: bold;
+  border: 0.0625rem solid #1a2332;
+}
+.tbl-form-box .tbl tbody td {
+  padding: 0.75rem;
+  border: 0.0625rem solid #e0e0e0;
+  text-align: center;
+}
+.tbl-form-box .tbl tbody td:first-child {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+.tbl-form-box .taC {
+  text-align: center;
+}
+.tbl-form-box .timeChk {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+  accent-color: #2d3e50;
+}
+.tbl-form-box .timeChk:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.tbl-form-box label {
+  cursor: pointer;
+}
+.tbl-form-box .timeChk:disabled + label {
+  cursor: not-allowed;
+}
+@media (max-width: 48rem) {
+  .tbl-form-box .container {
+    padding: 0.9375rem;
+  }
+  .tbl-form-box .calendarHead {
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+  .tbl-form-box #dispMonth {
+    font-size: 1.25rem;
+    min-width: 7.5rem;
+  }
+  .tbl-form-box #yhd_calendar tbody td {
+    height: 5rem;
+    padding: 0.3125rem 0.1875rem;
+  }
+  .tbl-form-box .holidayDt {
+    font-size: 0.875rem;
+  }
+  .tbl-form-box .txt {
+    font-size: 0.6875rem;
+  }
+  .tbl-form-box .tbl tbody td {
+    padding: 0.5rem 0.3125rem;
+    font-size: 0.75rem;
+  }
+  .tbl-form-box .legend {
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+  .tbl-form-box .fR {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.625rem;
+  }
+}
+@media (max-width: 30rem) {
+  .tbl-form-box #yhd_calendar tbody td {
+    height: 4.375rem;
+    padding: 0.25rem 0.125rem;
+  }
+  .tbl-form-box .holidayDt {
+    font-size: 0.75rem;
+    margin-bottom: 0.1875rem;
+  }
+  .tbl-form-box .txt {
+    font-size: 0.625rem;
+  }
+  .tbl-form-box .calendarHead a {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+  }
+  .tbl-form-box #dispMonth {
+    font-size: 1.125rem;
+  }
 }
 
 #Notice .notice-detail-section .notice-detail-table {

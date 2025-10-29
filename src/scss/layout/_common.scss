@@ -2,6 +2,7 @@ html,
 body {
 	@include media($mo) {
 		overflow-x: hidden;
+		min-width: 320px !important;
 	}
 }
 

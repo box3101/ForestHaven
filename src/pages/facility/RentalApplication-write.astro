@@ -290,8 +290,391 @@ export const DownloadFile: DownloadFile[] = [
 				}
 			</section>
 
-			<section>날짜 선택 영역이다</section>
-			<section>예약현황 영역이다</section>
+			<div class="tbl-form-box">
+				<!-- STEP 01: 날짜선택 -->
+				<div class="date-select">
+					<div class="title"><span>1</span> 날짜선택</div>
+					<div class="tip"><p>이용하고자 하는 날짜를 선택하세요.</p></div>
+
+					<div id="calendar_wrapper">
+						<div class="calendarHead">
+							<a href="#" class="month prev">이전 월</a>
+							<span id="dispMonth">2025. <em>10</em></span>
+							<a href="#" class="month next">다음 월</a>
+							<a href="#" class="today">TODAY</a>
+						</div>
+
+						<div class="calendar">
+							<table id="yhd_calendar">
+								<caption
+									>2025년 10월 시설대관 신청관리 건수를 일, 월, 화, 수, 목, 금, 토요일 별로 안내하는
+									표입니다.</caption
+								>
+								<thead>
+									<tr>
+										<th scope="col">SUN</th>
+										<th scope="col">MON</th>
+										<th scope="col">TUE</th>
+										<th scope="col">WED</th>
+										<th scope="col">THU</th>
+										<th scope="col">FRI</th>
+										<th scope="col">SAT</th>
+									</tr>
+								</thead>
+								<tbody id="calendarBody">
+									<tr>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">01</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">02</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">03</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">04</span>
+											<p class="txt">신청불가</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">05</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">06</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">07</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">08</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">09</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">10</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">11</span>
+											<p class="txt">신청불가</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">12</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">13</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">14</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">15</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">16</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">17</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">18</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">19</span>
+											<p class="txt">신청마감<br />3/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">20</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">21</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">22</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">23</span>
+											<p class="txt">신청마감<br />6/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">24</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">25</span>
+											<p class="txt">신청마감<br />0/16</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">26</span>
+											<p class="txt">신청마감<br />5/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">27</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">28</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">29</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon able day opened sel">
+											<span class="holidayDt">30</span>
+											<p class="txt">신청가능<br />4/16</p>
+										</td>
+										<td class="yhdc-dayCon able day opened">
+											<span class="holidayDt">31</span>
+											<p class="txt">신청가능<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon day closed"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="legend">
+						<i class="legend-able"></i>
+						<span>신청가능</span>
+						<i class="legend-com"></i>
+						<span>신청마감</span>
+						<span class="fR">※ (0/0): 예약가능/전체</span>
+					</div>
+				</div>
+
+				<!-- STEP 02: 예약현황 -->
+				<div class="time-select" id="dailySummary">
+					<div class="title"><span>2</span> 예약현황</div>
+					<p class="tip">이용하고자 하는 시간을 선택하세요.</p>
+					<div class="tbl-box">
+						<table class="tbl taC" id="resvTbl">
+							<caption>선택한 날짜의 이용시간을 선택할 수 있는 표입니다.</caption>
+							<colgroup>
+								<col style="width:20%" />
+								<col />
+								<col style="width:15%" />
+								<col style="width:25%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">이용시간</th>
+									<th scope="col">선택</th>
+									<th scope="col">접수현황</th>
+								</tr>
+							</thead>
+							<tbody id="timeList">
+								<tr>
+									<td rowspan="14">주간</td>
+									<td>06:00 ~ 7:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time0" /><label
+											for="time0"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>07:00 ~ 8:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time1" /><label
+											for="time1"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>08:00 ~ 9:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time2" /><label
+											for="time2"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>09:00 ~ 10:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time3" /><label
+											for="time3"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>10:00 ~ 11:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time4" /><label
+											for="time4"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>11:00 ~ 12:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time5" /><label
+											for="time5"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>12:00 ~ 13:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time6" /><label
+											for="time6"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>13:00 ~ 14:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time7" /><label
+											for="time7"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>14:00 ~ 15:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time8" /><label
+											for="time8"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>15:00 ~ 16:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time9" /><label
+											for="time9"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>16:00 ~ 17:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time10" /><label
+											for="time10"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>17:00 ~ 18:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time11" /><label
+											for="time11"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>18:00 ~ 19:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time12"
+											disabled
+										/><label for="time12"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td>19:00 ~ 20:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time13"
+											disabled
+										/><label for="time13"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td rowspan="2">야간</td>
+									<td>20:00 ~ 21:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time14"
+											disabled
+										/><label for="time14"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td>21:00 ~ 22:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time15"
+											disabled
+										/><label for="time15"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>

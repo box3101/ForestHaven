@@ -9,13 +9,113 @@ const pageTitle = `홈>${datph2}>${location}`;
 const idName = "VirtualTour";
 
 import "../../css/ui.css";
+
+// 관련 시설 슬라이더
+export interface RelatedFacility {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const relatedFacilities: RelatedFacility[] = [
+	{
+		title: "송도솔밭도시숲",
+		image: "../img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "철길 숲",
+		image: "../img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도솔밭도시숲",
+		image: "../img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "../img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "../img/swiper_img02.png",
+		link: "/facility/6",
+	},
+	{
+		title: "추가 시설 7",
+		image: "../img/swiper_img03.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 8",
+		image: "../img/swiper_img04.png",
+		link: "/facility/6",
+	},
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
-      </div>
+			<!-- 검색 영역 -->
+			<div class="search-section">
+				<div class="search-form">
+					<div class="search-input-group">
+						<input
+							type="text"
+							class="search-input"
+							placeholder="녹지 명을 입력하세요."
+							id="searchKeyword"
+						/>
+						<button type="button" class="search-btn">검색</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 공원 주변 이미지  -->
+			<div class="virtualTour-Wrap">
+				{
+					relatedFacilities.map((facility, index) => (
+						<a href={facility.link} class="facility-item">
+							<div class="card-image">
+								<img src={facility.image} alt={facility.title} loading="lazy" />
+							</div>
+							<div class="card-title">{facility.title}</div>
+						</a>
+					))
+				}
+			</div>
+					<!-- 페이지네이션 -->
+			<div class="pagination-wrap">
+				<div class="pagination">
+					<a href="#" class="page-btn prev-btn" aria-label="처음음 페이지">
+						<img src="../img/btn_arrow_left_first.svg" alt="처음" />
+					</a>
+					<a href="#" class="page-btn prev-btn" aria-label="이전 페이지">
+						<img src="../img/btn_arrow_left.svg" alt="이전" />
+					</a>
+					<div class="page-numbers">
+						<a href="#" class="page-num active">1</a>
+						<a href="#" class="page-num">2</a>
+						<a href="#" class="page-num">3</a>
+						<a href="#" class="page-num">4</a>
+						<a href="#" class="page-num">5</a>
+					</div>
+					<a href="#" class="page-btn next-btn" aria-label="다음 페이지">
+						<img src="../img/btn_arrow_right.svg" alt="다음" />
+					</a>
+					<a href="#" class="page-btn next-btn" aria-label="마지막 페이지">
+						<img src="../img/btn_arrow_right_last.svg" alt="다음" />
+					</a>
+				</div>
+			</div>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>

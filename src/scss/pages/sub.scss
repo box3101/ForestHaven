@@ -347,7 +347,7 @@
 	}
 
 	.tit-bold {
-		font-size: 26px;
+		font-size: 30px;
 		font-weight: 700;
 		color: $cDarkGray;
 		transition: color 0.3s ease;
@@ -372,7 +372,7 @@
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		padding-top: 20px;
+
 
 		@include media($tab) {
 			padding-top: 0 !important;
@@ -473,6 +473,7 @@
 		border: .625rem solid $cLightGreenBorder;
 		border-radius: .625rem;
 		padding: 2.5rem;
+		margin-bottom: 2.5rem;
 
 		@include media($web) {
 			padding: 1.25rem;
@@ -522,8 +523,9 @@
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
-					max-width: clamp(120px, calc(52vw - 1.5rem - 1rem), 250px);
+					// max-width: clamp(120px, calc(52vw - 1.5rem - 1rem), 250px);
 					/* 최소 150px, 선호 50vw, 최대 300px, 여백 1.5rem 제외, 텍스트 여백 1rem 제외 */
+					max-width: auto;
 				}
 
 				.boldTitle {
@@ -567,7 +569,8 @@
 .related-facilities-section {
 
 	.inner {
-		max-width: 80rem;
+		// max-width: 80rem;
+		max-width: fit-content;
 		margin: 0 auto;
 		position: relative;
 		padding-bottom: 5rem;
@@ -611,7 +614,8 @@
 	.facility-slider {
 		position: relative;
 		padding: 0;
-		max-width: 80rem;
+		// max-width: 80rem;
+		max-width: fit-content;
 		margin: 0 auto;
 
 		.swiper {
@@ -651,12 +655,13 @@
 			background: $cWhite;
 			text-decoration: none;
 			transition: all 0.3s ease;
-			height: 15.625rem;
+			// height: 15.625rem;
 			padding: 1.25rem;
 			box-sizing: border-box;
 			margin: 0;
 			outline: .125rem solid transparent;
 			outline-offset: -0.125rem;
+			height: auto;
 
 			&:hover {
 				outline-color: $cMain;
@@ -670,15 +675,18 @@
 
 			.card-image {
 				width: 100%;
-				height: 10rem;
+				// height: 10rem;
 				overflow: hidden;
 				border-radius: .625rem;
 				margin-bottom: 1rem;
+				aspect-ratio: 16 / 9;
+				height: auto;
 
 				img {
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
+					object-position: center;
 					transition: transform 0.3s ease;
 				}
 			}
@@ -1040,8 +1048,6 @@
 	}
 }
 
-
-//
 //공원 정보 영역
 
 .forest-listWrap {
@@ -1101,7 +1107,8 @@
 		}
 
 		img {
-			max-width: 31.25rem;
+			// max-width: 31.25rem;
+			max-width: 100%;
 			height: auto;
 			border: .375rem solid #9EE5D3;
 			border-radius: .625rem;
@@ -1123,7 +1130,7 @@
 		.forest-info {
 			display: flex;
 			flex-direction: column;
-			gap: .625rem;
+			gap: 30px;
 			width: 100%;
 
 			@include media($tab) {
@@ -1141,8 +1148,7 @@
 				font-weight: 700;
 				color: #333333;
 				position: relative;
-				padding-left: 1.5625rem;
-				margin-bottom: 1.875rem;
+				padding-left: 1.75rem;
 
 				@include media($tab) {
 					margin-bottom: 0;
@@ -1157,8 +1163,8 @@
 					content: "";
 					display: block;
 					background: url("../img/icon_big_dot.svg") no-repeat center center;
-					width: 1rem;
-					height: 1rem;
+					width: 24px;
+					height: 24px;
 					position: absolute;
 					left: 0;
 					top: 50%;
@@ -1166,75 +1172,826 @@
 				}
 			}
 
-			.forest-info-group {
+			.forest-info-wrapper {
 				display: flex;
+				flex-direction: column;
 				gap: .625rem;
-				align-items: center;
+
+				.forest-info-group {
+					display: flex;
+					gap: .625rem;
+					align-items: center;
 
 
-				// white-space: nowrap;
-				@include media($tab) {
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
-					word-wrap: break-word;
-					word-break: break-word;
-					line-height: 1.4;
-				}
-
-				.boldTitle {
-					font-size: 1.125rem;
-					color: $cDarkGray;
-					font-weight: 700;
-					padding-left: 1.25rem;
-					position: relative;
-					white-space: nowrap;
-
-					&::before {
-						content: "";
-						display: block;
-						width: .5rem;
-						height: .5rem;
-						background-color: #00B587;
-						border-radius: 50%;
-						position: absolute;
-						left: 0;
-						top: 50%;
-						transform: translate(0%, -50%);
-					}
-				}
-
-				.normalText {
-					font-size: 1.125rem;
-					color: $cGray02;
-					font-weight: 400;
-
+					// white-space: nowrap;
 					@include media($tab) {
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;
+						max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
+						word-wrap: break-word;
+						word-break: break-word;
+						line-height: 1.4;
+					}
+
+					.boldTitle {
+						font-size: 1.125rem;
+						color: $cDarkGray;
+						font-weight: 700;
+						padding-left: 1.25rem;
+						position: relative;
+						white-space: nowrap;
+
+						&::before {
+							content: "";
+							display: block;
+							width: .5rem;
+							height: .5rem;
+							background-color: #00B587;
+							border-radius: 50%;
+							position: absolute;
+							left: 0;
+							top: 50%;
+							transform: translate(0%, -50%);
+						}
+					}
+
+					.normalText {
+						font-size: 1.125rem;
+						color: $cGray02;
+						font-weight: 400;
+
+						@include media($tab) {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+
+						}
+
+						@include media($mo) {
+							// overflow: auto;
+
+						}
 
 					}
 
-					@include media($mo) {
-						overflow: auto;
-
+					.direction-link {
+						font-size: 1rem;
+						color: #333;
+						border: .0625rem solid #00B587;
+						background-color: #D3EFD7;
+						text-decoration: none;
+						border-radius: 1.875rem;
+						padding: .5rem 1.625rem;
 					}
-
-				}
-
-				.direction-link {
-					font-size: 1rem;
-					color: #333;
-					border: .0625rem solid #00B587;
-					background-color: #D3EFD7;
-					text-decoration: none;
-					border-radius: 1.875rem;
-					padding: .5rem 1.625rem;
 				}
 			}
 
+		}
+	}
+}
+
+.forest-boxWrap {
+	padding: 2.5rem;
+	border: 10px solid #9EE5D3;
+	border-radius: 10px;
+
+	@include media($web) {
+		padding: 1.25rem;
+	}
+
+	@include media($tab) {
+		padding: 0;
+	}
+
+
+	.description-Box {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+
+		@include media($web) {
+			gap: 20px;
+		}
+
+	}
+
+	.forest-item {
+		display: flex;
+		align-items: center;
+		gap: 3.125rem;
+		padding-bottom: 2.5rem;
+		border-bottom: .0625rem solid #CFCFCF;
+		align-items: stretch;
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		@include media($web) {
+			padding-bottom: 20px;
+
+		}
+
+		@include media($tab) {
+			padding: 1.25rem 0;
+			gap: 12px;
+
+			&:last-child {
+				padding-bottom: 20px;
+			}
+		}
+
+		@include media($mo) {
+			padding: 1.25rem 0;
+			flex-direction: column;
+		}
+
+		img {
+			max-width: 31.25rem;
+			height: auto;
+			border-radius: .625rem;
+
+
+			@include media($tab) {
+				max-width: 18.75rem;
+				object-fit: cover;
+
+			}
+
+			@include media($mo) {
+				max-width: 100%;
+				object-fit: cover;
+			}
+
+		}
+
+		.forest-info {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			width: 100%;
+
+			@include media($tab) {
+				gap: .375rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			@include media($mo) {
+				gap: .25rem;
+			}
+
+			.forest-title {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 1.75rem;
+
+				@include media($tab) {
+					margin-bottom: 0;
+				}
+
+				@include media($mo) {
+					margin-bottom: 0;
+				}
+
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon_big_dot.svg") no-repeat center center;
+					width: 24px;
+					height: 24px;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+			}
+
+			.forest-info-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: .625rem;
+
+				.forest-info-group {
+					display: flex;
+					gap: .625rem;
+					align-items: center;
+
+
+					// white-space: nowrap;
+					@include media($tab) {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
+						word-wrap: break-word;
+						word-break: break-word;
+						line-height: 1.4;
+					}
+
+					.boldTitle {
+						font-size: 1.125rem;
+						color: $cDarkGray;
+						font-weight: 700;
+						padding-left: 1.25rem;
+						position: relative;
+						white-space: nowrap;
+
+						&::before {
+							content: "";
+							display: block;
+							width: .5rem;
+							height: .5rem;
+							background-color: #00B587;
+							border-radius: 50%;
+							position: absolute;
+							left: 0;
+							top: 50%;
+							transform: translate(0%, -50%);
+						}
+					}
+
+					.normalText {
+						font-size: 1.125rem;
+						color: $cGray02;
+						font-weight: 400;
+
+						@include media($tab) {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+
+						}
+
+						@include media($mo) {
+							overflow: auto;
+
+						}
+
+					}
+
+					.direction-link {
+						font-size: 1rem;
+						color: #333;
+						border: .0625rem solid #00B587;
+						background-color: #D3EFD7;
+						text-decoration: none;
+						border-radius: 1.875rem;
+						padding: .5rem 1.625rem;
+					}
+				}
+			}
+
+			.forest-title-tree {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 74px;
+
+				@include media($tab) {
+					margin-bottom: 0;
+				}
+
+				@include media($mo) {
+					margin-bottom: 0;
+				}
+
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon-tree.svg") no-repeat center center;
+					width: 60px;
+					height: 60px;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+					background-color: #E7FAF5;
+					border-radius: 50%;
+				}
+			}
+
+			.subTitle {
+				font-size: 18px;
+				font-weight: 400;
+				color: #333333;
+				line-height: 1.5;
+			}
+		}
+	}
+}
+
+.virtualTour-Wrap {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.875rem 1rem;
+
+	@include media($web) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include media($tab) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media($mo) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.facility-item {
+		display: block;
+		border: .0625rem solid #D4D4D4;
+		border-radius: .625rem;
+		box-shadow: .25rem .25rem .625rem 0 #D4D4D4;
+		overflow: hidden;
+		background: $cWhite;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		// height: 15.625rem;
+		padding: 1.25rem;
+		box-sizing: border-box;
+		margin: 0;
+		outline: .125rem solid transparent;
+		outline-offset: -0.125rem;
+		height: auto;
+
+		@include media($tab) {
+			height: fit-content;
+		}
+
+		@include media($mo) {
+			height: 100%;
+		}
+
+		&:hover {
+			outline-color: $cMain;
+			transform: translateY(-0.3125rem);
+
+			.card-title {
+				color: $cMain;
+				font-weight: 700;
+			}
+		}
+
+		.card-image {
+			width: 100%;
+			// height: 10rem;
+			height: auto;
+			overflow: hidden;
+			border-radius: .625rem;
+			margin-bottom: 1rem;
+			aspect-ratio: 16 / 9;
+
+
+			@include media($tab) {
+				height: 100%;
+			}
+
+			@include media($mo) {
+				height: auto;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		.card-title {
+			padding: 0;
+			font-size: 1.25rem;
+			font-weight: 600;
+			color: $cGray02;
+			text-align: center;
+			background: $cWhite;
+			transition: all 0.3s ease;
+			line-height: 1.4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+.tbl-form-box {
+	display: flex;
+	gap: 2.5rem;
+
+	@include media($tab) {
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.container {
+		max-width: 56.25rem;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 1.875rem;
+		border-radius: 0.5rem;
+		box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+	}
+
+	/* STEP 타이틀 */
+	.title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 0.9375rem;
+		color: #333333;
+	}
+
+	.title span {
+		display: inline-block;
+		background-color: $cMain;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: #fff;
+		border-radius: 0.25rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-right: 0.5rem;
+		text-align: center;
+		line-height: 2.5rem;
+	}
+
+	.tip {
+		color: #666;
+		font-size: 0.875rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.tip p {
+		margin: 0;
+	}
+
+	/* 날짜선택 섹션 */
+	.date-select {
+		width: 60%;
+		@include media($tab) {
+			width: 100%;
+		}
+	}
+
+	/* 캘린더 헤더 */
+	.calendarHead {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.9375rem;
+		padding: 1.25rem 0;
+		border-bottom: 0.125rem solid #2d3e50;
+		margin-bottom: 1.25rem;
+	}
+
+	.calendarHead a {
+		text-decoration: none;
+		color: #333;
+		font-size: 0.875rem;
+		padding: 0.5rem 0.9375rem;
+		border: 0.0625rem solid #ddd;
+		border-radius: 0.25rem;
+		transition: all 0.3s;
+	}
+
+	.calendarHead a:hover {
+		background-color: #f0f0f0;
+	}
+
+	.calendarHead .today {
+		background-color: #2d3e50;
+		color: #fff;
+		border-color: #2d3e50;
+	}
+
+	.calendarHead .today:hover {
+		background-color: #1a2332;
+	}
+
+	#dispMonth {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #2d3e50;
+		min-width: 9.375rem;
+		text-align: center;
+	}
+
+	#dispMonth em {
+		font-style: normal;
+		color: #e74c3c;
+	}
+
+	/* 캘린더 테이블 */
+	.calendar {
+		margin-bottom: 1.25rem;
+	}
+
+	#yhd_calendar {
+		width: 100%;
+		border-collapse: collapse;
+		border: 0.0625rem solid #ddd;
+	}
+
+	#yhd_calendar caption {
+		position: absolute;
+		width: 0.0625rem;
+		height: 0.0625rem;
+		padding: 0;
+		margin: -0.0625rem;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	#yhd_calendar thead th {
+		background-color: #2d3e50;
+		color: #fff;
+		padding: 0.75rem;
+		font-weight: bold;
+		font-size: 0.8125rem;
+		border: 0.0625rem solid #1a2332;
+	}
+
+	#yhd_calendar thead th:first-child {
+		color: #ff6b6b;
+	}
+
+	#yhd_calendar thead th:last-child {
+		color: #4dabf7;
+	}
+
+	#yhd_calendar tbody td {
+		height: 5.625rem;
+		border: 0.0625rem solid #e0e0e0;
+		text-align: center;
+		vertical-align: top;
+		padding: 0.5rem 0.3125rem;
+		position: relative;
+		cursor: default;
+	}
+
+	.yhdc-dayCon {
+		background-color: #f9f9f9;
+	}
+
+	.holidayDt {
+		display: block;
+		font-size: 1rem;
+		font-weight: bold;
+		margin-bottom: 0.3125rem;
+		color: #333;
+	}
+
+	.txt {
+		font-size: 15px;
+		line-height: 1.4;
+		margin: 0;
+	}
+
+	/* 신청불가 상태 */
+	.yhdc-dayCon.closed .holidayDt {
+		color: #bbb;
+	}
+
+	.yhdc-dayCon.closed .txt {
+		color: #999;
+	}
+
+	/* 신청마감 상태 */
+	.yhdc-dayCon.com {
+		background-color: #fff5f5;
+	}
+
+	.yhdc-dayCon.com .holidayDt {
+		color: #e74c3c;
+	}
+
+	.yhdc-dayCon.com .txt {
+		color: #e74c3c;
+	}
+
+	/* 신청가능 상태 */
+	.yhdc-dayCon.able {
+		background-color: #e8f5e9;
+		cursor: pointer;
+		transition: background-color 0.3s;
+	}
+
+	.yhdc-dayCon.able:hover {
+		background-color: #c8e6c9;
+	}
+
+	.yhdc-dayCon.able .holidayDt {
+		color: #2196f3;
+	}
+
+	.yhdc-dayCon.able .txt {
+		color: #2196f3;
+		font-weight: bold;
+	}
+
+	/* 선택된 날짜 */
+	.yhdc-dayCon.sel {
+		background-color: #ec407a !important;
+		border: 0.125rem solid #d81b60 !important;
+	}
+
+	.yhdc-dayCon.sel .holidayDt,
+	.yhdc-dayCon.sel .txt {
+		color: #fff !important;
+	}
+
+	/* 범례 */
+	.legend {
+		display: flex;
+		align-items: center;
+		gap: 0.9375rem;
+		padding: 0.9375rem;
+		background-color: #f9f9f9;
+		border-radius: 0.25rem;
+		font-size: 0.8125rem;
+	}
+
+	.legend i {
+		display: inline-block;
+		width: 1.25rem;
+		height: 1.25rem;
+		border-radius: 0.1875rem;
+		vertical-align: middle;
+	}
+
+	.legend-able {
+		background-color: #e8f5e9;
+		border: 0.0625rem solid #2196f3;
+	}
+
+	.legend-com {
+		background-color: #fff5f5;
+		border: 0.0625rem solid #e74c3c;
+	}
+
+	.legend span {
+		color: #666;
+	}
+
+	.fR {
+		margin-left: auto;
+		color: #999;
+		font-size: 0.75rem;
+	}
+
+	/* 예약현황 섹션 */
+	.time-select {
+		width: 40%;
+		@include media($tab) {
+			width: 100%;
+		}
+	}
+
+	.tbl-box {
+		margin-top: 6.25rem;
+		overflow-x: auto;
+	}
+
+	.tbl {
+		width: 100%;
+		border-collapse: collapse;
+		border: 0.0625rem solid #ddd;
+	}
+
+	.tbl caption {
+		position: absolute;
+		width: 0.0625rem;
+		height: 0.0625rem;
+		padding: 0;
+		margin: -0.0625rem;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.tbl thead th {
+		background-color: #2d3e50;
+		color: #fff;
+		padding: 0.75rem;
+		font-weight: bold;
+		border: 0.0625rem solid #1a2332;
+	}
+
+	.tbl tbody td {
+		padding: 0.75rem;
+		border: 0.0625rem solid #e0e0e0;
+		text-align: center;
+	}
+
+	.tbl tbody td:first-child {
+		background-color: #f5f5f5;
+		font-weight: bold;
+	}
+
+	.taC {
+		text-align: center;
+	}
+
+	/* 체크박스 스타일 */
+	.timeChk {
+		width: 1.125rem;
+		height: 1.125rem;
+		cursor: pointer;
+		accent-color: #2d3e50;
+	}
+
+	.timeChk:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	.timeChk:disabled+label {
+		cursor: not-allowed;
+	}
+
+	/* 반응형 디자인 */
+	@media (max-width: 48rem) {
+		.container {
+			padding: 0.9375rem;
+		}
+
+		.calendarHead {
+			flex-wrap: wrap;
+			gap: 0.625rem;
+		}
+
+		#dispMonth {
+			font-size: 1.25rem;
+			min-width: 7.5rem;
+		}
+
+		#yhd_calendar tbody td {
+			height: 5rem;
+			padding: 0.3125rem 0.1875rem;
+		}
+
+		.holidayDt {
+			font-size: 0.875rem;
+		}
+
+		.txt {
+			font-size: 0.6875rem;
+		}
+
+		.tbl tbody td {
+			padding: 0.5rem 0.3125rem;
+			font-size: 0.75rem;
+		}
+
+		.legend {
+			flex-wrap: wrap;
+			gap: 0.625rem;
+		}
+
+		.fR {
+			width: 100%;
+			margin-left: 0;
+			margin-top: 0.625rem;
+		}
+	}
+
+	@media (max-width: 30rem) {
+		#yhd_calendar tbody td {
+			height: 4.375rem;
+			padding: 0.25rem 0.125rem;
+		}
+
+		.holidayDt {
+			font-size: 0.75rem;
+			margin-bottom: 0.1875rem;
+		}
+
+		.txt {
+			font-size: 0.625rem;
+		}
+
+		.calendarHead a {
+			padding: 0.375rem 0.625rem;
+			font-size: 0.75rem;
+		}
+
+		#dispMonth {
+			font-size: 1.125rem;
 		}
 	}
 }
