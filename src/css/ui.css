@@ -3974,17 +3974,17 @@ button.swiper-pagination-bullet {
 
 @media all and (max-width: 1400px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 @media all and (max-width: 900px) {
   html {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 @media all and (max-width: 600px) {
   html {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -4336,7 +4336,8 @@ button.swiper-pagination-bullet {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 16px;
-  max-width: clamp(280px, 52vw, 300px); /* 최소 150px, 선호 50vw, 최대 300px */
+  max-width: clamp(280px, 52vw, 300px);
+  /* 최소 150px, 선호 50vw, 최대 300px */
 }
 .search-input-group .search-input:focus {
   outline: none;
@@ -6529,7 +6530,7 @@ button.swiper-pagination-bullet {
   height: 2.5rem;
   color: #fff;
   border-radius: 0.25rem;
-  font-size: 1.25rem;
+  font-size: 18px;
   font-weight: 700;
   margin-right: 0.5rem;
   text-align: center;
@@ -6537,7 +6538,7 @@ button.swiper-pagination-bullet {
 }
 .tbl-form-box .tip {
   color: #666;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   margin-bottom: 1.25rem;
 }
 .tbl-form-box .tip p {
@@ -6563,7 +6564,7 @@ button.swiper-pagination-bullet {
 .tbl-form-box .calendarHead a {
   text-decoration: none;
   color: #333;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   padding: 0.5rem 0.9375rem;
   border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
@@ -6581,7 +6582,7 @@ button.swiper-pagination-bullet {
   background-color: #1a2332;
 }
 .tbl-form-box #dispMonth {
-  font-size: 1.5rem;
+  font-size: 1.6875rem;
   font-weight: bold;
   color: #2d3e50;
   min-width: 9.375rem;
@@ -6614,8 +6615,8 @@ button.swiper-pagination-bullet {
   background-color: #2d3e50;
   color: #fff;
   padding: 0.75rem;
-  font-weight: bold;
-  font-size: 0.8125rem;
+  font-weight: 400;
+  font-size: 18px;
   border: 0.0625rem solid #1a2332;
 }
 .tbl-form-box #yhd_calendar thead th:first-child {
@@ -6644,7 +6645,7 @@ button.swiper-pagination-bullet {
   color: #333;
 }
 .tbl-form-box .txt {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
   margin: 0;
 }
@@ -6750,17 +6751,20 @@ button.swiper-pagination-bullet {
   background-color: #2d3e50;
   color: #fff;
   padding: 0.75rem;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 400;
   border: 0.0625rem solid #1a2332;
 }
 .tbl-form-box .tbl tbody td {
   padding: 0.75rem;
   border: 0.0625rem solid #e0e0e0;
   text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
 }
 .tbl-form-box .tbl tbody td:first-child {
   background-color: #f5f5f5;
-  font-weight: bold;
+  font-weight: 400;
 }
 .tbl-form-box .taC {
   text-align: center;
