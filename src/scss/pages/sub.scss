@@ -1060,7 +1060,7 @@
 	}
 
 	@include media($tab) {
-		padding: 0;
+		padding: 20px 0;
 	}
 
 
@@ -1071,6 +1071,7 @@
 
 		@include media($web) {
 			gap: 20px;
+			padding: 0;
 		}
 
 	}
@@ -1082,6 +1083,11 @@
 		padding-bottom: 2.5rem;
 		border-bottom: .0625rem solid #CFCFCF;
 
+		a {
+			display: inline-block;
+			flex: 0.4;
+		}
+
 		&:last-child {
 			border-bottom: none;
 			padding-bottom: 0;
@@ -1089,39 +1095,33 @@
 
 		@include media($web) {
 			padding-bottom: 20px;
-
 		}
 
 		@include media($tab) {
-			padding: 1.25rem 0;
-			gap: 12px;
-
-			&:last-child {
-				padding-bottom: 20px;
-			}
+			padding-bottom: 20px;
+			gap: 20px;
 		}
 
-		@include media($mo) {
-			padding: 1.25rem 0;
+		@include media($tab) {
+			padding-bottom: 20px;
 			flex-direction: column;
 		}
 
 		img {
-			// max-width: 31.25rem;
 			max-width: 100%;
 			height: auto;
 			border: .375rem solid #9EE5D3;
 			border-radius: .625rem;
-
+			vertical-align: bottom;
 
 			@include media($tab) {
-				max-width: 18.75rem;
+				min-width: 100%;
 				object-fit: cover;
 
 			}
 
 			@include media($mo) {
-				max-width: 100%;
+				min-width: 100%;
 				object-fit: cover;
 			}
 
@@ -1130,8 +1130,10 @@
 		.forest-info {
 			display: flex;
 			flex-direction: column;
+			flex-wrap: wrap;
 			gap: 30px;
-			width: 100%;
+			flex: 0.6;
+
 
 			@include media($tab) {
 				gap: .375rem;
@@ -1184,15 +1186,15 @@
 
 
 					// white-space: nowrap;
-					@include media($tab) {
-						overflow: hidden;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
-						word-wrap: break-word;
-						word-break: break-word;
-						line-height: 1.4;
-					}
+					// @include media($tab) {
+					// 	overflow: hidden;
+					// 	text-overflow: ellipsis;
+					// 	white-space: nowrap;
+					// 	max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
+					// 	word-wrap: break-word;
+					// 	word-break: break-word;
+					// 	line-height: 1.4;
+					// }
 
 					.boldTitle {
 						font-size: 1.125rem;
@@ -1201,6 +1203,7 @@
 						padding-left: 1.25rem;
 						position: relative;
 						white-space: nowrap;
+						width: auto;
 
 						&::before {
 							content: "";
@@ -1225,7 +1228,6 @@
 							overflow: hidden;
 							text-overflow: ellipsis;
 							white-space: nowrap;
-
 						}
 
 						@include media($mo) {
@@ -1269,9 +1271,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2.5rem;
+		padding: 10px;
 
 		@include media($web) {
 			gap: 20px;
+			padding: 0;
 		}
 
 	}
@@ -1282,7 +1286,7 @@
 		gap: 3.125rem;
 		padding-bottom: 2.5rem;
 		border-bottom: .0625rem solid #CFCFCF;
-		align-items: stretch;
+		align-items: flex-start;
 
 		&:last-child {
 			border-bottom: none;
@@ -1291,6 +1295,7 @@
 
 		@include media($web) {
 			padding-bottom: 20px;
+			gap: 20px;
 
 		}
 
@@ -1303,26 +1308,30 @@
 			}
 		}
 
-		@include media($mo) {
+		@include media($tab) {
 			padding: 1.25rem 0;
 			flex-direction: column;
+			justify-content: center;
 		}
 
 		img {
-			max-width: 31.25rem;
+			// max-width: 31.25rem;
 			height: auto;
 			border-radius: .625rem;
+			max-width: 40%;
+			margin: 0 auto;
+
 
 
 			@include media($tab) {
-				max-width: 18.75rem;
-				object-fit: cover;
+				max-width: 100%;
+
 
 			}
 
 			@include media($mo) {
-				max-width: 100%;
-				object-fit: cover;
+				// max-width: 100%;
+
 			}
 
 		}
@@ -1331,12 +1340,17 @@
 			display: flex;
 			flex-direction: column;
 			gap: 30px;
-			width: 100%;
+			flex: 1;
+
+			@include media($web) {
+				gap: 20px;
+			}
 
 			@include media($tab) {
 				gap: .375rem;
-				overflow: hidden;
-				text-overflow: ellipsis;
+				padding: 20px;
+				box-sizing: border-box;
+				width: 100%;
 			}
 
 			@include media($mo) {
@@ -1453,6 +1467,8 @@
 				color: #333333;
 				position: relative;
 				padding-left: 74px;
+				height: 60px;
+
 
 				@include media($tab) {
 					margin-bottom: 0;
@@ -1636,6 +1652,7 @@
 	/* 날짜선택 섹션 */
 	.date-select {
 		width: 60%;
+
 		@include media($tab) {
 			width: 100%;
 		}
@@ -1852,6 +1869,7 @@
 	/* 예약현황 섹션 */
 	.time-select {
 		width: 40%;
+
 		@include media($tab) {
 			width: 100%;
 		}
@@ -1995,6 +2013,61 @@
 
 		#dispMonth {
 			font-size: 1.125rem;
+		}
+	}
+}
+
+.step-indicator {
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 1rem;
+	border: 2px solid #9EE5D3;
+	width: 45%;
+	margin-bottom: 2.5rem;
+
+
+	.step-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: nowrap;
+
+		.step-item {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0;
+			white-space: nowrap;
+			flex-shrink: 0;
+
+			&.active {
+				.step-number {
+					background-color: $cMain;
+				}
+
+				img {
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+				}
+
+				.step-arrow {
+					img {
+						width: 16px;
+						height: 16px;
+						filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+					}
+				}
+
+			}
+
+			.step-number {
+				font-size: 16px;
+				font-weight: 700;
+				color: #fff;
+				background-color: #BCBCBC;
+				border-radius: 6px;
+				padding: 0.25rem 0.5rem;
+			}
 		}
 	}
 }

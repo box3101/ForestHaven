@@ -5999,7 +5999,7 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   .forest-listWrap {
-    padding: 0;
+    padding: 20px 0;
   }
 }
 .forest-listWrap .description-Box {
@@ -6010,6 +6010,7 @@ button.swiper-pagination-bullet {
 @media all and (max-width: 1400px) {
   .forest-listWrap .description-Box {
     gap: 20px;
+    padding: 0;
   }
 }
 .forest-listWrap .forest-item {
@@ -6018,6 +6019,10 @@ button.swiper-pagination-bullet {
   gap: 3.125rem;
   padding-bottom: 2.5rem;
   border-bottom: 0.0625rem solid #CFCFCF;
+}
+.forest-listWrap .forest-item a {
+  display: inline-block;
+  flex: 0.4;
 }
 .forest-listWrap .forest-item:last-child {
   border-bottom: none;
@@ -6030,16 +6035,13 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item {
-    padding: 1.25rem 0;
-    gap: 12px;
-  }
-  .forest-listWrap .forest-item:last-child {
     padding-bottom: 20px;
+    gap: 20px;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 900px) {
   .forest-listWrap .forest-item {
-    padding: 1.25rem 0;
+    padding-bottom: 20px;
     flex-direction: column;
   }
 }
@@ -6048,24 +6050,26 @@ button.swiper-pagination-bullet {
   height: auto;
   border: 0.375rem solid #9EE5D3;
   border-radius: 0.625rem;
+  vertical-align: bottom;
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item img {
-    max-width: 18.75rem;
+    min-width: 100%;
     object-fit: cover;
   }
 }
 @media all and (max-width: 600px) {
   .forest-listWrap .forest-item img {
-    max-width: 100%;
+    min-width: 100%;
     object-fit: cover;
   }
 }
 .forest-listWrap .forest-item .forest-info {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 30px;
-  width: 100%;
+  flex: 0.6;
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item .forest-info {
@@ -6117,17 +6121,6 @@ button.swiper-pagination-bullet {
   gap: 0.625rem;
   align-items: center;
 }
-@media all and (max-width: 900px) {
-  .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: clamp(180px, 70vw - 1.5rem - 1rem, 400px);
-    word-wrap: break-word;
-    word-break: break-word;
-    line-height: 1.4;
-  }
-}
 .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle {
   font-size: 1.125rem;
   color: #333333;
@@ -6135,6 +6128,7 @@ button.swiper-pagination-bullet {
   padding-left: 1.25rem;
   position: relative;
   white-space: nowrap;
+  width: auto;
 }
 .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .boldTitle::before {
   content: "";
@@ -6189,10 +6183,12 @@ button.swiper-pagination-bullet {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  padding: 10px;
 }
 @media all and (max-width: 1400px) {
   .forest-boxWrap .description-Box {
     gap: 20px;
+    padding: 0;
   }
 }
 .forest-boxWrap .forest-item {
@@ -6201,7 +6197,7 @@ button.swiper-pagination-bullet {
   gap: 3.125rem;
   padding-bottom: 2.5rem;
   border-bottom: 0.0625rem solid #CFCFCF;
-  align-items: stretch;
+  align-items: flex-start;
 }
 .forest-boxWrap .forest-item:last-child {
   border-bottom: none;
@@ -6210,6 +6206,7 @@ button.swiper-pagination-bullet {
 @media all and (max-width: 1400px) {
   .forest-boxWrap .forest-item {
     padding-bottom: 20px;
+    gap: 20px;
   }
 }
 @media all and (max-width: 900px) {
@@ -6221,40 +6218,41 @@ button.swiper-pagination-bullet {
     padding-bottom: 20px;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 900px) {
   .forest-boxWrap .forest-item {
     padding: 1.25rem 0;
     flex-direction: column;
+    justify-content: center;
   }
 }
 .forest-boxWrap .forest-item img {
-  max-width: 31.25rem;
   height: auto;
   border-radius: 0.625rem;
+  max-width: 40%;
+  margin: 0 auto;
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item img {
-    max-width: 18.75rem;
-    object-fit: cover;
-  }
-}
-@media all and (max-width: 600px) {
-  .forest-boxWrap .forest-item img {
     max-width: 100%;
-    object-fit: cover;
   }
 }
 .forest-boxWrap .forest-item .forest-info {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 100%;
+  flex: 1;
+}
+@media all and (max-width: 1400px) {
+  .forest-boxWrap .forest-item .forest-info {
+    gap: 20px;
+  }
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item .forest-info {
     gap: 0.375rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
   }
 }
 @media all and (max-width: 600px) {
@@ -6363,6 +6361,7 @@ button.swiper-pagination-bullet {
   color: #333333;
   position: relative;
   padding-left: 74px;
+  height: 60px;
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item .forest-info .forest-title-tree {
@@ -6840,6 +6839,49 @@ button.swiper-pagination-bullet {
   .tbl-form-box #dispMonth {
     font-size: 1.125rem;
   }
+}
+
+.step-indicator {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid #9EE5D3;
+  width: 45%;
+  margin-bottom: 2.5rem;
+}
+.step-indicator .step-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+.step-indicator .step-container .step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.step-indicator .step-container .step-item.active .step-number {
+  background-color: #00B587;
+}
+.step-indicator .step-container .step-item.active img {
+  filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+}
+.step-indicator .step-container .step-item.active .step-arrow img {
+  width: 16px;
+  height: 16px;
+  filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+}
+.step-indicator .step-container .step-item .step-number {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #BCBCBC;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
 }
 
 #Notice .notice-detail-section .notice-detail-table {

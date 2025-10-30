@@ -10,6 +10,44 @@ const idName = "FacilityRental";
 
 import "../../css/ui.css";
 
+//스텝 화면 구성
+export interface Step {
+	number: number;
+	title: string;
+	image: string;
+	icon: string;
+	isActive?: boolean;
+	isCompleted?: boolean;
+}
+
+export const stepAreaData: Step[] = [
+	{
+		number: 1,
+		title: "일정선택",
+		image: "/img/icon_step-01.svg",
+		icon: "/img/icon-arrow-gy.svg",
+		isActive: true,
+		isCompleted: false,
+	},
+	{
+		number: 2,
+		title: "정보등록",
+		image: "/img/icon_step-02.svg",
+		icon: "/img/icon-arrow-gy.svg",
+		isActive: false,
+		isCompleted: false,
+	},
+	{
+		number: 3,
+		title: "본인인증",
+		image: "/img/icon_step-03.svg",
+		icon: "",
+		isActive: false,
+		isCompleted: false,
+	},
+];
+
+
 // 대관신청 타이틀
 export interface facilityTitle {
 	title: string;
@@ -232,6 +270,34 @@ export const DownloadFile: DownloadFile[] = [
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
+
+				<!-- 스텝아이콘 -->
+			<div class="step-indicator">
+				<div class="step-container">
+					{
+						stepAreaData.map((step, index) => (
+							<>
+								<div
+									class={`step-item ${step.isActive ? "active" : ""} ${
+										step.isCompleted ? "completed" : ""
+									}`}
+								>
+									<div class="step-number">{step.number}</div>
+									<span class="step-title">{step.title}</span>
+									<img src={step.image} alt="스텝아이콘" />
+								</div>
+								{index < stepAreaData.length - 1 && step.icon && (
+									<div class="step-arrow">
+										<img src={step.icon} alt="다음 단계" />
+									</div>
+								)}
+							</>
+						))
+					}
+				</div>
+			</div>
+
+			<!-- 타이틀 -->
 			{
 				facilityTitle.map((facility, index) => (
 					<div class="facility-title">

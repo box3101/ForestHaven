@@ -10,6 +10,7 @@ const idName = "FacilityRental";
 
 import "../../css/ui.css";
 
+
 // 대관신청 타이틀
 export interface facilityTitle {
 	title: string;
@@ -232,6 +233,9 @@ export const DownloadFile: DownloadFile[] = [
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
+
+
+			<!-- 타이틀 -->
 			{
 				facilityTitle.map((facility, index) => (
 					<div class="facility-title">
