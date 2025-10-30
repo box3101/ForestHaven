@@ -5,36 +5,35 @@
 .facility-list {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
+	grid-gap: 1.25rem;
 
 	@include media($web) {
-		// grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 20px;
+		grid-gap: 1.25rem;
 	}
 
 	@include media($tab) {
 		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 16px;
+		grid-gap: 1rem;
 	}
 
 	@include media($mo) {
 		grid-template-columns: 1fr;
-		grid-gap: 16px;
+		grid-gap: 1rem;
 	}
 
 	.facility-item {
 		min-width: 0; //그리드 아이템 오버플로우 방지
-		border: 1px solid #ccc;
-		padding: 24px;
-		border-radius: 10px;
+		border: .0625rem solid #ccc;
+		padding: 1.5rem;
+		border-radius: .625rem;
 		cursor: pointer;
 		transition: all 0.3s ease;
 		box-sizing: border-box;
 
 		// 모바일에서 패딩 조정
 		@include media($mo) {
-			padding: 20px;
+			padding: 1.25rem;
 		}
 
 		.facility-image {
@@ -42,19 +41,19 @@
 				width: 100%;
 				height: auto;
 				display: block;
-				border-radius: 10px;
+				border-radius: .625rem;
 			}
 		}
 
 		.facility-info {
-			padding-top: 20px;
+			padding-top: 1.25rem;
 
 			@include media($mo) {
-				padding-top: 15px;
+				padding-top: .9375rem;
 			}
 
 			h2 {
-				font-size: 26px;
+				font-size: 1.625rem;
 				font-weight: 700;
 				color: $cDarkGray;
 				transition: color 0.3s ease;
@@ -64,11 +63,11 @@
 
 				// 반응형 폰트 크기 조정
 				@include media($tab) {
-					font-size: 22px;
+					font-size: 1.375rem;
 				}
 
 				@include media($mo) {
-					font-size: 20px;
+					font-size: 1.25rem;
 				}
 			}
 		}
@@ -76,75 +75,75 @@
 		.facility-details {
 			display: flex;
 			flex-direction: column;
-			gap: 8px;
-			padding-top: 20px;
+			gap: .5rem;
+			padding-top: 1.25rem;
 
 			@include media($mo) {
-				padding-top: 15px;
-				gap: 6px;
+				padding-top: .9375rem;
+				gap: .375rem;
 			}
 
 			li {
 				display: flex;
-				gap: 8px;
+				gap: .5rem;
 				align-items: center;
-				max-width: clamp(300px, 52vw, 300px);
+				max-width: clamp(18.75rem, 52vw, 18.75rem);
 				flex: 1;
 				min-width: 0;
 
 				.tit-bold {
-					font-size: 18px;
+					font-size: 1.125rem;
 					font-weight: 700;
 					color: $cDarkGray;
 					position: relative;
-					padding-left: 10px;
+					padding-left: .625rem;
 					white-space: nowrap;
 
 					@include media($mo) {
-						font-size: 16px;
+						font-size: 1rem;
 					}
 
 					&::before {
 						content: "";
 						display: inline-block;
-						width: 4px;
-						height: 4px;
+						width: .25rem;
+						height: .25rem;
 						position: absolute;
 						left: 0;
 						top: 50%;
 						transform: translateY(-50%);
 						border-radius: 50%;
 						background-color: $cMain;
-						text-indent: -10px;
+						text-indent: -0.625rem;
 					}
 				}
 
 				.tit-default {
-					font-size: 18px;
+					font-size: 1.125rem;
 					color: $cDarkGray;
 					position: relative;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
-					width: 250px;
+					width: 15.625rem;
 
 					@include media($tab) {
-						width: 200px;
-						font-size: 16px;
+						width: 12.5rem;
+						font-size: 1rem;
 					}
 
 					@include media($mo) {
 						width: 100%;
-						font-size: 16px;
+						font-size: 1rem;
 					}
 				}
 
 				.tit-normal {
-					font-size: 16px;
+					font-size: 1rem;
 					color: $cDarkGray;
 
 					@include media($mo) {
-						font-size: 14px;
+						font-size: .875rem;
 					}
 				}
 			}
@@ -153,44 +152,44 @@
 		.facility-buttons {
 			display: flex;
 			align-items: center;
-			gap: 10px;
-			padding-top: 20px;
+			gap: .625rem;
+			padding-top: 1.25rem;
 
 			@include media($mo) {
-				padding-top: 15px;
-				gap: 8px;
+				padding-top: .9375rem;
+				gap: .5rem;
 				flex-direction: column; // 모바일에서 세로 배치
 			}
 
 			.btn-info {
-				border: 1px solid $cGray02;
-				font-size: 16px;
+				border: .0625rem solid $cGray02;
+				font-size: 1rem;
 				color: $cGray02;
-				border-radius: 30px;
-				padding: 10px 40px 10px 20px;
+				border-radius: 1.875rem;
+				padding: .625rem 2.5rem .625rem 1.25rem;
 				position: relative;
 				text-align: left;
 
 				@include media($mo) {
-					font-size: 14px;
-					padding: 8px 35px 8px 15px;
+					font-size: .875rem;
+					padding: .5rem 2.1875rem .5rem .9375rem;
 				}
 
 				&::after {
 					content: "";
 					display: inline-block;
-					width: 16px;
-					height: 16px;
+					width: 1rem;
+					height: 1rem;
 					position: absolute;
-					right: 12px;
+					right: .75rem;
 					top: 50%;
 					transform: translateY(-50%);
 					background: url("../img/icon_search.svg") no-repeat center center/contain;
 
 					@include media($mo) {
-						width: 14px;
-						height: 14px;
-						right: 10px;
+						width: .875rem;
+						height: .875rem;
+						right: .625rem;
 					}
 				}
 
@@ -206,33 +205,33 @@
 
 			.btn-write {
 				background-color: $cMain;
-				font-size: 16px;
+				font-size: 1rem;
 				color: $cWhite;
-				border-radius: 30px;
-				padding: 10px 40px 10px 20px;
+				border-radius: 1.875rem;
+				padding: .625rem 2.5rem .625rem 1.25rem;
 				position: relative;
 				text-align: left;
 
 				@include media($mo) {
-					font-size: 14px;
-					padding: 8px 35px 8px 15px;
+					font-size: .875rem;
+					padding: .5rem 2.1875rem .5rem .9375rem;
 				}
 
 				&::after {
 					content: "";
 					display: inline-block;
-					width: 16px;
-					height: 16px;
+					width: 1rem;
+					height: 1rem;
 					position: absolute;
-					right: 12px;
+					right: .75rem;
 					top: 50%;
 					transform: translateY(-50%);
 					background: url("../img/icon_write.svg") no-repeat center center/contain;
 
 					@include media($mo) {
-						width: 14px;
-						height: 14px;
-						right: 10px;
+						width: .875rem;
+						height: .875rem;
+						right: .625rem;
 					}
 				}
 
@@ -308,7 +307,7 @@
 				background: white;
 				color: #333;
 				text-decoration: none;
-				font-size: 18px;
+				font-size: 1.125rem;
 				transition: all 0.2s;
 				font-weight: 700;
 
@@ -347,7 +346,7 @@
 	}
 
 	.tit-bold {
-		font-size: 30px;
+		font-size: 1.875rem;
 		font-weight: 700;
 		color: $cDarkGray;
 		transition: color 0.3s ease;
@@ -364,14 +363,14 @@
 			top: 50%;
 			transform: translateY(-50%);
 			background: url("../img/icon_circle_dubble.svg") no-repeat center center/contain;
-			text-indent: -10px;
+			text-indent: -0.625rem;
 		}
 	}
 
 	.facility-buttons {
 		display: flex;
 		align-items: center;
-		gap: 10px;
+		gap: .625rem;
 
 
 		@include media($tab) {
@@ -383,34 +382,34 @@
 		}
 
 		.btn-list {
-			border: 1px solid $cGray02;
-			font-size: 16px;
+			border: .0625rem solid $cGray02;
+			font-size: 1rem;
 			color: $cGray02;
-			border-radius: 30px;
-			padding: 10px 40px 10px 20px;
+			border-radius: 1.875rem;
+			padding: .625rem 2.5rem .625rem 1.25rem;
 			position: relative;
 			text-align: left;
 
 			@include media($mo) {
-				font-size: 14px;
-				padding: 8px 35px 8px 15px;
+				font-size: 1.125rem;
+				padding: .5rem 2.1875rem .5rem .9375rem;
 			}
 
 			&::after {
 				content: "";
 				display: inline-block;
-				width: 16px;
-				height: 16px;
+				width: 1rem;
+				height: 1rem;
 				position: absolute;
-				right: 12px;
+				right: .75rem;
 				top: 50%;
 				transform: translateY(-50%);
 				background: url("../img/icon_list.svg") no-repeat center center/contain;
 
 				@include media($mo) {
-					width: 14px;
-					height: 14px;
-					right: 10px;
+					width: .875rem;
+					height: .875rem;
+					right: .625rem;
 				}
 			}
 
@@ -426,33 +425,33 @@
 
 		.btn-next {
 			background-color: $cMain;
-			font-size: 16px;
+			font-size: 1rem;
 			color: $cWhite;
-			border-radius: 30px;
-			padding: 10px 40px 10px 20px;
+			border-radius: 1.875rem;
+			padding: .625rem 2.5rem .625rem 1.25rem;
 			position: relative;
 			text-align: left;
 
 			@include media($mo) {
-				font-size: 14px;
-				padding: 8px 35px 8px 15px;
+				font-size: 1.125rem;
+				padding: .5rem 2.1875rem .5rem .9375rem;
 			}
 
 			&::after {
 				content: "";
 				display: inline-block;
-				width: 16px;
-				height: 16px;
+				width: 1rem;
+				height: 1rem;
 				position: absolute;
-				right: 12px;
+				right: .75rem;
 				top: 50%;
 				transform: translateY(-50%);
 				background: url("../img/icon_write.svg") no-repeat center center/contain;
 
 				@include media($mo) {
-					width: 14px;
-					height: 14px;
-					right: 10px;
+					width: .875rem;
+					height: .875rem;
+					right: .625rem;
 				}
 			}
 
@@ -477,11 +476,14 @@
 
 		@include media($web) {
 			padding: 1.25rem;
+			gap: 1.5rem;
 		}
 
 		@include media($tab) {
 			padding: 1.25rem;
-			gap: 12px;
+			gap: 1.25rem;
+			align-items: flex-start;
+
 		}
 
 		@include media($mo) {
@@ -489,23 +491,62 @@
 			flex-direction: column;
 		}
 
-		img {
-			max-width: 31.25rem;
-			height: auto;
+		.facility-image {
+			flex: 0 0 auto;
+			width: 31.25rem; // 500px
+			max-width: 100%;
 
-
-			@include media($tab) {
-				max-width: 18.75rem;
-				object-fit: cover;
-
+			@include media($web) {
+				width: 25rem; // 400px
 			}
 
 			@include media($mo) {
-				max-width: 100%;
-				object-fit: cover;
+				width: 100%;
 			}
 
+			img {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 500 / 280; // 원본 비율 유지
+				object-fit: cover;
+				border-radius: 0.75rem;
+				display: block;
+
+				@media (max-width: 768px) {
+					aspect-ratio: 16 / 9; // 모바일에서는 16:9 비율
+				}
+			}
 		}
+
+		// .facility-image {
+		// 	flex: 0 0 auto;
+		// 	width: 31.25rem;
+		// 	max-width: 100%;
+		// 	position: relative;
+		// 	overflow: hidden;
+		// 	border-radius: 0.75rem;
+
+		// 	// 비율 유지를 위한 padding hack
+		// 	&::before {
+		// 		content: "";
+		// 		display: block;
+		// 		padding-top: 56%; // 280/500 = 0.56 = 56%
+		// 	}
+
+		// 	@include media($web) {
+		// 		width: 100;
+
+		// 	}
+
+		// 	img {
+		// 		position: absolute;
+		// 		top: 0;
+		// 		left: 0;
+		// 		width: 100%;
+		// 		height: 100%;
+		// 		object-fit: cover;
+		// 	}
+		// }
 
 		.facility-info {
 			display: flex;
@@ -520,12 +561,8 @@
 
 				// white-space: nowrap;
 				@include media($tab) {
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					// max-width: clamp(120px, calc(52vw - 1.5rem - 1rem), 250px);
-					/* 최소 150px, 선호 50vw, 최대 300px, 여백 1.5rem 제외, 텍스트 여백 1rem 제외 */
-					max-width: auto;
+
+					flex-wrap: wrap;
 				}
 
 				.boldTitle {
@@ -895,15 +932,39 @@
 		border-radius: .625rem;
 		margin-bottom: 5rem;
 
+		@include media($tab) {
+			margin-bottom: 2.5rem;
+		}
+
 		.facility-info-item {
-			// display: flex;
-			// align-items: center;
-			// gap: .625rem;
 			display: grid;
 			grid-template-columns: minmax(7.5rem, 12.5rem) 1fr;
 			gap: 1.25rem;
 			align-items: start;
 
+			@include media($mo) {
+				grid-template-columns: 1fr;
+			}
+
+			// 강조 항목 (isNotice: true)
+			&.highlight {
+				grid-template-columns: 1fr; // 한 줄로
+				// background-color: #F0FDF9;
+				// border-left: 4px solid #00B587;
+				// padding: 1rem 1.25rem;
+				// border-radius: 0.5rem;
+				// margin-top: 0.5rem;
+
+				.boldTitle {
+					color: #00B587;
+					font-weight: 600;
+					padding-left: 0; // 강조 항목은 불릿 제거
+
+					&::before {
+						display: none; // 불릿 숨김
+					}
+				}
+			}
 
 			.boldTitle {
 				font-size: 1.25rem;
@@ -927,7 +988,7 @@
 			}
 
 			.normalText {
-				font-size: 1rem;
+				font-size: 1.125rem;
 				font-weight: 400;
 				color: #666666;
 			}
@@ -1053,14 +1114,14 @@
 .forest-listWrap {
 	padding: 2.5rem;
 	border-top: .25rem solid #9EE5D3;
-	border-bottom: 4px solid #9EE5D3;
+	border-bottom: .25rem solid #9EE5D3;
 
 	@include media($web) {
 		padding: 1.25rem;
 	}
 
 	@include media($tab) {
-		padding: 20px 0;
+		padding: 1.25rem 0;
 	}
 
 
@@ -1070,7 +1131,7 @@
 		gap: 2.5rem;
 
 		@include media($web) {
-			gap: 20px;
+			gap: 1.25rem;
 			padding: 0;
 		}
 
@@ -1094,16 +1155,16 @@
 		}
 
 		@include media($web) {
-			padding-bottom: 20px;
+			padding-bottom: 1.25rem;
 		}
 
 		@include media($tab) {
-			padding-bottom: 20px;
-			gap: 20px;
+			padding-bottom: 1.25rem;
+			gap: 1.25rem;
 		}
 
 		@include media($tab) {
-			padding-bottom: 20px;
+			padding-bottom: 1.25rem;
 			flex-direction: column;
 		}
 
@@ -1131,7 +1192,7 @@
 			display: flex;
 			flex-direction: column;
 			flex-wrap: wrap;
-			gap: 30px;
+			gap: 1.875rem;
 			flex: 0.6;
 
 
@@ -1165,8 +1226,8 @@
 					content: "";
 					display: block;
 					background: url("../img/icon_big_dot.svg") no-repeat center center;
-					width: 24px;
-					height: 24px;
+					width: 1.5rem;
+					height: 1.5rem;
 					position: absolute;
 					left: 0;
 					top: 50%;
@@ -1183,18 +1244,6 @@
 					display: flex;
 					gap: .625rem;
 					align-items: center;
-
-
-					// white-space: nowrap;
-					// @include media($tab) {
-					// 	overflow: hidden;
-					// 	text-overflow: ellipsis;
-					// 	white-space: nowrap;
-					// 	max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
-					// 	word-wrap: break-word;
-					// 	word-break: break-word;
-					// 	line-height: 1.4;
-					// }
 
 					.boldTitle {
 						font-size: 1.125rem;
@@ -1255,8 +1304,8 @@
 
 .forest-boxWrap {
 	padding: 2.5rem;
-	border: 10px solid #9EE5D3;
-	border-radius: 10px;
+	border: .625rem solid #9EE5D3;
+	border-radius: .625rem;
 
 	@include media($web) {
 		padding: 1.25rem;
@@ -1271,10 +1320,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2.5rem;
-		padding: 10px;
+		padding: .625rem;
 
 		@include media($web) {
-			gap: 20px;
+			gap: 1.25rem;
 			padding: 0;
 		}
 
@@ -1294,17 +1343,17 @@
 		}
 
 		@include media($web) {
-			padding-bottom: 20px;
-			gap: 20px;
+			padding-bottom: 1.25rem;
+			gap: 1.25rem;
 
 		}
 
 		@include media($tab) {
 			padding: 1.25rem 0;
-			gap: 12px;
+			gap: .75rem;
 
 			&:last-child {
-				padding-bottom: 20px;
+				padding-bottom: 1.25rem;
 			}
 		}
 
@@ -1339,16 +1388,16 @@
 		.forest-info {
 			display: flex;
 			flex-direction: column;
-			gap: 30px;
+			gap: 1.875rem;
 			flex: 1;
 
 			@include media($web) {
-				gap: 20px;
+				gap: 1.25rem;
 			}
 
 			@include media($tab) {
 				gap: .375rem;
-				padding: 20px;
+				padding: 1.25rem;
 				box-sizing: border-box;
 				width: 100%;
 			}
@@ -1377,8 +1426,8 @@
 					content: "";
 					display: block;
 					background: url("../img/icon_big_dot.svg") no-repeat center center;
-					width: 24px;
-					height: 24px;
+					width: 1.5rem;
+					height: 1.5rem;
 					position: absolute;
 					left: 0;
 					top: 50%;
@@ -1396,13 +1445,11 @@
 					gap: .625rem;
 					align-items: center;
 
-
-					// white-space: nowrap;
 					@include media($tab) {
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;
-						max-width: clamp(180px, calc(70vw - 1.5rem - 1rem), 400px);
+						max-width: clamp(11.25rem, calc(70vw - 1.5rem - 1rem), 25rem);
 						word-wrap: break-word;
 						word-break: break-word;
 						line-height: 1.4;
@@ -1466,8 +1513,10 @@
 				font-weight: 700;
 				color: #333333;
 				position: relative;
-				padding-left: 74px;
-				height: 60px;
+				padding-left: 4.625rem;
+				min-height: 3.75rem;
+				display: flex;
+				align-items: center;
 
 
 				@include media($tab) {
@@ -1483,8 +1532,8 @@
 					content: "";
 					display: block;
 					background: url("../img/icon-tree.svg") no-repeat center center;
-					width: 60px;
-					height: 60px;
+					width: 3.75rem;
+					height: 3.75rem;
 					position: absolute;
 					left: 0;
 					top: 50%;
@@ -1495,7 +1544,7 @@
 			}
 
 			.subTitle {
-				font-size: 18px;
+				font-size: 1.125rem;
 				font-weight: 400;
 				color: #333333;
 				line-height: 1.5;
@@ -1602,6 +1651,7 @@
 .tbl-form-box {
 	display: flex;
 	gap: 2.5rem;
+	color: #333;
 
 	@include media($tab) {
 		flex-direction: column;
@@ -1619,7 +1669,7 @@
 
 	/* STEP 타이틀 */
 	.title {
-		font-size: 1.75rem;
+		font-size: 2rem;
 		font-weight: 700;
 		margin-bottom: 0.9375rem;
 		color: #333333;
@@ -1632,7 +1682,7 @@
 		height: 2.5rem;
 		color: #fff;
 		border-radius: 0.25rem;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 700;
 		margin-right: 0.5rem;
 		text-align: center;
@@ -1640,13 +1690,14 @@
 	}
 
 	.tip {
-		color: #666;
-		font-size: 1.25rem;
+		color: #333;
+		font-size: 1.125rem;
 		margin-bottom: 1.25rem;
 	}
 
 	.tip p {
 		margin: 0;
+		font-size: 1.125rem;
 	}
 
 	/* 날짜선택 섹션 */
@@ -1672,7 +1723,7 @@
 	.calendarHead a {
 		text-decoration: none;
 		color: #333;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		padding: 0.5rem 0.9375rem;
 		border: 0.0625rem solid #ddd;
 		border-radius: 0.25rem;
@@ -1734,7 +1785,7 @@
 		color: #fff;
 		padding: 0.75rem;
 		font-weight: 400;
-		font-size: 18px;
+		font-size: 1.125rem;
 		border: 0.0625rem solid #1a2332;
 	}
 
@@ -1769,7 +1820,7 @@
 	}
 
 	.txt {
-		font-size: 16px;
+		font-size: 1rem;
 		line-height: 1.4;
 		margin: 0;
 	}
@@ -1835,8 +1886,11 @@
 		padding: 0.9375rem;
 		background-color: #f9f9f9;
 		border-radius: 0.25rem;
-		font-size: 0.8125rem;
+		font-size: 1rem;
 	}
+
+
+
 
 	.legend i {
 		display: inline-block;
@@ -1860,10 +1914,21 @@
 		color: #666;
 	}
 
+	@include media($tab) {
+		.legend {
+			div {
+				flex: none;
+			}
+
+		}
+	}
+
 	.fR {
 		margin-left: auto;
 		color: #999;
-		font-size: 0.75rem;
+		font-size: .9375rem;
+		display: flex;
+		justify-content: flex-end;
 	}
 
 	/* 예약현황 섹션 */
@@ -1876,8 +1941,13 @@
 	}
 
 	.tbl-box {
-		margin-top: 6.25rem;
+		margin-top: 6.5625rem;
 		overflow-x: auto;
+
+
+		@include media($tab) {
+			margin-top: 2.5rem;
+		}
 	}
 
 	.tbl {
@@ -1902,7 +1972,7 @@
 		background-color: #2d3e50;
 		color: #fff;
 		padding: 0.75rem;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 400;
 		border: 0.0625rem solid #1a2332;
 	}
@@ -1912,7 +1982,7 @@
 		border: 0.0625rem solid #e0e0e0;
 		text-align: center;
 		vertical-align: middle;
-		font-size: 18px;
+		font-size: 1.125rem;
 	}
 
 	.tbl tbody td:first-child {
@@ -1946,7 +2016,8 @@
 	}
 
 	/* 반응형 디자인 */
-	@media (max-width: 48rem) {
+	// @media (max-width: 48rem) {
+	@include media($tab) {
 		.container {
 			padding: 0.9375rem;
 		}
@@ -1967,48 +2038,51 @@
 		}
 
 		.holidayDt {
-			font-size: 0.875rem;
+			font-size: .9375rem;
 		}
 
 		.txt {
-			font-size: 0.6875rem;
+			font-size: .9375rem;
 		}
 
 		.tbl tbody td {
 			padding: 0.5rem 0.3125rem;
-			font-size: 0.75rem;
+			font-size: .9375rem;
 		}
 
 		.legend {
-			flex-wrap: wrap;
+			flex-wrap: nowrap;
 			gap: 0.625rem;
 		}
 
 		.fR {
 			width: 100%;
 			margin-left: 0;
-			margin-top: 0.625rem;
 		}
 	}
 
-	@media (max-width: 30rem) {
+
+
+	// @media (max-width: 30rem) {
+	@include media($mo) {
 		#yhd_calendar tbody td {
 			height: 4.375rem;
 			padding: 0.25rem 0.125rem;
+			font-size: .9375rem;
 		}
 
 		.holidayDt {
-			font-size: 0.75rem;
+			font-size: 1rem;
 			margin-bottom: 0.1875rem;
 		}
 
 		.txt {
-			font-size: 0.625rem;
+			font-size: .875rem;
 		}
 
 		.calendarHead a {
 			padding: 0.375rem 0.625rem;
-			font-size: 0.75rem;
+			font-size: 1rem;
 		}
 
 		#dispMonth {
@@ -2021,10 +2095,14 @@
 	background-color: #fff;
 	padding: 1rem;
 	border-radius: 1rem;
-	border: 2px solid #9EE5D3;
-	width: 45%;
+	border: .125rem solid #9EE5D3;
+	width: fit-content;
+	justify-content: space-between;
 	margin-bottom: 2.5rem;
 
+	@include media($tab) {
+		width: auto;
+	}
 
 	.step-container {
 		display: flex;
@@ -2032,6 +2110,15 @@
 		justify-content: space-between;
 		gap: 1rem;
 		flex-wrap: nowrap;
+
+		@include media($tab) {
+			justify-content: space-around;
+		}
+
+		@include media($tab) {
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
 
 		.step-item {
 			display: flex;
@@ -2050,23 +2137,32 @@
 					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
 				}
 
-				.step-arrow {
-					img {
-						width: 16px;
-						height: 16px;
-						filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
-					}
-				}
 
 			}
 
 			.step-number {
-				font-size: 16px;
+				font-size: 1rem;
 				font-weight: 700;
 				color: #fff;
 				background-color: #BCBCBC;
-				border-radius: 6px;
+				border-radius: .375rem;
 				padding: 0.25rem 0.5rem;
+			}
+
+			.step-title {
+				font-size: 1rem;
+				color: #333;
+			}
+		}
+
+		.step-arrow {
+			img {
+				width: 1rem;
+				height: 1rem;
+
+				&.active {
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+				}
 			}
 		}
 	}

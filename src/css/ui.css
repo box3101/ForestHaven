@@ -90,7 +90,7 @@ video {
   padding: 0;
   vertical-align: baseline;
   font-family: "S-Core Dream", sans-serif !important;
-  color: #2d2d2d;
+  color: #333333;
   line-height: 150%;
 }
 
@@ -4079,7 +4079,7 @@ button.swiper-pagination-bullet {
   transition: all 0.1s;
 }
 .subHead__location li a:hover {
-  color: #2d2d2d;
+  color: #333333;
   font-weight: bold;
 }
 @media all and (max-width: 600px) {
@@ -5062,56 +5062,56 @@ button.swiper-pagination-bullet {
 .facility-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 1.25rem;
 }
 @media all and (max-width: 1400px) {
   .facility-list {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    grid-gap: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
   .facility-list {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 16px;
+    grid-gap: 1rem;
   }
 }
 @media all and (max-width: 600px) {
   .facility-list {
     grid-template-columns: 1fr;
-    grid-gap: 16px;
+    grid-gap: 1rem;
   }
 }
 .facility-list .facility-item {
   min-width: 0;
-  border: 1px solid #ccc;
-  padding: 24px;
-  border-radius: 10px;
+  border: 0.0625rem solid #ccc;
+  padding: 1.5rem;
+  border-radius: 0.625rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item {
-    padding: 20px;
+    padding: 1.25rem;
   }
 }
 .facility-list .facility-item .facility-image img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 .facility-list .facility-item .facility-info {
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-info {
-    padding-top: 15px;
+    padding-top: 0.9375rem;
   }
 }
 .facility-list .facility-item .facility-info h2 {
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 700;
   color: #333333;
   transition: color 0.3s ease;
@@ -5121,134 +5121,134 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   .facility-list .facility-item .facility-info h2 {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-info h2 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 .facility-list .facility-item .facility-details {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 20px;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-details {
-    padding-top: 15px;
-    gap: 6px;
+    padding-top: 0.9375rem;
+    gap: 0.375rem;
   }
 }
 .facility-list .facility-item .facility-details li {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
-  max-width: clamp(300px, 52vw, 300px);
+  max-width: clamp(18.75rem, 52vw, 18.75rem);
   flex: 1;
   min-width: 0;
 }
 .facility-list .facility-item .facility-details li .tit-bold {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #333333;
   position: relative;
-  padding-left: 10px;
+  padding-left: 0.625rem;
   white-space: nowrap;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-details li .tit-bold {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .facility-list .facility-item .facility-details li .tit-bold::before {
   content: "";
   display: inline-block;
-  width: 4px;
-  height: 4px;
+  width: 0.25rem;
+  height: 0.25rem;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
   background-color: #00B587;
-  text-indent: -10px;
+  text-indent: -0.625rem;
 }
 .facility-list .facility-item .facility-details li .tit-default {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #333333;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 250px;
+  width: 15.625rem;
 }
 @media all and (max-width: 900px) {
   .facility-list .facility-item .facility-details li .tit-default {
-    width: 200px;
-    font-size: 16px;
+    width: 12.5rem;
+    font-size: 1rem;
   }
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-details li .tit-default {
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 .facility-list .facility-item .facility-details li .tit-normal {
-  font-size: 16px;
+  font-size: 1rem;
   color: #333333;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-details li .tit-normal {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .facility-list .facility-item .facility-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding-top: 20px;
+  gap: 0.625rem;
+  padding-top: 1.25rem;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons {
-    padding-top: 15px;
-    gap: 8px;
+    padding-top: 0.9375rem;
+    gap: 0.5rem;
     flex-direction: column;
   }
 }
 .facility-list .facility-item .facility-buttons .btn-info {
-  border: 1px solid #666666;
-  font-size: 16px;
+  border: 0.0625rem solid #666666;
+  font-size: 1rem;
   color: #666666;
-  border-radius: 30px;
-  padding: 10px 40px 10px 20px;
+  border-radius: 1.875rem;
+  padding: 0.625rem 2.5rem 0.625rem 1.25rem;
   position: relative;
   text-align: left;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-info {
-    font-size: 14px;
-    padding: 8px 35px 8px 15px;
+    font-size: 0.875rem;
+    padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
   }
 }
 .facility-list .facility-item .facility-buttons .btn-info::after {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   position: absolute;
-  right: 12px;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   background: url("../img/icon_search.svg") no-repeat center center/contain;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-info::after {
-    width: 14px;
-    height: 14px;
-    right: 10px;
+    width: 0.875rem;
+    height: 0.875rem;
+    right: 0.625rem;
   }
 }
 .facility-list .facility-item .facility-buttons .btn-info:hover {
@@ -5260,35 +5260,35 @@ button.swiper-pagination-bullet {
 }
 .facility-list .facility-item .facility-buttons .btn-write {
   background-color: #00B587;
-  font-size: 16px;
+  font-size: 1rem;
   color: #ffffff;
-  border-radius: 30px;
-  padding: 10px 40px 10px 20px;
+  border-radius: 1.875rem;
+  padding: 0.625rem 2.5rem 0.625rem 1.25rem;
   position: relative;
   text-align: left;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-write {
-    font-size: 14px;
-    padding: 8px 35px 8px 15px;
+    font-size: 0.875rem;
+    padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
   }
 }
 .facility-list .facility-item .facility-buttons .btn-write::after {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   position: absolute;
-  right: 12px;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   background: url("../img/icon_write.svg") no-repeat center center/contain;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-write::after {
-    width: 14px;
-    height: 14px;
-    right: 10px;
+    width: 0.875rem;
+    height: 0.875rem;
+    right: 0.625rem;
   }
 }
 .facility-list .facility-item .facility-buttons .btn-write:hover {
@@ -5349,7 +5349,7 @@ button.swiper-pagination-bullet {
   background: white;
   color: #333;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   transition: all 0.2s;
   font-weight: 700;
 }
@@ -5382,7 +5382,7 @@ button.swiper-pagination-bullet {
   }
 }
 .facility-title .tit-bold {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 700;
   color: #333333;
   transition: color 0.3s ease;
@@ -5399,12 +5399,12 @@ button.swiper-pagination-bullet {
   top: 50%;
   transform: translateY(-50%);
   background: url("../img/icon_circle_dubble.svg") no-repeat center center/contain;
-  text-indent: -10px;
+  text-indent: -0.625rem;
 }
 .facility-title .facility-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 @media all and (max-width: 900px) {
   .facility-title .facility-buttons {
@@ -5417,36 +5417,36 @@ button.swiper-pagination-bullet {
   }
 }
 .facility-title .facility-buttons .btn-list {
-  border: 1px solid #666666;
-  font-size: 16px;
+  border: 0.0625rem solid #666666;
+  font-size: 1rem;
   color: #666666;
-  border-radius: 30px;
-  padding: 10px 40px 10px 20px;
+  border-radius: 1.875rem;
+  padding: 0.625rem 2.5rem 0.625rem 1.25rem;
   position: relative;
   text-align: left;
 }
 @media all and (max-width: 600px) {
   .facility-title .facility-buttons .btn-list {
-    font-size: 14px;
-    padding: 8px 35px 8px 15px;
+    font-size: 1.125rem;
+    padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
   }
 }
 .facility-title .facility-buttons .btn-list::after {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   position: absolute;
-  right: 12px;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   background: url("../img/icon_list.svg") no-repeat center center/contain;
 }
 @media all and (max-width: 600px) {
   .facility-title .facility-buttons .btn-list::after {
-    width: 14px;
-    height: 14px;
-    right: 10px;
+    width: 0.875rem;
+    height: 0.875rem;
+    right: 0.625rem;
   }
 }
 .facility-title .facility-buttons .btn-list:hover {
@@ -5458,35 +5458,35 @@ button.swiper-pagination-bullet {
 }
 .facility-title .facility-buttons .btn-next {
   background-color: #00B587;
-  font-size: 16px;
+  font-size: 1rem;
   color: #ffffff;
-  border-radius: 30px;
-  padding: 10px 40px 10px 20px;
+  border-radius: 1.875rem;
+  padding: 0.625rem 2.5rem 0.625rem 1.25rem;
   position: relative;
   text-align: left;
 }
 @media all and (max-width: 600px) {
   .facility-title .facility-buttons .btn-next {
-    font-size: 14px;
-    padding: 8px 35px 8px 15px;
+    font-size: 1.125rem;
+    padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
   }
 }
 .facility-title .facility-buttons .btn-next::after {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   position: absolute;
-  right: 12px;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   background: url("../img/icon_write.svg") no-repeat center center/contain;
 }
 @media all and (max-width: 600px) {
   .facility-title .facility-buttons .btn-next::after {
-    width: 14px;
-    height: 14px;
-    right: 10px;
+    width: 0.875rem;
+    height: 0.875rem;
+    right: 0.625rem;
   }
 }
 .facility-title .facility-buttons .btn-next:hover {
@@ -5505,12 +5505,14 @@ button.swiper-pagination-bullet {
 @media all and (max-width: 1400px) {
   .facility-listWrap .facility-item {
     padding: 1.25rem;
+    gap: 1.5rem;
   }
 }
 @media all and (max-width: 900px) {
   .facility-listWrap .facility-item {
     padding: 1.25rem;
-    gap: 12px;
+    gap: 1.25rem;
+    align-items: flex-start;
   }
 }
 @media all and (max-width: 600px) {
@@ -5519,20 +5521,32 @@ button.swiper-pagination-bullet {
     flex-direction: column;
   }
 }
-.facility-listWrap .facility-item img {
-  max-width: 31.25rem;
-  height: auto;
+.facility-listWrap .facility-item .facility-image {
+  flex: 0 0 auto;
+  width: 31.25rem;
+  max-width: 100%;
 }
-@media all and (max-width: 900px) {
-  .facility-listWrap .facility-item img {
-    max-width: 18.75rem;
-    object-fit: cover;
+@media all and (max-width: 1400px) {
+  .facility-listWrap .facility-item .facility-image {
+    width: 25rem;
   }
 }
 @media all and (max-width: 600px) {
-  .facility-listWrap .facility-item img {
-    max-width: 100%;
-    object-fit: cover;
+  .facility-listWrap .facility-item .facility-image {
+    width: 100%;
+  }
+}
+.facility-listWrap .facility-item .facility-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 500/280;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  display: block;
+}
+@media (max-width: 768px) {
+  .facility-listWrap .facility-item .facility-image img {
+    aspect-ratio: 16/9;
   }
 }
 .facility-listWrap .facility-item .facility-info {
@@ -5548,11 +5562,7 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   .facility-listWrap .facility-item .facility-info .facility-info-group {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    /* 최소 150px, 선호 50vw, 최대 300px, 여백 1.5rem 제외, 텍스트 여백 1rem 제외 */
-    max-width: auto;
+    flex-wrap: wrap;
   }
 }
 .facility-listWrap .facility-item .facility-info .facility-info-group .boldTitle {
@@ -5866,11 +5876,32 @@ button.swiper-pagination-bullet {
   border-radius: 0.625rem;
   margin-bottom: 5rem;
 }
+@media all and (max-width: 900px) {
+  .facility-info-container .facility-info-group {
+    margin-bottom: 2.5rem;
+  }
+}
 .facility-info-container .facility-info-group .facility-info-item {
   display: grid;
   grid-template-columns: minmax(7.5rem, 12.5rem) 1fr;
   gap: 1.25rem;
   align-items: start;
+}
+@media all and (max-width: 600px) {
+  .facility-info-container .facility-info-group .facility-info-item {
+    grid-template-columns: 1fr;
+  }
+}
+.facility-info-container .facility-info-group .facility-info-item.highlight {
+  grid-template-columns: 1fr;
+}
+.facility-info-container .facility-info-group .facility-info-item.highlight .boldTitle {
+  color: #00B587;
+  font-weight: 600;
+  padding-left: 0;
+}
+.facility-info-container .facility-info-group .facility-info-item.highlight .boldTitle::before {
+  display: none;
 }
 .facility-info-container .facility-info-group .facility-info-item .boldTitle {
   font-size: 1.25rem;
@@ -5892,7 +5923,7 @@ button.swiper-pagination-bullet {
   transform: translate(0%, -50%);
 }
 .facility-info-container .facility-info-group .facility-info-item .normalText {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #666666;
 }
@@ -5990,7 +6021,7 @@ button.swiper-pagination-bullet {
 .forest-listWrap {
   padding: 2.5rem;
   border-top: 0.25rem solid #9EE5D3;
-  border-bottom: 4px solid #9EE5D3;
+  border-bottom: 0.25rem solid #9EE5D3;
 }
 @media all and (max-width: 1400px) {
   .forest-listWrap {
@@ -5999,7 +6030,7 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   .forest-listWrap {
-    padding: 20px 0;
+    padding: 1.25rem 0;
   }
 }
 .forest-listWrap .description-Box {
@@ -6009,7 +6040,7 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 1400px) {
   .forest-listWrap .description-Box {
-    gap: 20px;
+    gap: 1.25rem;
     padding: 0;
   }
 }
@@ -6030,18 +6061,18 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 1400px) {
   .forest-listWrap .forest-item {
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item {
-    padding-bottom: 20px;
-    gap: 20px;
+    padding-bottom: 1.25rem;
+    gap: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
   .forest-listWrap .forest-item {
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
     flex-direction: column;
   }
 }
@@ -6068,7 +6099,7 @@ button.swiper-pagination-bullet {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 1.875rem;
   flex: 0.6;
 }
 @media all and (max-width: 900px) {
@@ -6104,8 +6135,8 @@ button.swiper-pagination-bullet {
   content: "";
   display: block;
   background: url("../img/icon_big_dot.svg") no-repeat center center;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   position: absolute;
   left: 0;
   top: 50%;
@@ -6166,8 +6197,8 @@ button.swiper-pagination-bullet {
 
 .forest-boxWrap {
   padding: 2.5rem;
-  border: 10px solid #9EE5D3;
-  border-radius: 10px;
+  border: 0.625rem solid #9EE5D3;
+  border-radius: 0.625rem;
 }
 @media all and (max-width: 1400px) {
   .forest-boxWrap {
@@ -6183,11 +6214,11 @@ button.swiper-pagination-bullet {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding: 10px;
+  padding: 0.625rem;
 }
 @media all and (max-width: 1400px) {
   .forest-boxWrap .description-Box {
-    gap: 20px;
+    gap: 1.25rem;
     padding: 0;
   }
 }
@@ -6205,17 +6236,17 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 1400px) {
   .forest-boxWrap .forest-item {
-    padding-bottom: 20px;
-    gap: 20px;
+    padding-bottom: 1.25rem;
+    gap: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item {
     padding: 1.25rem 0;
-    gap: 12px;
+    gap: 0.75rem;
   }
   .forest-boxWrap .forest-item:last-child {
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
@@ -6239,18 +6270,18 @@ button.swiper-pagination-bullet {
 .forest-boxWrap .forest-item .forest-info {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.875rem;
   flex: 1;
 }
 @media all and (max-width: 1400px) {
   .forest-boxWrap .forest-item .forest-info {
-    gap: 20px;
+    gap: 1.25rem;
   }
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item .forest-info {
     gap: 0.375rem;
-    padding: 20px;
+    padding: 1.25rem;
     box-sizing: border-box;
     width: 100%;
   }
@@ -6281,8 +6312,8 @@ button.swiper-pagination-bullet {
   content: "";
   display: block;
   background: url("../img/icon_big_dot.svg") no-repeat center center;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   position: absolute;
   left: 0;
   top: 50%;
@@ -6303,7 +6334,7 @@ button.swiper-pagination-bullet {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: clamp(180px, 70vw - 1.5rem - 1rem, 400px);
+    max-width: clamp(11.25rem, 70vw - 1.5rem - 1rem, 25rem);
     word-wrap: break-word;
     word-break: break-word;
     line-height: 1.4;
@@ -6360,8 +6391,10 @@ button.swiper-pagination-bullet {
   font-weight: 700;
   color: #333333;
   position: relative;
-  padding-left: 74px;
-  height: 60px;
+  padding-left: 4.625rem;
+  min-height: 3.75rem;
+  display: flex;
+  align-items: center;
 }
 @media all and (max-width: 900px) {
   .forest-boxWrap .forest-item .forest-info .forest-title-tree {
@@ -6377,8 +6410,8 @@ button.swiper-pagination-bullet {
   content: "";
   display: block;
   background: url("../img/icon-tree.svg") no-repeat center center;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   position: absolute;
   left: 0;
   top: 50%;
@@ -6387,7 +6420,7 @@ button.swiper-pagination-bullet {
   border-radius: 50%;
 }
 .forest-boxWrap .forest-item .forest-info .subTitle {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #333333;
   line-height: 1.5;
@@ -6489,6 +6522,7 @@ button.swiper-pagination-bullet {
 .tbl-form-box {
   display: flex;
   gap: 2.5rem;
+  color: #333;
   /* STEP 타이틀 */
   /* 날짜선택 섹션 */
   /* 캘린더 헤더 */
@@ -6517,7 +6551,7 @@ button.swiper-pagination-bullet {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 .tbl-form-box .title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.9375rem;
   color: #333333;
@@ -6529,19 +6563,20 @@ button.swiper-pagination-bullet {
   height: 2.5rem;
   color: #fff;
   border-radius: 0.25rem;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   margin-right: 0.5rem;
   text-align: center;
   line-height: 2.5rem;
 }
 .tbl-form-box .tip {
-  color: #666;
-  font-size: 1.25rem;
+  color: #333;
+  font-size: 1.125rem;
   margin-bottom: 1.25rem;
 }
 .tbl-form-box .tip p {
   margin: 0;
+  font-size: 1.125rem;
 }
 .tbl-form-box .date-select {
   width: 60%;
@@ -6563,7 +6598,7 @@ button.swiper-pagination-bullet {
 .tbl-form-box .calendarHead a {
   text-decoration: none;
   color: #333;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   padding: 0.5rem 0.9375rem;
   border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
@@ -6615,7 +6650,7 @@ button.swiper-pagination-bullet {
   color: #fff;
   padding: 0.75rem;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.125rem;
   border: 0.0625rem solid #1a2332;
 }
 .tbl-form-box #yhd_calendar thead th:first-child {
@@ -6644,7 +6679,7 @@ button.swiper-pagination-bullet {
   color: #333;
 }
 .tbl-form-box .txt {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.4;
   margin: 0;
 }
@@ -6693,7 +6728,7 @@ button.swiper-pagination-bullet {
   padding: 0.9375rem;
   background-color: #f9f9f9;
   border-radius: 0.25rem;
-  font-size: 0.8125rem;
+  font-size: 1rem;
 }
 .tbl-form-box .legend i {
   display: inline-block;
@@ -6713,10 +6748,17 @@ button.swiper-pagination-bullet {
 .tbl-form-box .legend span {
   color: #666;
 }
+@media all and (max-width: 900px) {
+  .tbl-form-box .legend div {
+    flex: none;
+  }
+}
 .tbl-form-box .fR {
   margin-left: auto;
   color: #999;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
+  display: flex;
+  justify-content: flex-end;
 }
 .tbl-form-box .time-select {
   width: 40%;
@@ -6727,8 +6769,13 @@ button.swiper-pagination-bullet {
   }
 }
 .tbl-form-box .tbl-box {
-  margin-top: 6.25rem;
+  margin-top: 6.5625rem;
   overflow-x: auto;
+}
+@media all and (max-width: 900px) {
+  .tbl-form-box .tbl-box {
+    margin-top: 2.5rem;
+  }
 }
 .tbl-form-box .tbl {
   width: 100%;
@@ -6750,7 +6797,7 @@ button.swiper-pagination-bullet {
   background-color: #2d3e50;
   color: #fff;
   padding: 0.75rem;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   border: 0.0625rem solid #1a2332;
 }
@@ -6759,7 +6806,7 @@ button.swiper-pagination-bullet {
   border: 0.0625rem solid #e0e0e0;
   text-align: center;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .tbl-form-box .tbl tbody td:first-child {
   background-color: #f5f5f5;
@@ -6784,7 +6831,7 @@ button.swiper-pagination-bullet {
 .tbl-form-box .timeChk:disabled + label {
   cursor: not-allowed;
 }
-@media (max-width: 48rem) {
+@media all and (max-width: 900px) {
   .tbl-form-box .container {
     padding: 0.9375rem;
   }
@@ -6801,40 +6848,40 @@ button.swiper-pagination-bullet {
     padding: 0.3125rem 0.1875rem;
   }
   .tbl-form-box .holidayDt {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
   .tbl-form-box .txt {
-    font-size: 0.6875rem;
+    font-size: 0.9375rem;
   }
   .tbl-form-box .tbl tbody td {
     padding: 0.5rem 0.3125rem;
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
   }
   .tbl-form-box .legend {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.625rem;
   }
   .tbl-form-box .fR {
     width: 100%;
     margin-left: 0;
-    margin-top: 0.625rem;
   }
 }
-@media (max-width: 30rem) {
+@media all and (max-width: 600px) {
   .tbl-form-box #yhd_calendar tbody td {
     height: 4.375rem;
     padding: 0.25rem 0.125rem;
+    font-size: 0.9375rem;
   }
   .tbl-form-box .holidayDt {
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-bottom: 0.1875rem;
   }
   .tbl-form-box .txt {
-    font-size: 0.625rem;
+    font-size: 0.875rem;
   }
   .tbl-form-box .calendarHead a {
     padding: 0.375rem 0.625rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   .tbl-form-box #dispMonth {
     font-size: 1.125rem;
@@ -6845,9 +6892,15 @@ button.swiper-pagination-bullet {
   background-color: #fff;
   padding: 1rem;
   border-radius: 1rem;
-  border: 2px solid #9EE5D3;
-  width: 45%;
+  border: 0.125rem solid #9EE5D3;
+  width: fit-content;
+  justify-content: space-between;
   margin-bottom: 2.5rem;
+}
+@media all and (max-width: 900px) {
+  .step-indicator {
+    width: auto;
+  }
 }
 .step-indicator .step-container {
   display: flex;
@@ -6855,6 +6908,17 @@ button.swiper-pagination-bullet {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: nowrap;
+}
+@media all and (max-width: 900px) {
+  .step-indicator .step-container {
+    justify-content: space-around;
+  }
+}
+@media all and (max-width: 900px) {
+  .step-indicator .step-container {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 .step-indicator .step-container .step-item {
   display: flex;
@@ -6870,18 +6934,24 @@ button.swiper-pagination-bullet {
 .step-indicator .step-container .step-item.active img {
   filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
 }
-.step-indicator .step-container .step-item.active .step-arrow img {
-  width: 16px;
-  height: 16px;
-  filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
-}
 .step-indicator .step-container .step-item .step-number {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
   background-color: #BCBCBC;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   padding: 0.25rem 0.5rem;
+}
+.step-indicator .step-container .step-item .step-title {
+  font-size: 1rem;
+  color: #333;
+}
+.step-indicator .step-container .step-arrow img {
+  width: 1rem;
+  height: 1rem;
+}
+.step-indicator .step-container .step-arrow img.active {
+  filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
 }
 
 #Notice .notice-detail-section .notice-detail-table {

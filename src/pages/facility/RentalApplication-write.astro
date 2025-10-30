@@ -47,7 +47,6 @@ export const stepAreaData: Step[] = [
 	},
 ];
 
-
 // 대관신청 타이틀
 export interface facilityTitle {
 	title: string;
@@ -137,11 +136,14 @@ export const relatedFacilities: RelatedFacility[] = [
 ];
 
 // 안내박스
+export interface FacilityInfoItem {
+	boldTitle: string;
+	normalText: string;
+	isNotice?: boolean; // 강조 표시용
+}
+
 export interface FacilityInfo {
-	facilityType: {
-		boldTitle: string;
-		normalText: string;
-	}[];
+	facilityType: FacilityInfoItem[];
 }
 
 export const facilityInfo: FacilityInfo[] = [
@@ -168,6 +170,12 @@ export const facilityInfo: FacilityInfo[] = [
 			{
 				boldTitle: "신청가능 프로그램",
 				normalText: "음악, 무용, 연극, 전시, 미술 등 공연과 전시가 가능한 문화예술 전 분야",
+			},
+			{
+				boldTitle:
+					'첨부양식 중, "공영잔 사용 신청서" 를 다운받아 작성 후, 첨부파일로 업로드해주세요.',
+				normalText: "",
+				isNotice: true,
 			},
 		],
 	},
@@ -270,8 +278,7 @@ export const DownloadFile: DownloadFile[] = [
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-
-				<!-- 스텝아이콘 -->
+			<!-- 스텝아이콘 -->
 			<div class="step-indicator">
 				<div class="step-container">
 					{
@@ -288,7 +295,11 @@ export const DownloadFile: DownloadFile[] = [
 								</div>
 								{index < stepAreaData.length - 1 && step.icon && (
 									<div class="step-arrow">
-										<img src={step.icon} alt="다음 단계" />
+										<img
+											src={step.icon}
+											alt="다음 단계"
+											class={step.isActive || step.isCompleted ? "active" : ""}
+										/>
 									</div>
 								)}
 							</>
@@ -324,7 +335,9 @@ export const DownloadFile: DownloadFile[] = [
 					{
 						facilityDetial.map((facility, index) => (
 							<div class="facility-item">
-								<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								<div class="facility-image">
+									<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								</div>
 								<div class="facility-info">
 									{facility.facilityType.map((facilityType, index) => (
 										<div class="facility-info-group">
@@ -346,9 +359,9 @@ export const DownloadFile: DownloadFile[] = [
 					facilityInfo.map((facility) => (
 						<div class="facility-info-group">
 							{facility.facilityType.map((facilityType) => (
-								<div class="facility-info-item">
-									<h2 class="boldTitle">{facilityType.boldTitle}</h2>
-									<p class="normalText">{facilityType.normalText}</p>
+								<div class={`facility-info-item ${facilityType.isNotice ? "highlight" : ""}`}>
+									{facilityType.boldTitle && <h2 class="boldTitle">{facilityType.boldTitle}</h2>}
+									{facilityType.normalText && <p class="normalText">{facilityType.normalText}</p>}
 								</div>
 							))}
 						</div>
@@ -532,10 +545,12 @@ export const DownloadFile: DownloadFile[] = [
 					</div>
 
 					<div class="legend">
-						<i class="legend-able"></i>
-						<span>신청가능</span>
-						<i class="legend-com"></i>
-						<span>신청마감</span>
+						<div class="legend-wrap">
+							<i class="legend-able"></i>
+							<span>신청가능</span>
+							<i class="legend-com"></i>
+							<span>신청마감</span>
+						</div>
 						<span class="fR">※ (0/0): 예약가능/전체</span>
 					</div>
 				</div>
