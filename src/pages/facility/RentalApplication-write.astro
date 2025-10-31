@@ -173,7 +173,7 @@ export const facilityInfo: FacilityInfo[] = [
 			},
 			{
 				boldTitle:
-					'첨부양식 중, "공영잔 사용 신청서" 를 다운받아 작성 후, 첨부파일로 업로드해주세요.',
+					'첨부양식 중, "공영장 사용 신청서" 를 다운받아 작성 후, 첨부파일로 업로드해주세요.',
 				normalText: "",
 				isNotice: true,
 			},
@@ -315,7 +315,7 @@ export const DownloadFile: DownloadFile[] = [
 						<h3 class="tit-bold">{facility.title}</h3>
 						<div class="facility-buttons">
 							{facility.infoLink && (
-								<a href={facility.infoLink} class="btn-next">
+								<a href="/facility/RentalApplication-step2" class="btn-next">
 									다음으로
 								</a>
 							)}

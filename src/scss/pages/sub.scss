@@ -459,6 +459,30 @@
 				background-color: darken($cMain, 10%);
 			}
 		}
+
+		.btn-previous {
+			border: .0625rem solid $cGray02;
+			font-size: 1rem;
+			color: $cGray02;
+			border-radius: 1.875rem;
+			padding: 0.625rem 1.25rem;
+			position: relative;
+			text-align: left;
+
+			@include media($mo) {
+				font-size: 1.125rem;
+				padding: .5rem 2.1875rem .5rem .9375rem;
+			}
+
+			&:hover {
+				background-color: $cDarkGray;
+				color: $cWhite;
+
+				&::after {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
 	}
 }
 
@@ -952,16 +976,29 @@
 				// background-color: #F0FDF9;
 				// border-left: 4px solid #00B587;
 				// padding: 1rem 1.25rem;
-				// border-radius: 0.5rem;
+
 				// margin-top: 0.5rem;
 
 				.boldTitle {
 					color: #00B587;
-					font-weight: 600;
+					font-weight: 500;
 					padding-left: 0; // 강조 항목은 불릿 제거
+					font-size: 1.25rem;
+					position: relative;
+					padding-left: 1.25rem;
 
 					&::before {
-						display: none; // 불릿 숨김
+						// display: none; // 불릿 숨김
+						content: "";
+						display: block;
+						width: 0.25rem;
+						height: 0.25rem;
+						background-color: #C9C9C9;
+						border-radius: 50%;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0%, -50%);
 					}
 				}
 			}
@@ -1030,6 +1067,9 @@
 		position: relative;
 		margin-bottom: 5rem;
 		overflow: hidden;
+		&.mb-20{
+					margin-bottom: 20px;
+				}
 
 		.facility-name {
 			font-size: 1.5rem;
@@ -1050,17 +1090,33 @@
 			}
 
 			.normalText {
-				font-size: 1rem;
+				font-size: 1.125rem;
 				font-weight: 400;
 				color: $cGray02;
+
+				&.icon-arrow {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+
+					&::before {
+						content: "";
+						background: url("../img/icon-arrow-fill-rt.svg") no-repeat center center;
+						width: 16px;
+						height: 16px;
+						background-size: 16px;
+						display: inline-block;
+					}
+
+					&:first-child::before {
+						display: none;
+					}
+				}
+
+
 			}
 		}
-
-
-
-
 	}
-
 }
 
 //첨부양식
@@ -1652,6 +1708,7 @@
 	display: flex;
 	gap: 2.5rem;
 	color: #333;
+	margin-bottom: 5rem;
 
 	@include media($tab) {
 		flex-direction: column;
@@ -1681,7 +1738,7 @@
 		width: 2.5rem;
 		height: 2.5rem;
 		color: #fff;
-		border-radius: 0.25rem;
+		border-radius: 0.625rem;
 		font-size: 1.125rem;
 		font-weight: 700;
 		margin-right: 0.5rem;
@@ -1849,7 +1906,7 @@
 
 	/* 신청가능 상태 */
 	.yhdc-dayCon.able {
-		background-color: #e8f5e9;
+		background-color: #EBF6FF;
 		cursor: pointer;
 		transition: background-color 0.3s;
 	}
@@ -2098,7 +2155,7 @@
 	border: .125rem solid #9EE5D3;
 	width: fit-content;
 	justify-content: space-between;
-	margin-bottom: 2.5rem;
+	margin-bottom: 3.75rem;
 
 	@include media($tab) {
 		width: auto;

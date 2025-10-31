@@ -5492,6 +5492,28 @@ button.swiper-pagination-bullet {
 .facility-title .facility-buttons .btn-next:hover {
   background-color: #008261;
 }
+.facility-title .facility-buttons .btn-previous {
+  border: 0.0625rem solid #666666;
+  font-size: 1rem;
+  color: #666666;
+  border-radius: 1.875rem;
+  padding: 0.625rem 1.25rem;
+  position: relative;
+  text-align: left;
+}
+@media all and (max-width: 600px) {
+  .facility-title .facility-buttons .btn-previous {
+    font-size: 1.125rem;
+    padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
+  }
+}
+.facility-title .facility-buttons .btn-previous:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+.facility-title .facility-buttons .btn-previous:hover::after {
+  filter: brightness(0) invert(1);
+}
 
 .facility-listWrap .facility-item {
   display: flex;
@@ -5897,11 +5919,23 @@ button.swiper-pagination-bullet {
 }
 .facility-info-container .facility-info-group .facility-info-item.highlight .boldTitle {
   color: #00B587;
-  font-weight: 600;
+  font-weight: 500;
   padding-left: 0;
+  font-size: 1.25rem;
+  position: relative;
+  padding-left: 1.25rem;
 }
 .facility-info-container .facility-info-group .facility-info-item.highlight .boldTitle::before {
-  display: none;
+  content: "";
+  display: block;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #C9C9C9;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
 }
 .facility-info-container .facility-info-group .facility-info-item .boldTitle {
   font-size: 1.25rem;
@@ -5957,6 +5991,9 @@ button.swiper-pagination-bullet {
   margin-bottom: 5rem;
   overflow: hidden;
 }
+.facility-notice-container .facility-notice-Wrap.mb-20 {
+  margin-bottom: 20px;
+}
 .facility-notice-container .facility-notice-Wrap .facility-name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -5974,9 +6011,25 @@ button.swiper-pagination-bullet {
   color: #008984;
 }
 .facility-notice-container .facility-notice-Wrap .facility-info-item .normalText {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #666666;
+}
+.facility-notice-container .facility-notice-Wrap .facility-info-item .normalText.icon-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.facility-notice-container .facility-notice-Wrap .facility-info-item .normalText.icon-arrow::before {
+  content: "";
+  background: url("../img/icon-arrow-fill-rt.svg") no-repeat center center;
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  display: inline-block;
+}
+.facility-notice-container .facility-notice-Wrap .facility-info-item .normalText.icon-arrow:first-child::before {
+  display: none;
 }
 
 .facility-download-container .section-title {
@@ -6523,6 +6576,7 @@ button.swiper-pagination-bullet {
   display: flex;
   gap: 2.5rem;
   color: #333;
+  margin-bottom: 5rem;
   /* STEP 타이틀 */
   /* 날짜선택 섹션 */
   /* 캘린더 헤더 */
@@ -6562,7 +6616,7 @@ button.swiper-pagination-bullet {
   width: 2.5rem;
   height: 2.5rem;
   color: #fff;
-  border-radius: 0.25rem;
+  border-radius: 0.625rem;
   font-size: 1.125rem;
   font-weight: 700;
   margin-right: 0.5rem;
@@ -6699,7 +6753,7 @@ button.swiper-pagination-bullet {
   color: #e74c3c;
 }
 .tbl-form-box .yhdc-dayCon.able {
-  background-color: #e8f5e9;
+  background-color: #EBF6FF;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -6895,7 +6949,7 @@ button.swiper-pagination-bullet {
   border: 0.125rem solid #9EE5D3;
   width: fit-content;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.75rem;
 }
 @media all and (max-width: 900px) {
   .step-indicator {

@@ -3,19 +3,400 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SubLayout from "../../layouts/SubLayout.astro";
 import SubBody from "../../layouts/SubBody.astro";
 
-const datph2 = "대관 안내";
-const location = "대관 신청";
+const datph2 = "대관안내";
+const location = "대관신청";
 const pageTitle = `홈>${datph2}>${location}`;
 const idName = "FacilityRental";
 
 import "../../css/ui.css";
+
+// Checkbox
+export const checkboxData: Checkbox[] = [
+	{
+		label: "개인정보 수집 및 이용에 동의합니다.",
+		value: "개인정보 수집 및 이용에 동의합니다.",
+	},
+	
+];
+
+//스텝 화면 구성
+export interface Step {
+	number: number;
+	title: string;
+	image: string;
+	icon: string;
+	isActive?: boolean;
+	isCompleted?: boolean;
+}
+
+export const stepAreaData: Step[] = [
+	{
+		number: 1,
+		title: "일정선택",
+		image: "/img/icon_step-01.svg",
+		icon: "/img/icon-arrow-gy.svg",
+		isActive: false,
+		isCompleted: false,
+	},
+	{
+		number: 2,
+		title: "정보등록",
+		image: "/img/icon_step-02.svg",
+		icon: "/img/icon-arrow-gy.svg",
+		isActive: true,
+		isCompleted: false,
+	},
+	{
+		number: 3,
+		title: "본인인증",
+		image: "/img/icon_step-03.svg",
+		icon: "",
+		isActive: false,
+		isCompleted: false,
+	},
+];
+
+// 대관신청 타이틀
+export interface facilityTitle {
+	title: string;
+	link?: string;
+	infoLink?: string;
+}
+
+export const facilityTitle: facilityTitle[] = [
+	{
+		title: "송도솔밭 물빛누리공원",
+		link: "/facilityTitle/1",
+		infoLink: "/facilityTitle/1",
+	},
+];
+
+// 대관신청 상세
+export interface facilityDetial {
+	image: string;
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	}[];
+}
+
+export const facilityDetial: facilityDetial[] = [
+	{
+		image: "../img/card_img01.png",
+		facilityType: [
+			{
+				boldTitle: "사용시설",
+				normalText: "물빛누리공원",
+			},
+			{
+				boldTitle: "관리기관",
+				normalText: "포항시 공원과 공원관리팀(054-251-2564)",
+			},
+			{
+				boldTitle: "이용구분",
+				normalText: "최소 1명 / 최대 99명",
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+		],
+	},
+];
+
+// 관련 시설 슬라이더
+export interface RelatedFacility {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const relatedFacilities: RelatedFacility[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "../img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "../img/swiper_img02.png",
+		link: "/facility/6",
+	},
+];
+
+//시설안내박스
+export interface FacilityInfoItem {
+	boldTitle: string;
+	normalText: string;
+	isNotice?: boolean; // 강조 표시용
+}
+
+export interface FacilityInfo {
+	facilityType: FacilityInfoItem[];
+}
+
+export const facilityInfo: FacilityInfo[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "신청기간",
+				normalText:
+					"사용달 전월 1일~말일까지 (예시 : 2025년 8월 16일 공연 신청 시 7월 1일 부터 신청가능)",
+			},
+			{
+				boldTitle: "장소",
+				normalText: "송도 솔밭 물빛누리공원 야외공연장",
+			},
+			{
+				boldTitle: "이용가능시간",
+				normalText: "매주 토, 일요일 (09:00~19:00)까지, 평일 이용 불가. 1일 1팀 사용가능",
+			},
+			{
+				boldTitle: "신청방법",
+				normalText:
+					"선착순 접수 (※[통합] 신청서 및 계획서를 첨부파일 업로드 하여 관리부서 허가를 득한 후 사용가능)",
+			},
+			{
+				boldTitle: "신청가능 프로그램",
+				normalText: "음악, 무용, 연극, 전시, 미술 등 공연과 전시가 가능한 문화예술 전 분야",
+			},
+			{
+				boldTitle:
+					'첨부양식 중, "공영장 사용 신청서" 를 다운받아 작성 후, 첨부파일로 업로드해주세요.',
+				normalText: "",
+				isNotice: true,
+			},
+		],
+	},
+];
+export const usageNotice: usageNotice[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "1. 공영장의 사용허가는 다음과 같다.",
+				normalText: "가. 야외 공연장을 사용하고자 하는..",
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"나.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다.",
+			},
+		],
+	},
+];
+
+//시설물 이용에 대한 주의사항
+export interface FacilityNotice {
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	}[];
+}
+
+export const FacilityNotice: FacilityNotice[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "공연장의 사용승인은 다음과 같다.",
+				normalText: "",
+			},
+		],
+	},
+	{
+		facilityType: [
+			{
+				boldTitle: "",
+				normalText: "공연장 시설 예약은 선착순으로 하며, 매달 1일~ 예약이 시작된다.",
+			},
+			{
+				boldTitle: "",
+				normalText: "공연장을 사용하고자 하는 자는...",
+			},
+			{
+				boldTitle: "",
+				normalText: "신청은 사용하고자 하는 달의 전우러 1일~31일 까지 신청하고,",
+			},
+			{
+				boldTitle: "",
+				normalText: "공연사용 신청 시, 매달 4회만 신청 가능",
+			},
+		],
+	},
+];
+
+// 첨부양식
+export interface DownloadFile {
+	image: string;
+	name: string;
+	fileName: string;
+	filePath: string;
+}
+
+export const DownloadFile: DownloadFile[] = [
+	{
+		image: "../img/icon_clip.svg",
+		name: "[붙임1]야외공연장 사용허가 신청서.hwp",
+		fileName: "[붙임1]야외공연장 사용허가 신청서.hwp",
+		filePath: "/documents/[붙임1]야외공연장 사용허가 신청서.hwp",
+	},
+	{
+		image: "../img/icon_clip.svg",
+		name: "[붙임3] 안전관리 이행서약서.hwp",
+		fileName: "[붙임3] 안전관리 이행서약서.hwp",
+		filePath: "/documents/[붙임3] 안전관리 이행서약서.hwp",
+	},
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
-      </div>
+			<!-- 스텝아이콘 -->
+			<div class="step-indicator">
+				<div class="step-container">
+					{
+						stepAreaData.map((step, index) => (
+							<>
+								<div
+									class={`step-item ${step.isActive ? "active" : ""} ${
+										step.isCompleted ? "completed" : ""
+									}`}
+								>
+									<div class="step-number">{step.number}</div>
+									<span class="step-title">{step.title}</span>
+									<img src={step.image} alt="스텝아이콘" />
+								</div>
+								{index < stepAreaData.length - 1 && step.icon && (
+									<div class="step-arrow">
+										<img
+											src={step.icon}
+											alt="다음 단계"
+											class={step.isActive || step.isCompleted ? "active" : ""}
+										/>
+									</div>
+								)}
+							</>
+						))
+					}
+				</div>
+			</div>
+
+			<!-- 타이틀 -->
+			{
+				facilityTitle.map((facility, index) => (
+					<div class="facility-title">
+						<h3 class="tit-bold">{facility.title}</h3>
+						<div class="facility-buttons">
+							{facility.infoLink && (
+								<a href="/facility/RentalApplication-step3" class="btn-next">
+									다음으로
+								</a>
+							)}
+							{facility.infoLink && (
+								<a href="/facility/RentalApplication-write" class="btn-previous">
+									이전으로
+								</a>
+							)}
+							{facility.link && (
+								<a href="/facility/RentalApplication" class="btn-list">
+									목록으로
+								</a>
+							)}
+						</div>
+					</div>
+				))
+			}
+
+			<!-- 공원 정보 -->
+			<section class="facility-listWrap">
+				<div class="description-Box">
+					{
+						facilityDetial.map((facility, index) => (
+							<div class="facility-item">
+								<div class="facility-image">
+									<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								</div>
+								<div class="facility-info">
+									{facility.facilityType.map((facilityType, index) => (
+										<div class="facility-info-group">
+											<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+											<p class="normalText">{facilityType.normalText}</p>
+										</div>
+									))}
+								</div>
+							</div>
+						))
+					}
+				</div>
+				
+			<!-- 시설안내 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">시설안내</h2>
+				{
+					facilityInfo.map((facility) => (
+						<div class="facility-info-group">
+							{facility.facilityType.map((facilityType) => (
+								<div class={`facility-info-item ${facilityType.isNotice ? "highlight" : ""}`}>
+									{facilityType.boldTitle && <h2 class="boldTitle">{facilityType.boldTitle}</h2>}
+									{facilityType.normalText && <p class="normalText">{facilityType.normalText}</p>}
+								</div>
+							))}
+						</div>
+					))
+				}
+			</section>
+
+			<!-- 시설물 이용에 대한 주의사항  -->
+			<section class="facility-notice-container">
+				<h2 class="section-title">시설물 이용에 대한 주의사항</h2>
+				<div class="facility-notice-Wrap mb-20">
+					{
+						FacilityNotice.map((facility, facilityIndex) => (
+							<>
+								{facility.facilityType.map((facilityType, typeIndex) => (
+									<div class="facility-info-item">
+										<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+										<p
+											class={`normalText ${
+												facilityIndex === 0 && typeIndex === 0 ? "" : "icon-arrow"
+											}`}
+										>
+											{facilityType.normalText}
+										</p>
+									</div>
+								))}
+							</>
+						))
+					}
+				</div>
+				 <!-- 체크박스 추가 -->
+    <div class="checkbox-container">
+      체크박스 영역이다
+    </div>
+			</section>
+
+				
+			</section>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
