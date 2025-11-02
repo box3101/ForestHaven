@@ -3,23 +3,48 @@ import { fetchNavigationMenus } from "../utils/api.js";
 
 // 서버 사이드에서 데이터 fetch
 const navigationMenus = await fetchNavigationMenus();
+
+
+// 👇 현재 경로 가져오기
+const currentPath = Astro.url.pathname;
+
+
 ---
 
+
+
 <ul class="gnb" id="gnb" tabindex="0">
+
 	{
-		navigationMenus.map((menu) => (
-			<li class="gnbItem">
-				<a href={`../${menu.mainLink}.html`} class="gnbLink">
-					{menu.mainTitle}
-				</a>
-				<ul class="subPanel">
-					{menu.subMenus.map((subMenu) => (
-						<li>
-							<a href={`../${subMenu.link}.html`}>{subMenu.title}</a>
-						</li>
-					))}
-				</ul>
-			</li>
-		))
+		navigationMenus.map((menu) => {
+			// 현재 경로가 메인 링크 또는 서브메뉴 중 하나라도 포함하면 on 활성화
+			const isMainActive = currentPath.includes(`/${menu.mainLink}`);
+			const isSubActive = menu.subMenus.some(sub => currentPath.includes(`/${sub.link}`));
+			const isActive = isMainActive || isSubActive;
+
+			return (
+				<li class="gnbItem">
+					<a 
+						href={`../${menu.mainLink}.html`} 
+						class:list={['gnbLink', { on: isActive }]}
+						data-text={menu.mainTitle}
+					>
+						{menu.mainTitle}
+					</a>
+					<ul class="subPanel">
+						{menu.subMenus.map((subMenu) => (
+							<li>
+								<a 
+									href={`../${subMenu.link}.html`}
+									class:list={{ on: currentPath.includes(`/${subMenu.link}`) }}
+								>
+									{subMenu.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			)
+		})
 	}
 </ul>

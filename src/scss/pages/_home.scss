@@ -1,696 +1,856 @@
-.main-banner {
-	width: 100%;
-	background: url("../img/img_bg-top.png") no-repeat center center / cover;
-	position: relative;
-	padding: 60px 0;
-
-	@include media($mo) {
-		background-size: cover;
-		background-position: center center;
-		padding: 40px 0;
-	}
-
-	.inner {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-
-		@include media($tab) {
-			padding: 0 20px;
-		}
-
-		@include media($mo) {
-			padding: 0 20px;
-		}
-	}
-
-	.banner-title {
-		font-size: 3.375rem;
-		font-weight: 700;
-		color: $cDarkGray;
-		position: relative;
-		margin-bottom: 0.625rem; // 10px
-		max-width: 100%;
-		display: inline-block;
-		@include media($web) {
-			font-size: 30px;
-		}
-		@include media($tab) {
-			font-size: 20px;
-		}
-		@include media($mo) {
-			font-size: 16px;
-		}
-
-		@include media($mo) {
-			font-size: 2rem;
-		}
-
-		&::after {
-			content: "";
-			display: block;
-			background: url("../img/img-title.png") no-repeat center center / contain;
-			width: 180px;
-			height: 100%;
-			position: absolute;
-			top: 50%;
-			left: 100%;
-			transform: translate(0%, -50%);
-
-			@include media($mo) {
-				width: 100px;
-				display: none;
-			}
-		}
-	}
-
-	.inner img {
-		display: block;
-		margin-top: 10px;
-		align-self: flex-start;
-
-		@include media($mo) {
-			max-width: 100%;
-			height: auto;
-		}
-	}
-}
-
-// 바로가기 섹션 inner 패딩
-section {
-	.inner {
-		@include media($tab) {
-			padding: 20px;
-		}
-
-		@include media($mo) {
-			padding: 20px;
-		}
-	}
-}
-
-.info-nav {
-	display: grid;
-	grid-template-columns: minmax(300px, 470px) minmax(300px, 470px) minmax(250px, 308px);
-	grid-gap: 16px;
-
-	@include media($tab) {
-		grid-template-columns: 1fr;
-		grid-gap: 20px;
-	}
-
-	@include media($mo) {
-		grid-template-columns: 1fr;
-		grid-gap: 20px;
-	}
-
-	li {
-		// display: flex;
-		// flex-direction: column;
-
-		.info-nav-item {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			@include media($mo) {
-				width: 100%;
-			}
-		}
-
-		h2 {
-			font-size: 27px;
-			font-weight: 700;
-			color: $cDarkGray;
-		}
-
-		.btn-plus {
-			display: block;
-			width: 20px;
-			height: 20px;
-			border: 3px solid $cMain;
-			border-radius: 50%;
-			position: relative;
-			cursor: pointer;
-			transition: all 0.3s ease;
-
-			&:hover,
-			&:focus {
-				background-color: $cMain;
-				transform: rotate(90deg);
-
-				i {
-					filter: brightness(0) invert(1);
-				}
-			}
-
-			i {
-				background: url("../img/img-plus.svg") no-repeat center center / contain;
-				display: inline-block;
-				width: 12px;
-				height: 12px;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				margin-top: -6px;
-				margin-left: -6px;
-				transition: all 0.3s ease;
-				cursor: pointer;
-			}
-
-			.hide {
-				position: absolute;
-				top: -9999px;
-				left: -9999px;
-				width: 1px;
-				height: 1px;
-				overflow: hidden;
-				clip: rect(0, 0, 0, 0);
-			}
-		}
-
-		.info-wrapper {
-			margin-top: 15px;
-
-			.item {
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				border: 3px solid $cLightGreen;
-				background-color: $cLightGreenBg;
-				border-radius: 10px;
-				padding: 20px;
-				min-height: 140px;
-				box-sizing: border-box;
-				cursor: pointer;
-				gap: 12px;
-
-				@include media($tab) {
-					padding: 20px;
-				}
-
-				@include media($mo) {
-					padding: 20px;
-				}
-
-				&:hover {
-					border-color: darken($cLightGreen, 10%);
-				}
-
-				.item_box {
-					border: 3px solid $cLightGreen;
-					background: $cWhite;
-					width: 70px;
-					height: 70px;
-					box-sizing: border-box;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					align-items: center;
-
-					.month {
-						font-size: 12px;
-						font-weight: 700;
-						color: $cDarkGray;
-					}
-
-					.day {
-						font-size: 28px;
-						font-weight: 700;
-						color: $cMain;
-					}
-				}
-
-				.item_text {
-					font-size: 18px;
-					font-weight: 700;
-					color: $cDarkGray;
-					text-align: left;
-					display: flex;
-					align-items: center;
-					gap: 6px;
-
-					.new {
-						display: inline-flex;
-						justify-content: center;
-						align-items: center;
-						border-radius: 50%;
-						background-color: $cMain;
-						width: 24px;
-						height: 24px;
-						color: $cWhite;
-						font-size: 12px;
-						font-weight: 700;
-					}
-				}
-
-				// type2: 날짜 박스 없이 텍스트만 표시 (자주하는 질문용)
-				&.type2 {
-					border: 3px solid $cLightYellowGreen;
-					background-color: $cLightYellowGreenBg;
-
-          &:hover {
-					border-color: darken($cLightYellowGreen, 10%);
-				}
-					.item_box {
-						display: none; // 날짜 박스 숨김
-					}
-
-					.item_text {
-						width: 100%;
-						text-align: left;
-					}
-
-					.new {
-						background-color: #00b536;
-						color: $cWhite;
-					}
-				}
-			}
-
-			.item-list {
-				border-top: 1px solid $cDarkGray;
-				border-bottom: 1px solid $cDarkGray;
-				padding: 16px 20px;
-				margin-top: 20px;
-
-				ul {
-					list-style: none;
-					padding: 0;
-					display: flex;
-					flex-direction: column;
-					gap: 22px;
-
-					li {
-						position: relative;
-						padding-left: 12px;
-						display: flex;
-						gap: 6px;
-						justify-content: space-between;
-						font-size: 15px;
-						font-weight: 500;
-						color: $cDarkGray;
-
-						&::before {
-							content: "";
-							display: block;
-							width: 4px;
-							height: 4px;
-							background-color: $cMain;
-							border-radius: 50%;
-							position: absolute;
-							left: 0;
-							top: 50%;
-							transform: translate(0%, -50%);
-						}
-						a {
-							flex: 1; /* 또는 flex-grow: 1 */
-							min-width: 0; /* 중요! flex 아이템 오버플로우 방지 */
-							overflow: hidden;
-							text-overflow: ellipsis;
-							white-space: nowrap;
-              max-width: clamp(120px, 52vw, 300px);
-						}
-						span {
-							flex: none;
-						}
-					}
-				}
-			}
-
-			.about-button {
-				display: flex;
-				flex-direction: column;
-				gap: 16px;
-
-				.about-btn {
-					display: flex;
-					justify-content: flex-start;
-					align-items: center;
-					padding: 16px 20px;
-					min-height: 100px;
-					gap: 16px;
-					border-radius: 40px 16px 40px 16px;
-					text-decoration: none;
-					transition: all 0.3s;
-					box-sizing: border-box;
-					background-color: $cGray01;
-					border: 3px solid transparent;
-					position: relative;
-
-					&::before {
-						content: "";
-						display: block;
-						width: 14px;
-						height: 14px;
-						background-color: $cMain;
-						border-radius: 50%;
-						position: absolute;
-						right: 30px;
-						top: -8px;
-						opacity: 0;
-						transform: scale(0);
-						transition: all 0.3s ease;
-					}
-
-					&::after {
-						content: "";
-						display: block;
-						width: 14px;
-						height: 14px;
-						background-color: $cMain;
-						border-radius: 50%;
-						position: absolute;
-						left: 30px;
-						bottom: -8px;
-						opacity: 0;
-						transform: scale(0);
-						transition: all 0.3s ease;
-					}
-
-					.icon {
-						width: 60px;
-						height: 60px;
-						object-fit: cover;
-					}
-
-					.text {
-						.title {
-							font-size: 20px;
-							font-weight: 700;
-							color: $cDarkGray;
-						}
-
-						.subtitle {
-							font-size: 20px;
-							font-weight: 700;
-							color: $cDarkGray;
-						}
-					}
-
-					&:hover {
-						border: 3px solid $cMain;
-
-						&::before,
-						&::after {
-							opacity: 1;
-							transform: scale(1);
-						}
-
-						.arrow-icon {
-							opacity: 1;
-							transform: translateX(0);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-// 대관시설
-// 대관시설 스타일
-.main-footer-banner {
-	width: 100%;
-	background: url("../img/img_bg-bottom.png") no-repeat center center / cover;
-	position: relative;
-	padding: 32px 0;
-
-	.inner {
-		max-width: 1280px; // 컨텐츠 영역 고정
-		margin: 0 auto;
-		padding: 0 20px;
-
-		@include media($tab) {
-			padding: 0 20px;
-		}
-
-		@include media($mo) {
-			padding: 0 20px;
-		}
-
-		.banner-title {
-			font-size: 32px;
-			font-weight: 700;
-			color: $cDarkGray;
-			text-align: center;
-			margin-bottom: 40px;
-		}
-	}
-
-	.facility-slider {
-		position: relative;
-		padding: 0; // 패딩 제거 - 화살표는 absolute로 처리
-		max-width: 1280px; // 전체 슬라이더 영역 제한
-		margin: 0 auto; // 중앙 정렬
-
-		@include media($tab) {
-			max-width: 100%;
-		}
-
-		@include media($mo) {
-			max-width: 100%;
-		}
-
-		.swiper {
-			overflow: hidden; // 4개만 보이도록 숨김 처리
-			padding: 20px 0 60px 0; // pagination 공간 확보
-
-			@include media($tab) {
-				width: 100%;
-			}
-
-			@include media($mo) {
-				width: 100%; // 모바일에서 전체 너비 사용
-			}
-		}
-
-		.swiper-wrapper {
-			display: flex;
-		}
-
-		.swiper-slide {
-			/*
+ .main-banner {
+ 	width: 100%;
+ 	background: url("../img/img_bg-top.png") no-repeat center center / cover;
+ 	position: relative;
+ 	padding: 60px 0;
+
+ 	@include media($mo) {
+ 		background-size: cover;
+ 		background-position: center center;
+ 		padding: 40px 0;
+ 	}
+
+ 	.inner {
+ 		display: flex;
+ 		flex-direction: column;
+ 		align-items: flex-start;
+
+ 		@include media($tab) {
+ 			padding: 0 20px;
+ 		}
+
+ 		@include media($mo) {
+ 			padding: 0 20px;
+ 		}
+ 	}
+
+ 	.banner-title {
+ 		font-size: 3.375rem;
+ 		font-weight: 700;
+ 		color: $cDarkGray;
+ 		position: relative;
+ 		margin-bottom: 0.625rem; // 10px
+ 		max-width: 100%;
+ 		display: inline-block;
+
+ 		@include media($web) {
+ 			font-size: 30px;
+ 		}
+
+ 		@include media($tab) {
+ 			font-size: 20px;
+ 		}
+
+ 		@include media($mo) {
+ 			font-size: 16px;
+ 		}
+
+ 		@include media($mo) {
+ 			font-size: 2rem;
+ 		}
+
+ 		&::after {
+ 			content: "";
+ 			display: block;
+ 			background: url("../img/img-title.png") no-repeat center center / contain;
+ 			width: 180px;
+ 			height: 100%;
+ 			position: absolute;
+ 			top: 50%;
+ 			left: 100%;
+ 			transform: translate(0%, -50%);
+
+ 			@include media($mo) {
+ 				width: 100px;
+ 				display: none;
+ 			}
+ 		}
+ 	}
+
+ 	.inner img {
+ 		display: block;
+ 		margin-top: 10px;
+ 		align-self: flex-start;
+
+ 		@include media($mo) {
+ 			max-width: 100%;
+ 			height: auto;
+ 		}
+ 	}
+ }
+
+ // 바로가기 섹션 inner 패딩
+ section {
+ 	.inner {
+ 		@include media($tab) {
+ 			padding: 20px;
+ 		}
+
+ 		@include media($mo) {
+ 			padding: 20px;
+ 		}
+ 	}
+ }
+
+ .info-nav {
+ 	display: grid;
+ 	grid-template-columns: minmax(300px, 470px) minmax(300px, 470px) minmax(250px, 308px);
+ 	grid-gap: 16px;
+
+ 	@include media($tab) {
+ 		grid-template-columns: 1fr;
+ 		grid-gap: 20px;
+ 	}
+
+ 	@include media($mo) {
+ 		grid-template-columns: 1fr;
+ 		grid-gap: 20px;
+ 	}
+
+ 	li {
+ 		// display: flex;
+ 		// flex-direction: column;
+
+ 		.info-nav-item {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			align-items: center;
+
+ 			@include media($mo) {
+ 				width: 100%;
+ 			}
+ 		}
+
+ 		h2 {
+ 			font-size: 27px;
+ 			font-weight: 700;
+ 			color: $cDarkGray;
+ 		}
+
+ 		.btn-plus {
+ 			display: block;
+ 			width: 20px;
+ 			height: 20px;
+ 			border: 3px solid $cMain;
+ 			border-radius: 50%;
+ 			position: relative;
+ 			cursor: pointer;
+ 			transition: all 0.3s ease;
+
+ 			&:hover,
+ 			&:focus {
+ 				background-color: $cMain;
+ 				transform: rotate(90deg);
+
+ 				i {
+ 					filter: brightness(0) invert(1);
+ 				}
+ 			}
+
+ 			i {
+ 				background: url("../img/img-plus.svg") no-repeat center center / contain;
+ 				display: inline-block;
+ 				width: 12px;
+ 				height: 12px;
+ 				position: absolute;
+ 				left: 50%;
+ 				top: 50%;
+ 				margin-top: -6px;
+ 				margin-left: -6px;
+ 				transition: all 0.3s ease;
+ 				cursor: pointer;
+ 			}
+
+ 			.hide {
+ 				position: absolute;
+ 				top: -9999px;
+ 				left: -9999px;
+ 				width: 1px;
+ 				height: 1px;
+ 				overflow: hidden;
+ 				clip: rect(0, 0, 0, 0);
+ 			}
+ 		}
+
+ 		.info-wrapper {
+ 			margin-top: 15px;
+
+ 			.item {
+ 				display: flex;
+ 				justify-content: flex-start;
+ 				align-items: center;
+ 				border: 3px solid $cLightGreen;
+ 				background-color: $cLightGreenBg;
+ 				border-radius: 10px;
+ 				padding: 20px;
+ 				min-height: 140px;
+ 				box-sizing: border-box;
+ 				cursor: pointer;
+ 				gap: 12px;
+
+ 				@include media($tab) {
+ 					padding: 20px;
+ 				}
+
+ 				@include media($mo) {
+ 					padding: 20px;
+ 				}
+
+ 				&:hover {
+ 					border-color: darken($cLightGreen, 10%);
+ 				}
+
+ 				.item_box {
+ 					border: 3px solid $cLightGreen;
+ 					background: $cWhite;
+ 					width: 70px;
+ 					height: 70px;
+ 					box-sizing: border-box;
+ 					display: flex;
+ 					flex-direction: column;
+ 					justify-content: space-between;
+ 					align-items: center;
+
+ 					.month {
+ 						font-size: 12px;
+ 						font-weight: 700;
+ 						color: $cDarkGray;
+ 					}
+
+ 					.day {
+ 						font-size: 28px;
+ 						font-weight: 700;
+ 						color: $cMain;
+ 					}
+ 				}
+
+ 				.item_text {
+ 					font-size: 18px;
+ 					font-weight: 700;
+ 					color: $cDarkGray;
+ 					text-align: left;
+ 					display: flex;
+ 					align-items: center;
+ 					gap: 6px;
+
+ 					.new {
+ 						display: inline-flex;
+ 						justify-content: center;
+ 						align-items: center;
+ 						border-radius: 50%;
+ 						background-color: $cMain;
+ 						width: 24px;
+ 						height: 24px;
+ 						color: $cWhite;
+ 						font-size: 12px;
+ 						font-weight: 700;
+ 					}
+ 				}
+
+ 				// type2: 날짜 박스 없이 텍스트만 표시 (자주하는 질문용)
+ 				&.type2 {
+ 					border: 3px solid $cLightYellowGreen;
+ 					background-color: $cLightYellowGreenBg;
+
+ 					&:hover {
+ 						border-color: darken($cLightYellowGreen, 10%);
+ 					}
+
+ 					.item_box {
+ 						display: none; // 날짜 박스 숨김
+ 					}
+
+ 					.item_text {
+ 						width: 100%;
+ 						text-align: left;
+ 					}
+
+ 					.new {
+ 						background-color: #00b536;
+ 						color: $cWhite;
+ 					}
+ 				}
+ 			}
+
+ 			.item-list {
+ 				border-top: 1px solid $cDarkGray;
+ 				border-bottom: 1px solid $cDarkGray;
+ 				padding: 16px 20px;
+ 				margin-top: 20px;
+
+ 				ul {
+ 					list-style: none;
+ 					padding: 0;
+ 					display: flex;
+ 					flex-direction: column;
+ 					gap: 22px;
+
+ 					li {
+ 						position: relative;
+ 						padding-left: 12px;
+ 						display: flex;
+ 						gap: 6px;
+ 						justify-content: space-between;
+ 						font-size: 15px;
+ 						font-weight: 500;
+ 						color: $cDarkGray;
+
+ 						&::before {
+ 							content: "";
+ 							display: block;
+ 							width: 4px;
+ 							height: 4px;
+ 							background-color: $cMain;
+ 							border-radius: 50%;
+ 							position: absolute;
+ 							left: 0;
+ 							top: 50%;
+ 							transform: translate(0%, -50%);
+ 						}
+
+ 						a {
+ 							flex: 1;
+ 							/* 또는 flex-grow: 1 */
+ 							min-width: 0;
+ 							/* 중요! flex 아이템 오버플로우 방지 */
+ 							overflow: hidden;
+ 							text-overflow: ellipsis;
+ 							white-space: nowrap;
+ 							max-width: clamp(120px, 52vw, 300px);
+ 						}
+
+ 						span {
+ 							flex: none;
+ 						}
+ 					}
+ 				}
+ 			}
+
+ 			.about-button {
+ 				display: flex;
+ 				flex-direction: column;
+ 				gap: 16px;
+
+ 				.about-btn {
+ 					display: flex;
+ 					justify-content: flex-start;
+ 					align-items: center;
+ 					padding: 16px 20px;
+ 					min-height: 100px;
+ 					gap: 16px;
+ 					border-radius: 40px 16px 40px 16px;
+ 					text-decoration: none;
+ 					transition: all 0.3s;
+ 					box-sizing: border-box;
+ 					background-color: $cGray01;
+ 					border: 3px solid transparent;
+ 					position: relative;
+
+ 					&::before {
+ 						content: "";
+ 						display: block;
+ 						width: 14px;
+ 						height: 14px;
+ 						background-color: $cMain;
+ 						border-radius: 50%;
+ 						position: absolute;
+ 						right: 30px;
+ 						top: -8px;
+ 						opacity: 0;
+ 						transform: scale(0);
+ 						transition: all 0.3s ease;
+ 					}
+
+ 					&::after {
+ 						content: "";
+ 						display: block;
+ 						width: 14px;
+ 						height: 14px;
+ 						background-color: $cMain;
+ 						border-radius: 50%;
+ 						position: absolute;
+ 						left: 30px;
+ 						bottom: -8px;
+ 						opacity: 0;
+ 						transform: scale(0);
+ 						transition: all 0.3s ease;
+ 					}
+
+ 					.icon {
+ 						width: 60px;
+ 						height: 60px;
+ 						object-fit: cover;
+ 					}
+
+ 					.text {
+ 						.title {
+ 							font-size: 20px;
+ 							font-weight: 700;
+ 							color: $cDarkGray;
+ 						}
+
+ 						.subtitle {
+ 							font-size: 20px;
+ 							font-weight: 700;
+ 							color: $cDarkGray;
+ 						}
+ 					}
+
+ 					&:hover {
+ 						border: 3px solid $cMain;
+
+ 						&::before,
+ 						&::after {
+ 							opacity: 1;
+ 							transform: scale(1);
+ 						}
+
+ 						.arrow-icon {
+ 							opacity: 1;
+ 							transform: translateX(0);
+ 						}
+ 					}
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+
+ // 대관시설
+ // 대관시설 스타일
+ .main-footer-banner {
+ 	width: 100%;
+ 	background: url("../img/img_bg-bottom.png") no-repeat center center / cover;
+ 	position: relative;
+ 	padding: 32px 0;
+
+ 	.inner {
+ 		max-width: 1280px; // 컨텐츠 영역 고정
+ 		margin: 0 auto;
+ 		padding: 0 20px;
+
+ 		@include media($tab) {
+ 			padding: 0 20px;
+ 		}
+
+ 		@include media($mo) {
+ 			padding: 0 20px;
+ 		}
+
+ 		.banner-title {
+ 			font-size: 32px;
+ 			font-weight: 700;
+ 			color: $cDarkGray;
+ 			text-align: center;
+ 			margin-bottom: 40px;
+ 		}
+ 	}
+
+ 	.facility-slider {
+ 		position: relative;
+ 		padding: 0; // 패딩 제거 - 화살표는 absolute로 처리
+ 		max-width: 1280px; // 전체 슬라이더 영역 제한
+ 		margin: 0 auto; // 중앙 정렬
+
+ 		@include media($tab) {
+ 			max-width: 100%;
+ 		}
+
+ 		@include media($mo) {
+ 			max-width: 100%;
+ 		}
+
+ 		.swiper {
+ 			overflow: hidden; // 4개만 보이도록 숨김 처리
+ 			padding: 20px 0 60px 0; // pagination 공간 확보
+
+ 			@include media($tab) {
+ 				width: 100%;
+ 			}
+
+ 			@include media($mo) {
+ 				width: 100%; // 모바일에서 전체 너비 사용
+ 			}
+ 		}
+
+ 		.swiper-wrapper {
+ 			display: flex;
+ 		}
+
+ 		.swiper-slide {
+ 			/*
       width: 308px !important; // Swiper 자동 계산 무시, 강제로 308px 적용
       flex-shrink: 0; // 카드 크기 고정
       margin-right: 16px; // 카드 사이 간격 16px
 */
 
-			@include media($mo) {
-				width: 100%; // 모바일에서 전체 너비 사용
-			}
+ 			@include media($mo) {
+ 				width: 100%; // 모바일에서 전체 너비 사용
+ 			}
 
-			// 보이는 마지막 카드 클래스
-			&:last-child {
-				margin-right: 0;
-			}
-		}
+ 			// 보이는 마지막 카드 클래스
+ 			&:last-child {
+ 				margin-right: 0;
+ 			}
+ 		}
 
-		.facility-card {
-			display: block;
-			border: 3px solid transparent;
-			border-radius: 16px;
-			overflow: hidden;
-			background: $cWhite;
-			text-decoration: none;
-			transition: all 0.3s ease;
-			height: 250px; // 카드 높이 250px 고정
-			padding: 20px; // 카드 내부 패딩 20px
-			box-sizing: border-box; // 패딩 포함 너비 계산
-			margin: 0; // 마진 제거
-			outline: none;
+ 		.facility-card {
+ 			display: block;
+ 			border: 3px solid transparent;
+ 			border-radius: 16px;
+ 			overflow: hidden;
+ 			background: $cWhite;
+ 			text-decoration: none;
+ 			transition: all 0.3s ease;
+ 			height: 250px; // 카드 높이 250px 고정
+ 			padding: 20px; // 카드 내부 패딩 20px
+ 			box-sizing: border-box; // 패딩 포함 너비 계산
+ 			margin: 0; // 마진 제거
+ 			outline: none;
+
+ 			&:hover {
+ 				border-color: $cMain;
+ 				transform: translateY(-5px);
+
+ 				.card-title {
+ 					color: $cMain;
+ 					font-weight: 700;
+ 				}
+ 			}
+
+ 			.card-image {
+ 				width: 100%; // 268px (308px - 40px 패딩, box-sizing으로 자동 계산)
+ 				height: 160px; // 이미지 높이
+ 				overflow: hidden;
+ 				border-radius: 10px;
+ 				margin-bottom: 16px; // 이미지와 타이틀 사이 간격 16px
+
+ 				img {
+ 					width: 100%;
+ 					height: 100%;
+ 					object-fit: cover;
+ 					transition: transform 0.3s ease;
+ 				}
+ 			}
+
+ 			.card-title {
+ 				padding: 0; // 타이틀 패딩 없음 (카드에 이미 20px 패딩)
+ 				font-size: 20px;
+ 				font-weight: 600;
+ 				color: $cGray02;
+ 				text-align: center;
+ 				background: $cWhite;
+ 				transition: all 0.3s ease;
+ 				line-height: 1.4;
+ 				display: flex;
+ 				align-items: center;
+ 				justify-content: center;
+ 			}
+ 		}
+
+ 		// Navigation Buttons - 화살표를 1280px 컨테이너 밖으로 absolute 배치
+ 		.swiper-button-prev,
+ 		.swiper-button-next {
+ 			width: 50px;
+ 			height: 50px;
+ 			margin-top: -25px; // 수직 중앙 정렬
+ 			background-color: transparent !important;
+ 			background-size: 50px 50px;
+ 			background-position: center;
+ 			background-repeat: no-repeat;
+ 			cursor: pointer;
+ 			// transition 제거 - 애니메이션 없음
+ 			z-index: 10;
+ 			position: absolute; // absolute 포지셔닝
+ 			top: 50%; // 수직 중앙
+ 			transform: translateY(-100%);
+ 			border: none;
+ 			outline: none;
+
+ 			&::after {
+ 				content: "" !important;
+ 				display: none !important;
+ 			}
+
+ 			// Swiper 기본 SVG 아이콘 완전히 숨김
+ 			svg,
+ 			.swiper-navigation-icon {
+ 				display: none !important;
+ 				visibility: hidden !important;
+ 				opacity: 0 !important;
+ 			}
+
+ 			&:hover:not(.swiper-button-disabled) {
+ 				opacity: 0.8; // 호버 시 투명도만 변경
+ 				// transform 제거 - 크기 변화 없음
+ 			}
+
+ 			// 비활성화 상태 - 카드가 4개 이하일 때만 적용
+ 			&.swiper-button-disabled {
+ 				opacity: 0.3;
+ 				cursor: not-allowed;
+ 				pointer-events: none;
+
+ 				&:hover {
+ 					opacity: 0.3;
+ 					// transform 제거
+ 				}
+ 			}
+
+ 			// 숨김 상태 클래스
+ 			&.navigation-hidden {
+ 				display: none !important;
+ 			}
+ 		}
+
+ 		.swiper-button-prev,
+ 		.facility-prev {
+ 			left: -80px;
+ 			background-image: url("../img/arrow-left.svg") !important;
+ 		}
+
+ 		.swiper-button-next,
+ 		.facility-next {
+ 			right: -80px;
+ 			background-image: url("../img/arrow-right.svg") !important;
+ 		}
+
+ 		// Pagination
+ 		.swiper-pagination {
+ 			bottom: 0;
+ 			position: relative;
+ 			margin-top: 30px;
+ 			// display: none;
+
+ 			@include media($mo) {
+ 				display: block;
+ 			}
+
+ 			.swiper-pagination-bullet {
+ 				width: 10px;
+ 				height: 10px;
+ 				background: $cLightGreen;
+ 				opacity: 1;
+ 				margin: 0 5px;
+ 				transition: all 0.3s ease;
+
+ 				&.swiper-pagination-bullet-active {
+ 					background: $cMain;
+ 					width: 30px;
+ 					border-radius: 5px;
+ 				}
+ 			}
+
+ 			// 숨김 상태 클래스
+ 			&.pagination-hidden {
+ 				display: none !important;
+ 			}
+ 		}
+ 	}
+
+ 	// 1280px 이하에서 반응형 처리
+ 	// @media (max-width: 1320px) {
+ 	@include media($web) {
+ 		// .inner {
+ 		//   max-width: calc(100vw - 40px);
+ 		// }
+
+ 		.facility-slider {
+
+ 			// 화살표가 화면 밖으로 나가지 않도록 조정
+ 			.swiper-button-prev,
+ 			.facility-prev {
+ 				left: -10px; // 여백이 부족할 때 안쪽으로
+ 			}
+
+ 			.swiper-button-next,
+ 			.facility-next {
+ 				right: -10px; // 여백이 부족할 때 안쪽으로
+ 			}
+ 		}
+ 	}
+
+ 	// @media (max-width: 768px) {
+ 	@include media($tab) {
+ 		.facility-slider {
+ 			.swiper-slide {
+ 				margin-right: 0; // 간격 제거
+
+ 				&:last-child {
+ 					margin-right: 0;
+ 				}
+ 			}
+
+ 			.facility-card {
+ 				width: 100% !important; // 슬라이드 너비에 맞춤
+ 				height: auto; // 자동 높이
+ 				padding: 16px; // 모바일에서 패딩 조정
+ 				box-sizing: border-box;
+
+ 				.card-image {
+ 					height: 180px; // 모바일에서 이미지 높이 조정
+ 					margin-bottom: 12px; // 모바일에서 간격 조정
+ 				}
+
+ 				.card-title {
+ 					font-size: 16px;
+ 					padding: 0; // 타이틀 패딩 없음
+ 				}
+ 			}
+ 		}
+ 	}
+
+ 	@include media($mo) {}
+ }
+
+
+
+
+
+ .notice-popup {
+ 	position: fixed;
+ 	top: 50%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+ 	width: 600px;
+ 	height: 500px;
+ 	background: white;
+ 	border-radius: 12px;
+ 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ 	z-index: 1000;
+ 	display: none;
+ 	border: 2px solid #ddd;
+ 	padding: 20px;
+
+ 	&.active {
+ 		display: block;
+ 	}
+
+ 	.popup-content {
+ 		width: 100%;
+ 		height: 100%;
+ 		display: flex;
+ 		flex-direction: column;
+
+ 		.popup-header {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			align-items: center;
+ 			margin-bottom: 20px;
+ 		}
+
+ 		.popup-body {
+ 			flex: 1;
+ 			overflow-y: auto;
+ 		}
+
+ 		.popup-footer {
+ 			display: flex;
+ 			justify-content: flex-end;
+ 			margin-top: 20px;
+
+ 			.close-btn {
+ 				background-color: $cMain;
+ 				color: $cWhite;
+ 				border: none;
+ 				border-radius: 16px;
+ 				padding: 10px 20px;
+ 				cursor: pointer;
+
+ 				&:hover {
+ 					background-color: blue;
+ 				}
+ 			}
+ 		}
+
+
+ 		.dont-show-today {
+ 			background-color: $cMain;
+ 			color: $cWhite;
+ 			border: none;
+ 			border-radius: 16px;
+ 			padding: 10px 20px;
+ 			cursor: pointer;
+
+ 			&:hover {
+ 				background-color: blue;
+ 			}
+
+			&:active {
+ 				background-color:blue;
+ 			}
+ 		}
+
+		.close-btn,
+		.close-btn-sm, 
+		.dont-show-today{
+ 			background-color: $cMain;
+ 			color: $cWhite;
+ 			border: none;
+ 			border-radius: 16px;
+ 			padding: 10px 20px;
+ 			cursor: pointer;
 
 			&:hover {
-				border-color: $cMain;
-				transform: translateY(-5px);
-
-				.card-title {
-					color: $cMain;
-					font-weight: 700;
-				}
+				background-color: blue;
 			}
 
-			.card-image {
-				width: 100%; // 268px (308px - 40px 패딩, box-sizing으로 자동 계산)
-				height: 160px; // 이미지 높이
-				overflow: hidden;
-				border-radius: 10px;
-				margin-bottom: 16px; // 이미지와 타이틀 사이 간격 16px
-
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					transition: transform 0.3s ease;
-				}
-			}
-
-			.card-title {
-				padding: 0; // 타이틀 패딩 없음 (카드에 이미 20px 패딩)
-				font-size: 20px;
-				font-weight: 600;
-				color: $cGray02;
-				text-align: center;
-				background: $cWhite;
-				transition: all 0.3s ease;
-				line-height: 1.4;
-				display: flex;
-				align-items: center;
-				justify-content: center;
+			&:active {
+				background-color: blue;
 			}
 		}
 
-		// Navigation Buttons - 화살표를 1280px 컨테이너 밖으로 absolute 배치
-		.swiper-button-prev,
-		.swiper-button-next {
-			width: 50px;
-			height: 50px;
-			margin-top: -25px; // 수직 중앙 정렬
-			background-color: transparent !important;
-			background-size: 50px 50px;
-			background-position: center;
-			background-repeat: no-repeat;
-			cursor: pointer;
-			// transition 제거 - 애니메이션 없음
-			z-index: 10;
-			position: absolute; // absolute 포지셔닝
-			top: 50%; // 수직 중앙
-			transform: translateY(-100%);
+		.close-btn-sm {
+			background-color: $cMain;
+			color: $cWhite;
 			border: none;
-			outline: none;
+			border-radius: 16px;
+			padding: 10px 20px;
+			cursor: pointer;
 
-			&::after {
-				content: "" !important;
-				display: none !important;
+			&:hover {
+				background-color: blue;
 			}
 
-			// Swiper 기본 SVG 아이콘 완전히 숨김
-			svg,
-			.swiper-navigation-icon {
-				display: none !important;
-				visibility: hidden !important;
-				opacity: 0 !important;
-			}
-
-			&:hover:not(.swiper-button-disabled) {
-				opacity: 0.8; // 호버 시 투명도만 변경
-				// transform 제거 - 크기 변화 없음
-			}
-
-			// 비활성화 상태 - 카드가 4개 이하일 때만 적용
-			&.swiper-button-disabled {
-				opacity: 0.3;
-				cursor: not-allowed;
-				pointer-events: none;
-
-				&:hover {
-					opacity: 0.3;
-					// transform 제거
-				}
-			}
-
-			// 숨김 상태 클래스
-			&.navigation-hidden {
-				display: none !important;
+			&:active {
+				background-color: blue;
 			}
 		}
 
-		.swiper-button-prev,
-		.facility-prev {
-			left: -80px;
-			background-image: url("../img/arrow-left.svg") !important;
+		.popup-title {
+			font-size: 20px;
+			font-weight: 700;
+			color: hotpink;
+			margin-bottom: 20px;
 		}
 
-		.swiper-button-next,
-		.facility-next {
-			right: -80px;
-			background-image: url("../img/arrow-right.svg") !important;
+		.popup-date {
+			font-size: 16px;
+			color: $cGray02;
+			margin-bottom: 20px;
 		}
 
-		// Pagination
-		.swiper-pagination {
-			bottom: 0;
-			position: relative;
-			margin-top: 30px;
-			// display: none;
+		.popup-text {
+			font-size: 16px;
+			color: $cGray02;
+			margin-bottom: 20px;
+			line-height: 1.4;
+		}
 
-			@include media($mo) {
-				display: block;
+		.notice-trigger {
+			cursor: pointer;
+			color: inherit;
+			text-decoration: none;
+			transition: color 0.2s;
+
+			&:hover {
+				color: blue;
 			}
 
-			.swiper-pagination-bullet {
-				width: 10px;
-				height: 10px;
-				background: $cLightGreen;
-				opacity: 1;
-				margin: 0 5px;
-				transition: all 0.3s ease;
-
-				&.swiper-pagination-bullet-active {
-					background: $cMain;
-					width: 30px;
-					border-radius: 5px;
-				}
-			}
-
-			// 숨김 상태 클래스
-			&.pagination-hidden {
-				display: none !important;
+			&:active {
+				color: blue;
 			}
 		}
-	}
+ 	}
 
-	// 1280px 이하에서 반응형 처리
-	// @media (max-width: 1320px) {
-	@include media($web) {
-		// .inner {
-		//   max-width: calc(100vw - 40px);
-		// }
-
-		.facility-slider {
-			// 화살표가 화면 밖으로 나가지 않도록 조정
-			.swiper-button-prev,
-			.facility-prev {
-				left: -10px; // 여백이 부족할 때 안쪽으로
-			}
-
-			.swiper-button-next,
-			.facility-next {
-				right: -10px; // 여백이 부족할 때 안쪽으로
-			}
-		}
-	}
-
-	// @media (max-width: 768px) {
-	@include media($tab) {
-		.facility-slider {
-			.swiper-slide {
-				margin-right: 0; // 간격 제거
-
-				&:last-child {
-					margin-right: 0;
-				}
-			}
-
-			.facility-card {
-				width: 100% !important; // 슬라이드 너비에 맞춤
-				height: auto; // 자동 높이
-				padding: 16px; // 모바일에서 패딩 조정
-				box-sizing: border-box;
-
-				.card-image {
-					height: 180px; // 모바일에서 이미지 높이 조정
-					margin-bottom: 12px; // 모바일에서 간격 조정
-				}
-
-				.card-title {
-					font-size: 16px;
-					padding: 0; // 타이틀 패딩 없음
-				}
-			}
-		}
-	}
-
-	@include media($mo) {
-	}
-}
+ }

@@ -87,22 +87,36 @@
 					position: relative;
 					flex: 1;
 					text-align: center;
+					min-width: 0;
 
 					>a {
 						position: relative;
 						display: block;
+						
 						padding: 20px 0;
-						transition: all 0.4s;
+						// transition: all 0.4s;
+						transition: color 0.4s;
 						@include font(24px, 700, #333);
+						white-space: nowrap;
 
-						&:hover {
-							font-weight: bold;
-							color: $cMain;
-						}
+						// width: 100%;
 
+						// 가상 요소로 bold 공간 미리 확보
+						// &::before {
+						// 	content: attr(data-text);
+						// 	font-weight: 700;
+						// 	height: 0;
+						// 	visibility: hidden;
+						// 	overflow: hidden;
+						// 	user-select: none;
+						// 	pointer-events: none;
+						// 	display: block;
+						// }
+
+						&:hover,
 						&.on {
-							font-weight: bold;
 							color: $cMain;
+							
 						}
 					}
 
@@ -117,23 +131,25 @@
 						flex-direction: column;
 						gap: 10px;
 
-
 						li {
 							a {
 								display: block;
 								text-align: center;
 								font-size: 18px;
+								font-weight: 500;
 								color: #333333;
 								margin-bottom: 1rem;
 								line-height: 50px;
 								height: 50px;
 								border-radius: 4px;
 								margin: 0 30px;
+								// transition: all 0.3s;
 
-								&:hover {
+								&:hover,
+								&.on {
 									color: $cWhite;
-									font-weight: bold;
 									background-color: $cMain;
+									font-weight: 600;
 								}
 							}
 						}

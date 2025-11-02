@@ -34,6 +34,24 @@ export const notices: Notice[] = [
 	},
 ];
 
+// 공지사항 팝업
+export interface NoticePopup {
+	id: string;
+	title: string;
+	date: string;
+	content: string;
+	link?: string;
+}
+
+export const noticePopup: NoticePopup[] = [
+	{
+		id: "notice-1",
+		title: "레이어팝업 공지사항 제목이다",
+		date: "2025.03.26",
+		content: "공지사항 본문입니다.공지사항 본문입니다.",
+		link: "/notices/1",
+	},
+];
 // 자주하는 질문
 export interface qna {
 	title: string;
@@ -155,7 +173,13 @@ export const FacilityCard: FacilityCard[] = [
 							</a>
 						</div>
 						<div class="info-wrapper">
-							<div class="item">
+							<a
+								href="#"
+								class="item notice-trigger"
+								data-notice-title={notices[0].title}
+								data-notice-date={notices[0].date}
+								data-notice-content={notices[0].content}
+							>
 								<div class="item_box">
 									<p class="month">2025.04</p>
 									<p class="day">04</p>
@@ -164,7 +188,7 @@ export const FacilityCard: FacilityCard[] = [
 									<em class="new">N</em>
 									<span>공지사항 본문입니다.</span>
 								</div>
-							</div>
+							</a>
 							<div class="item-list">
 								<ul>
 									{
@@ -272,7 +296,71 @@ export const FacilityCard: FacilityCard[] = [
 		</section>
 		<!-- 대관시설 [e] -->
 	</div>
+
+	<!-- 공지사항 팝업 [s] -->
+<section class="notice-popup" id="notice-popup">
+			<div class="popup-content">
+				<div class="popup-header">
+					<button class="dont-show-today" id="dont-show-today">24시간 동안 닫기</button>
+					<button  class="close-btn-sm" id="close-btn-sm" title="닫기" >×</button>
+				</div>
+				<div class="popup-body">
+					<h2 class="popup-title" id="popup-title">공지사항</h2>
+					<div class="popup-date" id="popup-date">2025.03.26</div>
+					<div class="popup-text" id="popup-text">
+						<p>공지사항 본문입니다.공지사항 본문입니다.</p>
+					</div>
+				</div>
+				<div class="popup-footer">
+					<button class="close-btn" id="close-popup">닫기</button>
+				</div>
+			</div>
+		</section>
+	<!-- 공지사항 팝업 [e] -->
 </BaseLayout>
+
+<script>
+	// 공지사항 팝업
+	function showNoticePopup() {
+		const noticePopup = document.querySelector(".notice-popup");
+		noticePopup.style.display = "block";
+	}
+
+	function hideNoticePopup() {
+		const noticePopup = document.querySelector(".notice-popup");
+		noticePopup.style.display = "none";
+	}
+
+	function initNoticePopupEventListeners() {
+		const noticeTrigger = document.querySelector(".notice-trigger");
+		const closeBtn = document.querySelector(".close-btn");
+		const dontShowTodayBtn = document.querySelector(".dont-show-today");
+		const closePopupBtn = document.querySelector(".close-popup");
+		const closePopupBtnSm = document.querySelector(".close-btn-sm");
+		
+		if (noticeTrigger) {
+			noticeTrigger.addEventListener("click", showNoticePopup);
+		}
+		if (closeBtn) {
+			closeBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (dontShowTodayBtn) {
+			dontShowTodayBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (closePopupBtn) {
+			closePopupBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (closePopupBtnSm) {
+			closePopupBtnSm.addEventListener("click", hideNoticePopup);
+		}
+		
+	}
+
+	initNoticePopupEventListeners();
+
+</script>
+
+
 
 <script is:inline>
 	// Swiper 초기화 함수

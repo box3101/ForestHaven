@@ -10,15 +10,6 @@ const idName = "FacilityRental";
 
 import "../../css/ui.css";
 
-// Checkbox
-export const checkboxData: Checkbox[] = [
-	{
-		label: "개인정보 수집 및 이용에 동의합니다.",
-		value: "개인정보 수집 및 이용에 동의합니다.",
-	},
-	
-];
-
 //스텝 화면 구성
 export interface Step {
 	number: number;
@@ -189,6 +180,22 @@ export const facilityInfo: FacilityInfo[] = [
 		],
 	},
 ];
+
+export const facilityInfo2: FacilityInfo[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "대관신청 일자",
+				normalText: "2025년 9월 14일",
+			},
+			{
+				boldTitle: "대관신청 시간",
+				normalText: "13:00~14:00, 14:00~15:00, 15:00,~16:00",
+			},
+		],
+	},
+];
+
 export const usageNotice: usageNotice[] = [
 	{
 		facilityType: [
@@ -264,6 +271,14 @@ export const DownloadFile: DownloadFile[] = [
 		name: "[붙임3] 안전관리 이행서약서.hwp",
 		fileName: "[붙임3] 안전관리 이행서약서.hwp",
 		filePath: "/documents/[붙임3] 안전관리 이행서약서.hwp",
+	},
+];
+
+// 체크박스
+export const checkboxData: checkbox[] = [
+	{
+		label: "시설물 이용에 대한 주의사항",
+		value: "시설물 이용에 대한 주의사항",
 	},
 ];
 ---
@@ -348,7 +363,8 @@ export const DownloadFile: DownloadFile[] = [
 						))
 					}
 				</div>
-				
+			</section>
+
 			<!-- 시설안내 -->
 			<section class="facility-info-container">
 				<h2 class="section-title">시설안내</h2>
@@ -389,13 +405,42 @@ export const DownloadFile: DownloadFile[] = [
 						))
 					}
 				</div>
-				 <!-- 체크박스 추가 -->
-    <div class="checkbox-container">
-      체크박스 영역이다
-    </div>
+				<!-- 체크박스 추가 -->
+				<div class="checkbox-container">
+					{
+						checkboxData.map((checkbox, index) => (
+							<div class="checkbox-item">
+								<input type="checkbox" id={`checkbox-${index}`} value={checkbox.value} />
+								<label for={`checkbox-${index}`} class="checkbox-label">
+									{checkbox.label}
+								</label>
+							</div>
+						))
+					}
+				</div>
 			</section>
 
-				
+			<!-- 대관신청 정보 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">대관신청 정보</h2>
+
+				{
+					facilityInfo2.map((facility) => (
+						<div class="facility-info-group">
+							{facility.facilityType.map((facilityType) => (
+								<div class="facility-info-item">
+									<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+									<p class="normalText">{facilityType.normalText}</p>
+								</div>
+							))}
+						</div>
+					))
+				}
+			</section>
+
+			<!-- 정보입력 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">정보입력</h2>
 			</section>
 		</SubBody>
 	</SubLayout>

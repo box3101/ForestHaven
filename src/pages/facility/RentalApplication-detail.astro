@@ -233,21 +233,14 @@ export const DownloadFile: DownloadFile[] = [
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-
-
 			<!-- 타이틀 -->
 			{
 				facilityTitle.map((facility, index) => (
 					<div class="facility-title">
 						<h3 class="tit-bold">{facility.title}</h3>
 						<div class="facility-buttons">
-							{facility.infoLink && (
-								<a href={facility.infoLink} class="btn-next">
-									다음으로
-								</a>
-							)}
 							{facility.link && (
-								<a href={facility.link} class="btn-list">
+								<a href="/facility/RentalApplication" class="btn-list">
 									목록으로
 								</a>
 							)}
@@ -262,7 +255,9 @@ export const DownloadFile: DownloadFile[] = [
 					{
 						facilityDetial.map((facility, index) => (
 							<div class="facility-item">
-								<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								<div class="facility-image">
+									<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								</div>
 								<div class="facility-info">
 									{facility.facilityType.map((facilityType, index) => (
 										<div class="facility-info-group">

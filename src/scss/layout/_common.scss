@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../utility/_mixin.scss';
+
 html,
 body {
 	@include media($mo) {
@@ -8,15 +11,15 @@ body {
 
 html {
 	@include media($web) {
-		font-size: 15px;
+		font-size: 1rem;
 	}
 
 	@include media($tab) {
-		font-size: 14px;
+		font-size: 1rem;
 	}
 
 	@include media($mo) {
-		font-size: 13px;
+		font-size: .9375rem;
 	}
 }
 
@@ -55,6 +58,10 @@ html {
 	padding-bottom: 1.25rem;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 2.5rem;
+
+	@include media($mo) {
+			margin-bottom: 1.25rem;
+		}
 
 	&__tit {
 		@include font(1.875rem, 700, #000);
@@ -158,7 +165,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
+	gap: .625rem;
 
 	.contact-info {
 		span {
@@ -186,6 +193,35 @@ html {
 			font-size: 18px !important;
 			color: #666;
 		}
+	}
+}
+
+
+.check-btn {
+	padding: 10px 12px;
+	padding-right: 3.3rem;
+	padding-left: 1rem;
+	background: #008984;
+	color: white;
+	border: none;
+	border-radius: 0.25rem;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	flex: none;
+	position: relative;
+	font-size: 1rem;
+	font-weight: 500;
+	width: 100%;
+
+	&:hover {
+		background: darken(#008984, 10%);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	@include media($tab) {
+		margin-bottom: 1.875rem;
 	}
 }
 
@@ -389,12 +425,17 @@ html {
 
 .search-input-group {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 0.625rem;
 	max-width: 40rem;
 	align-items: center;
 
+	@include media($mo) {
+		max-width: 100%;
+	}
+
 	.title-name {
-		font-size: 16;
+		font-size: 1rem;
 		color: $cMain;
 		font-weight: 700;
 	}
@@ -418,6 +459,10 @@ html {
 
 		&::placeholder {
 			color: #999;
+		}
+
+		&.w400 {
+			width: 400px;
 		}
 	}
 }
@@ -494,7 +539,12 @@ html {
 		transform: translateY(-1px);
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
+
+	&.w-100 {
+		width: 100%;
+	}
 }
+
 
 .com-select {
 	padding: 0.85rem 1rem;
@@ -522,4 +572,13 @@ html {
 	border-radius: 0.25rem;
 	font-size: 0.875rem;
 	background: #fff
+}
+
+.contentBody {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+// 컨텐츠 길이가 짧으면 네비게이션 움직임있음. 
+.subcontent {
+	padding-bottom: 400px;
 }
