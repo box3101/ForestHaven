@@ -19,10 +19,25 @@ interface VirtualTourTab {
 	link: string;
 	// content: string;
 	content: {
-		wrap01: string;
+		wrap01: {
+			label: string;
+			img: string;
+			icon: string;
+		};
 		wrap02: {
-			left: string;
-			right: string;
+			left: {
+				LFimage: string;
+				RTimage: string;
+				text: string;
+				link: string;
+			};
+			right: {
+				box01: {
+					image: string;
+					infoText: string;
+					link: string;
+				};
+			};
 		};
 	};
 }
@@ -34,10 +49,25 @@ const virtualTourTabs: VirtualTourTab[] = [
 		active: true,
 		link: "#tabs1",
 		content: {
-			wrap01: "tabs1의 위쪽 영역 내용",
+			wrap01: {
+				label: "Forest.01",
+				img: "../../img/img-map-forest.png",
+				icon: "../../img/img-compass.svg",
+			},
 			wrap02: {
-				left: "tabs1의 아래쪽 영역 내용",
-				right: "tabs1의 아래쪽 영역 내용",
+				left: {
+					LFimage: "../../img/img-virtual-01.png",
+					RTimage: "../../img/img-virtual-02.png",
+					text: "송도송림 지역에 위치한 맨발학교는 최근 ‘맨발걷기 성지’로 주목받고 있는 송도솔녹지에 자리하고 있으며, 건강과 자연 치유를 테마로 한 활동 중심의 학교입니다.",
+					link: "/info/1",
+				},
+				right: {
+					box01: {
+						image: "../../img/icon-virtual-01.svg",
+						infoText: "[교목]소나무: 12,000 (그루)",
+						link: "/info/1",
+					},
+				},
 			},
 		},
 	},
@@ -48,10 +78,25 @@ const virtualTourTabs: VirtualTourTab[] = [
 		active: false,
 		link: "#tabs2",
 		content: {
-			wrap01: "tabs2 위쪽 영역 내용",
+			wrap01: {
+				label: "Forest.02",
+				img: "../../img/img-map-forest.png",
+				icon: "../../img/img-compass.svg",
+			},
 			wrap02: {
-				left: "tabs2 아래쪽 영역 내용",
-				right: "tabs2 아래쪽 영역 내용",
+				left: {
+					LFimage: "../../img/img-virtual-01.png",
+					RTimage: "../../img/img-virtual-02.png",
+					text: " 눈알빠질듯",
+					link: "/info/1",
+				},
+				right: {
+					box01: {
+						image: "../../img/icon-virtual-01.svg",
+						infoText: "[교목]소나무: 12,000 (그루)",
+						link: "/info/1",
+					},
+				},
 			},
 		},
 	},
@@ -62,10 +107,25 @@ const virtualTourTabs: VirtualTourTab[] = [
 		active: false,
 		link: "#tabs3",
 		content: {
-			wrap01: "tabs3 위쪽 영역 내용",
+			wrap01: {
+				label: "Forest.03",
+				img: "../../img/img-map-forest.png",
+				icon: "../../img/img-compass.svg",
+			},
 			wrap02: {
-				left: "tabs3 아래쪽 영역 내용",
-				right: "tabs3 아래쪽 영역 내용",
+				left: {
+					LFimage: "../../img/img-virtual-01.png",
+					RTimage: "../../img/img-virtual-02.png",
+					text: " 눈알빠질듯",
+					link: "/info/1",
+				},
+				right: {
+					box01: {
+						image: "../../img/icon-virtual-01.svg",
+						infoText: "[교목]소나무: 12,000 (그루)",
+						link: "/info/1",
+					},
+				},
 			},
 		},
 	},
@@ -76,10 +136,25 @@ const virtualTourTabs: VirtualTourTab[] = [
 		active: false,
 		link: "#tabs4",
 		content: {
-			wrap01: "tabs4 위쪽 영역 내용",
+			wrap01: {
+				label: "Forest.04",
+				img: "../../img/img-map-forest.png",
+				icon: "../../img/img-compass.svg",
+			},
 			wrap02: {
-				left: "tabs4 아래쪽 영역 내용",
-				right: "tabs4 아래쪽 영역 내용",
+				left: {
+					LFimage: "../../img/img-virtual-01.png",
+					RTimage: "../../img/img-virtual-02.png",
+					text: " 눈알빠질듯",
+					link: "/info/1",
+				},
+				right: {
+					box01: {
+						image: "../../img/icon-virtual-01.svg",
+						infoText: "[교목]소나무: 12,000 (그루)",
+						link: "/info/1",
+					},
+				},
 			},
 		},
 	},
@@ -107,10 +182,39 @@ const virtualTourTabs: VirtualTourTab[] = [
 				{
 					virtualTourTabs.map((tab) => (
 						<div class={`content ${tab.active ? "active" : ""}`} data-content={tab.value}>
-							<div class="wrap01">{tab.content.wrap01}</div>
+							<div class="wrap01">
+								<span class="lable">{tab.content.wrap01.label}</span>
+								<img class="map" src={tab.content.wrap01.img} alt="" />
+								<img class="icon" src={tab.content.wrap01.icon} alt="" />
+							</div>
 							<div class="wrap02">
-								<div class="left">{tab.content.wrap02.left}</div>
-								<div class="right">{tab.content.wrap02.right}</div>
+								<div class="left-wrap">
+									<h2 class="section-title">전경 이미지</h2>
+									<div class="left">
+										<div class="left-inner">
+											<div class="LFimage">
+												<img src={tab.content.wrap02.left.LFimage} alt="" />
+											</div>
+											<div class="RTimage">
+												<img src={tab.content.wrap02.left.RTimage} alt="" />
+											</div>
+										</div>
+										<div class="text">
+											<p>{tab.content.wrap02.left.text}</p>
+										</div>
+									</div>
+								</div>
+								<div class="right-wrap">
+									<h2 class="section-title">전경 이미지</h2>
+									<a class="right" href="">
+										<div class="left-img">
+											<img class="info-image" src={tab.content.wrap02.right.box01.image} alt="" />
+										</div>
+										<div class="right-text">
+											<p>{tab.content.wrap02.right.box01.infoText}</p>
+										</div>
+									</a>
+								</div>
 							</div>
 						</div>
 					))
