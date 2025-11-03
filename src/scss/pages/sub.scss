@@ -2649,5 +2649,35 @@
 		&.active {
 			display: block;
 		}
+
+		.wrap01 {
+			padding: 16px;
+			background-color: #F0F0F0;
+			border-radius: .625rem;
+			margin-bottom: 85px;
+			border: 1px solid $cLightGreenBorder;
+			border-radius: 10px;
+		}
+
+		.wrap02 {
+			display: flex;
+			gap: 20px;
+
+			.left {
+				padding: 16px;
+				background-color: #77c1e4;
+				border-radius: .625rem;
+				flex: 6;
+				// width: calc(100% - 415px);
+			}
+
+			.right {
+				padding: 16px;
+				background-color: #ebc6c6;
+				border-radius: .625rem;
+				flex: 4;
+				// width: 415px;
+			}
+		}
 	}
 }

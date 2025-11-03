@@ -11,13 +11,20 @@ const idName = "VirtualTour";
 import "../../css/ui.css";
 
 //둘러보기 Tabs
-export interface VirtualTourTab {
+interface VirtualTourTab {
 	icon: string;
 	label: string;
 	value: string;
 	active: boolean;
 	link: string;
-	content: string;
+	// content: string;
+	content: {
+		wrap01: string;
+		wrap02: {
+			left: string;
+			right: string;
+		};
+	};
 }
 const virtualTourTabs: VirtualTourTab[] = [
 	{
@@ -26,7 +33,13 @@ const virtualTourTabs: VirtualTourTab[] = [
 		value: "보전의 숲",
 		active: true,
 		link: "#tabs1",
-		content: "content1",
+		content: {
+			wrap01: "tabs1의 위쪽 영역 내용",
+			wrap02: {
+				left: "tabs1의 아래쪽 영역 내용",
+				right: "tabs1의 아래쪽 영역 내용",
+			},
+		},
 	},
 	{
 		icon: "../../img/tab_img-02.svg",
@@ -34,7 +47,13 @@ const virtualTourTabs: VirtualTourTab[] = [
 		value: "활력의 숲",
 		active: false,
 		link: "#tabs2",
-		content: "content2",
+		content: {
+			wrap01: "tabs2 위쪽 영역 내용",
+			wrap02: {
+				left: "tabs2 아래쪽 영역 내용",
+				right: "tabs2 아래쪽 영역 내용",
+			},
+		},
 	},
 	{
 		icon: "../../img/tab_img-03.svg",
@@ -42,7 +61,13 @@ const virtualTourTabs: VirtualTourTab[] = [
 		value: "소통의 숲",
 		active: false,
 		link: "#tabs3",
-		content: "content3",
+		content: {
+			wrap01: "tabs3 위쪽 영역 내용",
+			wrap02: {
+				left: "tabs3 아래쪽 영역 내용",
+				right: "tabs3 아래쪽 영역 내용",
+			},
+		},
 	},
 	{
 		icon: "../../img/tab_img-04.svg",
@@ -50,7 +75,13 @@ const virtualTourTabs: VirtualTourTab[] = [
 		value: "마중의 숲",
 		active: false,
 		link: "#tabs4",
-		content: "content4",
+		content: {
+			wrap01: "tabs4 위쪽 영역 내용",
+			wrap02: {
+				left: "tabs4 아래쪽 영역 내용",
+				right: "tabs4 아래쪽 영역 내용",
+			},
+		},
 	},
 ];
 ---
@@ -76,7 +107,11 @@ const virtualTourTabs: VirtualTourTab[] = [
 				{
 					virtualTourTabs.map((tab) => (
 						<div class={`content ${tab.active ? "active" : ""}`} data-content={tab.value}>
-							{tab.content}
+							<div class="wrap01">{tab.content.wrap01}</div>
+							<div class="wrap02">
+								<div class="left">{tab.content.wrap02.left}</div>
+								<div class="right">{tab.content.wrap02.right}</div>
+							</div>
 						</div>
 					))
 				}

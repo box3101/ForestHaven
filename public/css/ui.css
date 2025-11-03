@@ -7662,6 +7662,29 @@ button.swiper-pagination-bullet {
 .virtualTour-Contents .content.active {
   display: block;
 }
+.virtualTour-Contents .content .wrap01 {
+  padding: 16px;
+  background-color: #F0F0F0;
+  border-radius: 0.625rem;
+  margin-bottom: 85px;
+  border: 1px solid #9EE5D3;
+}
+.virtualTour-Contents .content .wrap02 {
+  display: flex;
+  gap: 20px;
+}
+.virtualTour-Contents .content .wrap02 .left {
+  padding: 16px;
+  background-color: #77c1e4;
+  border-radius: 0.625rem;
+  flex: 6;
+}
+.virtualTour-Contents .content .wrap02 .right {
+  padding: 16px;
+  background-color: #ebc6c6;
+  border-radius: 0.625rem;
+  flex: 4;
+}
 
 #Notice .notice-detail-section .notice-detail-table {
   border: 0.0625rem solid #e0e0e0;
