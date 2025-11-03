@@ -3966,6 +3966,10 @@ button.swiper-pagination-bullet {
   font-size: 1.125rem;
   font-weight: 500;
 }
+.footer .footerContent .footerRight .comSelectBox {
+  position: relative;
+  display: inline-block;
+}
 .footer .footerContent .footerRight .comSelectBox select {
   width: 13.75rem;
   height: 3.125rem;
@@ -3974,10 +3978,37 @@ button.swiper-pagination-bullet {
   border: 0.0625rem solid #B7B7B7;
   background: #3A4B4A;
   color: #fff;
-  padding: 0 1.25rem;
+  padding: 0.75rem 2.5rem 0.625rem 1.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+}
+.footer .footerContent .footerRight .comSelectBox select::-ms-expand {
+  display: none;
 }
 .footer .footerContent .footerRight .comSelectBox select:focus {
   border-color: #00B587;
+}
+.footer .footerContent .footerRight .comSelectBox select option {
+  color: #B7B7B7;
+  background-color: #3A4B4A;
+}
+.footer .footerContent .footerRight .comSelectBox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  background: url("../img/arrow_footer.svg") no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+.footer .footerContent .footerRight .comSelectBox.open::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 @media all and (max-width: 600px) {
@@ -7575,6 +7606,61 @@ button.swiper-pagination-bullet {
 }
 .modal-content .modal-body .body-inner .modal-close-btn:hover {
   background-color: #008261;
+}
+
+.virtualTour-Tabs ul {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+}
+.virtualTour-Tabs ul li {
+  cursor: pointer;
+  width: 25%;
+  margin-right: -1px;
+  height: 100%;
+}
+.virtualTour-Tabs ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px 12px;
+  border: 1px solid #D9D9D9;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #333;
+  background-color: #F0F0F0;
+  position: relative;
+  cursor: pointer;
+  gap: 8px;
+  white-space: nowrap;
+}
+.virtualTour-Tabs ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00B587;
+}
+.virtualTour-Tabs ul li a:hover {
+  text-decoration: none;
+  color: #00B587;
+}
+.virtualTour-Tabs ul li.active a {
+  color: #00B587;
+  background-color: #D3EFD8;
+  border: 2px solid #00B587;
+}
+
+.virtualTour-Contents .content {
+  display: none;
+  padding: 20px 0;
+}
+.virtualTour-Contents .content.active {
+  display: block;
 }
 
 #Notice .notice-detail-section .notice-detail-table {

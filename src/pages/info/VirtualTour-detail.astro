@@ -9,13 +9,99 @@ const pageTitle = `홈>${datph2}>${location}`;
 const idName = "VirtualTour";
 
 import "../../css/ui.css";
+
+//둘러보기 Tabs
+export interface VirtualTourTab {
+	icon: string;
+	label: string;
+	value: string;
+	active: boolean;
+	link: string;
+	content: string;
+}
+const virtualTourTabs: VirtualTourTab[] = [
+	{
+		icon: "../../img/tab_img-01.svg",
+		label: "보전의 숲",
+		value: "보전의 숲",
+		active: true,
+		link: "#tabs1",
+		content: "content1",
+	},
+	{
+		icon: "../../img/tab_img-02.svg",
+		label: "활력의 숲",
+		value: "활력의 숲",
+		active: false,
+		link: "#tabs2",
+		content: "content2",
+	},
+	{
+		icon: "../../img/tab_img-03.svg",
+		label: "소통의 숲",
+		value: "소통의 숲",
+		active: false,
+		link: "#tabs3",
+		content: "content3",
+	},
+	{
+		icon: "../../img/tab_img-04.svg",
+		label: "마중의 숲",
+		value: "마중의 숲",
+		active: false,
+		link: "#tabs4",
+		content: "content4",
+	},
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<SubLayout idName={idName} title={location} datph2={datph2}>
 		<SubBody title={location}>
-      <div class="subcotent">
-      </div>
+			<div class="virtualTour-Tabs">
+				<ul>
+					{
+						virtualTourTabs.map((tab) => (
+							<li class={tab.active ? "active" : ""} data-tab={tab.value}>
+								<a href={tab.link}>
+									<img src={tab.icon} alt="" class="tab-icon" />
+									<span>{tab.label}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="virtualTour-Contents">
+				{
+					virtualTourTabs.map((tab) => (
+						<div class={`content ${tab.active ? "active" : ""}`} data-content={tab.value}>
+							{tab.content}
+						</div>
+					))
+				}
+			</div>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
+
+<script>
+	const tabs = document.querySelectorAll(".virtualTour-Tabs li");
+	const contents = document.querySelectorAll(".virtualTour-Contents .content");
+
+	tabs.forEach((tab) => {
+		tab.addEventListener("click", function (e) {
+			e.preventDefault();
+
+			const tabValue = this.dataset.tab;
+
+			// 모든 탭과 콘텐츠에서 active 제거
+			tabs.forEach((t) => t.classList.remove("active"));
+			contents.forEach((c) => c.classList.remove("active"));
+
+			// 클릭된 탭과 해당 콘텐츠에 active 추가
+			this.classList.add("active");
+			document.querySelector(`[data-content="${tabValue}"]`)?.classList.add("active");
+		});
+	});
+</script>

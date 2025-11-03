@@ -52,6 +52,7 @@ export const noticePopup: NoticePopup[] = [
 		link: "/notices/1",
 	},
 ];
+
 // 자주하는 질문
 export interface qna {
 	title: string;
@@ -298,24 +299,24 @@ export const FacilityCard: FacilityCard[] = [
 	</div>
 
 	<!-- 공지사항 팝업 [s] -->
-<section class="notice-popup" id="notice-popup">
-			<div class="popup-content">
-				<div class="popup-header">
-					<button class="dont-show-today" id="dont-show-today">24시간 동안 닫기</button>
-					<button  class="close-btn-sm" id="close-btn-sm" title="닫기" >×</button>
-				</div>
-				<div class="popup-body">
-					<h2 class="popup-title" id="popup-title">공지사항</h2>
-					<div class="popup-date" id="popup-date">2025.03.26</div>
-					<div class="popup-text" id="popup-text">
-						<p>공지사항 본문입니다.공지사항 본문입니다.</p>
-					</div>
-				</div>
-				<div class="popup-footer">
-					<button class="close-btn" id="close-popup">닫기</button>
+	<section class="notice-popup" id="notice-popup">
+		<div class="popup-content">
+			<div class="popup-header">
+				<button class="dont-show-today" id="dont-show-today">24시간 동안 닫기</button>
+				<button class="close-btn-sm" id="close-btn-sm" title="닫기">×</button>
+			</div>
+			<div class="popup-body">
+				<h2 class="popup-title" id="popup-title">공지사항</h2>
+				<div class="popup-date" id="popup-date">2025.03.26</div>
+				<div class="popup-text" id="popup-text">
+					<p>공지사항 본문입니다.공지사항 본문입니다.</p>
 				</div>
 			</div>
-		</section>
+			<div class="popup-footer">
+				<button class="close-btn" id="close-popup">닫기</button>
+			</div>
+		</div>
+	</section>
 	<!-- 공지사항 팝업 [e] -->
 </BaseLayout>
 
@@ -337,7 +338,7 @@ export const FacilityCard: FacilityCard[] = [
 		const dontShowTodayBtn = document.querySelector(".dont-show-today");
 		const closePopupBtn = document.querySelector(".close-popup");
 		const closePopupBtnSm = document.querySelector(".close-btn-sm");
-		
+
 		if (noticeTrigger) {
 			noticeTrigger.addEventListener("click", showNoticePopup);
 		}
@@ -353,14 +354,10 @@ export const FacilityCard: FacilityCard[] = [
 		if (closePopupBtnSm) {
 			closePopupBtnSm.addEventListener("click", hideNoticePopup);
 		}
-		
 	}
 
 	initNoticePopupEventListeners();
-
 </script>
-
-
 
 <script is:inline>
 	// Swiper 초기화 함수

@@ -31,4 +31,30 @@
 	</div>
 </footer>
 
+<script>
+	const selectWrapper = document.querySelector(".comSelectBox");
+	const select = document.getElementById("relatedSites");
+
+	if (select && selectWrapper) {
+		// select가 열릴 때
+		select.addEventListener("focus", () => {
+			selectWrapper.classList.add("open");
+		});
+
+		// select가 닫힐 때
+		select.addEventListener("blur", () => {
+			selectWrapper.classList.remove("open");
+		});
+
+		// 값 변경 시 (옵션 선택 시)
+		select.addEventListener("change", function () {
+			selectWrapper.classList.remove("open"); // 화살표 원위치
+			const selectedValue = this.value;
+			if (selectedValue) {
+				window.open(selectedValue, "_blank");
+			}
+		});
+	}
+</script>
+
 <!-- footer eee -->
