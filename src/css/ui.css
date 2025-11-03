@@ -8074,6 +8074,7 @@ button.swiper-pagination-bullet {
   border-radius: 0.625rem;
   margin-bottom: 85px;
   border: 1px solid #9EE5D3;
+  border-radius: 10px;
 }
 .virtualTour-Contents .content .wrap02 {
   display: flex;
