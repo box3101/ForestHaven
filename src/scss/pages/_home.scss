@@ -758,7 +758,7 @@
  				cursor: pointer;
 
  				&:hover {
- 					background-color: blue;
+ 					background-color: darken($cMain, 10%);
  				}
  			}
  		}
@@ -773,17 +773,17 @@
  			cursor: pointer;
 
  			&:hover {
- 				background-color: blue;
+ 				background-color: darken($cMain, 10%);
  			}
 
-			&:active {
- 				background-color:blue;
+ 			&:active {
+ 				background-color: darken($cMain, 10%);
  			}
  		}
 
-		.close-btn,
-		.close-btn-sm, 
-		.dont-show-today{
+ 		.close-btn,
+ 		.close-btn-sm,
+ 		.dont-show-today {
  			background-color: $cMain;
  			color: $cWhite;
  			border: none;
@@ -791,66 +791,66 @@
  			padding: 10px 20px;
  			cursor: pointer;
 
-			&:hover {
-				background-color: blue;
-			}
+ 			&:hover {
+ 				background-color: darken($cMain, 10%);
+ 			}
 
-			&:active {
-				background-color: blue;
-			}
-		}
+ 			&:active {
+ 				background-color: darken($cMain, 10%);
+ 			}
+ 		}
 
-		.close-btn-sm {
-			background-color: $cMain;
-			color: $cWhite;
-			border: none;
-			border-radius: 16px;
-			padding: 10px 20px;
-			cursor: pointer;
+ 		.close-btn-sm {
+ 			background-color: $cMain;
+ 			color: $cWhite;
+ 			border: none;
+ 			border-radius: 16px;
+ 			padding: 10px 20px;
+ 			cursor: pointer;
 
-			&:hover {
-				background-color: blue;
-			}
+ 			&:hover {
+ 				background-color: darken($cMain, 10%);
+ 			}
 
-			&:active {
-				background-color: blue;
-			}
-		}
+ 			&:active {
+ 				background-color: darken($cMain, 10%);
+ 			}
+ 		}
 
-		.popup-title {
-			font-size: 20px;
-			font-weight: 700;
-			color: hotpink;
-			margin-bottom: 20px;
-		}
+ 		.popup-title {
+ 			font-size: 20px;
+ 			font-weight: 700;
+ 			color: hotpink;
+ 			margin-bottom: 20px;
+ 		}
 
-		.popup-date {
-			font-size: 16px;
-			color: $cGray02;
-			margin-bottom: 20px;
-		}
+ 		.popup-date {
+ 			font-size: 16px;
+ 			color: $cGray02;
+ 			margin-bottom: 20px;
+ 		}
 
-		.popup-text {
-			font-size: 16px;
-			color: $cGray02;
-			margin-bottom: 20px;
-			line-height: 1.4;
-		}
+ 		.popup-text {
+ 			font-size: 16px;
+ 			color: $cGray02;
+ 			margin-bottom: 20px;
+ 			line-height: 1.4;
+ 		}
 
-		.notice-trigger {
-			cursor: pointer;
-			color: inherit;
-			text-decoration: none;
-			transition: color 0.2s;
+ 		.notice-trigger {
+ 			cursor: pointer;
+ 			color: inherit;
+ 			text-decoration: none;
+ 			transition: color 0.2s;
 
-			&:hover {
-				color: blue;
-			}
+ 			&:hover {
+ 				color: blue;
+ 			}
 
-			&:active {
-				color: blue;
-			}
-		}
+ 			&:active {
+ 				color: blue;
+ 			}
+ 		}
  	}
 
  }

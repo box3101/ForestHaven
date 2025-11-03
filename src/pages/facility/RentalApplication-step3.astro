@@ -24,23 +24,23 @@ export const stepAreaData: Step[] = [
 	{
 		number: 1,
 		title: "일정선택",
-		image: "/img/icon_step-01.svg",
-		icon: "/img/icon-arrow-gy.svg",
+		image: "../img/icon_step-01.svg",
+		icon: "../img/icon-arrow-gy.svg",
 		isActive: false,
 		isCompleted: false,
 	},
 	{
 		number: 2,
 		title: "정보등록",
-		image: "/img/icon_step-02.svg",
-		icon: "/img/icon-arrow-gy.svg",
+		image: "../img/icon_step-02.svg",
+		icon: "../img/icon-arrow-gy.svg",
 		isActive: false,
 		isCompleted: false,
 	},
 	{
 		number: 3,
 		title: "본인인증",
-		image: "/img/icon_step-03.svg",
+		image: "../img/icon_step-03.svg",
 		icon: "",
 		isActive: true,
 		isCompleted: false,
@@ -57,8 +57,8 @@ export interface facilityTitle {
 export const facilityTitle: facilityTitle[] = [
 	{
 		title: "송도솔밭 물빛누리공원",
-		link: "/facilityTitle/1",
-		infoLink: "/facilityTitle/1",
+		link: "../facilityTitle/1",
+		infoLink: "../facilityTitle/1",
 	},
 ];
 
@@ -146,8 +146,8 @@ export const certification: CertificationGroup[] = [
 				normalText:
 					"본인인증 후 이용이 가능합니다.\n개인정보는 본인확인 후 DB에는 저장되지 않습니다.",
 				button: "본인확인",
-				link: "/info/1",
-				infoLink: "/info/1",
+				link: "../info/1",
+				infoLink: "../info/1",
 				isNotice: true,
 			},
 
@@ -157,8 +157,8 @@ export const certification: CertificationGroup[] = [
 				normalText:
 					"아이핀(I-PIN)은 인터넷상의 개인식별번호를 의미하며,대면확인이 어려운 인터넷에서 주민등록번호를 사용하지 않고도 본인임을 확인할 수 있는 수단입니다.",
 				button: "아이핀으로 인증하기",
-				link: "/info/1",
-				infoLink: "/info/1",
+				link: "../info/1",
+				infoLink: "../info/1",
 				isNotice: true,
 			},
 		],
@@ -205,12 +205,12 @@ export const certification: CertificationGroup[] = [
 						<h3 class="tit-bold">{facility.title}</h3>
 						<div class="facility-buttons">
 							{facility.infoLink && (
-								<a href="/facility/RentalApplication-write" class="btn-previous">
+								<a href="./RentalApplication-write.html" class="btn-previous">
 									이전으로
 								</a>
 							)}
 							{facility.link && (
-								<a href="/facility/RentalApplication" class="btn-list">
+								<a href="./RentalApplication.html" class="btn-list">
 									목록으로
 								</a>
 							)}

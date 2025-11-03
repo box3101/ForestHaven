@@ -5179,7 +5179,7 @@ button.swiper-pagination-bullet {
   cursor: pointer;
 }
 .notice-popup .popup-content .popup-footer .close-btn:hover {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .dont-show-today {
   background-color: #00B587;
@@ -5190,10 +5190,10 @@ button.swiper-pagination-bullet {
   cursor: pointer;
 }
 .notice-popup .popup-content .dont-show-today:hover {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .dont-show-today:active {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .close-btn,
 .notice-popup .popup-content .close-btn-sm,
@@ -5208,12 +5208,12 @@ button.swiper-pagination-bullet {
 .notice-popup .popup-content .close-btn:hover,
 .notice-popup .popup-content .close-btn-sm:hover,
 .notice-popup .popup-content .dont-show-today:hover {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .close-btn:active,
 .notice-popup .popup-content .close-btn-sm:active,
 .notice-popup .popup-content .dont-show-today:active {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .close-btn-sm {
   background-color: #00B587;
@@ -5224,10 +5224,10 @@ button.swiper-pagination-bullet {
   cursor: pointer;
 }
 .notice-popup .popup-content .close-btn-sm:hover {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .close-btn-sm:active {
-  background-color: blue;
+  background-color: #008261;
 }
 .notice-popup .popup-content .popup-title {
   font-size: 20px;
