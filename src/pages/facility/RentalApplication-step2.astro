@@ -6,7 +6,7 @@ import SubBody from "../../layouts/SubBody.astro";
 const datph2 = "대관안내";
 const location = "대관신청";
 const pageTitle = `홈>${datph2}>${location}`;
-const idName = "FacilityRental";
+const idName = "Notice";
 
 import "../../css/ui.css";
 
@@ -441,7 +441,257 @@ export const checkboxData: checkbox[] = [
 			<!-- 정보입력 -->
 			<section class="facility-info-container">
 				<h2 class="section-title">정보입력</h2>
+
+				<!-- 정보입력 테이블 폼 -->
+				<div class="notice-detail-section">
+					<div class="notice-detail-table">
+						<table class="detail-table">
+							<caption class="hidden">대관신청 정보입력</caption>
+							<colgroup>
+								<col style="width: 180px;" />
+								<col style="width: auto;" />
+								<col style="width: 180px;" />
+								<col style="width: auto;" />
+							</colgroup>
+							<tbody>
+								<!-- 대표전화 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="phone">대표전화<span class="required">*</span></label>
+									</th>
+									<td class="content-cell" colspan="3">
+										<input
+											type="tel"
+											id="phone"
+											name="phone"
+											placeholder="01022225555"
+											maxlength="11"
+											class="input-field"
+										/>
+									</td>
+								</tr>
+
+								<!-- 예약인원 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="participants">예약인원<span class="required">*</span></label>
+									</th>
+									<td class="content-cell" colspan="3">
+										<div class="input-group">
+											<input
+												type="number"
+												id="participants"
+												name="participants"
+												placeholder="12"
+												min="1"
+												max="99"
+												class="input-field input-small"
+											/>
+											<span class="input-unit">명</span>
+										</div>
+									</td>
+								</tr>
+
+								<!-- 단체명 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="facility">단체명<span class="required">*</span></label>
+									</th>
+									<td class="content-cell" colspan="3">
+										<input
+											type="text"
+											id="facility"
+											name="facility"
+											placeholder="포항고등학교 XX동아리"
+											class="input-field"
+										/>
+									</td>
+								</tr>
+
+								<!-- 이용목적 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="purpose">이용목적<span class="required">*</span></label>
+									</th>
+									<td class="content-cell" colspan="3">
+										<textarea
+											id="purpose"
+											name="purpose"
+											placeholder="고등학교 동아리 캠프에서 사용하려고 합니다."
+											rows="5"
+											class="textarea-field"
+										></textarea>
+									</td>
+								</tr>
+
+								<!-- 첨부양식 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="required-files">첨부양식<span class="required">*</span></label>
+									</th>
+									<td class="content-cell attachment-content" colspan="3">
+										<ul class="attachments-list">
+											<li class="attachment-item">
+													<a href="#" class="attachment-link">
+														<img src="../assets/images/icon/file-icon.svg" alt="파일">
+														<span class="file-name">공지사항.hwp</span>
+														<span class="file-size">(1.2MB)</span>
+													</a>
+												</li><li class="attachment-item">
+													<a href="#" class="attachment-link">
+														<img src="../assets/images/icon/file-icon.svg" alt="파일">
+														<span class="file-name">첨부파일.pdf</span>
+														<span class="file-size">(2.5MB)</span>
+													</a>
+												</li>
+										</ul>
+									</td>
+								</tr>
+
+								<!-- 첨부파일 행 -->
+								<tr class="input-row">
+									<th scope="row" class="label-cell">
+										<label for="additional-files">첨부파일</label>
+									</th>
+									<td class="content-cell" colspan="3">
+										<div class="file-upload-section">
+											<!-- 파일 안내 -->
+											<div class="file-notice">
+												<span class="notice-text" style="color: darkred">
+													※ 허용 파일 확장자 : .jpg,.jpeg,.gif,.png,.bmp,.txt,.pdf,.xls,.xlsx,.ppt,.pptx,.doc,.docx,.hwp,.zip,.7z,.rar,.alz,.hwx,.hwpx
+												</span>
+											</div>
+
+											<!-- 파일 업로드 영역 -->
+											<div class="file-drop-zone">
+												<input
+													type="file"
+													id="additional-files"
+													name="additional-files"
+													multiple
+													accept=".jpg,.jpeg,.gif,.png,.bmp,.txt,.pdf,.xls,.xlsx,.ppt,.pptx,.doc,.docx,.hwp,.zip,.7z,.rar,.alz,.hwx,.hwpx"
+													class="file-input hidden"
+												/>
+												<label for="additional-files" class="file-drop-label">
+													<span class="drop-text">Choose files or drag it here.</span>
+												</label>
+											</div>
+
+											<!-- 파일 정보 표시 -->
+											<div class="file-info">
+												<span class="file-count">File : 0/5</span>
+												<span class="file-size">Total Size : 0 / 100MB</span>
+											</div>
+
+											<!-- 첨부된 파일 목록 -->
+											<div class="file-list" id="additional-files-list"></div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</section>
 		</SubBody>
 	</SubLayout>
 </BaseLayout>
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", function () {
+		const fileData = {
+			"required-files": new DataTransfer(),
+			"additional-files": new DataTransfer(),
+		};
+
+		// 파일 드롭존 클릭 시 파일 선택 열기
+		document.querySelectorAll(".file-drop-zone").forEach((zone) => {
+			zone.onclick = function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				const input = this.querySelector('input[type="file"]');
+				if (input) {
+					input.click();
+				}
+			};
+		});
+
+		// 라벨 클릭 시 스크롤 방지 (추가 안전장치)
+		document.querySelectorAll(".file-drop-label").forEach((label) => {
+			label.onclick = function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				const inputId = this.getAttribute("for");
+				const input = document.getElementById(inputId);
+				if (input) {
+					input.click();
+				}
+			};
+		});
+
+		// 파일 인풋 직접 클릭 시 이벤트 전파 중단
+		document.querySelectorAll('input[type="file"]').forEach((input) => {
+			input.onclick = function (e) {
+				e.stopPropagation();
+			};
+
+			input.onchange = function () {
+				const files = Array.from(this.files);
+				const dt = fileData[this.id];
+
+				// 기존 파일에 새 파일 추가
+				files.forEach((file) => dt.items.add(file));
+				this.files = dt.files;
+
+				updateFileDisplay(this.id);
+			};
+		});
+
+		// 파일 표시 업데이트 함수
+		function updateFileDisplay(inputId) {
+			const input = document.getElementById(inputId);
+			const files = Array.from(input.files);
+			const listDiv = document.getElementById(inputId + "-list");
+			const section = input.closest(".file-upload-section");
+			const countSpan = section.querySelector(".file-count");
+			const sizeSpan = section.querySelector(".file-size");
+
+			// 파일 개수 및 총 용량 계산
+			const totalSize = files.reduce((sum, file) => sum + file.size, 0);
+			const totalSizeMB = (totalSize / 1024 / 1024).toFixed(2);
+
+			countSpan.textContent = `File : ${files.length}/5`;
+			sizeSpan.textContent = `Total Size : ${totalSizeMB} / 100MB`;
+
+			// 파일 목록 표시
+			listDiv.innerHTML = files
+				.map(
+					(file, index) => `
+				<div class="file-item">
+					<img src="../img/icon_clip.svg" alt="파일" class="file-icon">
+					<span class="file-name">${file.name}</span>
+					<span class="file-size">(${(file.size / 1024).toFixed(1)}KB)</span>
+					<button type="button" class="file-remove" onclick="removeFile('${inputId}', ${index})">×</button>
+				</div>
+			`
+				)
+				.join("");
+		}
+
+		// 파일 삭제 함수 (전역으로 등록)
+		window.removeFile = function (inputId, index) {
+			const input = document.getElementById(inputId);
+			const dt = fileData[inputId];
+
+			// DataTransfer에서 파일 제거
+			const files = Array.from(input.files);
+			fileData[inputId] = new DataTransfer();
+			files.forEach((file, i) => {
+				if (i !== index) fileData[inputId].items.add(file);
+			});
+
+			input.files = fileData[inputId].files;
+			updateFileDisplay(inputId);
+		};
+	});
+</script>
