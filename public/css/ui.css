@@ -4644,7 +4644,7 @@ button.swiper-pagination-bullet {
   padding: 0.625rem 0.9375rem;
   border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
@@ -4751,6 +4751,7 @@ button.swiper-pagination-bullet {
 .file-notice .notice-text {
   flex: 1;
   word-break: break-all;
+  font-size: 1.125rem;
 }
 
 .file-drop-zone {
@@ -4804,13 +4805,16 @@ button.swiper-pagination-bullet {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+.file-drop-label span {
+  font-size: 1.125rem;
+}
 .file-drop-label:hover {
   color: #00B587;
 }
 .file-drop-label .drop-text {
-  font-size: 0.875rem;
   display: block;
   pointer-events: none;
+  font-size: 1.125rem;
 }
 @media all and (max-width: 600px) {
   .file-drop-label .drop-text {
@@ -4823,7 +4827,7 @@ button.swiper-pagination-bullet {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8125rem;
+  font-size: 1.125rem;
   color: #666;
   padding: 0 0.25rem;
 }
@@ -4834,6 +4838,10 @@ button.swiper-pagination-bullet {
     align-items: flex-start;
     gap: 0.25rem;
   }
+}
+.file-info .file-count,
+.file-info .file-size {
+  font-size: 1.125rem;
 }
 @media all and (max-width: 600px) {
   .file-info .file-count,
@@ -6251,7 +6259,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6309,7 +6317,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6349,9 +6357,9 @@ button.swiper-pagination-bullet {
 }
 .related-facilities-section .facility-slider .facility-card {
   display: block;
-  border: 1px solid #D4D4D4;
+  border: 1px solid #d4d4d4;
   border-radius: 10px;
-  box-shadow: 4px 4px 10px 0 #D4D4D4;
+  box-shadow: 4px 4px 10px 0 #d4d4d4;
   overflow: hidden;
   background: #ffffff;
   text-decoration: none;
@@ -6454,7 +6462,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6473,7 +6481,7 @@ button.swiper-pagination-bullet {
   flex-direction: column;
   gap: 0.625rem;
   padding: 1.875rem;
-  border: 0.0625rem solid #CFCFCF;
+  border: 0.0625rem solid #cfcfcf;
   border-radius: 0.625rem;
   margin-bottom: 5rem;
 }
@@ -6498,7 +6506,7 @@ button.swiper-pagination-bullet {
   grid-template-columns: 1fr;
 }
 .facility-info-container .facility-info-group .facility-info-item.highlight .boldTitle {
-  color: #00B587;
+  color: #00b587;
   font-weight: 500;
   padding-left: 0;
   font-size: 1.125rem;
@@ -6510,7 +6518,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.25rem;
   height: 0.25rem;
-  background-color: #C9C9C9;
+  background-color: #c9c9c9;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6530,7 +6538,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.25rem;
   height: 0.25rem;
-  background-color: #C9C9C9;
+  background-color: #c9c9c9;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6580,7 +6588,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6589,7 +6597,7 @@ button.swiper-pagination-bullet {
 }
 .facility-notice-container .facility-notice-Wrap {
   padding: 1.875rem;
-  border: 0.0625rem solid #CFCFCF;
+  border: 0.0625rem solid #cfcfcf;
   border-radius: 0.625rem;
   position: relative;
   margin-bottom: 5rem;
@@ -6656,7 +6664,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6689,8 +6697,8 @@ button.swiper-pagination-bullet {
 
 .forest-listWrap {
   padding: 2.5rem;
-  border-top: 0.25rem solid #9EE5D3;
-  border-bottom: 0.25rem solid #9EE5D3;
+  border-top: 0.25rem solid #9ee5d3;
+  border-bottom: 0.25rem solid #9ee5d3;
 }
 @media all and (max-width: 1400px) {
   .forest-listWrap {
@@ -6717,7 +6725,7 @@ button.swiper-pagination-bullet {
   align-items: center;
   gap: 3.125rem;
   padding-bottom: 2.5rem;
-  border-bottom: 0.0625rem solid #CFCFCF;
+  border-bottom: 0.0625rem solid #cfcfcf;
 }
 .forest-listWrap .forest-item a {
   display: inline-block;
@@ -6755,7 +6763,7 @@ button.swiper-pagination-bullet {
   width: 100%;
   height: 280px;
   object-fit: cover;
-  border: 0.375rem solid #9EE5D3;
+  border: 0.375rem solid #9ee5d3;
   border-radius: 0.625rem;
   display: block;
 }
@@ -6852,7 +6860,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -6881,8 +6889,8 @@ button.swiper-pagination-bullet {
 .forest-listWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .direction-link {
   font-size: 1rem;
   color: #333;
-  border: 0.0625rem solid #00B587;
-  background-color: #D3EFD7;
+  border: 0.0625rem solid #00b587;
+  background-color: #d3efd7;
   text-decoration: none;
   border-radius: 1.875rem;
   width: 172px;
@@ -6903,7 +6911,7 @@ button.swiper-pagination-bullet {
 
 .forest-boxWrap {
   padding: 40px;
-  border: 10px solid #9EE5D3;
+  border: 10px solid #9ee5d3;
   border-radius: 10px;
 }
 @media all and (max-width: 1400px) {
@@ -6930,7 +6938,7 @@ button.swiper-pagination-bullet {
 .forest-boxWrap .forest-item {
   gap: 50px;
   padding-bottom: 40px;
-  border-bottom: 1px solid #CFCFCF;
+  border-bottom: 1px solid #cfcfcf;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
@@ -7067,7 +7075,7 @@ button.swiper-pagination-bullet {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #00B587;
+  background-color: #00b587;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -7103,8 +7111,8 @@ button.swiper-pagination-bullet {
 .forest-boxWrap .forest-item .forest-info .forest-info-wrapper .forest-info-group .direction-link {
   font-size: 1rem;
   color: #333;
-  border: 0.0625rem solid #00B587;
-  background-color: #D3EFD7;
+  border: 0.0625rem solid #00b587;
+  background-color: #d3efd7;
   text-decoration: none;
   border-radius: 1.875rem;
   padding: 0.5rem 1.625rem;
@@ -7141,7 +7149,7 @@ button.swiper-pagination-bullet {
   left: 0;
   top: 50%;
   transform: translate(0%, -50%);
-  background-color: #E7FAF5;
+  background-color: #e7faf5;
   border-radius: 50%;
 }
 .forest-boxWrap .forest-item .forest-info .subTitle {
@@ -7190,9 +7198,9 @@ button.swiper-pagination-bullet {
 }
 .virtualTour-Wrap .facility-item {
   display: block;
-  border: 1px solid #D4D4D4;
+  border: 1px solid #d4d4d4;
   border-radius: 10px;
-  box-shadow: 4px 4px 10px 0 #D4D4D4;
+  box-shadow: 4px 4px 10px 0 #d4d4d4;
   overflow: hidden;
   background: #ffffff;
   text-decoration: none;
@@ -7442,7 +7450,7 @@ button.swiper-pagination-bullet {
   color: #e74c3c;
 }
 .tbl-form-box .yhdc-dayCon.able {
-  background-color: #EBF6FF;
+  background-color: #ebf6ff;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -7682,7 +7690,7 @@ button.swiper-pagination-bullet {
   font-size: 16px;
   font-weight: 700;
   color: #fff;
-  background-color: #BCBCBC;
+  background-color: #bcbcbc;
   border-radius: 6px;
   padding: 4px 8px;
 }
@@ -7712,8 +7720,8 @@ button.swiper-pagination-bullet {
   appearance: none;
   width: 1.25rem;
   height: 1.25rem;
-  background-color: #F5F5F5;
-  border: 0.125rem solid #B5B5B5;
+  background-color: #f5f5f5;
+  border: 0.125rem solid #b5b5b5;
   border-radius: 0.125rem;
   cursor: pointer;
   position: relative;
@@ -7769,7 +7777,7 @@ button.swiper-pagination-bullet {
 .certification-group .certification-item {
   flex: 1;
   padding: 40px;
-  border: 0.125rem solid #305BE9;
+  border: 0.125rem solid #305be9;
   background-color: #f8faff;
   border-radius: 0.625rem;
   justify-content: space-between;
@@ -7785,7 +7793,7 @@ button.swiper-pagination-bullet {
   }
 }
 .certification-group .certification-item.highlight {
-  border: 0.125rem solid #305BE9;
+  border: 0.125rem solid #305be9;
   background-color: #fff8dc;
 }
 .certification-group .certification-item .cert-image {
@@ -7824,7 +7832,7 @@ button.swiper-pagination-bullet {
 .certification-group .certification-item .cert-button {
   width: 100%;
   padding: 16px 32px;
-  background-color: #305BE9;
+  background-color: #305be9;
   color: white;
   border: none;
   border-radius: 1.875rem;
@@ -7898,11 +7906,11 @@ button.swiper-pagination-bullet {
   padding: 32px;
 }
 .modal-content .modal-body .body-inner .bold-blue {
-  color: #305BE9;
+  color: #305be9;
   font-weight: 700;
 }
 .modal-content .modal-body .body-inner .bold-red {
-  color: #F50F0F;
+  color: #f50f0f;
   font-weight: 700;
 }
 .modal-content .modal-body .body-inner .modal-close-btn {
@@ -7943,7 +7951,7 @@ button.swiper-pagination-bullet {
   font-size: 1.125rem;
   font-weight: 600;
   color: #333;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   position: relative;
   cursor: pointer;
   gap: 0.5rem;
@@ -7988,8 +7996,8 @@ button.swiper-pagination-bullet {
   padding: 1.5rem;
   background-color: #fff;
   border-radius: 0.625rem;
-  margin-bottom: 2.3125rem;
-  border: 0.625rem solid #D3EFD7;
+  margin-bottom: 1.3125rem;
+  border: 0.625rem solid #d3efd7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8003,11 +8011,12 @@ button.swiper-pagination-bullet {
   }
 }
 .virtualTour-Contents .content .wrap01 .lable {
+  display: none;
   align-self: flex-start;
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
-  background-color: #FF8282;
+  background-color: #ff8282;
   border-radius: 1.875rem;
   padding: 0.5rem 2.75rem 0.5rem 1rem;
   position: relative;
@@ -8028,6 +8037,9 @@ button.swiper-pagination-bullet {
   height: auto;
 }
 .virtualTour-Contents .content .wrap01 .icon {
+  position: absolute;
+  bottom: 3.25rem;
+  right: 3.25rem;
   align-self: flex-end;
   width: 3.4375rem;
   height: 3.4375rem;
@@ -8037,6 +8049,11 @@ button.swiper-pagination-bullet {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1.25rem;
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Contents .content .wrap02 {
+    flex-direction: column;
+  }
 }
 .virtualTour-Contents .content .wrap02 .left-wrap {
   flex: 6;
@@ -8097,13 +8114,18 @@ button.swiper-pagination-bullet {
 }
 .virtualTour-Contents .content .wrap02 .left-wrap .left {
   padding: 2.1875rem;
-  background-color: #F1F5E7;
+  background-color: #f1f5e7;
   border: 0.125rem solid #00B587;
   border-radius: 0.625rem;
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Contents .content .wrap02 .left-wrap .left {
+    padding: 14px;
+  }
 }
 .virtualTour-Contents .content .wrap02 .left-wrap .left .left-inner {
   display: flex;
@@ -8131,7 +8153,7 @@ button.swiper-pagination-bullet {
 @media all and (max-width: 600px) {
   .virtualTour-Contents .content .wrap02 .left-wrap .text {
     padding: 0;
-    margin-top: 0 1.25rem;
+    margin-top: 1.25rem;
   }
 }
 .virtualTour-Contents .content .wrap02 .right-wrap {
@@ -8158,7 +8180,7 @@ button.swiper-pagination-bullet {
   height: 4.75rem;
   display: flex;
   align-items: center;
-  border: 0.125rem solid #E0E0E0;
+  border: 0.125rem solid #e0e0e0;
   gap: 1.25rem;
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right:active, .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right:hover {
@@ -8173,8 +8195,8 @@ button.swiper-pagination-bullet {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 0.125rem solid #E0E0E0;
-  background-color: #F1F5E7;
+  border-right: 0.125rem solid #e0e0e0;
+  background-color: #f1f5e7;
   border-radius: 0.625rem 0 0 0.625rem;
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right .left-img .info-image {
@@ -8291,6 +8313,11 @@ button.swiper-pagination-bullet {
 .custom-pagination.type2 {
   justify-content: center;
 }
+@media all and (max-width: 600px) {
+  .custom-pagination.type2 {
+    margin-top: 0.8rem;
+  }
+}
 .custom-pagination.type2 .hr-solid {
   display: none;
 }
@@ -8338,8 +8365,7 @@ button.swiper-pagination-bullet {
 }
 #VirtualTour .map {
   display: block;
-  width: auto;
-  margin: 0 auto;
+  width: 100%;
   height: auto;
 }
 #VirtualTour .map-markers {
@@ -8352,8 +8378,8 @@ button.swiper-pagination-bullet {
 }
 #VirtualTour .map-marker {
   position: absolute;
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 3rem;
+  height: 3rem;
   transform: translate(-50%, -50%);
   background: none;
   border: none;
@@ -8366,23 +8392,206 @@ button.swiper-pagination-bullet {
   transform: translate(-50%, -50%) scale(1.2);
 }
 #VirtualTour .map-marker.active .marker-icon {
-  background-color: #ff4444;
-  box-shadow: 0 0 0 0.25rem rgba(255, 68, 68, 0.3);
+  background-color: #375fd7;
+  box-shadow: 0 0 0 0.1875rem rgba(55, 95, 215, 0.3);
 }
 #VirtualTour .marker-icon {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #4caf50;
+  background-color: #0e9c78;
   border: 0.1875rem solid white;
   border-radius: 50%;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  font-size: 1.125rem;
 }
 #VirtualTour .map-marker:hover .marker-icon {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
 }
 
+.map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.marker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: #fff;
+  display: flex !important;
+}
+
+.map-marker.active .marker-icon {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  transform: scale(1.2);
+}
+
+.marker-label {
+  position: absolute;
+  top: 135%;
+  left: 57%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  padding: 0.3em 1.2rem;
+  background-color: #243e8b;
+  color: #fff;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  color: #fff;
+  font-family: "S-Core Dream";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.marker-label::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: #243e8b;
+}
+
+.map-marker.active .marker-label {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 모바일 셀렉트 박스 스타일 */
+.mobile-facility-select {
+  display: none; /* PC에서 기본 숨김 */
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.select-trigger {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.select-trigger:hover {
+  border-color: #007bff;
+}
+
+.select-trigger.active {
+  border-color: #007bff;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.selected-text {
+  flex: 1;
+  text-align: left;
+  color: #00b587;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.dropdown-icon {
+  transition: transform 0.3s ease;
+  color: #00b587;
+}
+
+.select-trigger.active .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.select-options.open {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  overflow-y: auto;
+}
+
+.select-option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  color: #555;
+}
+
+.select-option:last-child {
+  border-bottom: none;
+}
+
+.select-option:hover {
+  background-color: #f8f9fa;
+}
+
+.select-option.selected {
+  background-color: #e7f3ff;
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* 모바일에서만 표시 */
+@media (max-width: 768px) {
+  .mobile-facility-select {
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+}
 #Notice .notice-detail-section .notice-detail-table {
   border: 0.0625rem solid #e0e0e0;
   border-radius: 0.5rem;
@@ -8605,6 +8814,7 @@ button.swiper-pagination-bullet {
   color: #333;
   word-break: break-all;
   transition: color 0.2s;
+  font-size: 1.125rem;
 }
 @media all and (max-width: 900px) {
   #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link .file-name {
@@ -8617,7 +8827,7 @@ button.swiper-pagination-bullet {
   }
 }
 #Notice .notice-detail-section .notice-detail-table .detail-table tbody tr .content-cell.attachment-content .attachments-list .attachment-item .attachment-link .file-size {
-  font-size: 0.8125rem;
+  font-size: 1.125rem;
   color: #999;
   white-space: nowrap;
 }
@@ -8708,7 +8918,7 @@ button.swiper-pagination-bullet {
   flex: 1;
   color: #333;
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   transition: color 0.2s;
 }
 @media all and (max-width: 900px) {
@@ -8844,7 +9054,7 @@ button.swiper-pagination-bullet {
   font-weight: 500;
   color: #333;
   margin-left: 1rem;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 #FAQ .subcontent .faq-list-section .faq-list .faq-item .faq-question .toggle-icon {
   display: flex;
