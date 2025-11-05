@@ -2563,7 +2563,7 @@
 			gap: 1.25rem;
 
 			@include media($mo) {
-				flex-direction: column;
+				flex-direction: column-reverse;
 			}
 
 			.left-wrap {
@@ -2683,8 +2683,12 @@
 					font-size: 1.5rem;
 					font-weight: 700;
 					color: #17255c;
-					margin-bottom: 1.25rem;
+					margin-bottom: 0.75rem;
 					line-height: 2.875rem;
+
+					@include media($mo) {
+						margin-bottom: 0.5rem;
+					}
 				}
 
 				.right-infoList {
@@ -2692,6 +2696,10 @@
 					flex-direction: column;
 					flex-wrap: wrap;
 					gap: 0.625rem;
+
+					@include media($mo) {
+						gap: 0.375rem;
+					}
 
 					.right {
 						background-color: #ffffff;
@@ -2701,6 +2709,11 @@
 						align-items: center;
 						border: 0.125rem solid #e0e0e0;
 						gap: 1.25rem;
+
+						@include media($mo) {
+							height: 3.05rem;
+							gap: 1.25rem;
+						}
 
 						&:active,
 						&:hover {
@@ -2722,8 +2735,8 @@
 							border-radius: 0.625rem 0 0 0.625rem;
 
 							.info-image {
-								width: 3.125rem;
-								height: 3.125rem;
+								width: 2.125rem;
+								height: 2.125rem;
 							}
 						}
 
@@ -2960,6 +2973,7 @@
 		box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
 		transition: all 0.3s ease;
 		font-size: 1.125rem;
+		text-indent: -9999px;
 	}
 
 	.map-marker:hover .marker-icon {

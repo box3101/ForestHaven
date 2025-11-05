@@ -8052,7 +8052,7 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 600px) {
   .virtualTour-Contents .content .wrap02 {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 .virtualTour-Contents .content .wrap02 .left-wrap {
@@ -8165,14 +8165,24 @@ button.swiper-pagination-bullet {
   font-size: 1.5rem;
   font-weight: 700;
   color: #17255c;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   line-height: 2.875rem;
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Contents .content .wrap02 .right-wrap .section-title {
+    margin-bottom: 0.5rem;
+  }
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 0.625rem;
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList {
+    gap: 0.375rem;
+  }
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right {
   background-color: #ffffff;
@@ -8182,6 +8192,12 @@ button.swiper-pagination-bullet {
   align-items: center;
   border: 0.125rem solid #e0e0e0;
   gap: 1.25rem;
+}
+@media all and (max-width: 600px) {
+  .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right {
+    height: 3.05rem;
+    gap: 1.25rem;
+  }
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right:active, .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right:hover {
   border-color: #00B587;
@@ -8200,8 +8216,8 @@ button.swiper-pagination-bullet {
   border-radius: 0.625rem 0 0 0.625rem;
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right .left-img .info-image {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 2.125rem;
+  height: 2.125rem;
 }
 .virtualTour-Contents .content .wrap02 .right-wrap .right-infoList .right .right-text {
   font-size: 1.125rem;
@@ -8405,6 +8421,7 @@ button.swiper-pagination-bullet {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   font-size: 1.125rem;
+  text-indent: -9999px;
 }
 #VirtualTour .map-marker:hover .marker-icon {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
