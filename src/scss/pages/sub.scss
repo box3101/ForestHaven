@@ -770,6 +770,7 @@
 
 	@include media($web) {
 		.facility-slider {
+
 			.swiper-button-prev,
 			.related-prev {
 				left: -10px;
@@ -1330,11 +1331,25 @@
 	}
 
 	.forest-item {
-		gap: 50px;
-		padding-bottom: 40px;
-		border-bottom: 1px solid #cfcfcf;
+		gap: 3.125rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 0.0625rem solid #cfcfcf;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		// grid-template-columns: 1fr 1fr;
+		grid-template-columns: 31.25rem 1fr;
+
+		@include media($web) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include media($tab) {
+			grid-template-columns: 1fr;
+		}
+
+		@include media($mo) {
+			grid-template-columns: 1fr;
+		}
+
 		align-items: stretch;
 		gap: 50px;
 
@@ -2024,7 +2039,7 @@
 		cursor: pointer;
 	}
 
-	.timeChk:disabled + label {
+	.timeChk:disabled+label {
 		cursor: not-allowed;
 	}
 
@@ -2146,8 +2161,7 @@
 				}
 
 				img {
-					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
-						contrast(101%);
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
 				}
 			}
 
@@ -2172,8 +2186,7 @@
 				height: 16px;
 
 				&.active {
-					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
-						contrast(101%);
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
 				}
 			}
 		}
@@ -2219,7 +2232,7 @@
 					background-position: center;
 				}
 
-				& + label {
+				&+label {
 					color: $cMain;
 					font-size: 18px;
 					font-weight: 700;
@@ -3055,7 +3068,8 @@
 
 /* 모바일 셀렉트 박스 스타일 */
 .mobile-facility-select {
-	display: none; /* PC에서 기본 숨김 */
+	display: none;
+	/* PC에서 기본 숨김 */
 	position: relative;
 	margin-bottom: 20px;
 	width: 100%;
