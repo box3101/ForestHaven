@@ -4222,7 +4222,9 @@ button.swiper-pagination-bullet {
   position: relative;
   font-size: 1rem;
   font-weight: 500;
-  width: 100%;
+  width: 30%;
+  display: block;
+  margin: 0 auto;
 }
 .check-btn:hover {
   background: #005653;
@@ -4231,6 +4233,7 @@ button.swiper-pagination-bullet {
 @media all and (max-width: 900px) {
   .check-btn {
     margin-bottom: 1.875rem;
+    width: 70%;
   }
 }
 
@@ -6723,7 +6726,6 @@ button.swiper-pagination-bullet {
 .forest-listWrap .forest-item {
   display: flex;
   align-items: center;
-  gap: 3.125rem;
   padding-bottom: 2.5rem;
   border-bottom: 0.0625rem solid #cfcfcf;
 }
@@ -8634,8 +8636,8 @@ button.swiper-pagination-bullet {
 }
 @media all and (max-width: 900px) {
   #Notice .notice-detail-section .notice-detail-table {
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
 }
 @media all and (max-width: 600px) {

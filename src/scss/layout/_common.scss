@@ -209,7 +209,11 @@ html {
 	position: relative;
 	font-size: 1rem;
 	font-weight: 500;
-	width: 100%;
+	// width: 100%;
+	width: 30%;
+	display: block;
+	margin: 0 auto;
+
 
 	&:hover {
 		background: darken(#008984, 10%);
@@ -218,7 +222,9 @@ html {
 
 	@include media($tab) {
 		margin-bottom: 1.875rem;
+		width: 70%;
 	}
+
 }
 
 .notice-list-section {
@@ -545,9 +551,7 @@ html {
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
 	font-size: 16px;
-	background: #fff
-		url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23666" d="M6 8L0 0h12z"/></svg>')
-		no-repeat right 1rem center;
+	background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23666" d="M6 8L0 0h12z"/></svg>') no-repeat right 1rem center;
 	background-size: 12px 8px;
 	cursor: pointer;
 	appearance: none;
@@ -573,6 +577,7 @@ html {
 	max-width: 1280px;
 	margin: 0 auto;
 }
+
 // 컨텐츠 길이가 짧으면 네비게이션 움직임있음.
 .subcontent {
 	padding-bottom: 400px;
@@ -845,6 +850,7 @@ html {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+
 	span {
 		font-size: 1.125rem;
 	}
@@ -884,6 +890,7 @@ html {
 	.file-count,
 	.file-size {
 		font-size: 1.125rem;
+
 		@include media($mo) {
 			width: 100%;
 		}

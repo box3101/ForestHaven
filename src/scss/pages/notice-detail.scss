@@ -3,6 +3,7 @@
 
 #Notice {
 	.notice-detail-section {
+
 		// 공지사항 테이블 래퍼
 		.notice-detail-table {
 			border: 0.0625rem solid #e0e0e0;
@@ -12,8 +13,9 @@
 			background: white;
 
 			@include media($tab) {
-				overflow-x: auto; // 태블릿에서 가로 스크롤
+				// overflow-x: auto; // 태블릿에서 가로 스크롤
 				-webkit-overflow-scrolling: touch; // 부드러운 스크롤
+				overflow-x: hidden;
 			}
 
 			@include media($mo) {
@@ -225,6 +227,7 @@
 												word-break: break-all;
 												transition: color 0.2s;
 												font-size: 1.125rem;
+
 												@include media($tab) {
 													font-size: 0.9375rem; // 15px
 												}
