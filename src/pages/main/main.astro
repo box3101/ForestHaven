@@ -148,6 +148,36 @@ export const FacilityCard: FacilityCard[] = [
 		image: "../img/swiper_img02.png",
 		link: "/facility/6",
 	},
+	// {
+	// 	title: "추가 시설 7",
+	// 	image: "../img/swiper_img03.png",
+	// 	link: "/facility/7",
+	// },
+	// {
+	// 	title: "추가 시설 8",
+	// 	image: "../img/swiper_img04.png",
+	// 	link: "/facility/8",
+	// },
+	// {
+	// 	title: "추가 시설 9",
+	// 	image: "../img/swiper_img01.png",
+	// 	link: "/facility/9",
+	// },
+	// {
+	// 	title: "추가 시설 10",
+	// 	image: "../img/swiper_img02.png",
+	// 	link: "/facility/10",
+	// },
+	// {
+	// 	title: "추가 시설 11",
+	// 	image: "../img/swiper_img03.png",
+	// 	link: "/facility/11",
+	// },
+	// {
+	// 	title: "추가 시설 12",
+	// 	image: "../img/swiper_img04.png",
+	// 	link: "/facility/12",
+	// },
 ];
 ---
 
@@ -263,10 +293,25 @@ export const FacilityCard: FacilityCard[] = [
 		</section>
 		<!-- 바로가기 [e] -->
 
-		<!-- 대관시설 [s]-->
+		<!<!-- 대관시설 [s]-->
 		<section class="main-footer-banner">
 			<div class="inner">
 				<h2 class="banner-title">대관시설</h2>
+
+					<!-- Custom Pagination -->
+					<div class="custom-pagination">
+						<div class="swiper-pagination facility-pagination"></div>
+						<div class="pagination-controls-wrapper">
+							<div class="pagination-fraction">
+								<span class="current-slide">1</span>/<span class="total-slides">12</span>
+							</div>
+							<button class="custom-prev-btn" aria-label="이전"></button>
+							<button class="autoplay-toggle" aria-label="자동재생 토글">
+								<span class="pause-icon"></span>
+							</button>
+							<button class="custom-next-btn" aria-label="다음"></button>
+						</div>
+					</div>
 
 				<div class="facility-slider">
 					<div class="swiper" id="facilitySwiper">
@@ -286,12 +331,10 @@ export const FacilityCard: FacilityCard[] = [
 						</div>
 					</div>
 
-					<!-- Navigation buttons -->
+					<!-- Navigation buttons - 기존 유지 -->
 					<div class="swiper-button-prev facility-prev" id="facilityPrev"></div>
 					<div class="swiper-button-next facility-next" id="facilityNext"></div>
 
-					<!-- Pagination -->
-					<div class="swiper-pagination facility-pagination"></div>
 				</div>
 			</div>
 		</section>
@@ -358,7 +401,6 @@ export const FacilityCard: FacilityCard[] = [
 
 	initNoticePopupEventListeners();
 </script>
-
 <script is:inline>
 	// Swiper 초기화 함수
 	function initFacilitySwiper() {
@@ -369,29 +411,31 @@ export const FacilityCard: FacilityCard[] = [
 			return;
 		}
 
-		// 카드 개수 확인
 		const totalCards = swiperContainer.querySelectorAll(".swiper-slide").length;
 		const visibleCards = 4;
 
 		const swiper = new Swiper("#facilitySwiper", {
-			// ❌ modules 옵션 제거 - CDN 버전에서는 불필요
-			// modules: [Swiper.Navigation, Swiper.Pagination],
-
-			slidesPerView: 4,
+			slidesPerView: 2,
 			spaceBetween: 16,
-			slidesPerGroup: 1,
+			slidesPerGroup: 4,
+
 			loop: false,
 			speed: 300,
 			centeredSlides: false,
 			grabCursor: true,
 			watchSlidesProgress: true,
-			watchOverflow: false,
+
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+
 			autoHeight: false,
 			allowTouchMove: true,
 
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: ".facility-next", // 기존 큰 화살표
+				prevEl: ".facility-prev", // 기존 큰 화살표
 				disabledClass: "swiper-button-disabled",
 			},
 
@@ -400,24 +444,20 @@ export const FacilityCard: FacilityCard[] = [
 				clickable: true,
 				bulletClass: "swiper-pagination-bullet",
 				bulletActiveClass: "swiper-pagination-bullet-active",
-				dynamicBullets: false,
 			},
 
 			breakpoints: {
 				320: {
 					slidesPerView: 1,
 					spaceBetween: 0,
-					width: null,
 				},
 				600: {
 					slidesPerView: 2,
-					spaceBetween: 6,
-					width: null,
+					spaceBetween: 16,
 				},
 				900: {
 					slidesPerView: 3,
-					spaceBetween: 12,
-					width: null,
+					spaceBetween: 16,
 				},
 				1400: {
 					slidesPerView: 4,
@@ -432,11 +472,10 @@ export const FacilityCard: FacilityCard[] = [
 
 					manageNavigationVisibility(this, totalCards, visibleCards);
 					updateActiveCard(this);
-					updateVisibleLastCard(this);
+					updatePaginationFraction(this);
 				},
 				slideChange: function () {
 					updateActiveCard(this);
-					updateVisibleLastCard(this);
 				},
 				resize: function () {
 					const currentVisible = this.params.slidesPerView;
@@ -474,19 +513,50 @@ export const FacilityCard: FacilityCard[] = [
 				}
 			});
 
-			updateVisibleLastCard(swiperInstance);
+			// 페이지 번호 업데이트
+			updatePaginationFraction(swiperInstance);
 		}
 
-		function updateVisibleLastCard(swiperInstance) {
-			const slides = swiperInstance.slides;
-			const activeIndex = swiperInstance.activeIndex;
-			const visibleCards = 4;
+		function updatePaginationFraction(swiperInstance) {
+			const currentSlide = document.querySelector(".current-slide");
+			const totalSlides = document.querySelector(".total-slides");
 
-			slides.forEach(function (slide, index) {
-				slide.classList.remove("visible-last");
+			if (currentSlide && totalSlides) {
+				currentSlide.textContent = swiperInstance.activeIndex + 1;
+				totalSlides.textContent = swiperInstance.slides.length;
+			}
+		}
 
-				if (index === activeIndex + visibleCards - 1) {
-					slide.classList.add("visible-last");
+		// custom-prev-btn, custom-next-btn도 작동하도록 연결
+		const customPrevBtn = document.querySelector(".custom-prev-btn");
+		const customNextBtn = document.querySelector(".custom-next-btn");
+
+		if (customPrevBtn) {
+			customPrevBtn.addEventListener("click", function () {
+				swiper.slidePrev();
+			});
+		}
+
+		if (customNextBtn) {
+			customNextBtn.addEventListener("click", function () {
+				swiper.slideNext();
+			});
+		}
+
+		// 자동재생 토글 버튼 기능
+		const autoplayToggle = document.querySelector(".autoplay-toggle");
+		if (autoplayToggle) {
+			autoplayToggle.classList.add("playing");
+
+			autoplayToggle.addEventListener("click", function () {
+				if (swiper.autoplay.running) {
+					swiper.autoplay.stop();
+					autoplayToggle.classList.remove("playing");
+					autoplayToggle.classList.add("paused");
+				} else {
+					swiper.autoplay.start();
+					autoplayToggle.classList.remove("paused");
+					autoplayToggle.classList.add("playing");
 				}
 			});
 		}

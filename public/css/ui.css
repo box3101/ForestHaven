@@ -5344,6 +5344,12 @@ button.swiper-pagination-bullet {
   background: url("../img/img_bg-bottom.png") no-repeat center center/cover;
   position: relative;
   padding: 32px 0;
+  padding-bottom: 94px;
+}
+@media all and (max-width: 600px) {
+  .main-footer-banner {
+    padding-bottom: 47px;
+  }
 }
 .main-footer-banner .inner {
   max-width: 1280px;
@@ -5365,7 +5371,6 @@ button.swiper-pagination-bullet {
   font-weight: 700;
   color: #333333;
   text-align: center;
-  margin-bottom: 40px;
 }
 .main-footer-banner .facility-slider {
   position: relative;
@@ -5524,7 +5529,6 @@ button.swiper-pagination-bullet {
 .main-footer-banner .facility-slider .swiper-pagination {
   bottom: 0;
   position: relative;
-  margin-top: 30px;
 }
 @media all and (max-width: 600px) {
   .main-footer-banner .facility-slider .swiper-pagination {
@@ -5751,10 +5755,9 @@ button.swiper-pagination-bullet {
 }
 .facility-list .facility-item .facility-image img {
   width: 100%;
+  max-height: 170px;
   display: block;
   border-radius: 10px;
-  width: 100%;
-  height: 170px;
   object-fit: cover;
 }
 .facility-list .facility-item .facility-info {
@@ -5866,6 +5869,7 @@ button.swiper-pagination-bullet {
   gap: 10px;
   padding-top: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .facility-list .facility-item .facility-buttons .btn-info {
   border: 1px solid #666666;
@@ -5876,7 +5880,6 @@ button.swiper-pagination-bullet {
   position: relative;
   text-align: left;
   white-space: nowrap;
-  flex: 1;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-info {
@@ -5918,7 +5921,6 @@ button.swiper-pagination-bullet {
   position: relative;
   text-align: left;
   white-space: nowrap;
-  flex: 1;
 }
 @media all and (max-width: 600px) {
   .facility-list .facility-item .facility-buttons .btn-write {
@@ -6726,6 +6728,7 @@ button.swiper-pagination-bullet {
 .forest-listWrap .forest-item {
   display: flex;
   align-items: center;
+  gap: 3.125rem;
   padding-bottom: 2.5rem;
   border-bottom: 0.0625rem solid #cfcfcf;
 }
@@ -8010,7 +8013,7 @@ button.swiper-pagination-bullet {
   display: block;
 }
 .virtualTour-Contents .content .wrap01 {
-  padding: 1.5rem;
+  padding: 4.0625rem 1.5rem;
   background-color: #fff;
   border-radius: 0.625rem;
   margin-bottom: 1.3125rem;
@@ -8021,6 +8024,9 @@ button.swiper-pagination-bullet {
   position: relative;
   flex-direction: column;
   flex-wrap: wrap;
+  border-radius: 10px;
+  border: 10px solid #d3efd7;
+  background: #e6e1d5;
 }
 @media all and (max-width: 600px) {
   .virtualTour-Contents .content .wrap01 {
@@ -8055,8 +8061,8 @@ button.swiper-pagination-bullet {
 }
 .virtualTour-Contents .content .wrap01 .icon {
   position: absolute;
-  bottom: 3.25rem;
-  right: 3.25rem;
+  bottom: 21px;
+  right: 21px;
   align-self: flex-end;
   width: 3.4375rem;
   height: 3.4375rem;
@@ -8252,7 +8258,12 @@ button.swiper-pagination-bullet {
   align-items: center;
   justify-content: flex-end;
   gap: 1.25rem;
-  margin-top: 1.875rem;
+}
+@media all and (max-width: 600px) {
+  .custom-pagination {
+    margin-top: 13px;
+    justify-content: center;
+  }
 }
 .custom-pagination .hr-solid {
   width: 100%;
@@ -8334,9 +8345,42 @@ button.swiper-pagination-bullet {
   background-image: url("../img/btn_arrow-left-sm.svg");
 }
 .custom-pagination .pagination-controls-wrapper .autoplay-toggle {
-  background-image: url("../img/btn_arrow-pause-sm.svg");
+  background-image: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: relative;
+}
+.custom-pagination .pagination-controls-wrapper .autoplay-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .custom-pagination .pagination-controls-wrapper .autoplay-toggle .pause-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.custom-pagination .pagination-controls-wrapper .autoplay-toggle.playing .pause-icon {
+  display: flex;
+  gap: 3px;
+}
+.custom-pagination .pagination-controls-wrapper .autoplay-toggle.playing .pause-icon::before, .custom-pagination .pagination-controls-wrapper .autoplay-toggle.playing .pause-icon::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 10px;
+  background-color: #ffffff;
+}
+.custom-pagination .pagination-controls-wrapper .autoplay-toggle.paused .pause-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent #ffffff;
+  transform: translate(-30%, -50%);
+}
+.custom-pagination .pagination-controls-wrapper .autoplay-toggle.paused .pause-icon::before, .custom-pagination .pagination-controls-wrapper .autoplay-toggle.paused .pause-icon::after {
   display: none;
 }
 .custom-pagination .pagination-controls-wrapper .custom-next-btn {
@@ -8345,6 +8389,7 @@ button.swiper-pagination-bullet {
 
 .custom-pagination.type2 {
   justify-content: center;
+  margin-top: 20px;
 }
 @media all and (max-width: 600px) {
   .custom-pagination.type2 {
@@ -8398,8 +8443,9 @@ button.swiper-pagination-bullet {
 }
 #VirtualTour .map {
   display: block;
-  width: 100%;
   height: auto;
+  max-width: 100%;
+  margin: 0 auto;
 }
 #VirtualTour .map-markers {
   position: absolute;

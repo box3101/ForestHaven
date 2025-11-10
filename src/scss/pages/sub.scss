@@ -44,10 +44,11 @@
 				width: 100%;
 				// height: auto;
 				// min-height: 170px;
+				max-height: 170px;
 				display: block;
 				border-radius: 10px;
-				width: 100%;
-				height: 170px;
+				// width: 100%;
+				// height: 170px;
 				object-fit: cover;
 			}
 		}
@@ -162,6 +163,7 @@
 			gap: 10px;
 			padding-top: 20px;
 			flex-wrap: wrap;
+			justify-content: center;
 
 			.btn-info {
 				border: 1px solid $cGray02;
@@ -172,7 +174,7 @@
 				position: relative;
 				text-align: left;
 				white-space: nowrap;
-				flex: 1;
+				// flex: 1;
 
 				@include media($mo) {
 					font-size: 14px;
@@ -216,7 +218,7 @@
 				position: relative;
 				text-align: left;
 				white-space: nowrap;
-				flex: 1;
+				// flex: 1;
 
 				@include media($mo) {
 					font-size: 14px;
@@ -770,7 +772,6 @@
 
 	@include media($web) {
 		.facility-slider {
-
 			.swiper-button-prev,
 			.related-prev {
 				left: -10px;
@@ -1109,7 +1110,7 @@
 	.forest-item {
 		display: flex;
 		align-items: center;
-		// gap: 3.125rem;
+		gap: 3.125rem;
 		padding-bottom: 2.5rem;
 		border-bottom: 0.0625rem solid #cfcfcf;
 
@@ -2039,7 +2040,7 @@
 		cursor: pointer;
 	}
 
-	.timeChk:disabled+label {
+	.timeChk:disabled + label {
 		cursor: not-allowed;
 	}
 
@@ -2161,7 +2162,8 @@
 				}
 
 				img {
-					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
+						contrast(101%);
 				}
 			}
 
@@ -2186,7 +2188,8 @@
 				height: 16px;
 
 				&.active {
-					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%) contrast(101%);
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
+						contrast(101%);
 				}
 			}
 		}
@@ -2232,7 +2235,7 @@
 					background-position: center;
 				}
 
-				&+label {
+				& + label {
 					color: $cMain;
 					font-size: 18px;
 					font-weight: 700;
@@ -2514,7 +2517,7 @@
 		}
 
 		.wrap01 {
-			padding: 1.5rem;
+			padding: 4.0625rem 1.5rem;
 			background-color: #fff;
 			border-radius: 0.625rem;
 			margin-bottom: 1.3125rem;
@@ -2525,6 +2528,9 @@
 			position: relative;
 			flex-direction: column;
 			flex-wrap: wrap;
+			border-radius: 10px;
+			border: 10px solid #d3efd7;
+			background: #e6e1d5;
 
 			@include media($mo) {
 				display: none;
@@ -2561,8 +2567,8 @@
 
 			.icon {
 				position: absolute;
-				bottom: 3.25rem;
-				right: 3.25rem;
+				bottom: 21px;
+				right: 21px;
 				align-self: flex-end;
 				width: 3.4375rem;
 				height: 3.4375rem;
@@ -2774,7 +2780,11 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap: 1.25rem;
-	margin-top: 1.875rem;
+
+	@include media($mo) {
+		margin-top: 13px;
+		justify-content: center;
+	}
 
 	.hr-solid {
 		width: 100%;
@@ -2863,10 +2873,52 @@
 		}
 
 		.autoplay-toggle {
-			background-image: url("../img/btn_arrow-pause-sm.svg");
+			background-image: none; // 기본 배경 이미지 제거
+			width: 1.5rem;
+			height: 1.5rem;
+			border: 2px solid $cWhite;
+			border-radius: 50%;
+			position: relative;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
 
 			.pause-icon {
-				display: none;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			// 재생 중 - 일시정지 아이콘 (두 개의 막대)
+			&.playing .pause-icon {
+				display: flex;
+				gap: 3px;
+
+				&::before,
+				&::after {
+					content: "";
+					display: block;
+					width: 2px;
+					height: 10px;
+					background-color: $cWhite;
+				}
+			}
+
+			// 일시정지 중 - 재생 아이콘 (삼각형)
+			&.paused .pause-icon {
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 5px 0 5px 8px;
+				border-color: transparent transparent transparent $cWhite;
+				transform: translate(-30%, -50%);
+
+				&::before,
+				&::after {
+					display: none;
+				}
 			}
 		}
 
@@ -2875,9 +2927,9 @@
 		}
 	}
 }
-
 .custom-pagination.type2 {
 	justify-content: center;
+	margin-top: 20px;
 
 	@include media($mo) {
 		margin-top: 0.8rem;
@@ -2941,8 +2993,9 @@
 
 	.map {
 		display: block;
-		width: 100%;
 		height: auto;
+		max-width: 100%;
+		margin: 0 auto;
 	}
 
 	.map-markers {
