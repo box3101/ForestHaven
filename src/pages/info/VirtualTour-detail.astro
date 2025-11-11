@@ -264,7 +264,7 @@ const virtualTourTabs = [
 		content: {
 			wrap01: {
 				label: "Forest.03",
-				img: "../img/img-map-forest.png",
+				img: "../img/img-map-forest2.png",
 				icon: "../img/img-compass.svg",
 				markers: [
 					{ id: "marker-10", left: "30%", top: "40%", type: "facility" },
@@ -283,7 +283,7 @@ const virtualTourTabs = [
 		content: {
 			wrap01: {
 				label: "Forest.04",
-				img: "../img/img-map-forest.png",
+				img: "../img/img-map-forest3.png",
 				icon: "../img/img-compass.svg",
 				markers: [
 					{ id: "marker-13", left: "22%", top: "28%", type: "facility" },
@@ -333,6 +333,18 @@ const virtualTourTabs = [
 									<span class="lable">{tab.content.wrap01.label}</span>
 									<div class="map-container">
 										<img class="map" src={tab.content.wrap01.img} alt="" />
+
+										<div class="map-legend">
+											<div class="legend-item">
+												<span class="legend-marker facility"></span>
+												<span class="legend-text">시설</span>
+											</div>
+											<div class="legend-item">
+												<span class="legend-marker vegetation"></span>
+												<span class="legend-text">식생</span>
+											</div>
+										</div>
+
 										<div class="map-markers">
 											{tab.content.wrap01.markers?.map((marker, index) => {
 												// 현재 탭의 시설 데이터에서 해당 마커의 정보 찾기
