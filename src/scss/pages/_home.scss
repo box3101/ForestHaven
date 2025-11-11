@@ -721,6 +721,10 @@ section {
 	border: 2px solid #ddd;
 	padding: 20px;
 
+	@include media($mo) {
+		width: 80%;
+	}
+
 	&.active {
 		display: block;
 	}

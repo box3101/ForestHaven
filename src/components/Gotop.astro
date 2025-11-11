@@ -4,3 +4,21 @@
 			<span class="hidden">상단으로 이동</span>
 		</button>
 	</div>
+
+	<script is:inline>
+		const btn = document.querySelector('.goTop button');
+
+		// 스크롤하면 버튼 보이기
+		window.addEventListener('scroll', function() {
+			if (window.scrollY > 100) {
+				btn.classList.add('show');
+			} else {
+				btn.classList.remove('show');
+			}
+		});
+
+		// 클릭하면 맨 위로
+		btn.addEventListener('click', function() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	</script>

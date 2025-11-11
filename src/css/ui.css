@@ -5598,6 +5598,11 @@ button.swiper-pagination-bullet {
   border: 2px solid #ddd;
   padding: 20px;
 }
+@media all and (max-width: 600px) {
+  .notice-popup {
+    width: 80%;
+  }
+}
 .notice-popup.active {
   display: block;
 }
@@ -8775,6 +8780,49 @@ button.swiper-pagination-bullet {
     font-size: 0.7rem;
   }
 }
+.rental-disabled-text {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.4;
+  word-break: keep-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goTop {
+  font-size: 16px;
+}
+
+.goTop button {
+  cursor: pointer;
+  position: fixed;
+  right: 1em;
+  bottom: 0.5em;
+  width: 4.7em;
+  height: 4.7em;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  overflow: hidden;
+  text-indent: -999px;
+  background: url(../img/btn_goto_top.svg) no-repeat 50% 50%;
+  background-size: contain;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.goTop button.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 #Notice .notice-detail-section .notice-detail-table {
   border: 0.0625rem solid #e0e0e0;
   border-radius: 0.5rem;

@@ -38,12 +38,14 @@ export const facility: facility[] = [
 			boldTitle: "관리기관",
 			normalText: "포항시 푸른도시사업단 공원과 (054-270-5733)",
 		},
+		text: "※ 대관불가사유 : 기물 파손되어, 사용 중지 상태입니다.(~2025.12.31)",
 		infoLink: "./RentalApplication-detail.html",
 		link: "./RentalApplication-write.html",
 	},
 	{
 		image: "../img/card_img01.png",
 		title: "융합1체육공원 풋살장 1구장",
+		text: "※ 대관불가사유 : 기물 파손되어, 사용 중지 상태입니다.(~2025.12.31)※ 대관불가사유 : 기물 파손되어, 사용 중지 상태입니다.(~2025.12.31)※ 대관불가사유 : 기물 파손되어, 사용 중지 상태입니다.(~2025.12.31)",
 		facilityType: {
 			boldTitle: "사용시설",
 			normalText: "풋살장 2구장",
@@ -167,6 +169,9 @@ export const facility: facility[] = [
 										</a>
 									)}
 								</div>
+								{facility.text && (
+										<p class="rental-disabled-text">{facility.text}</p>
+									)}
 							</div>
 						</div>
 					))
