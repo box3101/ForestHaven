@@ -226,10 +226,10 @@ const virtualTourTabs = [
 				img: "../img/virtual-detail01.png",
 				icon: "../img/img-compass.svg",
 				markers: [
-					{ id: "marker-1", left: "20%", top: "30%" },
-					{ id: "marker-2", left: "45%", top: "25%" },
-					{ id: "marker-3", left: "65%", top: "40%" },
-					{ id: "marker-4", left: "35%", top: "60%" },
+					{ id: "marker-1", left: "20%", top: "30%", type: "facility" }, // 시설 마커
+					{ id: "marker-2", left: "45%", top: "25%", type: "facility" },
+					{ id: "marker-3", left: "65%", top: "40%", type: "vegetation" }, // 식생 마커
+					{ id: "marker-4", left: "35%", top: "60%", type: "vegetation" },
 				],
 			},
 		},
@@ -246,11 +246,11 @@ const virtualTourTabs = [
 				img: "../img/img-map-forest.png",
 				icon: "../img/img-compass.svg",
 				markers: [
-					{ id: "marker-5", left: "25%", top: "35%" },
-					{ id: "marker-6", left: "50%", top: "30%" },
-					{ id: "marker-7", left: "70%", top: "45%" },
-					{ id: "marker-8", left: "40%", top: "65%" },
-					{ id: "marker-9", left: "60%", top: "70%" },
+					{ id: "marker-5", left: "25%", top: "35%", type: "facility" },
+					{ id: "marker-6", left: "50%", top: "30%", type: "facility" },
+					{ id: "marker-7", left: "70%", top: "45%", type: "vegetation" },
+					{ id: "marker-8", left: "40%", top: "65%", type: "vegetation" },
+					{ id: "marker-9", left: "60%", top: "70%", type: "vegetation" },
 				],
 			},
 		},
@@ -267,9 +267,9 @@ const virtualTourTabs = [
 				img: "../img/img-map-forest.png",
 				icon: "../img/img-compass.svg",
 				markers: [
-					{ id: "marker-10", left: "30%", top: "40%" },
-					{ id: "marker-11", left: "55%", top: "35%" },
-					{ id: "marker-12", left: "75%", top: "55%" },
+					{ id: "marker-10", left: "30%", top: "40%", type: "facility" },
+					{ id: "marker-11", left: "55%", top: "35%", type: "facility" },
+					{ id: "marker-12", left: "75%", top: "55%", type: "vegetation" },
 				],
 			},
 		},
@@ -286,12 +286,12 @@ const virtualTourTabs = [
 				img: "../img/img-map-forest.png",
 				icon: "../img/img-compass.svg",
 				markers: [
-					{ id: "marker-13", left: "22%", top: "28%" },
-					{ id: "marker-14", left: "48%", top: "33%" },
-					{ id: "marker-15", left: "68%", top: "42%" },
-					{ id: "marker-16", left: "38%", top: "58%" },
-					{ id: "marker-17", left: "58%", top: "68%" },
-					{ id: "marker-18", left: "78%", top: "75%" },
+					{ id: "marker-13", left: "22%", top: "28%", type: "facility" },
+					{ id: "marker-14", left: "48%", top: "33%", type: "facility" },
+					{ id: "marker-15", left: "68%", top: "42%", type: "vegetation"			 },
+					{ id: "marker-16", left: "38%", top: "58%", type: "vegetation" },
+					{ id: "marker-17", left: "58%", top: "68%", type: "vegetation" },
+				{ id: "marker-18", left: "78%", top: "75%", type: "vegetation"	 },
 				],
 			},
 		},
@@ -342,6 +342,7 @@ const virtualTourTabs = [
 													<button
 														class="map-marker"
 														data-marker-id={marker.id}
+														data-marker-type={marker.type}
 														data-tab-index={tabIndex}
 														style={`left: ${marker.left}; top: ${marker.top};`}
 														aria-label={`마커 ${marker.id}`}

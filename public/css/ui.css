@@ -5755,10 +5755,11 @@ button.swiper-pagination-bullet {
 }
 .facility-list .facility-item .facility-image img {
   width: 100%;
-  max-height: 170px;
   display: block;
   border-radius: 10px;
   object-fit: cover;
+  max-height: 170px;
+  min-height: 170px;
 }
 .facility-list .facility-item .facility-info {
   padding-top: 20px;
@@ -5869,7 +5870,11 @@ button.swiper-pagination-bullet {
   gap: 10px;
   padding-top: 20px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+}
+.facility-list .facility-item .facility-buttons > * {
+  flex: 1;
+  max-width: 30%;
 }
 .facility-list .facility-item .facility-buttons .btn-info {
   border: 1px solid #666666;
@@ -8511,15 +8516,29 @@ button.swiper-pagination-bullet {
   font-weight: bold;
   font-size: 14px;
   transition: all 0.3s ease;
-  color: #fff;
-  display: flex !important;
+  color: #333;
 }
 
-.map-marker.active .marker-icon {
-  background-color: #007bff;
+.map-marker[data-marker-type=facility] .marker-icon {
+  background-color: #0e9c78;
+  border-color: #fff;
   color: #fff;
-  border-color: #007bff;
-  transform: scale(1.2);
+}
+
+.map-marker[data-marker-type=facility].active .marker-icon {
+  background-color: #375fd7;
+  box-shadow: 0 0 0 0.1875rem rgba(55, 95, 215, 0.3);
+}
+
+.map-marker[data-marker-type=vegetation] .marker-icon {
+  background-color: #9b59b6;
+  border-color: #fff;
+  color: #fff;
+}
+
+.map-marker[data-marker-type=vegetation].active .marker-icon {
+  background-color: #7a2dbd;
+  box-shadow: 0 0 0 0.1875rem rgba(122, 45, 189, 0.3);
 }
 
 .marker-label {
@@ -8531,7 +8550,7 @@ button.swiper-pagination-bullet {
   padding: 0.3em 1.2rem;
   background-color: #243e8b;
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 1rem;
   white-space: nowrap;
   border-radius: 1rem;
   opacity: 0;
@@ -8539,12 +8558,21 @@ button.swiper-pagination-bullet {
   transition: all 0.3s ease;
   pointer-events: none;
   z-index: 10;
-  color: #fff;
   font-family: "S-Core Dream";
-  font-size: 1rem;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
+}
+
+.map-marker[data-marker-type=vegetation].active .marker-icon {
+  background-color: #7a2dbd !important;
+  box-shadow: 0 0 0 0.1875rem rgba(122, 45, 189, 0.3) !important;
+}
+
+.map-marker[data-marker-type=vegetation] .marker-label {
+  background-color: #7a2dbd;
+}
+
+.map-marker[data-marker-type=vegetation] .marker-label::before {
+  border-bottom-color: #7a2dbd;
 }
 
 .marker-label::before {
