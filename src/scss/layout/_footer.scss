@@ -1,9 +1,8 @@
-@import '../base/variables';
-@import '../utility/_mixin.scss';
-
+@import "../base/variables";
+@import "../utility/_mixin.scss";
 
 .footer {
-	background: #3A4B4A;
+	background: #3a4b4a;
 	color: #ccc;
 	padding-top: 0;
 
@@ -14,7 +13,6 @@
 		@include media($web) {
 			padding: 1.25rem;
 		}
-
 	}
 
 	.footerTop {
@@ -22,11 +20,10 @@
 		align-items: center;
 		justify-content: flex-start;
 		height: 3.75rem;
-		border-bottom: .0625rem solid #B7B7B7;
-
+		border-bottom: 0.0625rem solid #b7b7b7;
 
 		@include media($web) {
-			height: 100%;
+			height: auto;
 		}
 
 		.inner {
@@ -37,7 +34,6 @@
 			display: flex;
 			gap: 2rem;
 
-
 			@include media($mo) {
 				flex-direction: column;
 				gap: 0.625rem;
@@ -47,16 +43,15 @@
 				position: relative;
 
 				&:not(:last-child)::after {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 55%;
 					right: -1.1rem;
 					transform: translateY(-50%);
-					width: .25rem;
-					height: .25rem;
-					background: #B7B7B7;
+					width: 0.25rem;
+					height: 0.25rem;
+					background: #b7b7b7;
 					border-radius: 50%;
-
 
 					@include media($mo) {
 						display: none;
@@ -64,7 +59,7 @@
 				}
 
 				a {
-					color: #B7B7B7;
+					color: #b7b7b7;
 					text-align: center;
 					font-family: "S-Core Dream";
 					font-size: 1.125rem;
@@ -95,20 +90,20 @@
 
 		.footerLeft {
 			address {
-				color: #B7B7B7;
+				color: #b7b7b7;
 				font-size: 1.125rem;
 				font-weight: 500;
 				margin-bottom: 1.25rem;
 			}
 
 			.tel {
-				color: #B7B7B7;
+				color: #b7b7b7;
 				font-size: 1.125rem;
 				font-weight: 500;
 			}
 
 			.copyright {
-				color: #B7B7B7;
+				color: #b7b7b7;
 				font-size: 1.125rem;
 				font-weight: 500;
 			}
@@ -123,9 +118,9 @@
 					width: 13.75rem;
 					height: 3.125rem;
 					flex-shrink: 0;
-					border-radius: .625rem;
-					border: .0625rem solid #B7B7B7;
-					background: #3A4B4A;
+					border-radius: 0.625rem;
+					border: 0.0625rem solid #b7b7b7;
+					background: #3a4b4a;
 					color: #fff;
 					padding: 0.75rem 2.5rem 0.625rem 1.25rem;
 					-webkit-appearance: none;
@@ -142,21 +137,21 @@
 					}
 
 					option {
-						color: #B7B7B7;
-						background-color: #3A4B4A;
+						color: #b7b7b7;
+						background-color: #3a4b4a;
 					}
 				}
 
 				// 커스텀 화살표
 				&::after {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 50%;
 					right: 1rem;
 					transform: translateY(-50%);
 					width: 1rem;
 					height: 1rem;
-					background: url('../img/arrow_footer.svg') no-repeat center;
+					background: url("../img/arrow_footer.svg") no-repeat center;
 					background-size: contain;
 					pointer-events: none;
 					transition: transform 0.3s ease;
