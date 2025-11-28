@@ -1,0 +1,58 @@
+@media screen and (max-width: 600px) {
+	.search-input-group .search-input {
+		max-width: clamp(184px, 10vw, 169px);
+	}
+	.subcontent {
+		padding-bottom: 20px !important;
+	}
+
+	.subcontent .subcontent {
+		padding: 0 !important;
+	}
+	.forest-listWrap .forest-item .forest-info {
+		gap: 19px;
+	}
+	.mobileNav > ul > li.on .dapth2 {
+		padding-left: 20px;
+	}
+	.forest-listWrap .forest-item img {
+		box-sizing: border-box;
+	}
+	.facility-title {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+	.facility-title .tit-bold {
+		white-space: pre-line;
+		align-self: flex-start;
+	}
+	#NoticeDetail .notice-detail-section .notice-actions .btn {
+		box-sizing: border-box;
+	}
+	#NoticeDetail .notice-detail-section .notice-detail-table {
+		border-radius: 0;
+		border-bottom: none;
+	}
+	.custom-pagination {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+	.facility-download-container .facility-download-wrap .facility-download-item {
+		flex-direction: column;
+		width: 100%;
+	}
+	.main-footer-banner .facility-slider .swiper-button-prev,
+	.main-footer-banner .facility-slider .swiper-button-next {
+		display: none;
+	}
+	.virtualTour-Tabs ul {
+		flex-wrap: wrap;
+	}
+
+	/* li가 5개 이상 있으면 모든 li에 적용 */
+	.virtualTour-Tabs ul:has(li:nth-child(5)) li {
+		flex: 0 0 33.3%;
+	}
+}

@@ -1,0 +1,8 @@
+@media screen and (max-width: 600px) {
+	.search-input-group .search-input {
+		max-width: clamp(165px, 10vw, 169px);
+	}
+	.subcontent {
+		padding: 0 10px !important;
+	}
+}

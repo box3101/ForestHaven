@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8faf8"/>
+      <stop offset="100%" style="stop-color:#e8f0e8"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8c5a8"/>
+      <stop offset="100%" style="stop-color:#7da67d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+
+  <!-- 장식 원 -->
+  <circle cx="320" cy="60" r="40" fill="#d4e5d4" opacity="0.5"/>
+  <circle cx="80" cy="240" r="30" fill="#d4e5d4" opacity="0.4"/>
+
+  <!-- 이미지 아이콘 -->
+  <g transform="translate(200, 130)">
+    <!-- 프레임 -->
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="white" stroke="#c5d9c5" stroke-width="2"/>
+
+    <!-- 산 -->
+    <path d="M-35 30 L-15 0 L5 20 L25 -15 L45 30 Z" fill="url(#iconGrad)" opacity="0.8"/>
+
+    <!-- 해 -->
+    <circle cx="-25" cy="-15" r="10" fill="#d4b896" opacity="0.8"/>
+  </g>
+
+  <!-- 텍스트 -->
+  <text x="200" y="215" text-anchor="middle" font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" font-size="18" fill="#8fa88f" font-weight="600">이미지를 준비중입니다</text>
+
+  <!-- 하단 장식 라인 -->
+  <rect x="160" y="225" width="80" height="2" rx="1" fill="#c5d9c5" opacity="0.6"/>
+</svg>
