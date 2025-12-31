@@ -1,0 +1,67 @@
+---
+const NavMenu1 = ["Greeting", "VsnNdGoal", "DclrDoc", "Ordinance", "MajorBusiness", "Directions"];
+const NavMenu1Ko = ["도시숲 소개", "둘러보기"];
+const NavMenu2 = ["RentalApplication", "MyRentalHistory"];
+const NavMenu2Ko = ["대관 신청", "나의 대관조회"];
+const NavMenu3 = ["Notice", "FAQ"];
+const NavMenu3Ko = ["공지사항", "자주하는 질문"];
+---
+
+<button type="button" class="menuToggle" title="모바일 메뉴 토글버튼">
+	<span class="menuItem"></span>
+	<span class="menuItem"></span>
+	<span class="menuItem"></span>
+</button>
+<div class="mobileNav">
+	<div class="moLogo">
+		<a href="../main/main.html" tabindex="0">
+			<img src="../img/logo.svg" alt="포항시 송림숲" />
+		</a>
+	</div>
+	<ul class="mobileNavList">
+		<li class="mobileNavItem">
+			<a href={`../lftmLrnCty/${NavMenu1[0]}.html`} class="gnbLink"> 도시숲 소개</a>
+			<ul class="dapth2">
+				{NavMenu1.map((el,idx) => <li><a href={`../lftmLrnCty/${el}.html`}>{NavMenu1Ko[idx]}</a></li>)}
+			</ul>
+		</li>
+		<li class="mobileNavItem">
+			<a href={`../facility/RentalApplication.html#${NavMenu2[0]}`} class="gnbLink"> 대관 안내</a>
+			<ul class="dapth2">
+				{NavMenu2.map((el,idx) => <li><a href={`../facility/${el}.html`}>{NavMenu2Ko[idx]}</a></li>)}
+			</ul>
+		</li>
+		<li class="mobileNavItem">
+			<a href={`../notice/Notice.html#${NavMenu3[0]}`} class="gnbLink">소식</a>
+			<ul class="dapth2">
+				{NavMenu3.map((el,idx) => <li><a href={`../notice/${el}.html`}>{NavMenu3Ko[idx]}</a></li>)}
+			</ul>
+		</li>
+	</ul>
+
+
+	<!-- 로그인 전 -->
+	<div class="utilMenu">
+		<div>
+			<button type="button" class="login">
+				<span class="hidden">로그인</span>
+			</button>
+		</div>
+	</div>
+	<!-- 로그인 전  eee-->
+	<!-- 로그인 후  -->
+	<div class="utilMenu">
+		<div>
+			<button type="button" class="logout">
+				<span class="hidden">로그아웃</span>
+			</button>
+		</div>
+		<div>
+			<button type="button" class="mypage">
+				<span class="hidden">마이페이지</span>
+			</button>
+		</div>
+	</div>
+	<!-- 로그인 후 eee-->
+</div>
+

@@ -1,0 +1,33 @@
+@charset "utf-8";
+// S-CoreDream 폰트 연결
+@import url('https://fonts.googleapis.com/css2?family=S-Core+Dream:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// 사이트 전반에 걸쳐서 재사용되는 스타일 base
+@import "base/reset.scss";
+@import "base/variables.scss"; // 변수 선언
+
+// 함수형 프로그래밍 스타일
+@import "utility/function.scss";
+@import "utility/mixin.scss"; // 재사용할 css 선언
+
+// 프로젝트에서 사용하는 외부 스타일 
+@import "vandors/animate.scss";
+@import "vandors/swiper.scss";
+
+// 사이트 내에서 재사용가능한 작은 부분 components
+@import "components/breadcrumb.scss";
+@import "components/icon.scss";
+
+// 사이트 구조에 해당하는 레이아웃 layout
+@import "layout/baseLayout.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+@import "layout/common.scss";
+
+
+// 사이트 페이지에 해당하는 레이아웃 pages
+@import "pages/home.scss";
+@import "pages/sub.scss";
+@import "pages/notice-detail.scss";
+@import "pages/faq.scss";
+

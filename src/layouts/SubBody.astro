@@ -1,0 +1,17 @@
+---
+const { title } = Astro.props;
+const { hideHead = true } = Astro.props;
+---
+
+{
+	hideHead ? (
+		<div class="subHead">
+			<div class="subHead__tit">{title}</div>
+		</div>
+	) : null
+}
+<div class="subBody">
+	<div class="subContents">
+		<slot />
+	</div>
+</div>

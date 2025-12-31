@@ -1,0 +1,27 @@
+---
+const { idName } = Astro.props;
+const { title, datph2 } = Astro.props;
+---
+
+<main id={idName} class="main">
+	<div class="Breadcrumb">
+		<ul class="Breadcrumb__location">
+			<li>
+				<a href="#">
+					<i class="icon sm icon-home"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#">{datph2}</a>
+			</li>
+			<li class="last">
+				<a href="#">{title}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="contentBody">
+		<div class="subContent" id="contentmain" tabindex="0">
+			<slot />
+		</div>
+	</div>
+</main>

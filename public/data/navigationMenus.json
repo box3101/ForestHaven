@@ -1,0 +1,26 @@
+[
+  {
+    "mainTitle": "도시숲 소개",
+    "mainLink": "info/GreenSpaceIntro",
+    "subMenus": [
+      { "link": "info/GreenSpaceIntro", "title": "도시숲 소개" },
+      { "link": "info/VirtualTour", "title": "둘러보기" }
+    ]
+  },
+  {
+    "mainTitle": "대관 안내",
+    "mainLink": "facility/FacilityRental",
+    "subMenus": [
+      { "link": "facility/RentalApplication", "title": "대관 신청" },
+      { "link": "facility/MyRentalHistory", "title": "나의 대관조회" }
+    ]
+  },
+  {
+    "mainTitle": "소식",
+    "mainLink": "notice/Notice",
+    "subMenus": [
+      { "link": "notice/Notice", "title": "공지사항" }, 
+      { "link": "notice/FAQ", "title": "자주하는질문" }
+    ]
+  }
+]
