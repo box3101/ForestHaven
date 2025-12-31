@@ -1,0 +1,167 @@
+@import "../base/variables";
+@import "../utility/_mixin.scss";
+
+.footer {
+	background: #3a4b4a;
+	color: #ccc;
+	padding-top: 0;
+
+	.inner {
+		padding: 0;
+		gap: 1.25rem;
+
+		@include media($web) {
+			padding: 1.25rem;
+		}
+	}
+
+	.footerTop {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 3.75rem;
+		border-bottom: 0.0625rem solid #b7b7b7;
+
+		@include media($web) {
+			height: auto;
+		}
+
+		.inner {
+			width: 100%;
+		}
+
+		.footerMenu {
+			display: flex;
+			gap: 2rem;
+
+			@include media($mo) {
+				flex-direction: column;
+				gap: 0.625rem;
+			}
+
+			li {
+				position: relative;
+
+				&:not(:last-child)::after {
+					content: "";
+					position: absolute;
+					top: 55%;
+					right: -1.1rem;
+					transform: translateY(-50%);
+					width: 0.25rem;
+					height: 0.25rem;
+					background: #b7b7b7;
+					border-radius: 50%;
+
+					@include media($mo) {
+						display: none;
+					}
+				}
+
+				a {
+					color: #b7b7b7;
+					text-align: center;
+					font-family: "S-Core Dream";
+					font-size: 1.125rem;
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	.footerContent {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding-top: 3.125rem;
+		padding-bottom: 6.25rem;
+
+		@include media($mo) {
+			flex-direction: column;
+			gap: 1.25rem;
+			padding-top: 20px;
+		}
+
+		.footerLeft {
+			address {
+				color: #b7b7b7;
+				font-size: 1.125rem;
+				font-weight: 500;
+				margin-bottom: 1.25rem;
+			}
+
+			.tel {
+				color: #b7b7b7;
+				font-size: 1.125rem;
+				font-weight: 500;
+			}
+
+			.copyright {
+				color: #b7b7b7;
+				font-size: 1.125rem;
+				font-weight: 500;
+			}
+		}
+
+		.footerRight {
+			.comSelectBox {
+				position: relative;
+				display: inline-block;
+
+				select {
+					width: 13.75rem;
+					height: 3.125rem;
+					flex-shrink: 0;
+					border-radius: 0.625rem;
+					border: 0.0625rem solid #b7b7b7;
+					background: #3a4b4a;
+					color: #fff;
+					padding: 0.75rem 2.5rem 0.625rem 1.25rem;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					appearance: none;
+					font-size: 1rem;
+
+					&::-ms-expand {
+						display: none;
+					}
+
+					&:focus {
+						border-color: $cMain;
+					}
+
+					option {
+						color: #b7b7b7;
+						background-color: #3a4b4a;
+					}
+				}
+
+				// 커스텀 화살표
+				&::after {
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: 1rem;
+					transform: translateY(-50%);
+					width: 1rem;
+					height: 1rem;
+					background: url("../img/arrow_footer.svg") no-repeat center;
+					background-size: contain;
+					pointer-events: none;
+					transition: transform 0.3s ease;
+				}
+
+				// open 클래스가 추가되면 화살표 회전
+				&.open::after {
+					transform: translateY(-50%) rotate(180deg);
+				}
+			}
+		}
+	}
+}

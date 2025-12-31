@@ -1,0 +1,364 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "도시숲 소개";
+const location = "도시숲 소개";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "GreenSpaceIntro";
+
+import "../../css/ui.css";
+
+//도시숲 타이틀
+export interface facilityTitle {
+	title: string;
+	link?: string;
+	infoLink?: string;
+}
+
+export const facilityTitle: facilityTitle[] = [
+	{
+		title: "송도솔밭도시숲",
+		link: "/info/1",
+		infoLink: "/info/1",
+	},
+];
+
+// 도시숲 소개
+export interface introForest {
+	image: string;
+	headTitle: string;
+	subTitle: string;
+	forestType: {
+		boldTitle: string;
+		normalText: string;
+		type?: string; // 추가
+	}[];
+}
+
+export const introForest: introForest[] = [
+	{
+		image: "../img/forest_img01.png",
+		headTitle: "포항 솔발숲, 자연이 들려주는 고요한 이야기",
+		subTitle:
+			"바다의 숨결과 소나무의 향기가 어우러지는 이곳은, 포항의 특별한 안식처입니다.오랜 세월 간직한 숲길을 걷다 보면 마음이 천천히 맑아집니다.식생의 다양성과 생태의 조화 속에서 자연의 품격을 경험하세요.\n 일상의 소란을 잠시 내려놓고, 솔발숲에서 자연과 나를 마주해 보세요",
+		forestType: [
+			{
+				boldTitle: "위치",
+				normalText: "오시는 길",
+				type: "link", // 타입 지정
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+			{
+				boldTitle: "문의전화",
+				normalText: "054-270-8282(그린웨이추진과)",
+			},
+		],
+	},
+];
+
+// 관련 시설 슬라이더
+export interface RelatedFacility {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const relatedFacilities: RelatedFacility[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "../img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "../img/swiper_img02.png",
+		link: "/facility/6",
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			{
+				facilityTitle.map((facility, index) => (
+					<div class="facility-title">
+						<h3 class="tit-bold">{facility.title}</h3>
+						<div class="facility-buttons">
+							{facility.link && (
+								<a href="./info/GreenSpaceIntro.html" class="btn-list">
+									목록으로
+								</a>
+							)}
+						</div>
+					</div>
+				))
+			}
+
+			<!-- 공원 정보 -->
+			<section class="forest-boxWrap">
+				<div class="description-Box">
+					{
+						introForest.map((forest, index) => (
+							<div class="forest-item">
+								<img src={forest.image} alt={forest.forestType[0].boldTitle} />
+								<div class="forest-info">
+									<h2 class="forest-title-tree">{forest.headTitle}</h2>
+									<p class="subTitle">
+										{forest.subTitle.split("\n").map((line, i) => (
+											<>
+												{line}
+												{i < forest.subTitle.split("\n").length - 1 && <br />}
+											</>
+										))}
+									</p>
+									<divs class="forest-info-wrapper">
+										{forest.forestType.map((forestType, index) => (
+											<div class="forest-info-group">
+												<h2 class="boldTitle">{forestType.boldTitle}</h2>
+												{forestType.type === "link" ? (
+													<a href="#" class="direction-link">
+														{forestType.normalText}
+													</a>
+												) : (
+													<p class="normalText">{forestType.normalText}</p>
+												)}
+											</div>
+										))}
+									</divs>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<!-- 전경 이미지 슬라이더 섹션 -->
+			<section class="related-facilities-section">
+				<div class="inner">
+					<h2 class="section-title">전경 이미지</h2>
+					<div class="facility-slider">
+						<div class="swiper" id="relatedFacilitiesSwiper">
+							<div class="swiper-wrapper">
+								{
+									relatedFacilities.map((facility, index) => (
+										<div class="swiper-slide">
+											<a
+												href={facility.link}
+												class={`facility-card ${index === 0 ? "active" : ""}`}
+											>
+												<div class="card-image">
+													<img src={facility.image} alt={facility.title} loading="lazy" />
+												</div>
+												<div class="card-title">{facility.title}</div>
+											</a>
+										</div>
+									))
+								}
+							</div>
+						</div>
+
+						<!-- Custom Pagination -->
+						<div class="custom-pagination">
+							<hr class="hr-solid" />
+							<div class="swiper-pagination related-pagination"></div>
+							<div class="pagination-controls-wrapper">
+								<div class="pagination-fraction">
+									<span class="current-slide">1</span>/<span class="total-slides">4</span>
+								</div>
+								<button class="custom-prev-btn related-prev" aria-label="이전"></button>
+								<button class="autoplay-toggle" aria-label="자동재생 토글">
+									<span class="pause-icon"></span>
+								</button>
+								<button class="custom-next-btn related-next" aria-label="다음"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>
+
+<script is:inline>
+	// Swiper 초기화 함수
+	function initRelatedFacilitiesSwiper() {
+		const swiperContainer = document.getElementById("relatedFacilitiesSwiper");
+
+		if (!swiperContainer) {
+			console.warn("Related Facilities Swiper container not found");
+			return;
+		}
+
+		const totalCards = swiperContainer.querySelectorAll(".swiper-slide").length;
+		const visibleCards = 4;
+
+		const swiper = new Swiper("#relatedFacilitiesSwiper", {
+			// modules 옵션 제거 - CDN 버전에서는 불필요
+
+			slidesPerView: 2,
+			spaceBetween: 16,
+			slidesPerGroup: 1,
+
+			loop: false,
+			speed: 300,
+			centeredSlides: false,
+			grabCursor: true,
+			watchSlidesProgress: true,
+
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+
+			autoHeight: false,
+			allowTouchMove: true,
+
+			navigation: {
+				nextEl: ".related-next",
+				prevEl: ".related-prev",
+				disabledClass: "swiper-button-disabled",
+			},
+
+			pagination: {
+				el: ".related-pagination",
+				clickable: true,
+				bulletClass: "swiper-pagination-bullet",
+				bulletActiveClass: "swiper-pagination-bullet-active",
+			},
+
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 16,
+				},
+				900: {
+					slidesPerView: 3,
+					spaceBetween: 16,
+				},
+				1400: {
+					slidesPerView: 4,
+					spaceBetween: 16,
+				},
+			},
+
+			on: {
+				init: function () {
+					console.log("Related Facilities Swiper initialized");
+					manageNavigationVisibility(this, totalCards, visibleCards);
+					updateActiveCard(this);
+					updatePaginationFraction(this);
+				},
+				slideChange: function () {
+					updateActiveCard(this);
+				},
+				resize: function () {
+					const currentVisible = this.params.slidesPerView;
+					manageNavigationVisibility(this, totalCards, currentVisible);
+				},
+			},
+		});
+
+		function manageNavigationVisibility(swiperInstance, total, visible) {
+			const prevBtn = document.querySelector(".related-prev");
+			const nextBtn = document.querySelector(".related-next");
+			const pagination = document.querySelector(".related-pagination");
+
+			if (total <= visible) {
+				if (prevBtn) prevBtn.classList.add("navigation-hidden");
+				if (nextBtn) nextBtn.classList.add("navigation-hidden");
+				if (pagination) pagination.classList.add("pagination-hidden");
+			} else {
+				if (prevBtn) prevBtn.classList.remove("navigation-hidden");
+				if (nextBtn) nextBtn.classList.remove("navigation-hidden");
+				if (pagination) pagination.classList.remove("pagination-hidden");
+			}
+		}
+
+		function updateActiveCard(swiperInstance) {
+			const slides = swiperInstance.slides;
+			slides.forEach(function (slide, index) {
+				const card = slide.querySelector(".facility-card");
+				if (card) {
+					if (index === swiperInstance.activeIndex) {
+						card.classList.add("active");
+					} else {
+						card.classList.remove("active");
+					}
+				}
+			});
+
+			// 페이지 번호 업데이트
+			updatePaginationFraction(swiperInstance);
+		}
+
+		function updatePaginationFraction(swiperInstance) {
+			const currentSlide = document.querySelector(".current-slide");
+			const totalSlides = document.querySelector(".total-slides");
+
+			if (currentSlide && totalSlides) {
+				currentSlide.textContent = swiperInstance.activeIndex + 1;
+				totalSlides.textContent = swiperInstance.slides.length;
+			}
+		}
+
+		// 자동재생 토글 버튼 기능
+		const autoplayToggle = document.querySelector(".autoplay-toggle");
+		if (autoplayToggle) {
+			autoplayToggle.classList.add("playing");
+
+			autoplayToggle.addEventListener("click", function () {
+				if (swiper.autoplay.running) {
+					swiper.autoplay.stop();
+					autoplayToggle.classList.remove("playing");
+					autoplayToggle.classList.add("paused");
+				} else {
+					swiper.autoplay.start();
+					autoplayToggle.classList.remove("paused");
+					autoplayToggle.classList.add("playing");
+				}
+			});
+		}
+
+		return swiper;
+	}
+
+	// DOM 로드 완료 후 초기화
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initRelatedFacilitiesSwiper);
+	} else {
+		initRelatedFacilitiesSwiper();
+	}
+
+	// Astro 페이지 전환 시 재초기화
+	document.addEventListener("astro:page-load", initRelatedFacilitiesSwiper);
+</script>

@@ -1,0 +1,3557 @@
+@import "../base/variables";
+@import "../utility/_mixin.scss";
+
+// 대관신청
+.facility-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+
+	@include media($web) {
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+	}
+
+	@include media($tab) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 16px;
+	}
+
+	@include media($mo) {
+		grid-template-columns: 1fr;
+		grid-gap: 16px;
+	}
+
+	.facility-item {
+		min-width: 0; //그리드 아이템 오버플로우 방지
+		border: 1px solid #ccc;
+		padding: 40px;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-sizing: border-box;
+
+		@include media($web) {
+			padding: 32px;
+		}
+
+		@include media($tab) {
+			padding: 20px;
+		}
+
+		.facility-image {
+			img {
+				width: 100%;
+				// height: auto;
+				// min-height: 170px;
+				display: block;
+				border-radius: 10px;
+				// width: 100%;
+				// height: 170px;
+				object-fit: cover;
+				max-height: 170px;
+				min-height: 170px;
+			}
+		}
+
+		.facility-info {
+			padding-top: 20px;
+
+			@include media($mo) {
+				padding-top: 15px;
+			}
+
+			h2 {
+				font-size: 26px;
+				font-weight: 700;
+				color: $cDarkGray;
+				transition: color 0.3s ease;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+
+				// 반응형 폰트 크기 조정
+				@include media($tab) {
+					font-size: 22px;
+				}
+
+				@include media($mo) {
+					font-size: 20px;
+				}
+			}
+		}
+
+		.facility-details {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			padding-top: 20px;
+
+			@include media($mo) {
+				padding-top: 15px;
+				gap: 6px;
+			}
+
+			li {
+				display: flex;
+				gap: 8px;
+				align-items: center;
+				max-width: clamp(300px, 52vw, 300px);
+				flex: 1;
+				min-width: 0;
+
+				.tit-bold {
+					font-size: 18px;
+					font-weight: 700;
+					color: $cDarkGray;
+					position: relative;
+					padding-left: 16px;
+					white-space: nowrap;
+
+					@include media($mo) {
+						font-size: 16px;
+					}
+
+					&::before {
+						content: "";
+						display: inline-block;
+						width: 8px;
+						height: 8px;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						border-radius: 50%;
+						background-color: $cMain;
+						text-indent: -10px;
+					}
+				}
+
+				.tit-default {
+					font-size: 18px;
+					color: $cDarkGray;
+					position: relative;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					width: 250px;
+
+					@include media($tab) {
+						width: 200px;
+						font-size: 16px;
+					}
+
+					@include media($mo) {
+						width: 100%;
+						font-size: 16px;
+					}
+				}
+
+				.tit-normal {
+					font-size: 16px;
+					color: $cDarkGray;
+
+					@include media($mo) {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+
+		.facility-buttons {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			padding-top: 20px;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			> * {
+				flex: 1;
+				max-width: 30%;
+			}
+
+			.btn-info {
+				border: 1px solid $cGray02;
+				font-size: 16px;
+				color: $cGray02;
+				border-radius: 30px;
+				padding: 10px 40px 10px 20px;
+				position: relative;
+				text-align: left;
+				white-space: nowrap;
+				// flex: 1;
+
+				@include media($mo) {
+					font-size: 14px;
+					padding: 8px 35px 8px 15px;
+				}
+
+				&::after {
+					content: "";
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					position: absolute;
+					right: 12px;
+					top: 50%;
+					transform: translateY(-50%);
+					background: url("../img/icon_search.svg") no-repeat center center/contain;
+
+					@include media($mo) {
+						width: 14px;
+						height: 14px;
+						right: 10px;
+					}
+				}
+
+				&:hover {
+					background-color: $cDarkGray;
+					color: $cWhite;
+
+					&::after {
+						filter: brightness(0) invert(1);
+					}
+				}
+			}
+
+			.btn-write {
+				background-color: $cMain;
+				font-size: 16px;
+				color: $cWhite;
+				border-radius: 30px;
+				padding: 10px 40px 10px 20px;
+				position: relative;
+				text-align: left;
+				white-space: nowrap;
+				// flex: 1;
+
+				@include media($mo) {
+					font-size: 14px;
+					padding: 8px 35px 8px 15px;
+				}
+
+				&::after {
+					content: "";
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					position: absolute;
+					right: 12px;
+					top: 50%;
+					transform: translateY(-50%);
+					background: url("../img/icon_write.svg") no-repeat center center/contain;
+
+					@include media($mo) {
+						width: 14px;
+						height: 14px;
+						right: 10px;
+					}
+				}
+
+				&:hover {
+					background-color: darken($cMain, 10%);
+				}
+			}
+		}
+
+		&:hover,
+		&:active,
+		&.active {
+			border-color: $cMain;
+
+			.facility-info h3 {
+				color: $cMain;
+			}
+
+			.facility-details .tit-bold {
+				color: $cDarkGray;
+			}
+		}
+	}
+}
+
+.pagination-wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+
+	.pagination {
+		display: flex;
+		align-items: center;
+		gap: 0;
+
+		.page-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 32px;
+			height: 32px;
+			// border: 1px solid #ddd;
+			border-radius: 4px;
+			background: white;
+			color: #666;
+			text-decoration: none;
+			transition: all 0.2s;
+
+			&:hover {
+				background: #f8f9fa;
+				border-color: $cMain;
+			}
+
+			img {
+				width: 16px;
+				height: 16px;
+			}
+		}
+
+		.page-numbers {
+			display: flex;
+			gap: 4px;
+			margin: 0 8px;
+
+			.page-num {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 32px;
+				height: 32px;
+				// border: 1px solid #ddd;
+				border-radius: 50%;
+				background: white;
+				color: #333;
+				text-decoration: none;
+				font-size: 18px;
+				transition: all 0.2s;
+				font-weight: 700;
+
+				&:hover {
+					background: #f8f9fa;
+					border-color: $cMain;
+					color: $cMain;
+				}
+
+				&.active {
+					background: $cMain;
+					border-color: $cMain;
+					color: white;
+
+					&:hover {
+						background: $cMain;
+						border-color: $cMain;
+					}
+				}
+			}
+		}
+	}
+}
+
+//대관신청 상세
+.facility-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+
+	@include media($mo) {
+		// flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.tit-bold {
+		font-size: 1.875rem;
+		font-weight: 700;
+		color: $cDarkGray;
+		transition: color 0.3s ease;
+		position: relative;
+		padding-left: 25px;
+		white-space: nowrap;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			background: url("../img/icon_circle_dubble.svg") no-repeat center center/contain;
+			text-indent: -10px;
+		}
+	}
+
+	.facility-buttons {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+
+		@include media($tab) {
+			padding-top: 0 !important;
+		}
+
+		@include media($mo) {
+			padding-top: 0 !important;
+		}
+
+		.btn-list {
+			border: 1px solid $cGray02;
+			font-size: 1rem;
+			color: $cGray02;
+			border-radius: 30px;
+			padding: 0.625rem 2.5rem 0.625rem 1.25rem;
+			position: relative;
+			text-align: left;
+			white-space: nowrap;
+
+			@include media($mo) {
+				font-size: 1.125rem;
+				padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
+			}
+
+			&::after {
+				content: "";
+				display: inline-block;
+				width: 1rem;
+				height: 1rem;
+				position: absolute;
+				right: 0.75rem;
+				top: 50%;
+				transform: translateY(-50%);
+				background: url("../img/icon_list.svg") no-repeat center center/contain;
+
+				@include media($mo) {
+					width: 0.875rem;
+					height: 0.875rem;
+					right: 0.625rem;
+				}
+			}
+
+			&:hover {
+				background-color: $cDarkGray;
+				color: $cWhite;
+
+				&::after {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+
+		.btn-next {
+			background-color: $cMain;
+			font-size: 1rem;
+			color: $cWhite;
+			border-radius: 1.875rem;
+			padding: 0.625rem 2.5rem 0.625rem 1.25rem;
+			position: relative;
+			text-align: left;
+			white-space: nowrap;
+
+			@include media($mo) {
+				font-size: 1.125rem;
+				padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
+			}
+
+			&::after {
+				content: "";
+				display: inline-block;
+				width: 1rem;
+				height: 1rem;
+				position: absolute;
+				right: 0.75rem;
+				top: 50%;
+				transform: translateY(-50%);
+				background: url("../img/icon_write.svg") no-repeat center center/contain;
+
+				@include media($mo) {
+					width: 0.875rem;
+					height: 0.875rem;
+					right: 0.625rem;
+				}
+			}
+
+			&:hover {
+				background-color: darken($cMain, 10%);
+			}
+		}
+
+		.btn-previous {
+			border: 0.0625rem solid $cGray02;
+			font-size: 1rem;
+			color: $cGray02;
+			border-radius: 1.875rem;
+			padding: 0.625rem 1.25rem;
+			position: relative;
+			text-align: left;
+
+			@include media($mo) {
+				font-size: 1.125rem;
+				padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
+			}
+
+			&:hover {
+				background-color: $cDarkGray;
+				color: $cWhite;
+
+				&::after {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+}
+
+//공원 정보 영역
+.facility-listWrap {
+	.facility-item {
+		display: flex;
+		align-items: center;
+		gap: 3.125rem;
+		border: 0.625rem solid $cLightGreenBorder;
+		border-radius: 0.625rem;
+		padding: 2.5rem;
+		margin-bottom: 2.5rem;
+
+		@include media($web) {
+			padding: 1.875rem;
+			gap: 1.875rem;
+		}
+
+		@include media($tab) {
+			padding: 1.25rem;
+			gap: 1.25rem;
+		}
+
+		@include media($mo) {
+			padding: 1.25rem;
+			flex-direction: column;
+		}
+
+		.facility-image {
+			// flex: 0 0 auto;
+			// width: 500px; // 31.25rem
+			// max-width: 100%;
+			flex: 1;
+			display: flex;
+
+			@include media($web) {
+				// width: 400px; // 25rem
+			}
+
+			@include media($mo) {
+				width: 100%;
+			}
+
+			img {
+				width: 100%;
+				height: 280px; // 고정
+				object-fit: cover;
+				max-width: 100%;
+				margin: 0 auto;
+				border-radius: 12px;
+			}
+		}
+
+		.facility-info {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 100%;
+			flex: 1;
+
+			@include media($tab) {
+				gap: 5px;
+			}
+
+			.facility-info-group {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+
+				// white-space: nowrap;
+				@include media($tab) {
+					gap: 0.3125rem;
+					flex-wrap: wrap;
+				}
+
+				.boldTitle {
+					font-size: 1.125rem;
+					color: $cDarkGray;
+					font-weight: 700;
+					padding-left: 20px;
+					position: relative;
+					min-width: 5rem;
+					white-space: nowrap;
+
+					@include media($web) {
+						font-size: 1.125rem;
+					}
+
+					@include media($tab) {
+						font-size: 1.125rem;
+						min-width: auto;
+					}
+
+					&::before {
+						content: "";
+						display: block;
+						width: 8px;
+						height: 8px;
+						background-color: #00b587;
+						border-radius: 50%;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0%, -50%);
+					}
+				}
+
+				.normalText {
+					font-size: 18px;
+					color: $cGray02;
+					font-weight: 400;
+
+					@include media($web) {
+						font-size: 1.125rem;
+					}
+
+					@include media($tab) {
+						font-size: 1.125rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 이미지 슬라이더 영역
+.related-facilities-section {
+	.inner {
+		// max-width: 1280px;
+		max-width: fit-content;
+		margin: 0 auto;
+		position: relative;
+		padding-bottom: 80px;
+
+		@include media($web) {
+			padding: 20px 0 80px 0;
+		}
+
+		@include media($tab) {
+			padding: 20px 0 60px 0;
+		}
+
+		@include media($mo) {
+			padding: 20px 0 40px 0;
+		}
+
+		.section-title {
+			font-size: 28px;
+			font-weight: 700;
+			color: #333333;
+			text-align: left;
+			margin-bottom: 10px;
+			position: relative;
+			padding-left: 20px;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 8px;
+				height: 8px;
+				background-color: #00b587;
+				border-radius: 50%;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translate(0%, -50%);
+			}
+		}
+	}
+
+	.facility-slider {
+		position: relative;
+		padding: 0;
+		// max-width: 1280px;
+		max-width: fit-content;
+		margin: 0 auto;
+
+		.swiper {
+			overflow: hidden;
+			padding: 20px 10px 20px 10px;
+
+			@include media($web) {
+				padding: 20px 0 20px 0;
+			}
+
+			@include media($tab) {
+				padding: 20px 0 20px 0;
+			}
+
+			@include media($mo) {
+				padding: 20px 0 20px 0;
+			}
+		}
+
+		.swiper-wrapper {
+			display: flex;
+		}
+
+		.swiper-slide {
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.facility-card {
+			display: block;
+			border: 1px solid #d4d4d4;
+			border-radius: 10px;
+			box-shadow: 4px 4px 10px 0 #d4d4d4;
+			overflow: hidden;
+			background: $cWhite;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			// height: 250px;
+			padding: 20px;
+			box-sizing: border-box;
+			margin: 0;
+			outline: 2px solid transparent;
+			outline-offset: -2px;
+			height: auto;
+
+			&:hover {
+				outline-color: $cMain;
+				transform: translateY(-5px);
+
+				.card-title {
+					color: $cMain;
+					font-weight: 700;
+				}
+			}
+
+			.card-image {
+				width: 100%;
+				// height: 160px;
+				overflow: hidden;
+				border-radius: 10px;
+				margin-bottom: 16px;
+				aspect-ratio: 16 / 9;
+				height: auto;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					transition: transform 0.3s ease;
+				}
+			}
+
+			.card-title {
+				padding: 0;
+				font-size: 20px;
+				font-weight: 600;
+				color: $cGray02;
+				text-align: center;
+				background: $cWhite;
+				transition: all 0.3s ease;
+				line-height: 1.4;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		// 기본 Swiper 네비게이션 완전히 제거
+		.swiper-button-prev:not(.pagination-controls-wrapper .swiper-button-prev),
+		.swiper-button-next:not(.pagination-controls-wrapper .swiper-button-next),
+		.related-prev:not(.pagination-controls-wrapper .related-prev),
+		.related-next:not(.pagination-controls-wrapper .related-next) {
+			display: none !important;
+			visibility: hidden !important;
+			opacity: 0 !important;
+			pointer-events: none !important;
+		}
+	}
+
+	@include media($web) {
+		.facility-slider {
+			.swiper-button-prev,
+			.related-prev {
+				left: -10px;
+			}
+
+			.swiper-button-next,
+			.related-next {
+				right: -10px;
+			}
+		}
+	}
+
+	@include media($tab) {
+		.facility-slider {
+			.swiper-slide {
+				margin-right: 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+//시설안내 영역
+.facility-info-container {
+	margin-bottom: 5rem;
+
+	@include media($tab) {
+		margin-bottom: 40px;
+	}
+
+	.section-title {
+		font-size: 28px;
+		font-weight: 500;
+		color: #333333;
+		text-align: left;
+		margin-bottom: 20px;
+		position: relative;
+		padding-left: 20px;
+
+		@include media($tab) {
+			font-size: 24px;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			width: 8px;
+			height: 8px;
+			background-color: #00b587;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+	}
+
+	.facility-name {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: $cMain;
+		margin-bottom: 1.25rem;
+		padding-left: 0;
+	}
+
+	.facility-info-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+		padding: 1.875rem;
+		border: 0.0625rem solid #cfcfcf;
+		border-radius: 0.625rem;
+		margin-bottom: 5rem;
+
+		@include media($tab) {
+			margin-bottom: 2.5rem;
+			padding: 1.25rem;
+		}
+
+		.facility-info-item {
+			display: grid;
+			grid-template-columns: minmax(11.25rem, auto) 1fr;
+			gap: 1.25rem;
+			align-items: start;
+
+			@include media($mo) {
+				grid-template-columns: auto 1fr;
+			}
+
+			// 강조 항목 (isNotice: true)
+			&.highlight {
+				grid-template-columns: 1fr; // 한 줄로
+
+				.boldTitle {
+					color: #00b587;
+					font-weight: 500;
+					padding-left: 0; // 강조 항목은 불릿 제거
+					font-size: 1.125rem;
+					position: relative;
+					padding-left: 1.25rem;
+
+					&::before {
+						// display: none; // 불릿 숨김
+						content: "";
+						display: block;
+						width: 0.25rem;
+						height: 0.25rem;
+						background-color: #c9c9c9;
+						border-radius: 50%;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0%, -50%);
+					}
+				}
+			}
+
+			.boldTitle {
+				font-size: 1.125rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 1.25rem;
+				padding-right: 1rem;
+
+				&::before {
+					content: "";
+					display: block;
+					width: 0.25rem;
+					height: 0.25rem;
+					background-color: #c9c9c9;
+					border-radius: 50%;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+
+				@include media($web) {
+					font-size: 1.125rem;
+				}
+
+				@include media($tab) {
+					font-size: 1.125rem;
+				}
+			}
+
+			.normalText {
+				font-size: 1.125rem;
+				font-weight: 400;
+				color: #666666;
+
+				@include media($web) {
+					font-size: 1.125rem;
+				}
+
+				@include media($tab) {
+					font-size: 1.125rem;
+				}
+			}
+		}
+	}
+}
+
+//유의사항 및 운영 안내
+.facility-notice-container {
+	margin-bottom: 5rem;
+
+	.section-title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #333333;
+		text-align: left;
+		margin-bottom: 1.25rem;
+		position: relative;
+		padding-left: 1.25rem;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 0.5rem;
+			height: 0.5rem;
+			background-color: #00b587;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+	}
+
+	.facility-notice-Wrap {
+		padding: 1.875rem;
+		border: 0.0625rem solid #cfcfcf;
+		border-radius: 0.625rem;
+		position: relative;
+		margin-bottom: 5rem;
+		overflow: hidden;
+
+		&.mb-20 {
+			margin-bottom: 1.25rem;
+		}
+
+		.facility-name {
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: $cMain;
+			padding-bottom: 1.875rem;
+		}
+
+		.facility-info-item {
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 0.5rem;
+
+			.boldTitle {
+				font-size: 1.125rem;
+				font-weight: 700;
+				color: #008984;
+			}
+
+			.normalText {
+				font-size: 1.125rem;
+				font-weight: 400;
+				color: $cGray02;
+
+				&.icon-arrow {
+					display: flex;
+					align-items: center;
+					gap: 4px;
+					position: relative;
+					padding-left: 1.25rem;
+
+					&::before {
+						content: "";
+						background: url("../img/icon-arrow-fill-rt.svg") no-repeat center center;
+						width: 16px;
+						height: 16px;
+						background-size: 16px;
+						display: inline-block;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0%, -50%);
+					}
+
+					&:first-child::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+//첨부양식
+.facility-download-container {
+	.section-title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #333333;
+		text-align: left;
+		margin-bottom: 1.25rem;
+		position: relative;
+		padding-left: 1.25rem;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 0.5rem;
+			height: 0.5rem;
+			background-color: #00b587;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+	}
+
+	.facility-download-wrap {
+		padding: 1.875rem;
+		border: 0.125rem dashed $cGray04;
+		border-radius: 0.625rem;
+		position: relative;
+		overflow: hidden;
+
+		.facility-download-item {
+			display: flex;
+			gap: 0.625rem;
+			width: fit-content;
+			border: 0.0625rem solid $cGray04;
+			border-radius: 0.625rem 0.75rem;
+			background-color: $cGray05;
+			padding: 1.25rem;
+			margin-bottom: 0.75rem;
+			font-size: 1.125rem;
+			align-items: center;
+
+			img {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+		}
+	}
+}
+
+//공원 정보 영역
+
+.forest-listWrap {
+	padding: 2.5rem;
+	border-top: 0.25rem solid #9ee5d3;
+	border-bottom: 0.25rem solid #9ee5d3;
+
+	@include media($web) {
+		padding: 1.25rem;
+	}
+
+	@include media($tab) {
+		padding: 1.25rem 0;
+	}
+
+	.description-Box {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+
+		@include media($web) {
+			padding: 0;
+		}
+	}
+
+	.forest-item {
+		display: flex;
+		align-items: center;
+		gap: 3.125rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 0.0625rem solid #cfcfcf;
+
+		a {
+			display: inline-block;
+			flex: 0 0 40%; // 40% 고정 비율
+			max-width: 500px; // 최대 크기 제한
+
+			@include media($mo) {
+				flex: none;
+				width: 100%;
+			}
+		}
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		@include media($web) {
+			// padding-bottom: 1.25rem;
+			gap: 1.875rem;
+		}
+
+		@include media($mo) {
+			padding-bottom: 1.25rem;
+			// flex-direction: column;
+			flex-direction: column; // 세로 레이아웃으로 변경
+			align-items: flex-start;
+			padding-bottom: 1.25rem;
+			gap: 1.25rem;
+
+			a {
+				width: 100%; // 이미지 컨테이너 전체 너비
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+			border: 0.375rem solid #9ee5d3;
+			border-radius: 0.625rem;
+			display: block;
+
+			@include media($tab) {
+				max-width: 100%; // 전체 너비 사용
+				height: 240px;
+			}
+
+			@include media($mo) {
+				height: 240px;
+			}
+		}
+
+		.forest-info {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			gap: 1.875rem;
+			// flex: 1;
+			flex: 0 0 60%;
+			min-width: 0; // flex 아이템이 줄어들 수 있도록
+			// flex: 0.6;
+
+			@include media($tab) {
+				flex: none;
+				gap: 0.375rem;
+				width: 100%;
+			}
+
+			@include media($mo) {
+				flex: none;
+				gap: 0.25rem;
+				width: 100%;
+			}
+
+			.forest-title {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 1.75rem;
+
+				@include media($tab) {
+					font-size: 1.5rem;
+					margin-bottom: 0;
+				}
+
+				@include media($mo) {
+					font-size: 1.25rem;
+					margin-bottom: 0;
+				}
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon_big_dot.svg") no-repeat center center;
+					width: 1.5rem;
+					height: 1.5rem;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+			}
+
+			.forest-info-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 0.625rem;
+
+				.forest-info-group {
+					display: flex;
+					gap: 0.625rem;
+					align-items: center;
+
+					@include media($mo) {
+						// flex-wrap: wrap; // 모바일에서 텍스트가 길면 줄바꿈
+					}
+
+					.boldTitle {
+						font-size: 1.125rem;
+						color: $cDarkGray;
+						font-weight: 700;
+						padding-left: 1.25rem;
+						position: relative;
+						white-space: nowrap;
+						width: auto;
+						flex-shrink: 0; // 라벨이 줄어들지 않도록
+
+						@include media($mo) {
+							font-size: 1rem;
+						}
+
+						&::before {
+							content: "";
+							display: block;
+							width: 0.5rem;
+							height: 0.5rem;
+							background-color: #00b587;
+							border-radius: 50%;
+							position: absolute;
+							left: 0;
+							top: 50%;
+							transform: translate(0%, -50%);
+						}
+					}
+
+					.normalText {
+						font-size: 1.125rem;
+						color: $cGray02;
+						font-weight: 400;
+						flex: 1; // 남은 공간 사용
+
+						@include media($tab) {
+							word-break: keep-all;
+							line-height: 1.4;
+						}
+
+						@include media($mo) {
+							font-size: 1rem;
+							word-break: keep-all;
+							line-height: 1.4;
+							// overflow: auto;
+						}
+					}
+
+					.direction-link {
+						font-size: 1rem;
+						color: #333;
+						border: 0.0625rem solid #00b587;
+						background-color: #d3efd7;
+						text-decoration: none;
+						border-radius: 1.875rem;
+						// 고정 크기 설정
+						width: 172px;
+						height: 36px;
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						box-sizing: border-box;
+						flex: none; // flex 영향 완전 차단
+
+						@include media($mo) {
+							font-size: 16px;
+							width: 10.75rem;
+							height: 2.25rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.forest-boxWrap {
+	padding: 40px;
+	border: 10px solid #9ee5d3;
+	border-radius: 10px;
+
+	@include media($web) {
+		padding: 20px;
+	}
+
+	@include media($tab) {
+		padding: 20px;
+	}
+
+	@include media($mo) {
+		padding: 20px;
+	}
+
+	.description-Box {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		padding: 0;
+	}
+
+	.forest-item {
+		gap: 3.125rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 0.0625rem solid #cfcfcf;
+		display: grid;
+		// grid-template-columns: 1fr 1fr;
+		grid-template-columns: 31.25rem 1fr;
+
+		@include media($web) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include media($tab) {
+			grid-template-columns: 1fr;
+		}
+
+		@include media($mo) {
+			grid-template-columns: 1fr;
+		}
+
+		align-items: stretch;
+		gap: 50px;
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		@include media($web) {
+			padding: 0 0;
+			gap: 30px;
+		}
+
+		@include media($tab) {
+			padding: 20px 0;
+			gap: 12px;
+			display: flex;
+			flex-direction: column;
+
+			&:last-child {
+				padding-bottom: 0px;
+			}
+		}
+
+		@include media($tab) {
+			padding: 0 0;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		img {
+			border-radius: 10px;
+			margin: 0 auto;
+			max-width: 100%;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			@include media($web) {
+				object-fit: contain;
+				height: auto;
+			}
+
+			@include media($tab) {
+				height: auto;
+			}
+
+			@include media($mo) {
+				height: auto;
+			}
+		}
+
+		.forest-info {
+			display: flex;
+			flex-direction: column;
+			gap: 1.875rem;
+			flex: 1;
+
+			@include media($tab) {
+				gap: 1.25rem;
+				padding: 0;
+				box-sizing: border-box;
+				width: 100%;
+			}
+
+			@include media($mo) {
+				gap: 1rem;
+			}
+
+			.forest-title {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 1.75rem;
+
+				@include media($tab) {
+					margin-bottom: 0;
+				}
+
+				@include media($mo) {
+					margin-bottom: 0;
+				}
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon_big_dot.svg") no-repeat center center;
+					width: 1.5rem;
+					height: 1.5rem;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+			}
+
+			.forest-info-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				.forest-info-group {
+					display: flex;
+					gap: 10px;
+					align-items: center;
+
+					@include media($tab) {
+						white-space: nowrap;
+						max-width: 100%;
+						word-wrap: break-word;
+						word-break: break-word;
+						line-height: 1.4;
+					}
+
+					.boldTitle {
+						font-size: 1.125rem;
+						color: $cDarkGray;
+						font-weight: 700;
+						padding-left: 1.25rem;
+						position: relative;
+						white-space: nowrap;
+
+						&::before {
+							content: "";
+							display: block;
+							width: 0.5rem;
+							height: 0.5rem;
+							background-color: #00b587;
+							border-radius: 50%;
+							position: absolute;
+							left: 0;
+							top: 50%;
+							transform: translate(0%, -50%);
+						}
+
+						@include media($tab) {
+							font-size: 1rem;
+						}
+
+						@include media($mo) {
+							font-size: 0.9375rem;
+						}
+					}
+
+					.normalText {
+						font-size: 1.125rem;
+						color: $cGray02;
+						font-weight: 400;
+
+						@include media($tab) {
+							// overflow: hidden;
+							// text-overflow: ellipsis;
+							// white-space: nowrap;
+							font-size: 1rem;
+						}
+
+						@include media($mo) {
+							overflow: auto;
+							font-size: 0.875rem;
+						}
+					}
+
+					.direction-link {
+						font-size: 1rem;
+						color: #333;
+						border: 0.0625rem solid #00b587;
+						background-color: #d3efd7;
+						text-decoration: none;
+						border-radius: 1.875rem;
+						padding: 0.5rem 1.625rem;
+					}
+				}
+			}
+
+			.forest-title-tree {
+				font-size: 1.875rem;
+				font-weight: 700;
+				color: #333333;
+				position: relative;
+				padding-left: 4.625rem;
+				min-height: 3.75rem;
+				display: flex;
+				align-items: center;
+				word-break: keep-all;
+
+				@include media($tab) {
+					margin-bottom: 0;
+					font-size: 1.625rem;
+				}
+
+				@include media($mo) {
+					margin-bottom: 0;
+				}
+
+				&::before {
+					content: "";
+					display: block;
+					background: url("../img/icon-tree.svg") no-repeat center center;
+					width: 60px;
+					height: 60px;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translate(0%, -50%);
+					background-color: #e7faf5;
+					border-radius: 50%;
+				}
+			}
+
+			.subTitle {
+				font-size: 1.125rem;
+				font-weight: 400;
+				color: #333333;
+				line-height: 1.5;
+				word-break: keep-all;
+
+				@include media($web) {
+					br {
+						display: none;
+					}
+				}
+
+				@include media($tab) {
+					line-height: 1.4;
+					font-size: 0.9375rem;
+				}
+
+				@include media($mo) {
+					line-height: 1.4;
+				}
+			}
+		}
+	}
+}
+
+.virtualTour-Wrap {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px 16px;
+
+	@include media($web) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include media($tab) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media($mo) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.facility-item {
+		display: block;
+		border: 1px solid #d4d4d4;
+		border-radius: 10px;
+		box-shadow: 4px 4px 10px 0 #d4d4d4;
+		overflow: hidden;
+		background: $cWhite;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		// height: 250px;
+		padding: 20px;
+		box-sizing: border-box;
+		margin: 0;
+		outline: 2px solid transparent;
+		outline-offset: -2px;
+		height: auto;
+
+		@include media($tab) {
+			height: fit-content;
+		}
+
+		@include media($mo) {
+			height: 100%;
+		}
+
+		&:hover {
+			outline-color: $cMain;
+			transform: translateY(-5px);
+
+			.card-title {
+				color: $cMain;
+				font-weight: 700;
+			}
+		}
+
+		.card-image {
+			width: 100%;
+			// height: 160px;
+			height: auto;
+			overflow: hidden;
+			border-radius: 10px;
+			margin-bottom: 16px;
+			aspect-ratio: 16 / 9;
+
+			@include media($tab) {
+				height: 100%;
+			}
+
+			@include media($mo) {
+				height: auto;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		.card-title {
+			padding: 0;
+			font-size: 20px;
+			font-weight: 600;
+			color: $cGray02;
+			text-align: center;
+			background: $cWhite;
+			transition: all 0.3s ease;
+			line-height: 1.4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+.tbl-form-box {
+	display: flex;
+	gap: 40px;
+	color: #333;
+	margin-bottom: 80px;
+
+	@include media($tab) {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	/* STEP 타이틀 */
+	.title {
+		font-size: 28px;
+		font-weight: 500;
+		margin-bottom: 15px;
+		color: #333333;
+	}
+
+	.title span {
+		display: inline-block;
+		background-color: $cMain;
+		width: 40px;
+		height: 40px;
+		color: #fff;
+		border-radius: 10px;
+		font-size: 18px;
+		font-weight: 700;
+		margin-right: 8px;
+		text-align: center;
+		line-height: 40px;
+	}
+
+	.tip {
+		color: #333;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.tip p {
+		margin: 0;
+		font-size: 18px;
+	}
+
+	/* 날짜선택 섹션 */
+	.date-select {
+		width: 60%;
+
+		@include media($tab) {
+			width: 100%;
+		}
+	}
+
+	/* 캘린더 헤더 */
+	.calendarHead {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+		padding: 20px 0;
+		border-bottom: 2px solid #2d3e50;
+		margin-bottom: 20px;
+	}
+
+	.calendarHead a {
+		text-decoration: none;
+		color: #333;
+		font-size: 18px;
+		padding: 8px 15px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		transition: all 0.3s;
+	}
+
+	.calendarHead a:hover {
+		background-color: #f0f0f0;
+	}
+
+	.calendarHead .today {
+		background-color: #2d3e50;
+		color: #fff;
+		border-color: #2d3e50;
+	}
+
+	.calendarHead .today:hover {
+		background-color: #1a2332;
+	}
+
+	#dispMonth {
+		font-size: 27px;
+		font-weight: bold;
+		color: #2d3e50;
+		min-width: 150px;
+		text-align: center;
+	}
+
+	#dispMonth em {
+		font-style: normal;
+		color: #e74c3c;
+	}
+
+	/* 캘린더 테이블 */
+	.calendar {
+		margin-bottom: 20px;
+	}
+
+	#yhd_calendar {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid #ddd;
+	}
+
+	#yhd_calendar caption {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	#yhd_calendar thead th {
+		background-color: #2d3e50;
+		color: #fff;
+		padding: 12px;
+		font-weight: 400;
+		font-size: 18px;
+		border: 1px solid #1a2332;
+	}
+
+	#yhd_calendar thead th:first-child {
+		color: #ff6b6b;
+	}
+
+	#yhd_calendar thead th:last-child {
+		color: #4dabf7;
+	}
+
+	#yhd_calendar tbody td {
+		height: 90px;
+		border: 1px solid #e0e0e0;
+		text-align: center;
+		vertical-align: top;
+		padding: 8px 5px;
+		position: relative;
+		cursor: default;
+	}
+
+	.yhdc-dayCon {
+		background-color: #f9f9f9;
+	}
+
+	.holidayDt {
+		display: block;
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 5px;
+		color: #333;
+	}
+
+	.txt {
+		font-size: 16px;
+		line-height: 1.4;
+		margin: 0;
+	}
+
+	/* 신청불가 상태 */
+	.yhdc-dayCon.closed .holidayDt {
+		color: #bbb;
+	}
+
+	.yhdc-dayCon.closed .txt {
+		color: #999;
+	}
+
+	/* 신청마감 상태 */
+	.yhdc-dayCon.com {
+		background-color: #fff5f5;
+	}
+
+	.yhdc-dayCon.com .holidayDt {
+		color: #e74c3c;
+	}
+
+	.yhdc-dayCon.com .txt {
+		color: #e74c3c;
+	}
+
+	/* 신청가능 상태 */
+	.yhdc-dayCon.able {
+		background-color: #ebf6ff;
+		cursor: pointer;
+		transition: background-color 0.3s;
+	}
+
+	.yhdc-dayCon.able:hover {
+		background-color: #c8e6c9;
+	}
+
+	.yhdc-dayCon.able .holidayDt {
+		color: #2196f3;
+	}
+
+	.yhdc-dayCon.able .txt {
+		color: #2196f3;
+		font-weight: bold;
+	}
+
+	/* 선택된 날짜 */
+	.yhdc-dayCon.sel {
+		background-color: #ec407a !important;
+		border: 2px solid #d81b60 !important;
+	}
+
+	.yhdc-dayCon.sel .holidayDt,
+	.yhdc-dayCon.sel .txt {
+		color: #fff !important;
+	}
+
+	/* 범례 */
+	.legend {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		padding: 15px;
+		background-color: #f9f9f9;
+		border-radius: 4px;
+		font-size: 16px;
+	}
+
+	.legend i {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 3px;
+		vertical-align: middle;
+	}
+
+	.legend-able {
+		background-color: #e8f5e9;
+		border: 1px solid #2196f3;
+	}
+
+	.legend-com {
+		background-color: #fff5f5;
+		border: 1px solid #e74c3c;
+	}
+
+	.legend span {
+		color: #666;
+	}
+
+	@include media($tab) {
+		.legend {
+			div {
+				flex: none;
+			}
+		}
+	}
+
+	.fR {
+		margin-left: auto;
+		color: #999;
+		font-size: 15px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	/* 예약현황 섹션 */
+	.time-select {
+		width: 40%;
+
+		@include media($tab) {
+			width: 100%;
+		}
+	}
+
+	.tbl-box {
+		margin-top: 105px;
+		overflow-x: auto;
+
+		@include media($tab) {
+			margin-top: 40px;
+		}
+	}
+
+	.tbl {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid #ddd;
+	}
+
+	.tbl caption {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.tbl thead th {
+		background-color: #2d3e50;
+		color: #fff;
+		padding: 12px;
+		font-size: 18px;
+		font-weight: 400;
+		border: 1px solid #1a2332;
+	}
+
+	.tbl tbody td {
+		padding: 12px;
+		border: 1px solid #e0e0e0;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 18px;
+	}
+
+	.tbl tbody td:first-child {
+		background-color: #f5f5f5;
+		font-weight: 400;
+	}
+
+	.taC {
+		text-align: center;
+	}
+
+	/* 체크박스 스타일 */
+	.timeChk {
+		width: 18px;
+		height: 18px;
+		cursor: pointer;
+		accent-color: #2d3e50;
+	}
+
+	.timeChk:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	.timeChk:disabled + label {
+		cursor: not-allowed;
+	}
+
+	/* 반응형 디자인 */
+	// @media (max-width: 768px) {
+	@include media($tab) {
+		.container {
+			padding: 15px;
+		}
+
+		.calendarHead {
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+
+		#dispMonth {
+			font-size: 20px;
+			min-width: 120px;
+		}
+
+		#yhd_calendar tbody td {
+			height: 80px;
+			padding: 5px 3px;
+		}
+
+		.holidayDt {
+			font-size: 15px;
+		}
+
+		.txt {
+			font-size: 15px;
+		}
+
+		.tbl tbody td {
+			padding: 8px 5px;
+			font-size: 15px;
+		}
+
+		.legend {
+			flex-wrap: nowrap;
+			gap: 10px;
+		}
+
+		.fR {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	// @media (max-width: 480px) {
+	@include media($mo) {
+		#yhd_calendar tbody td {
+			height: 70px;
+			padding: 4px 2px;
+			font-size: 15px;
+		}
+
+		.holidayDt {
+			font-size: 16px;
+			margin-bottom: 3px;
+		}
+
+		.txt {
+			font-size: 14px;
+		}
+
+		.calendarHead a {
+			padding: 6px 10px;
+			font-size: 16px;
+		}
+
+		#dispMonth {
+			font-size: 18px;
+		}
+	}
+}
+
+.step-indicator {
+	background: linear-gradient(90deg, rgba(226, 255, 215, 0.4) 0%, rgba(213, 237, 230, 0.4) 100%);
+	padding: 16px;
+	border-radius: 16px;
+	border: 2px solid $cMain;
+	width: fit-content;
+	justify-content: space-between;
+	margin-bottom: 60px;
+
+	@include media($tab) {
+		width: auto;
+		margin-bottom: 40px;
+	}
+
+	.step-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: nowrap;
+
+		@include media($tab) {
+			justify-content: space-around;
+		}
+
+		@include media($tab) {
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+
+		.step-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 0;
+			white-space: nowrap;
+			flex-shrink: 0;
+
+			&.active {
+				.step-number {
+					background-color: $cMain;
+				}
+
+				img {
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
+						contrast(101%);
+				}
+			}
+
+			.step-number {
+				font-size: 16px;
+				font-weight: 700;
+				color: #fff;
+				background-color: #bcbcbc;
+				border-radius: 6px;
+				padding: 4px 8px;
+			}
+
+			.step-title {
+				font-size: 16px;
+				color: #333;
+			}
+		}
+
+		.step-arrow {
+			img {
+				width: 16px;
+				height: 16px;
+
+				&.active {
+					filter: invert(51%) sepia(89%) saturate(3792%) hue-rotate(138deg) brightness(101%)
+						contrast(101%);
+				}
+			}
+		}
+	}
+}
+
+.checkbox-container {
+	text-align: center;
+	font-size: 18px;
+
+	.checkbox-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+
+		input[type="checkbox"] {
+			appearance: none;
+			width: 1.25rem;
+			height: 1.25rem;
+			background-color: #f5f5f5;
+			border: 0.125rem solid #b5b5b5;
+			border-radius: 0.125rem;
+			cursor: pointer;
+			position: relative;
+
+			&:checked {
+				background-color: #fff;
+				border: none;
+				box-shadow: 0 0 0 0.125rem $cMain;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 0.9375rem;
+					height: 0.9375rem;
+					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath stroke='%23008984' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+
+				& + label {
+					color: $cMain;
+					font-size: 18px;
+					font-weight: 700;
+				}
+			}
+		}
+
+		.checkbox-label {
+			color: $cDarkGray;
+		}
+	}
+}
+
+.certification-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+}
+
+//본인인증
+.certification-group {
+	list-style: none;
+	display: flex;
+	gap: 32px;
+	justify-content: space-between;
+
+	@include media($tab) {
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.certification-item {
+		flex: 1;
+		padding: 40px;
+		border: 0.125rem solid #305be9;
+		background-color: #f8faff;
+		border-radius: 0.625rem;
+		justify-content: space-between;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		@include media($web) {
+			padding: 1.75rem;
+			gap: 1.5rem;
+		}
+
+		&.highlight {
+			border: 0.125rem solid #305be9;
+			background-color: #fff8dc;
+		}
+
+		.cert-image {
+			width: 5rem;
+			height: 5rem;
+		}
+
+		.boldTitle {
+			font-size: 2rem;
+			font-weight: 700;
+			color: #17255c;
+			position: relative;
+
+			&::after {
+				content: "";
+				display: inline-block;
+				position: relative;
+				top: -0.7em;
+				right: -0.4em;
+				width: 0.5rem;
+				height: 0.5rem;
+				background-color: #17255c;
+				border-radius: 50%;
+			}
+
+			@include media($web) {
+				font-size: 28px;
+			}
+		}
+
+		.normalText {
+			font-size: 1.0625rem;
+			text-align: center;
+			line-height: 1.6;
+			word-break: keep-all;
+			min-height: 5rem;
+		}
+
+		.cert-button {
+			width: 100%;
+			padding: 16px 32px;
+			background-color: #305be9;
+			color: white;
+			border: none;
+			border-radius: 1.875rem;
+			cursor: pointer;
+			font-size: 18px;
+
+			&:hover {
+				background-color: darken(#305be9, 10%);
+			}
+		}
+	}
+}
+
+//-------------- 모달
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+.modal-content {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	// padding: 32px;
+	border-radius: 0.625rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 60%;
+	max-width: 37.5rem;
+	min-width: 37.5rem;
+
+	@include media($mo) {
+		width: calc(100% - 3.125rem);
+		min-width: auto;
+		max-width: none;
+	}
+
+	.modal-header {
+		width: 100%;
+		height: 3.75rem;
+		background-color: $cGray01;
+		color: white;
+		text-align: right;
+		position: relative;
+		border-radius: 0.625rem 0.625rem 0 0;
+
+		.close {
+			position: absolute;
+			top: 50%;
+			right: 16px;
+			transform: translate(0%, -50%);
+			cursor: pointer;
+			font-size: 1.75rem;
+			font-weight: bold;
+			color: $cMain;
+
+			&:hover {
+				color: darken($cMain, 10%);
+			}
+		}
+	}
+
+	.modal-body {
+		width: 100%;
+		text-align: center;
+
+		.body-inner {
+			padding: 32px;
+
+			.bold-blue {
+				color: #305be9;
+				font-weight: 700;
+			}
+
+			.bold-red {
+				color: #f50f0f;
+				font-weight: 700;
+			}
+
+			.modal-close-btn {
+				margin-top: 16px;
+				padding: 8px 32px;
+				background-color: $cMain;
+				color: #fff;
+				border: none;
+				border-radius: 0.3125rem;
+				cursor: pointer;
+				font-size: 18px;
+
+				&:hover {
+					background-color: darken($cMain, 10%);
+				}
+			}
+		}
+	}
+}
+
+//   둘러보기 tabs
+.virtualTour-Tabs {
+	ul {
+		display: flex;
+		gap: 0;
+		padding: 0;
+		margin: 0;
+
+		li {
+			cursor: pointer;
+			flex: 1;
+			margin-right: -0.125rem;
+			height: 100%;
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				padding: 0.3125rem 0.75rem;
+				border: 0.125rem solid $cGray03;
+				text-align: center;
+				text-decoration: none;
+				font-size: 1.125rem;
+				font-weight: 600;
+				color: #333;
+				background-color: #f0f0f0;
+				position: relative;
+				cursor: pointer;
+				gap: 0.5rem;
+				white-space: nowrap;
+
+				img {
+					@include media($mo) {
+						width: 2.375rem;
+					}
+				}
+
+				span {
+					@include media($mo) {
+						font-size: 0.825rem;
+					}
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-color: $cMain;
+				}
+
+				&:hover {
+					text-decoration: none;
+					color: $cMain;
+				}
+			}
+
+			&.active a {
+				color: $cMain;
+				background-color: $cLightGreenBg02;
+				border: 0.125rem solid $cMain;
+				z-index: 1;
+			}
+		}
+	}
+}
+
+.virtualTour-Contents {
+	.content {
+		display: none;
+		padding: 1.25rem 0;
+
+		&.active {
+			display: block;
+		}
+
+		.wrap01 {
+			padding: 0rem 1.5rem;
+			background-color: #fff;
+			border-radius: 0.625rem;
+			margin-bottom: 1.3125rem;
+			border: 0.625rem solid #d3efd7;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+			border-radius: 10px;
+			border: 10px solid #d3efd7;
+			background: #e6e1d5;
+			height: 25rem;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+
+			@include media($mo) {
+				display: none;
+			}
+
+			.lable {
+				display: none;
+				align-self: flex-start;
+				font-size: 1rem;
+				font-weight: 500;
+				color: #fff;
+				background-color: #ff8282;
+				border-radius: 1.875rem;
+				padding: 0.5rem 2.75rem 0.5rem 1rem;
+				position: relative;
+
+				&::after {
+					content: "";
+					display: block;
+					background: url("../img/tab_img-sm01.svg") no-repeat center center;
+					width: 1.5rem;
+					height: 1.5rem;
+					position: absolute;
+					right: 1rem;
+					top: 50%;
+					transform: translate(0%, -50%);
+				}
+			}
+
+			.map {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.icon {
+				position: absolute;
+				bottom: 21px;
+				right: 21px;
+				align-self: flex-end;
+				width: 3.4375rem;
+				height: 3.4375rem;
+			}
+		}
+
+		.wrap02 {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 1.25rem;
+			align-items: baseline;
+			@include media($mo) {
+				flex-direction: column-reverse;
+			}
+
+			.left-wrap {
+				flex: 8;
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+
+				.title-wrap {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 1.25rem;
+
+					.section-title {
+						font-size: 1.5rem;
+						font-weight: 700;
+						color: #17255c;
+					}
+
+					.btn-list {
+						background-color: $cMain;
+						font-size: 1rem;
+						color: $cWhite;
+						border-radius: 1.875rem;
+						padding: 0.625rem 2.5rem 0.625rem 1.25rem;
+						position: relative;
+						text-align: left;
+						white-space: nowrap;
+
+						@include media($mo) {
+							font-size: 1rem;
+							padding: 0.5rem 2.1875rem 0.5rem 0.9375rem;
+						}
+
+						&::after {
+							content: "";
+							display: inline-block;
+							width: 1rem;
+							height: 1rem;
+							position: absolute;
+							right: 0.75rem;
+							top: 50%;
+							transform: translateY(-50%);
+							background: url("../img/icon-home.svg") no-repeat center center/contain;
+
+							@include media($mo) {
+								width: 0.875rem;
+								height: 0.875rem;
+								right: 0.625rem;
+							}
+						}
+
+						&:hover {
+							background-color: darken($cMain, 10%);
+							color: $cWhite;
+
+							&::after {
+								filter: brightness(0) invert(1);
+							}
+						}
+					}
+				}
+
+				.left {
+					padding: 2.1875rem;
+					background-color: #f1f5e7;
+					border: 0.125rem solid $cMain;
+					border-radius: 0.625rem;
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+					box-sizing: border-box;
+
+					@include media($mo) {
+						padding: 14px;
+					}
+
+					.left-inner {
+						display: flex;
+						width: 100%;
+						flex: 1;
+
+						.LFimage,
+						.RTimage {
+							width: 50%;
+							height: 100%;
+							display: flex;
+
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+								display: block;
+								border-radius: 0.625rem;
+							}
+						}
+					}
+				}
+
+				.text {
+					margin-top: 1.875rem;
+					padding: 0 3.4375rem;
+
+					@include media($mo) {
+						padding: 0;
+						margin-top: 1.25rem;
+					}
+				}
+			}
+
+			.right-wrap {
+				flex: 3;
+				display: flex;
+				flex-direction: column;
+
+				.section-title {
+					font-size: 1.5rem;
+					font-weight: 700;
+					color: #17255c;
+					margin-bottom: 0.75rem;
+					line-height: 2.875rem;
+
+					@include media($mo) {
+						margin-bottom: 0.5rem;
+					}
+				}
+
+				.right-infoList {
+					display: flex;
+					flex-direction: column;
+					flex-wrap: wrap;
+					gap: 0.625rem;
+
+					@include media($mo) {
+						gap: 0.375rem;
+					}
+
+					.right {
+						background-color: #ffffff;
+						border-radius: 0.625rem;
+						height: 4.75rem;
+						display: flex;
+						align-items: center;
+						border: 0.125rem solid #e0e0e0;
+						gap: 1.25rem;
+
+						@include media($mo) {
+							height: 3.05rem;
+							gap: 1.25rem;
+						}
+
+						&:active,
+						&:hover {
+							border-color: $cMain;
+
+							.left-img {
+								border-right-color: $cMain;
+							}
+						}
+
+						.left-img {
+							width: 6.25rem;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-right: 0.125rem solid #e0e0e0;
+							background-color: #f1f5e7;
+							border-radius: 0.625rem 0 0 0.625rem;
+
+							.info-image {
+								width: 2.125rem;
+								height: 2.125rem;
+							}
+						}
+
+						.right-text {
+							font-size: 1.125rem;
+							font-weight: 600;
+							color: #333;
+
+							@include media($mo) {
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.custom-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1.25rem;
+
+	@include media($mo) {
+		margin-top: 13px;
+		justify-content: center;
+	}
+
+	.hr-solid {
+		width: 100%;
+		border: 0;
+		border-top: 0.0625rem solid $cGray03;
+	}
+
+	.swiper-pagination {
+		position: relative;
+		bottom: auto;
+		margin: 0;
+		flex: 0 0 auto;
+
+		.swiper-pagination-bullet {
+			width: 0.625rem;
+			height: 0.625rem;
+			background: $cLightGreen;
+			opacity: 1;
+			margin: 0 0.3125rem;
+			transition: all 0.3s ease;
+
+			&.swiper-pagination-bullet-active {
+				background: $cMain;
+				width: 1.875rem;
+				border-radius: 0.3125rem;
+			}
+		}
+
+		&.pagination-hidden {
+			display: none !important;
+		}
+	}
+
+	.pagination-controls-wrapper {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		background: $cMain;
+		border-radius: 1.25rem;
+		padding: 0.5rem 0.875rem;
+		height: auto;
+
+		.pagination-fraction {
+			font-size: 1rem;
+			font-weight: 700;
+			color: $cWhite;
+			padding: 0 0.25rem;
+			white-space: nowrap;
+			line-height: 1.2;
+
+			.current-slide,
+			.total-slides {
+				color: $cWhite;
+			}
+		}
+
+		.custom-prev-btn,
+		.custom-next-btn,
+		.autoplay-toggle {
+			width: 1.5rem;
+			height: 1.5rem;
+			border: none;
+			background-color: transparent;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 0.875rem 0.875rem;
+			border-radius: 0;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			position: static;
+			padding: 0;
+			flex-shrink: 0;
+
+			&:hover {
+				opacity: 0.8;
+			}
+
+			&.swiper-button-disabled {
+				opacity: 0.3;
+				cursor: not-allowed;
+			}
+		}
+
+		.custom-prev-btn {
+			background-image: url("../img/btn_arrow-left-sm.svg");
+		}
+
+		.autoplay-toggle {
+			background-image: none; // 기본 배경 이미지 제거
+			width: 1.5rem;
+			height: 1.5rem;
+			border: 2px solid $cWhite;
+			border-radius: 50%;
+			position: relative;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			.pause-icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			// 재생 중 - 일시정지 아이콘 (두 개의 막대)
+			&.playing .pause-icon {
+				display: flex;
+				gap: 3px;
+
+				&::before,
+				&::after {
+					content: "";
+					display: block;
+					width: 2px;
+					height: 10px;
+					background-color: $cWhite;
+				}
+			}
+
+			// 일시정지 중 - 재생 아이콘 (삼각형)
+			&.paused .pause-icon {
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 5px 0 5px 8px;
+				border-color: transparent transparent transparent $cWhite;
+				transform: translate(-30%, -50%);
+
+				&::before,
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		.custom-next-btn {
+			background-image: url("../img/btn_arrow-right-sm.svg");
+		}
+	}
+}
+.custom-pagination.type2 {
+	justify-content: center;
+	margin-top: 20px;
+
+	@include media($mo) {
+		margin-top: 0.8rem;
+	}
+
+	.hr-solid {
+		display: none;
+	}
+}
+
+#VirtualTour {
+	[id^="facilitySwiper-"] {
+		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	.swiper-wrapper {
+		display: flex;
+		box-sizing: border-box;
+	}
+
+	.swiper-slide {
+		flex-shrink: 0;
+		width: auto !important;
+		box-sizing: border-box;
+		height: auto;
+	}
+
+	.facility-card {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	@media (max-width: 37.4375rem) {
+		.swiper-slide {
+			width: 100% !important;
+		}
+	}
+
+	@media (min-width: 37.5rem) {
+		.swiper-slide {
+			width: calc((100% - 2rem) / 2) !important;
+		}
+	}
+
+	.navigation-hidden {
+		display: none !important;
+	}
+
+	.pagination-hidden {
+		display: none !important;
+	}
+
+	.map-container {
+		width: 100%;
+		display: inline-block;
+	}
+
+	.map {
+		display: block;
+		height: auto;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	.map-markers {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	.map-marker {
+		position: absolute;
+		width: 3rem;
+		height: 3rem;
+		transform: translate(-50%, -50%);
+		background: none;
+		border: none;
+		cursor: pointer;
+		pointer-events: all;
+		transition: transform 0.2s ease;
+		z-index: 10;
+	}
+
+	.map-marker:hover {
+		transform: translate(-50%, -50%) scale(1.2);
+	}
+
+	.map-marker.active .marker-icon {
+		background-color: #375fd7;
+		box-shadow: 0 0 0 0.1875rem rgba(55, 95, 215, 0.3);
+	}
+
+	.marker-icon {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #0e9c78;
+		border: 0.1875rem solid white;
+		border-radius: 50%;
+		box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
+		transition: all 0.3s ease;
+		font-size: 1.125rem;
+		text-indent: -9999px;
+	}
+
+	.map-marker:hover .marker-icon {
+		box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+	}
+}
+
+.map-marker {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.marker-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background-color: #fff;
+	border: 2px solid #333;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	color: #333;
+}
+
+// 시설 마커 (파란색)
+.map-marker[data-marker-type="facility"] .marker-icon {
+	background-color: #0e9c78;
+	border-color: #fff;
+	color: #fff;
+}
+
+.map-marker[data-marker-type="facility"].active .marker-icon {
+	background-color: #375fd7;
+	box-shadow: 0 0 0 0.1875rem rgba(55, 95, 215, 0.3);
+}
+
+// 식생 마커 (보라색)
+.map-marker[data-marker-type="vegetation"] .marker-icon {
+	background-color: #9b59b6;
+	border-color: #fff;
+	color: #fff;
+}
+
+.map-marker[data-marker-type="vegetation"].active .marker-icon {
+	background-color: #7a2dbd;
+	box-shadow: 0 0 0 0.1875rem rgba(122, 45, 189, 0.3);
+}
+
+// 라벨 스타일 (공통)
+.marker-label {
+	position: absolute;
+	top: 135%;
+	left: 57%;
+	transform: translateX(-50%);
+	margin-top: 0.5rem;
+	padding: 0.3em 1.2rem;
+	background-color: #243e8b;
+	color: #fff;
+	font-size: 1rem;
+	white-space: nowrap;
+	border-radius: 1rem;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	pointer-events: none;
+	z-index: 10;
+	font-family: "S-Core Dream";
+	font-weight: 600;
+}
+
+// 식생 마커 라벨 색상
+.map-marker[data-marker-type="vegetation"].active .marker-icon {
+	background-color: #7a2dbd !important;
+	box-shadow: 0 0 0 0.1875rem rgba(122, 45, 189, 0.3) !important;
+}
+.map-marker[data-marker-type="vegetation"] .marker-label {
+	background-color: #7a2dbd;
+}
+.map-marker[data-marker-type="vegetation"] .marker-label::before {
+	border-bottom-color: #7a2dbd;
+}
+
+.marker-label::before {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 6px solid transparent;
+	border-bottom-color: #243e8b;
+}
+
+.map-marker.active .marker-label {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* 모바일 셀렉트 박스 스타일 */
+.mobile-facility-select {
+	display: none;
+	/* PC에서 기본 숨김 */
+	position: relative;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.select-trigger {
+	width: 100%;
+	padding: 12px 16px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	font-size: 16px;
+	transition: all 0.3s ease;
+}
+
+.select-trigger:hover {
+	border-color: #007bff;
+}
+
+.select-trigger.active {
+	border-color: #007bff;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.selected-text {
+	flex: 1;
+	text-align: left;
+	color: #00b587;
+	font-family: Pretendard;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.dropdown-icon {
+	transition: transform 0.3s ease;
+	color: #00b587;
+}
+
+.select-trigger.active .dropdown-icon {
+	transform: rotate(180deg);
+}
+
+.select-options {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	border: 1px solid #007bff;
+	border-top: none;
+	border-radius: 0 0 8px 8px;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	z-index: 100;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.select-options.open {
+	max-height: 300px;
+	opacity: 1;
+	visibility: visible;
+	overflow-y: auto;
+}
+
+.select-option {
+	padding: 12px 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	border-bottom: 1px solid #f0f0f0;
+	font-size: 15px;
+	color: #555;
+}
+
+.select-option:last-child {
+	border-bottom: none;
+}
+
+.select-option:hover {
+	background-color: #f8f9fa;
+}
+
+.select-option.selected {
+	background-color: #e7f3ff;
+	color: #007bff;
+	font-weight: 500;
+}
+
+/* 모바일에서만 표시 */
+@media (max-width: 768px) {
+	.mobile-facility-select {
+		display: block;
+		margin-bottom: 0.8rem;
+	}
+}
+
+// 범례 스타일
+.map-legend {
+	position: absolute;
+	top: 19px;
+	left: 19px;
+	display: flex;
+	gap: 1.5rem;
+	background-color: rgba(255, 255, 255, 0.95);
+	padding: 0.75rem 1.25rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	z-index: 20;
+	backdrop-filter: blur(4px);
+}
+
+.legend-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.legend-marker {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+	&.facility {
+		background-color: #375fd7; // 시설 기본 색상
+	}
+
+	&.vegetation {
+		background-color: #9b59b6; // 식생 기본 색상
+	}
+}
+
+.legend-text {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #333;
+	font-family: "S-Core Dream", sans-serif;
+	line-height: 1;
+}
+
+// 반응형 처리
+@media (max-width: 768px) {
+	.map-legend {
+		top: 1rem;
+		left: 1rem;
+		gap: 1rem;
+		padding: 0.5rem 1rem;
+		font-size: 0.8rem;
+	}
+
+	.legend-marker {
+		width: 0.875rem;
+		height: 0.875rem;
+	}
+
+	.legend-text {
+		font-size: 0.75rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.map-legend {
+		top: 0.75rem;
+		left: 0.75rem;
+		gap: 0.75rem;
+		padding: 0.4rem 0.8rem;
+	}
+
+	.legend-marker {
+		width: 0.75rem;
+		height: 0.75rem;
+	}
+
+	.legend-text {
+		font-size: 0.7rem;
+	}
+}
+
+.rental-disabled-text {
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+	color: #666;
+	font-size: 15px;
+	line-height: 1.4;
+	word-break: keep-all;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.goTop {
+	font-size: 16px;
+}
+.goTop button {
+	cursor: pointer;
+	position: fixed;
+	right: 1em;
+	bottom: 0.5em;
+	width: 4.7em;
+	height: 4.7em;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	overflow: hidden;
+	text-indent: -999px;
+	background: url(../img/btn_goto_top.svg) no-repeat 50% 50%;
+	background-size: contain;
+	z-index: 999;
+
+	opacity: 0;
+	transition: opacity 0.3s;
+	pointer-events: none;
+}
+
+.goTop button.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.vegetation-cards.grouped {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 1rem;
+
+	@include media($tab) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media($mo) {
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+
+	.veg-card-group {
+		background: #ffffff;
+		border: 1px solid #e8e8e8;
+		border-radius: 0.75rem;
+		padding: 1.25rem;
+		transition: all 0.3s ease;
+		cursor: pointer;
+
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+			border-color: #d3efd7;
+			background: linear-gradient(180deg, #ffffff 0%, #f8fdf9 100%);
+
+			.veg-icon {
+				transform: scale(1.1);
+			}
+
+			.total-number {
+				color: $cMain;
+			}
+		}
+
+		.card-header {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			margin-bottom: 1rem;
+			padding-bottom: 0.75rem;
+			border-bottom: 1px solid #f0f0f0;
+
+			.veg-icon {
+				width: 2.5rem;
+				height: 2.5rem;
+				flex-shrink: 0;
+				transition: transform 0.3s ease;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+
+			.header-text {
+				flex: 1;
+
+				.veg-category {
+					font-size: 0.875rem;
+					font-weight: 500;
+					color: #9b59b6;
+					margin: 0 0 0.25rem 0;
+					text-transform: uppercase;
+					letter-spacing: 0.3px;
+				}
+
+				.total-count {
+					display: flex;
+					align-items: baseline;
+					gap: 0.25rem;
+
+					.total-number {
+						font-size: 1.375rem;
+						font-weight: 700;
+						color: #222;
+						transition: color 0.3s ease;
+						font-variant-numeric: tabular-nums;
+					}
+
+					.total-unit {
+						font-size: 0.875rem;
+						color: #999;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+
+		.card-items {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+
+			.veg-item {
+				display: flex;
+				align-items: baseline;
+				font-size: 0.875rem;
+				padding-left: 0.5rem;
+				width: 35%;
+
+				.item-name {
+					color: #888;
+					margin-right: 0.5rem;
+					font-size: 0.8125rem;
+				}
+
+				.item-count {
+					font-weight: 600;
+					color: #444;
+					font-variant-numeric: tabular-nums;
+				}
+
+				.item-unit {
+					color: #999;
+					font-size: 0.75rem;
+					margin-left: 0.25rem;
+				}
+			}
+		}
+
+		@include media($mo) {
+			padding: 1rem;
+
+			.card-header {
+				.veg-icon {
+					width: 2rem;
+					height: 2rem;
+				}
+
+				.header-text {
+					.veg-category {
+						font-size: 0.75rem;
+					}
+
+					.total-count {
+						.total-number {
+							font-size: 1.125rem;
+						}
+
+						.total-unit {
+							font-size: 0.75rem;
+						}
+					}
+				}
+			}
+
+			.card-items {
+				.veg-item {
+					font-size: 0.75rem;
+
+					.item-name {
+						font-size: 0.75rem;
+					}
+
+					.item-unit {
+						font-size: 0.6875rem;
+					}
+				}
+			}
+		}
+	}
+}

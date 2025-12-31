@@ -1,0 +1,576 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const pageTitle = `홈`;
+
+import "../../css/ui.css";
+
+// 공지사항 데이터
+export interface Notice {
+	title: string;
+	date: string;
+	link?: string;
+}
+
+export const notices: Notice[] = [
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.26",
+		link: "/notices/1",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.24",
+		link: "/notices/2",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.22",
+		link: "/notices/2",
+	},
+	{
+		title: "공지사항 본문입니다.공지사항 본문입니다.",
+		date: "2025.03.20",
+		link: "/notices/2",
+	},
+];
+
+// 공지사항 팝업
+export interface NoticePopup {
+	id: string;
+	title: string;
+	date: string;
+	content: string;
+	link?: string;
+}
+
+export const noticePopup: NoticePopup[] = [
+	{
+		id: "notice-1",
+		title: "레이어팝업 공지사항 제목이다",
+		date: "2025.03.26",
+		content: "공지사항 본문입니다.공지사항 본문입니다.",
+		link: "/notices/1",
+	},
+];
+
+// 자주하는 질문
+export interface qna {
+	title: string;
+	date: string;
+	link?: string;
+}
+
+export const qna: qna[] = [
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.26",
+		link: "/qna/1",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.24",
+		link: "/qna/2",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.22",
+		link: "/qna/2",
+	},
+	{
+		title: "자주하는 질문 본문입니다.자주하는 질문 본문입니다.",
+		date: "2025.03.20",
+		link: "/qna/2",
+	},
+];
+
+// 녹지소개 버튼
+export interface AboutButton {
+	title: string;
+	subtitle?: string;
+	icon: string;
+	link: string;
+}
+
+export const AboutButton: AboutButton[] = [
+	{
+		title: "도시숲 소개",
+		icon: "../img/icon_01.svg",
+		link: "/about/1",
+	},
+	{
+		title: "도시숲 소개",
+		icon: "../img/icon_02.svg",
+		link: "/about/2",
+	},
+	{
+		title: "푸른도시",
+		subtitle: "바로가기",
+		icon: "../img/icon_03.svg",
+		link: "/about/3",
+	},
+];
+
+// 대관시설 카드
+export interface FacilityCard {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const FacilityCard: FacilityCard[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img01.png",
+		link: "/facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img02.png",
+		link: "/facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img03.png",
+		link: "/facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img04.png",
+		link: "/facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "../img/swiper_img01.png",
+		link: "/facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "../img/swiper_img02.png",
+		link: "/facility/6",
+	},
+	{
+		title: "추가 시설 7",
+		image: "../img/swiper_img03.png",
+		link: "/facility/7",
+	},
+	{
+		title: "추가 시설 8",
+		image: "../img/swiper_img04.png",
+		link: "/facility/8",
+	},
+	{
+		title: "추가 시설 9",
+		image: "../img/swiper_img01.png",
+		link: "/facility/9",
+	},
+	{
+		title: "추가 시설 10",
+		image: "../img/swiper_img02.png",
+		link: "/facility/10",
+	},
+	{
+		title: "추가 시설 11",
+		image: "../img/swiper_img03.png",
+		link: "/facility/11",
+	},
+	{
+		title: "추가 시설 12",
+		image: "../img/swiper_img04.png",
+		link: "/facility/12",
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<div id="main" class="main">
+		<!-- 메인 배너 [s]-->
+		<section class="main-banner">
+			<div class="inner">
+				<h2 class="banner-title">아름다운 녹지,</h2>
+				<img src="../img/img-subtit.png" alt="" />
+			</div>
+		</section>
+		<!-- 메인 배너 [e] -->
+
+		<!-- 바로가기 [s] -->
+		<section>
+			<div class="inner">
+				<ul class="info-nav">
+					<li>
+						<div class="info-nav-item">
+							<h2>공지사항</h2>
+							<a href="" title="공지사항" class="btn-plus">
+								<i><span class="hide">더보기</span></i>
+							</a>
+						</div>
+						<div class="info-wrapper">
+							<a
+								href="#"
+								class="item notice-trigger"
+								data-notice-title={notices[0].title}
+								data-notice-date={notices[0].date}
+								data-notice-content={notices[0].content}
+							>
+								<div class="item_box">
+									<p class="month">2025.04</p>
+									<p class="day">04</p>
+								</div>
+								<div class="item_text">
+									<em class="new">N</em>
+									<span>공지사항 본문입니다.</span>
+								</div>
+							</a>
+							<div class="item-list">
+								<ul>
+									{
+										notices.map((notice) => (
+											<li>
+												<a href={notice.link}>{notice.title}</a>
+												<span class="date">{notice.date}</span>
+											</li>
+										))
+									}
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="info-nav-item">
+							<h2>자주하는 질문</h2>
+							<a href="" title="자주하는질문" class="btn-plus">
+								<i><span class="hide">더보기</span></i>
+							</a>
+						</div>
+						<div class="info-wrapper">
+							<div class="item type2">
+								<div class="item_box">
+									<p class="month">2025.04</p>
+									<p class="day">04</p>
+								</div>
+								<div class="item_text">
+									<em class="new">N</em>
+									<span>자주하는 질문 본문입니다.</span>
+								</div>
+							</div>
+							<div class="item-list">
+								<ul>
+									{
+										qna.map((qna) => (
+											<li>
+												<a href={qna.link}>{qna.title}</a>
+												<span class="date">{qna.date}</span>
+											</li>
+										))
+									}
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="info-nav-item">
+							<h2>도시숲 소개</h2>
+						</div>
+						<div class="info-wrapper">
+							<ul class="about-button">
+								{
+									AboutButton.map((button) => (
+										<li>
+											<a href={button.link} class="about-btn">
+												<img src={button.icon} alt="" class="icon" />
+												<div class="text">
+													<span class="title">{button.title}</span>
+													{button.subtitle && <span class="subtitle">{button.subtitle}</span>}
+												</div>
+											</a>
+										</li>
+									))
+								}
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- 바로가기 [e] -->
+
+		<!<!-- 대관시설 [s]-->
+		<section class="main-footer-banner">
+			<div class="inner">
+				<h2 class="banner-title">대관시설</h2>
+
+					<!-- Custom Pagination -->
+					<div class="custom-pagination">
+						<div class="swiper-pagination facility-pagination"></div>
+						<div class="pagination-controls-wrapper">
+							<div class="pagination-fraction">
+								<span class="current-slide">1</span>/<span class="total-slides">12</span>
+							</div>
+							<button class="custom-prev-btn" aria-label="이전"></button>
+							<button class="autoplay-toggle" aria-label="자동재생 토글">
+								<span class="pause-icon"></span>
+							</button>
+							<button class="custom-next-btn" aria-label="다음"></button>
+						</div>
+					</div>
+
+				<div class="facility-slider">
+					<div class="swiper" id="facilitySwiper">
+						<div class="swiper-wrapper">
+							{
+								FacilityCard.map((card, index) => (
+									<div class="swiper-slide">
+										<a href={card.link} class={`facility-card ${index === 0 ? "active" : ""}`}>
+											<div class="card-image">
+												<img src={card.image} alt={card.title} loading="lazy" />
+											</div>
+											<div class="card-title">{card.title}</div>
+										</a>
+									</div>
+								))
+							}
+						</div>
+					</div>
+
+					<!-- Navigation buttons - 기존 유지 -->
+					<div class="swiper-button-prev facility-prev" id="facilityPrev"></div>
+					<div class="swiper-button-next facility-next" id="facilityNext"></div>
+
+				</div>
+			</div>
+		</section>
+		<!-- 대관시설 [e] -->
+	</div>
+
+	<!-- 공지사항 팝업 [s] -->
+	<section class="notice-popup" id="notice-popup">
+		<div class="popup-content">
+			<div class="popup-header">
+				<button class="dont-show-today" id="dont-show-today">24시간 동안 닫기</button>
+				<button class="close-btn-sm" id="close-btn-sm" title="닫기">×</button>
+			</div>
+			<div class="popup-body">
+				<h2 class="popup-title" id="popup-title">공지사항</h2>
+				<div class="popup-date" id="popup-date">2025.03.26</div>
+				<div class="popup-text" id="popup-text">
+					<p>공지사항 본문입니다.공지사항 본문입니다.</p>
+				</div>
+			</div>
+			<div class="popup-footer">
+				<button class="close-btn" id="close-popup">닫기</button>
+			</div>
+		</div>
+	</section>
+	<!-- 공지사항 팝업 [e] -->
+</BaseLayout>
+
+<script>
+	// 공지사항 팝업
+	function showNoticePopup() {
+		const noticePopup = document.querySelector(".notice-popup");
+		noticePopup.style.display = "block";
+	}
+
+	function hideNoticePopup() {
+		const noticePopup = document.querySelector(".notice-popup");
+		noticePopup.style.display = "none";
+	}
+
+	function initNoticePopupEventListeners() {
+		const noticeTrigger = document.querySelector(".notice-trigger");
+		const closeBtn = document.querySelector(".close-btn");
+		const dontShowTodayBtn = document.querySelector(".dont-show-today");
+		const closePopupBtn = document.querySelector(".close-popup");
+		const closePopupBtnSm = document.querySelector(".close-btn-sm");
+
+		if (noticeTrigger) {
+			noticeTrigger.addEventListener("click", showNoticePopup);
+		}
+		if (closeBtn) {
+			closeBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (dontShowTodayBtn) {
+			dontShowTodayBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (closePopupBtn) {
+			closePopupBtn.addEventListener("click", hideNoticePopup);
+		}
+		if (closePopupBtnSm) {
+			closePopupBtnSm.addEventListener("click", hideNoticePopup);
+		}
+	}
+
+	initNoticePopupEventListeners();
+</script>
+<script is:inline>
+	// Swiper 초기화 함수
+	function initFacilitySwiper() {
+		const swiperContainer = document.getElementById("facilitySwiper");
+
+		if (!swiperContainer) {
+			console.warn("Swiper container not found");
+			return;
+		}
+
+		const totalCards = swiperContainer.querySelectorAll(".swiper-slide").length;
+		const visibleCards = 4;
+
+		const swiper = new Swiper("#facilitySwiper", {
+			slidesPerView: 2,
+			spaceBetween: 16,
+			slidesPerGroup: 4,
+
+			loop: false,
+			speed: 300,
+			centeredSlides: false,
+			grabCursor: true,
+			watchSlidesProgress: true,
+
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+
+			autoHeight: false,
+			allowTouchMove: true,
+
+			navigation: {
+				nextEl: ".facility-next", // 기존 큰 화살표
+				prevEl: ".facility-prev", // 기존 큰 화살표
+				disabledClass: "swiper-button-disabled",
+			},
+
+			pagination: {
+				el: ".facility-pagination",
+				clickable: true,
+				bulletClass: "swiper-pagination-bullet",
+				bulletActiveClass: "swiper-pagination-bullet-active",
+			},
+
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 16,
+				},
+				900: {
+					slidesPerView: 3,
+					spaceBetween: 16,
+				},
+				1400: {
+					slidesPerView: 4,
+					spaceBetween: 16,
+				},
+			},
+
+			on: {
+				init: function () {
+					console.log("Facility Swiper initialized");
+					console.log("Total cards: " + totalCards + ", Visible: " + visibleCards);
+
+					manageNavigationVisibility(this, totalCards, visibleCards);
+					updateActiveCard(this);
+					updatePaginationFraction(this);
+				},
+				slideChange: function () {
+					updateActiveCard(this);
+				},
+				resize: function () {
+					const currentVisible = this.params.slidesPerView;
+					manageNavigationVisibility(this, totalCards, currentVisible);
+				},
+			},
+		});
+
+		function manageNavigationVisibility(swiperInstance, total, visible) {
+			const prevBtn = document.querySelector(".facility-prev");
+			const nextBtn = document.querySelector(".facility-next");
+			const pagination = document.querySelector(".facility-pagination");
+
+			if (total <= visible) {
+				if (prevBtn) prevBtn.classList.add("navigation-hidden");
+				if (nextBtn) nextBtn.classList.add("navigation-hidden");
+				if (pagination) pagination.classList.add("pagination-hidden");
+			} else {
+				if (prevBtn) prevBtn.classList.remove("navigation-hidden");
+				if (nextBtn) nextBtn.classList.remove("navigation-hidden");
+				if (pagination) pagination.classList.remove("pagination-hidden");
+			}
+		}
+
+		function updateActiveCard(swiperInstance) {
+			const slides = swiperInstance.slides;
+			slides.forEach(function (slide, index) {
+				const card = slide.querySelector(".facility-card");
+				if (card) {
+					if (index === swiperInstance.activeIndex) {
+						card.classList.add("active");
+					} else {
+						card.classList.remove("active");
+					}
+				}
+			});
+
+			// 페이지 번호 업데이트
+			updatePaginationFraction(swiperInstance);
+		}
+
+		function updatePaginationFraction(swiperInstance) {
+			const currentSlide = document.querySelector(".current-slide");
+			const totalSlides = document.querySelector(".total-slides");
+
+			if (currentSlide && totalSlides) {
+				currentSlide.textContent = swiperInstance.activeIndex + 1;
+				totalSlides.textContent = swiperInstance.slides.length;
+			}
+		}
+
+		// custom-prev-btn, custom-next-btn도 작동하도록 연결
+		const customPrevBtn = document.querySelector(".custom-prev-btn");
+		const customNextBtn = document.querySelector(".custom-next-btn");
+
+		if (customPrevBtn) {
+			customPrevBtn.addEventListener("click", function () {
+				swiper.slidePrev();
+			});
+		}
+
+		if (customNextBtn) {
+			customNextBtn.addEventListener("click", function () {
+				swiper.slideNext();
+			});
+		}
+
+		// 자동재생 토글 버튼 기능
+		const autoplayToggle = document.querySelector(".autoplay-toggle");
+		if (autoplayToggle) {
+			autoplayToggle.classList.add("playing");
+
+			autoplayToggle.addEventListener("click", function () {
+				if (swiper.autoplay.running) {
+					swiper.autoplay.stop();
+					autoplayToggle.classList.remove("playing");
+					autoplayToggle.classList.add("paused");
+				} else {
+					swiper.autoplay.start();
+					autoplayToggle.classList.remove("paused");
+					autoplayToggle.classList.add("playing");
+				}
+			});
+		}
+
+		return swiper;
+	}
+
+	// DOM 로드 완료 후 초기화
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initFacilitySwiper);
+	} else {
+		initFacilitySwiper();
+	}
+
+	// Astro 페이지 전환 시 재초기화
+	document.addEventListener("astro:page-load", initFacilitySwiper);
+</script>

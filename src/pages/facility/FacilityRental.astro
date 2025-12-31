@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "대관 안내";
+const location = "대관 안내";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "FacilityRental";
+
+const currentPath =  "/facility/FacilityRental";
+
+import "../../css/ui.css";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			<div class="subcotent"></div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

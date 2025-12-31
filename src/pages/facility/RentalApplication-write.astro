@@ -1,0 +1,918 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "대관안내";
+const location = "대관신청";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "FacilityRental";
+
+import "../../css/ui.css";
+
+//스텝 화면 구성
+export interface Step {
+	number: number;
+	title: string;
+	image: string;
+	icon: string;
+	isActive?: boolean;
+	isCompleted?: boolean;
+}
+
+export const stepAreaData: Step[] = [
+	{
+		number: 1,
+		title: "일정선택",
+		image: "../img/icon_step-01.svg",
+		icon: "../img/icon-arrow-gy.svg",
+		isActive: true,
+		isCompleted: false,
+	},
+	{
+		number: 2,
+		title: "정보등록",
+		image: "../img/icon_step-02.svg",
+		icon: "../img/icon-arrow-gy.svg",
+		isActive: false,
+		isCompleted: false,
+	},
+	{
+		number: 3,
+		title: "본인인증",
+		image: "../img/icon_step-03.svg",
+		icon: "",
+		isActive: false,
+		isCompleted: false,
+	},
+];
+
+// 대관신청 타이틀
+export interface facilityTitle {
+	title: string;
+	link?: string;
+	infoLink?: string;
+}
+
+export const facilityTitle: facilityTitle[] = [
+	{
+		title: "송도솔밭 물빛누리공원",
+		link: "../facilityTitle/1",
+		infoLink: "../facilityTitle/1",
+	},
+];
+
+// 대관신청 상세
+export interface facilityDetial {
+	image: string;
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	}[];
+}
+
+export const facilityDetial: facilityDetial[] = [
+	{
+		image: "../img/card_img01.png",
+		facilityType: [
+			{
+				boldTitle: "사용시설",
+				normalText: "물빛누리공원",
+			},
+			{
+				boldTitle: "관리기관",
+				normalText: "포항시 공원과 공원관리팀(054-251-2564)",
+			},
+			{
+				boldTitle: "이용구분",
+				normalText: "최소 1명 / 최대 99명",
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+		],
+	},
+];
+
+// 관련 시설 슬라이더
+export interface RelatedFacility {
+	title: string;
+	image: string;
+	link: string;
+}
+
+export const relatedFacilities: RelatedFacility[] = [
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img01.png",
+		link: "../facility/1",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img02.png",
+		link: "../facility/2",
+	},
+	{
+		title: "송도 솔밭 물빛누리공원",
+		image: "../img/swiper_img03.png",
+		link: "../facility/3",
+	},
+	{
+		title: "내연산 치유의 숲",
+		image: "../img/swiper_img04.png",
+		link: "../facility/4",
+	},
+	{
+		title: "추가 시설 5",
+		image: "../img/swiper_img01.png",
+		link: "../facility/5",
+	},
+	{
+		title: "추가 시설 6",
+		image: "../img/swiper_img02.png",
+		link: "../facility/6",
+	},
+];
+
+// 안내박스
+export interface FacilityInfoItem {
+	boldTitle: string;
+	normalText: string;
+	isNotice?: boolean; // 강조 표시용
+}
+
+export interface FacilityInfo {
+	facilityType: FacilityInfoItem[];
+}
+
+export const facilityInfo: FacilityInfo[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "신청기간",
+				normalText:
+					"사용달 전월 1일~말일까지 (예시 : 2025년 8월 16일 공연 신청 시 7월 1일 부터 신청가능)",
+			},
+			{
+				boldTitle: "장소",
+				normalText: "송도 솔밭 물빛누리공원 야외공연장",
+			},
+			{
+				boldTitle: "이용가능시간",
+				normalText: "매주 토, 일요일 (09:00~19:00)까지, 평일 이용 불가. 1일 1팀 사용가능",
+			},
+			{
+				boldTitle: "신청방법",
+				normalText:
+					"선착순 접수 (※[통합] 신청서 및 계획서를 첨부파일 업로드 하여 관리부서 허가를 득한 후 사용가능)",
+			},
+			{
+				boldTitle: "신청가능 프로그램",
+				normalText: "음악, 무용, 연극, 전시, 미술 등 공연과 전시가 가능한 문화예술 전 분야",
+			},
+			{
+				boldTitle:
+					'첨부양식 중, "공영장 사용 신청서" 를 다운받아 작성 후, 첨부파일로 업로드해주세요.',
+				normalText: "",
+				isNotice: true,
+			},
+		],
+	},
+];
+export const usageNotice: usageNotice[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "1. 공영장의 사용허가는 다음과 같다.",
+				normalText: "가. 야외 공연장을 사용하고자 하는..",
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"나.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다.",
+			},
+		],
+	},
+];
+
+//유의사항 및 운영 안내
+export interface FacilityNotice {
+	facilityName: string;
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	}[];
+}
+
+export const FacilityNotice: FacilityNotice[] = [
+	{
+		facilityName: "<시설물 이용에 대한 주의사항>",
+		facilityType: [
+			{
+				boldTitle: "1. 공영장의 사용허가는 다음과 같다.",
+				normalText: "",
+			},
+		],
+	},
+	{
+		facilityName: "", // 새로 추가할 시설
+		facilityType: [
+			{
+				boldTitle: "",
+				normalText:
+					'가. 야외 공연장을 사용하고자 하는 자는 야외공연장 사용 허가신청서 및 계획서를 작성하여 예약홈페이지 내 "첨부파일"을 통하여 사전에 관리부서의 허가를득하여야 하며, 허가 내용을 변경하고자 할 때와 특별한 시설을 설치할 경우에도 또한 같다.',
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"나.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다.",
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"다.시설 예약은 사용하고자 하는 달의 전월 1일~말일까지 신청하고 관리부서의 심의를 통해 허가를 득하여야 한다.",
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"라. 야외공연장 시설예약은 매달 4회만 신청 가능하며, 4회 이상 신청 시 별도 통보 없이 전부 취소될 수 있다.",
+			},
+			{
+				boldTitle: "",
+				normalText: "마.사용신청이 없는 기간에 대해서는 수시로 허가신청이 가능하다.",
+			},
+			{
+				boldTitle: "",
+				normalText:
+					"바. 공익을 목적으로 국가, 지방자치단체 또는 공공기관에서 주최 또는 후원하는 행사의 경우에는 사용신청이 중복되는 경우라도 우선적으로 허가 할 수 있다.",
+			},
+		],
+	},
+];
+
+// 첨부양식
+export interface DownloadFile {
+	image: string;
+	name: string;
+	fileName: string;
+	filePath: string;
+}
+
+export const DownloadFile: DownloadFile[] = [
+	{
+		image: "../img/icon_clip.svg",
+		name: "[붙임1]야외공연장 사용허가 신청서.hwp",
+		fileName: "[붙임1]야외공연장 사용허가 신청서.hwp",
+		filePath: "../documents/[붙임1]야외공연장 사용허가 신청서.hwp",
+	},
+	{
+		image: "../img/icon_clip.svg",
+		name: "[붙임3] 안전관리 이행서약서.hwp",
+		fileName: "[붙임3] 안전관리 이행서약서.hwp",
+		filePath: "../documents/[붙임3] 안전관리 이행서약서.hwp",
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			<!-- 스텝아이콘 -->
+			<div class="step-indicator">
+				<div class="step-container">
+					{
+						stepAreaData.map((step, index) => (
+							<>
+								<div
+									class={`step-item ${step.isActive ? "active" : ""} ${
+										step.isCompleted ? "completed" : ""
+									}`}
+								>
+									<div class="step-number">{step.number}</div>
+									<span class="step-title">{step.title}</span>
+									<img src={step.image} alt="스텝아이콘" />
+								</div>
+								{index < stepAreaData.length - 1 && step.icon && (
+									<div class="step-arrow">
+										<img
+											src={step.icon}
+											alt="다음 단계"
+											class={step.isActive || step.isCompleted ? "active" : ""}
+										/>
+									</div>
+								)}
+							</>
+						))
+					}
+				</div>
+			</div>
+
+			<!-- 타이틀 -->
+			{
+				facilityTitle.map((facility, index) => (
+					<div class="facility-title">
+						<h3 class="tit-bold">{facility.title}</h3>
+						<div class="facility-buttons">
+							{facility.infoLink && (
+								<a href="./RentalApplication-step2.html" class="btn-next">
+									다음으로
+								</a>
+							)}
+							{facility.link && (
+								<a href="./RentalApplication.html" class="btn-list">
+									목록으로
+								</a>
+							)}
+						</div>
+					</div>
+				))
+			}
+
+			<!-- 공원 정보 -->
+			<section class="facility-listWrap">
+				<div class="description-Box">
+					{
+						facilityDetial.map((facility, index) => (
+							<div class="facility-item">
+								<div class="facility-image">
+									<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								</div>
+								<div class="facility-info">
+									{facility.facilityType.map((facilityType, index) => (
+										<div class="facility-info-group">
+											<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+											<p class="normalText">{facilityType.normalText}</p>
+										</div>
+									))}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<!-- 시설안내 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">시설안내</h2>
+				{
+					facilityInfo.map((facility) => (
+						<div class="facility-info-group">
+							{facility.facilityType.map((facilityType) => (
+								<div class={`facility-info-item ${facilityType.isNotice ? "highlight" : ""}`}>
+									{facilityType.boldTitle && <h2 class="boldTitle">{facilityType.boldTitle}</h2>}
+									{facilityType.normalText && <p class="normalText">{facilityType.normalText}</p>}
+								</div>
+							))}
+						</div>
+					))
+				}
+			</section>
+
+			<div class="tbl-form-box">
+				<!-- STEP 01: 날짜선택 -->
+				<div class="date-select">
+					<div class="title"><span>1</span> 날짜선택</div>
+					<div class="tip"><p>이용하고자 하는 날짜를 선택하세요.</p></div>
+
+					<div id="calendar_wrapper">
+						<div class="calendarHead">
+							<a href="#" class="month prev">이전 월</a>
+							<span id="dispMonth">2025. <em>10</em></span>
+							<a href="#" class="month next">다음 월</a>
+							<a href="#" class="today">TODAY</a>
+						</div>
+
+						<div class="calendar">
+							<table id="yhd_calendar">
+								<caption
+									>2025년 10월 시설대관 신청관리 건수를 일, 월, 화, 수, 목, 금, 토요일 별로 안내하는
+									표입니다.</caption
+								>
+								<thead>
+									<tr>
+										<th scope="col">SUN</th>
+										<th scope="col">MON</th>
+										<th scope="col">TUE</th>
+										<th scope="col">WED</th>
+										<th scope="col">THU</th>
+										<th scope="col">FRI</th>
+										<th scope="col">SAT</th>
+									</tr>
+								</thead>
+								<tbody id="calendarBody">
+									<tr>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed"></td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">01</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">02</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">03</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">04</span>
+											<p class="txt">신청불가</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">05</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">06</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">07</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">08</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">09</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">10</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">11</span>
+											<p class="txt">신청불가</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">12</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">13</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon day closed">
+											<span class="holidayDt">14</span>
+											<p class="txt">신청불가</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">15</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">16</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">17</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">18</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">19</span>
+											<p class="txt">신청마감<br />3/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">20</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">21</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">22</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">23</span>
+											<p class="txt">신청마감<br />6/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">24</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">25</span>
+											<p class="txt">신청마감<br />0/16</p>
+										</td>
+									</tr>
+									<tr>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">26</span>
+											<p class="txt">신청마감<br />5/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">27</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">28</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon com day closed">
+											<span class="holidayDt">29</span>
+											<p class="txt">신청마감<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon able day opened sel">
+											<span class="holidayDt">30</span>
+											<p class="txt">신청가능<br />4/16</p>
+										</td>
+										<td class="yhdc-dayCon able day opened">
+											<span class="holidayDt">31</span>
+											<p class="txt">신청가능<br />2/16</p>
+										</td>
+										<td class="yhdc-dayCon day closed"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="legend">
+						<div class="legend-wrap">
+							<i class="legend-able"></i>
+							<span>신청가능</span>
+							<i class="legend-com"></i>
+							<span>신청마감</span>
+						</div>
+						<span class="fR">※ (0/0): 예약가능/전체</span>
+					</div>
+				</div>
+
+				<!-- STEP 02: 예약현황 -->
+				<div class="time-select" id="dailySummary">
+					<div class="title"><span>2</span> 예약현황</div>
+					<p class="tip">이용하고자 하는 시간을 선택하세요.</p>
+					<div class="tbl-box">
+						<table class="tbl taC" id="resvTbl">
+							<caption>선택한 날짜의 이용시간을 선택할 수 있는 표입니다.</caption>
+							<colgroup>
+								<col style="width:20%" />
+								<col />
+								<col style="width:15%" />
+								<col style="width:25%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">이용시간</th>
+									<th scope="col">선택</th>
+									<th scope="col">접수현황</th>
+								</tr>
+							</thead>
+							<tbody id="timeList">
+								<tr>
+									<td rowspan="14">주간</td>
+									<td>06:00 ~ 7:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time0" /><label
+											for="time0"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>07:00 ~ 8:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time1" /><label
+											for="time1"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>08:00 ~ 9:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time2" /><label
+											for="time2"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>09:00 ~ 10:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time3" /><label
+											for="time3"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>10:00 ~ 11:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time4" /><label
+											for="time4"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>11:00 ~ 12:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time5" /><label
+											for="time5"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>12:00 ~ 13:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time6" /><label
+											for="time6"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>13:00 ~ 14:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time7" /><label
+											for="time7"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>14:00 ~ 15:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time8" /><label
+											for="time8"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>15:00 ~ 16:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time9" /><label
+											for="time9"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>16:00 ~ 17:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time10" /><label
+											for="time10"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>17:00 ~ 18:00</td>
+									<td
+										><input type="checkbox" class="timeChk" name="requestTime" id="time11" /><label
+											for="time11"
+										>
+										</label></td
+									>
+									<td></td>
+								</tr>
+								<tr>
+									<td>18:00 ~ 19:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time12"
+											disabled
+										/><label for="time12"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td>19:00 ~ 20:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time13"
+											disabled
+										/><label for="time13"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td rowspan="2">야간</td>
+									<td>20:00 ~ 21:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time14"
+											disabled
+										/><label for="time14"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+								<tr>
+									<td>21:00 ~ 22:00</td>
+									<td
+										><input
+											type="checkbox"
+											class="timeChk"
+											name="requestTime"
+											id="time15"
+											disabled
+										/><label for="time15"> </label></td
+									>
+									<td>신청마감</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>
+<script is:inline>
+	// Swiper 초기화 함수
+	function initRelatedFacilitiesSwiper() {
+		const swiperContainer = document.getElementById("relatedFacilitiesSwiper");
+
+		if (!swiperContainer) {
+			console.warn("Related Facilities Swiper container not found");
+			return;
+		}
+
+		const totalCards = swiperContainer.querySelectorAll(".swiper-slide").length;
+		const visibleCards = 4;
+
+		const swiper = new Swiper("#relatedFacilitiesSwiper", {
+			// modules 옵션 제거 - CDN 버전에서는 불필요
+
+			slidesPerView: 4,
+			spaceBetween: 16,
+			slidesPerGroup: 1,
+
+			loop: false,
+			speed: 300,
+			centeredSlides: false,
+			grabCursor: true,
+			watchSlidesProgress: true,
+
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+
+			autoHeight: false,
+			allowTouchMove: true,
+
+			navigation: {
+				nextEl: ".related-next",
+				prevEl: ".related-prev",
+				disabledClass: "swiper-button-disabled",
+			},
+
+			pagination: {
+				el: ".related-pagination",
+				clickable: true,
+				bulletClass: "swiper-pagination-bullet",
+				bulletActiveClass: "swiper-pagination-bullet-active",
+			},
+
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 16,
+				},
+				900: {
+					slidesPerView: 3,
+					spaceBetween: 16,
+				},
+				1400: {
+					slidesPerView: 4,
+					spaceBetween: 16,
+				},
+			},
+
+			on: {
+				init: function () {
+					console.log("Related Facilities Swiper initialized");
+					manageNavigationVisibility(this, totalCards, visibleCards);
+					updateActiveCard(this);
+					updatePaginationFraction(this);
+				},
+				slideChange: function () {
+					updateActiveCard(this);
+				},
+				resize: function () {
+					const currentVisible = this.params.slidesPerView;
+					manageNavigationVisibility(this, totalCards, currentVisible);
+				},
+			},
+		});
+
+		function manageNavigationVisibility(swiperInstance, total, visible) {
+			const prevBtn = document.querySelector(".related-prev");
+			const nextBtn = document.querySelector(".related-next");
+			const pagination = document.querySelector(".related-pagination");
+
+			if (total <= visible) {
+				if (prevBtn) prevBtn.classList.add("navigation-hidden");
+				if (nextBtn) nextBtn.classList.add("navigation-hidden");
+				if (pagination) pagination.classList.add("pagination-hidden");
+			} else {
+				if (prevBtn) prevBtn.classList.remove("navigation-hidden");
+				if (nextBtn) nextBtn.classList.remove("navigation-hidden");
+				if (pagination) pagination.classList.remove("pagination-hidden");
+			}
+		}
+
+		function updateActiveCard(swiperInstance) {
+			const slides = swiperInstance.slides;
+			slides.forEach(function (slide, index) {
+				const card = slide.querySelector(".facility-card");
+				if (card) {
+					if (index === swiperInstance.activeIndex) {
+						card.classList.add("active");
+					} else {
+						card.classList.remove("active");
+					}
+				}
+			});
+
+			// 페이지 번호 업데이트
+			updatePaginationFraction(swiperInstance);
+		}
+
+		function updatePaginationFraction(swiperInstance) {
+			const currentSlide = document.querySelector(".current-slide");
+			const totalSlides = document.querySelector(".total-slides");
+
+			if (currentSlide && totalSlides) {
+				currentSlide.textContent = swiperInstance.activeIndex + 1;
+				totalSlides.textContent = swiperInstance.slides.length;
+			}
+		}
+
+		// 자동재생 토글 버튼 기능
+		const autoplayToggle = document.querySelector(".autoplay-toggle");
+		if (autoplayToggle) {
+			autoplayToggle.classList.add("playing");
+
+			autoplayToggle.addEventListener("click", function () {
+				if (swiper.autoplay.running) {
+					swiper.autoplay.stop();
+					autoplayToggle.classList.remove("playing");
+					autoplayToggle.classList.add("paused");
+				} else {
+					swiper.autoplay.start();
+					autoplayToggle.classList.remove("paused");
+					autoplayToggle.classList.add("playing");
+				}
+			});
+		}
+
+		return swiper;
+	}
+
+	// DOM 로드 완료 후 초기화
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initRelatedFacilitiesSwiper);
+	} else {
+		initRelatedFacilitiesSwiper();
+	}
+
+	// Astro 페이지 전환 시 재초기화
+	document.addEventListener("astro:page-load", initRelatedFacilitiesSwiper);
+</script>

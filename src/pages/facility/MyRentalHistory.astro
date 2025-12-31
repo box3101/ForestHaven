@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "소식";
+const location = "나의 대관조회";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "MyRentalHistory";
+
+import "../../css/ui.css";
+
+// 샘플 나의 대관조회 데이터
+const rentalHistory = [
+	{
+		id: 12,
+		organizationName: "XX 고등학교 동호회",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~10:00, 10:00~11:00",
+		status: "승인",
+		statusBtn: "취소",
+	},
+	{
+		id: 11,
+		organizationName: "서울시민단체",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~18:00",
+		status: "승인",
+	},
+	{
+		id: 10,
+		organizationName: "청년창업협회",
+		reservationDate: "2025.08.20",
+		rentalDate: "2025.09.02",
+		rentalTime: "14:00~17:00",
+		status: "반려",
+	},
+	{
+		id: 9,
+		organizationName: "문화예술동아리",
+		reservationDate: "2025.08.25",
+		rentalDate: "2025.09.25",
+		rentalTime: "19:00~22:00",
+		status: "승인",
+	},
+	{
+		id: 8,
+		organizationName: "XX 고등학교 동호회",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~10:00, 10:00~11:00",
+		status: "승인",
+		statusBtn: "취소",
+	},
+	{
+		id: 7,
+		organizationName: "서울시민단체",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~18:00",
+		status: "승인",
+	},
+	{
+		id: 6,
+		organizationName: "청년창업협회",
+		reservationDate: "2025.08.20",
+		rentalDate: "2025.09.02",
+		rentalTime: "14:00~17:00",
+		status: "반려",
+	},
+	{
+		id: 5,
+		organizationName: "문화예술동아리",
+		reservationDate: "2025.08.25",
+		rentalDate: "2025.09.25",
+		rentalTime: "19:00~22:00",
+		status: "승인",
+	},
+	{
+		id: 4,
+		organizationName: "XX 고등학교 동호회",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~10:00, 10:00~11:00",
+		status: "승인",
+		statusBtn: "취소",
+	},
+	{
+		id: 3,
+		organizationName: "서울시민단체",
+		reservationDate: "2025.08.15",
+		rentalDate: "2025.09.01",
+		rentalTime: "09:00~18:00",
+		status: "승인",
+	},
+	{
+		id: 2,
+		organizationName: "청년창업협회",
+		reservationDate: "2025.08.20",
+		rentalDate: "2025.09.02",
+		rentalTime: "14:00~17:00",
+		status: "반려",
+	},
+	{
+		id: 1,
+		organizationName: "문화예술동아리",
+		reservationDate: "2025.08.25",
+		rentalDate: "2025.09.25",
+		rentalTime: "19:00~22:00",
+		status: "승인",
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			<div class="subcontent">
+				<!-- 검색 영역 -->
+				<div class="search-section">
+					<!-- <div class="search-form"> -->
+						<div class="search-input-group">
+							<span class="title-name">대표번호</span>
+							<input
+								type="text"
+								class="search-input w400"
+								placeholder="대표번호를 입력하세요."
+								id="searchKeyword"
+							/>
+						</div>
+					<!-- </div> -->
+				</div>
+				<div><button type="button" class="check-btn">확인</button></div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

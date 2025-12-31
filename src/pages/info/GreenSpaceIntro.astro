@@ -1,0 +1,160 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "도시숲 소개";
+const location = "도시숲 소개";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "GreenSpaceIntro";
+
+// import "../../css/ui.css";
+import "../../scss/pages/sub.scss";
+
+// 도시숲 소개
+export interface introForest {
+	image: string;
+	title: string;
+	forestType: {
+		boldTitle: string;
+		normalText: string;
+		type?: string; // 추가
+	}[];
+}
+
+export const introForest: introForest[] = [
+	{
+		image: "../img/forest_img01.png",
+		title: "송도솔밭 물빛누리공원",
+		forestType: [
+			{
+				boldTitle: "위치",
+				normalText: "오시는 길",
+				type: "link", // 타입 지정
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+			{
+				boldTitle: "문의전화",
+				normalText: "054-270-8282(그린웨이추진과)",
+			},
+		],
+	},
+	{
+		image: "../img/forest_img02.png",
+		title: "철길 숲",
+		forestType: [
+			{
+				boldTitle: "위치",
+				normalText: "오시는 길",
+				type: "link", // 타입 지정
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 대잠동길 41",
+			},
+			{
+				boldTitle: "문의전화",
+				normalText: "054-270-8282(그린웨이추진과)",
+			},
+		],
+	},
+	{
+		image: "../img/forest_img03.png",
+		title: "송도솔밭 물빛누리공원",
+		forestType: [
+			{
+				boldTitle: "위치",
+				normalText: "오시는 길",
+				type: "link", // 타입 지정
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+			{
+				boldTitle: "문의전화",
+				normalText: "054-270-8282(그린웨이추진과)",
+			},
+		],
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			<!-- 검색 영역 -->
+			<div class="search-section">
+				<div class="search-form">
+					<div class="search-input-group">
+						<input
+							type="text"
+							class="search-input"
+							placeholder="녹지 명을 입력하세요."
+							id="searchKeyword"
+						/>
+						<button type="button" class="search-btn">검색</button>
+					</div>
+				</div>
+			</div>
+			<!-- 공원 정보 -->
+			<section class="forest-listWrap">
+				<div class="description-Box">
+					{
+						introForest.map((forest, index) => (
+							<div class="forest-item">
+								<a href="./GreenSpaceIntro-detail.html" class="card-size">
+									<img src={forest.image} alt={forest.forestType[0].boldTitle} />
+								</a>
+								<div class="forest-info">
+									<h2 class="forest-title">{forest.title}</h2>
+									<div class="forest-info-wrapper">
+										{forest.forestType.map((forestType, index) => (
+											<div class="forest-info-group">
+												<h2 class="boldTitle">{forestType.boldTitle}</h2>
+												{forestType.type === "link" ? (
+													<a href="#" class="direction-link">
+														{forestType.normalText}
+													</a>
+												) : (
+													<p class="normalText">{forestType.normalText}</p>
+												)}
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</section>
+			<!-- 페이지네이션 -->
+			<div class="pagination-wrap">
+				<div class="pagination">
+					<a href="#" class="page-btn prev-btn" aria-label="처음음 페이지">
+						<img src="../img/btn_arrow_left_first.svg" alt="처음" />
+					</a>
+					<a href="#" class="page-btn prev-btn" aria-label="이전 페이지">
+						<img src="../img/btn_arrow_left.svg" alt="이전" />
+					</a>
+					<div class="page-numbers">
+						<a href="#" class="page-num active">1</a>
+						<a href="#" class="page-num">2</a>
+						<a href="#" class="page-num">3</a>
+						<a href="#" class="page-num">4</a>
+						<a href="#" class="page-num">5</a>
+					</div>
+					<a href="#" class="page-btn next-btn" aria-label="다음 페이지">
+						<img src="../img/btn_arrow_right.svg" alt="다음" />
+					</a>
+					<a href="#" class="page-btn next-btn" aria-label="마지막 페이지">
+						<img src="../img/btn_arrow_right_last.svg" alt="다음" />
+					</a>
+				</div>
+			</div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>

@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "소식";
+const location = "자주하는 질문";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "FAQ";
+
+import "../../css/ui.css";
+
+// 샘플 FAQ 데이터
+const faqs = [
+  {
+    id: 1,
+    question: "대면시 유효인가요?",
+    answer: "네, 대면시에도 유효합니다.",
+    category: "일반"
+  },
+  {
+    id: 2,
+    question: "대면 시설은 언제 예약 가능한가요?",
+    answer: "대면시설은 보통 단축된 일정까지 오픈됩니다. 대면시설별로 접수일, 관련일, 시간일 예약이 가능하며, 일부 예약이 모두 충분 또는 신청 선택이며, 추가적인 예약은 홈기간입니다.",
+    category: "접문"
+  },
+  {
+    id: 3,
+    question: "공원 및 숲 이용에 대한 문의는 어떻게 신청하나요",
+    answer: "공원 및 숲 이용 관련 문의는 온라인으로 신청 가능합니다.",
+    category: "접문"
+  },
+  {
+    id: 4,
+    question: "대면신청이 취소할 수도 있나요",
+    answer: "네, 대면신청 취소는 가능합니다.",
+    category: "접문"
+  }
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+      <div class="subcontent">
+        <!-- 검색 영역 -->
+        <div class="search-section">
+          <div class="search-form">
+            <div class="search-input-group">
+              <input 
+                type="text" 
+                class="search-input" 
+                placeholder="질문 또는 답변을 입력하세요"
+                id="searchKeyword"
+              />
+              <button type="button" class="search-btn">검색</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 목록 -->
+        <div class="faq-list-section">
+          <div class="list-info">
+            <span class="total-count">총 <strong>{faqs.length}</strong>건</span>
+          </div>
+          
+          <div class="faq-list">
+            {faqs.map((faq) => (
+              <div class="faq-item" data-faq-id={faq.id}>
+                <div class="faq-question" role="button" tabindex="0">
+                  <span class="question-prefix">Q.</span>
+                  <span class="question-text">{faq.question}</span>
+                  <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <span class="answer-prefix">A.</span>
+                  <span class="answer-text">{faq.answer}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- 페이지네이션 -->
+          <div class="pagination-wrap">
+            <div class="pagination">
+              <a href="#" class="page-btn prev-btn" aria-label="이전 페이지">
+                <img src="../assets/images/icon/arrow-left.svg" alt="이전" />
+              </a>
+              <div class="page-numbers">
+                <a href="#" class="page-num active">1</a>
+                <a href="#" class="page-num">2</a>
+                <a href="#" class="page-num">3</a>
+                <a href="#" class="page-num">4</a>
+                <a href="#" class="page-num">5</a>
+              </div>
+              <a href="#" class="page-btn next-btn" aria-label="다음 페이지">
+                <img src="../assets/images/icon/arrow-right.svg" alt="다음" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>
+
+<script>
+// FAQ 토글 기능
+document.addEventListener('DOMContentLoaded', function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.closest('.faq-item');
+      const answer = faqItem.querySelector('.faq-answer');
+      const toggleIcon = this.querySelector('.toggle-icon');
+      
+      if (faqItem.classList.contains('active')) {
+        faqItem.classList.remove('active');
+        if (toggleIcon) toggleIcon.textContent = '+';
+      } else {
+        // 다른 모든 FAQ 닫기
+        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+          activeItem.classList.remove('active');
+          const activeIcon = activeItem.querySelector('.toggle-icon');
+          if (activeIcon) activeIcon.textContent = '+';
+        });
+        
+        // 현재 FAQ 열기
+        faqItem.classList.add('active');
+        if (toggleIcon) toggleIcon.textContent = '-';
+      }
+    });
+
+    // 키보드 접근성
+    question.addEventListener('keydown', function(e) {
+      if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+});
+</script>
+

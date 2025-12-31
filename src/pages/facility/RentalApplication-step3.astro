@@ -1,0 +1,355 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubLayout from "../../layouts/SubLayout.astro";
+import SubBody from "../../layouts/SubBody.astro";
+
+const datph2 = "대관 안내";
+const location = "대관 신청";
+const pageTitle = `홈>${datph2}>${location}`;
+const idName = "FacilityRental";
+
+import "../../css/ui.css";
+
+//스텝 화면 구성
+export interface Step {
+	number: number;
+	title: string;
+	image: string;
+	icon: string;
+	isActive?: boolean;
+	isCompleted?: boolean;
+}
+
+export const stepAreaData: Step[] = [
+	{
+		number: 1,
+		title: "일정선택",
+		image: "../img/icon_step-01.svg",
+		icon: "../img/icon-arrow-gy.svg",
+		isActive: false,
+		isCompleted: false,
+	},
+	{
+		number: 2,
+		title: "정보등록",
+		image: "../img/icon_step-02.svg",
+		icon: "../img/icon-arrow-gy.svg",
+		isActive: false,
+		isCompleted: false,
+	},
+	{
+		number: 3,
+		title: "본인인증",
+		image: "../img/icon_step-03.svg",
+		icon: "",
+		isActive: true,
+		isCompleted: false,
+	},
+];
+
+// 대관신청 타이틀
+export interface facilityTitle {
+	title: string;
+	link?: string;
+	infoLink?: string;
+}
+
+export const facilityTitle: facilityTitle[] = [
+	{
+		title: "송도솔밭 물빛누리공원",
+		link: "../facilityTitle/1",
+		infoLink: "../facilityTitle/1",
+	},
+];
+
+// 대관신청 상세
+export interface facilityDetial {
+	image: string;
+	facilityType: {
+		boldTitle: string;
+		normalText: string;
+	}[];
+}
+
+export const facilityDetial: facilityDetial[] = [
+	{
+		image: "../img/card_img01.png",
+		facilityType: [
+			{
+				boldTitle: "사용시설",
+				normalText: "물빛누리공원",
+			},
+			{
+				boldTitle: "관리기관",
+				normalText: "포항시 공원과 공원관리팀(054-251-2564)",
+			},
+			{
+				boldTitle: "이용구분",
+				normalText: "최소 1명 / 최대 99명",
+			},
+			{
+				boldTitle: "주소",
+				normalText: "경상북도 포항시 남구 송도해안길 141 (송도동)",
+			},
+		],
+	},
+];
+
+//시설안내박스
+export interface FacilityInfoItem {
+	boldTitle: string;
+	normalText: string;
+	isNotice?: boolean; // 강조 표시용
+}
+export const facilityInfo: FacilityInfo[] = [
+	{
+		facilityType: [
+			{
+				boldTitle: "대관신청 일자",
+				normalText: "2025년 9월 14일",
+			},
+			{
+				boldTitle: "대관신청 시간",
+				normalText: "13:00~14:00, 14:00~15:00, 15:00,~16:00",
+			},
+			{
+				boldTitle: "대관신청 대표번호",
+				normalText: "010.2222.5555",
+			},
+		],
+	},
+];
+
+//본인인증박스
+// 타입 정의
+export interface CertificationItem {
+	image: string;
+	boldTitle: string;
+	normalText: string;
+	button: string;
+	isNotice?: boolean;
+	link?: string;
+	infoLink?: string;
+}
+
+export interface CertificationGroup {
+	certificationType: CertificationItem[];
+}
+
+// 데이터 (중첩 구조)
+export const certification: CertificationGroup[] = [
+	{
+		certificationType: [
+			{
+				image: "../img/ico_verify_identify.svg",
+				boldTitle: "본인인증",
+				normalText:
+					"본인인증 후 이용이 가능합니다.\n개인정보는 본인확인 후 DB에는 저장되지 않습니다.",
+				button: "본인확인",
+				link: "../info/1",
+				infoLink: "../info/1",
+				isNotice: true,
+			},
+
+			{
+				image: "../img/ico_verify_ipin.svg",
+				boldTitle: "아이핀(I-PIN)",
+				normalText:
+					"아이핀(I-PIN)은 인터넷상의 개인식별번호를 의미하며,대면확인이 어려운 인터넷에서 주민등록번호를 사용하지 않고도 본인임을 확인할 수 있는 수단입니다.",
+				button: "아이핀으로 인증하기",
+				link: "../info/1",
+				infoLink: "../info/1",
+				isNotice: true,
+			},
+		],
+	},
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<SubLayout idName={idName} title={location} datph2={datph2}>
+		<SubBody title={location}>
+			<!-- 스텝아이콘 -->
+			<div class="step-indicator">
+				<div class="step-container">
+					{
+						stepAreaData.map((step, index) => (
+							<>
+								<div
+									class={`step-item ${step.isActive ? "active" : ""} ${
+										step.isCompleted ? "completed" : ""
+									}`}
+								>
+									<div class="step-number">{step.number}</div>
+									<span class="step-title">{step.title}</span>
+									<img src={step.image} alt="스텝아이콘" />
+								</div>
+								{index < stepAreaData.length - 1 && step.icon && (
+									<div class="step-arrow">
+										<img
+											src={step.icon}
+											alt="다음 단계"
+											class={step.isActive || step.isCompleted ? "active" : ""}
+										/>
+									</div>
+								)}
+							</>
+						))
+					}
+				</div>
+			</div>
+			<!-- 타이틀 -->
+			{
+				facilityTitle.map((facility, index) => (
+					<div class="facility-title">
+						<h3 class="tit-bold">{facility.title}</h3>
+						<div class="facility-buttons">
+							{facility.infoLink && (
+								<a href="./RentalApplication-write.html" class="btn-previous">
+									이전으로
+								</a>
+							)}
+							{facility.link && (
+								<a href="./RentalApplication.html" class="btn-list">
+									목록으로
+								</a>
+							)}
+						</div>
+					</div>
+				))
+			}
+			<!-- 공원 정보 -->
+			<section class="facility-listWrap">
+				<div class="description-Box">
+					{
+						facilityDetial.map((facility, index) => (
+							<div class="facility-item">
+								<div class="facility-image">
+									<img src={facility.image} alt={facility.facilityType[0].boldTitle} />
+								</div>
+								<div class="facility-info">
+									{facility.facilityType.map((facilityType, index) => (
+										<div class="facility-info-group">
+											<h2 class="boldTitle">{facilityType.boldTitle}</h2>
+											<p class="normalText">{facilityType.normalText}</p>
+										</div>
+									))}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</section>
+			<!-- 시설안내 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">시설안내</h2>
+				{
+					facilityInfo.map((facility) => (
+						<div class="facility-info-group">
+							{facility.facilityType.map((facilityType) => (
+								<div class={`facility-info-item ${facilityType.isNotice ? "highlight" : ""}`}>
+									{facilityType.boldTitle && <h2 class="boldTitle">{facilityType.boldTitle}</h2>}
+									{facilityType.normalText && <p class="normalText">{facilityType.normalText}</p>}
+								</div>
+							))}
+						</div>
+					))
+				}
+			</section>
+			<!-- 본인인증 -->
+			<section class="facility-info-container">
+				<h2 class="section-title">본인인증</h2>
+				{
+					certification.map((group, groupIndex) => (
+						<ul class="certification-group">
+							{group.certificationType.map((item, itemIndex) => (
+								<li class="certification-item">
+									{item.image && <img src={item.image} alt={item.boldTitle} class="cert-image" />}
+									{item.boldTitle && <h2 class="boldTitle">{item.boldTitle}</h2>}
+									{item.normalText && (
+										<p class="normalText">
+											{item.normalText.split("\n").map((line, idx) => (
+												<span key={idx}>
+													{line}
+													<br />
+												</span>
+											))}
+										</p>
+									)}
+									{item.button && (
+										<button class="cert-button" data-modal-type={item.boldTitle}>
+											{item.button}
+										</button>
+									)}
+								</li>
+							))}
+						</ul>
+					))
+				}
+				<div id="certModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header"><span class="close">&times;</span></div>
+						<div class="modal-body">
+							<div class="body-inner">
+								<div id="modalBody">
+									<!-- 동적으로 내용이 들어감 -->
+								</div>
+								<button class="modal-close-btn" onclick="closeModal()">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</SubBody>
+	</SubLayout>
+</BaseLayout>
+
+<!--  모달 -->
+<script>
+	const modal = document.getElementById("certModal");
+	const closeBtn = document.querySelector(".close");
+	const modalCloseBtn = document.querySelector(".modal-close-btn");
+	const certButtons = document.querySelectorAll(".cert-button");
+	const modalBody = document.getElementById("modalBody");
+
+	certButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			const modalType = button.dataset.modalType;
+
+			// 모달 타입에 따라 다른 내용 표시
+			if (modalType === "본인인증") {
+				modalBody.innerHTML = `
+					<h2>대관신청이 <span class="bold-blue">성공</span>하였습니다.</h2>
+					<h2>대관신청이 <span class="bold-red">실패</span>하였습니다.</h2>
+				`;
+			} else if (modalType === "아이핀(I-PIN)") {
+				modalBody.innerHTML = `
+					<h2>아이핀(I-PIN) <span class="bold-blue">인증</span></h2>
+					<h2>아이핀(I-PIN) <span class="bold-red">실패</span></h2>
+				`;
+			}
+			modal.style.display = "block";
+		});
+	});
+
+	// X 버튼 클릭
+	closeBtn.addEventListener("click", () => {
+		modal.style.display = "none";
+	});
+
+	// 닫기 버튼 클릭
+	modalCloseBtn.addEventListener("click", () => {
+		modal.style.display = "none";
+	});
+
+	// 모달 바깥 클릭
+	window.addEventListener("click", (event) => {
+		if (event.target === modal) {
+			modal.style.display = "none";
+		}
+	});
+
+	function closeModal() {
+		modal.style.display = "none";
+	}
+</script>
